@@ -1,7 +1,13 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
+<<<<<<< Updated upstream
 import { graphql } from "gatsby"
 import { RiSendPlane2Line } from "react-icons/ri"
+=======
+import { graphql, Link } from "gatsby"
+import { RiSendPlane2Line } from "react-icons/ri"
+import { BiPhoneCall } from "react-icons/bi"
+>>>>>>> Stashed changes
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -40,6 +46,21 @@ const Contact = ({ data }) => {
           className="description"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+<<<<<<< Updated upstream
+=======
+        <Link
+          className="button"
+          to="tel:5122941600"
+          sx={{
+            variant: "variants.button",
+          }}
+        >
+          Call 512-294-1600
+          <span className="icon -right">
+            <BiPhoneCall />
+          </span>
+        </Link>
+>>>>>>> Stashed changes
         <form
           className="contact-form"
           action="/thanks"
@@ -63,8 +84,13 @@ const Contact = ({ data }) => {
           </p>
           <p>
             <label>
+<<<<<<< Updated upstream
               Subject
               <input type="text" name="subject" required />
+=======
+              Phone Number
+              <input type="text" name="phone" required />
+>>>>>>> Stashed changes
             </label>
           </p>
           <p>
@@ -80,7 +106,11 @@ const Contact = ({ data }) => {
               }}
               type="submit"
             >
+<<<<<<< Updated upstream
               Send Message{" "}
+=======
+              Send Contact Request{" "}
+>>>>>>> Stashed changes
               <span className="icon -right">
                 <RiSendPlane2Line />
               </span>

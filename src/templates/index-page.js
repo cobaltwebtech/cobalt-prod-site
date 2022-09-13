@@ -2,7 +2,11 @@
 import { jsx } from "theme-ui"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
+<<<<<<< Updated upstream
 import { RiArrowRightSLine } from "react-icons/ri"
+=======
+import { RiCodeSSlashFill } from "react-icons/ri"
+>>>>>>> Stashed changes
 import {
   RiFacebookBoxFill,
   RiTwitterFill,
@@ -19,7 +23,11 @@ import {
   RiMediumFill,
   RiBehanceFill,
 } from "react-icons/ri"
+<<<<<<< Updated upstream
 import { faTiktok, FaWordpress, FaVk } from "react-icons/fa"
+=======
+import { FaArrowAltCircleRight, FaWordpress, FaVk } from "react-icons/fa"
+>>>>>>> Stashed changes
 
 import Layout from "../components/layout"
 import BlogListHome from "../components/blog-list-home"
@@ -163,6 +171,7 @@ const HomePage = ({ data }) => {
         ) : (
           ""
         )}
+<<<<<<< Updated upstream
         {icons.icon === "tiktok" ? (
           <a href={icons.url} target="_blank" aria-label="link to Wordpress" rel="noopener noreferrer">
             <FaTiktok alt="tiktok icon" />
@@ -170,6 +179,8 @@ const HomePage = ({ data }) => {
         ) : (
           ""
         )}
+=======
+>>>>>>> Stashed changes
         {icons.icon === "dribbble" ? (
           <a href={icons.url} target="_blank" aria-label="link to Dribbble" rel="noopener noreferrer">
             <RiDribbbleFill alt="Dribbble icon" />
@@ -204,7 +215,11 @@ const HomePage = ({ data }) => {
   return (
     <Layout>
       <Seo />
+<<<<<<< Updated upstream
       <div className="home-banner grids col-1 sm-2">
+=======
+      <section className="home-banner grids col-1 sm-2">
+>>>>>>> Stashed changes
         <div>
           <h1 className="title">{frontmatter.title}</h1>
           <p
@@ -228,7 +243,11 @@ const HomePage = ({ data }) => {
           >
             {frontmatter.cta.ctaText}
             <span className="icon -right">
+<<<<<<< Updated upstream
               <RiArrowRightSLine />
+=======
+              <FaArrowAltCircleRight />
+>>>>>>> Stashed changes
             </span>
           </Link>
           <div
@@ -251,7 +270,11 @@ const HomePage = ({ data }) => {
             ""
           )}
         </div>
+<<<<<<< Updated upstream
       </div>
+=======
+      </section>
+>>>>>>> Stashed changes
       <BlogListHome data={posts} />
     </Layout>
   )

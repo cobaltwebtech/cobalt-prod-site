@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "socialIcons": [
     {
       "icon": "facebook",
@@ -22,3 +23,7 @@
     }
   ]
 }
+=======
+  "socialIcons": []
+}
+>>>>>>> Stashed changes

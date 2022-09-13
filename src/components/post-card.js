@@ -22,7 +22,11 @@ const PostCard = ({ data }) => (
       ""
     )}
     <div className="post-content">
+<<<<<<< Updated upstream
       <h2 className="title">
+=======
+      <h3 className="title">
+>>>>>>> Stashed changes
         <Link
           to={data.frontmatter.slug}
           sx={{
@@ -31,6 +35,7 @@ const PostCard = ({ data }) => (
         >
           {data.frontmatter.title}
         </Link>
+<<<<<<< Updated upstream
       </h2>
       <p
         className="meta"
@@ -40,6 +45,9 @@ const PostCard = ({ data }) => (
       >
         <time>{data.frontmatter.date}</time>
       </p>
+=======
+      </h3>
+>>>>>>> Stashed changes
     </div>
   </article>
 )

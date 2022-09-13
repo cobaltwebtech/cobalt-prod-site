@@ -1,19 +1,27 @@
 ---
 template: about-page
 slug: /about
-title: About Foundation
+title: About Cobalt Web Technolgies
 ---
+<<<<<<< Updated upstream
 
 Thank you! Now say "nuclear wessels"! No! Don't jump! A sexy mistake. Anyone who laughs is a communist!
+=======
+>>>>>>> Stashed changes
 
-A true inspiration for the children. And when we woke up, we had these bodies. Moving along… Do a flip! Michelle, I don't regret this, but I bth rue and lament it.
+Cobalt Web Technologies was founded by Christopher Garza in 2015 with the express goal of providing unparalleled service and expertise in the world of information and web technology. Christopher got his start in technology at a young age by first tinkering with his family's business computer that ran on MS-DOS. Being immersed in the command line interface of that time introduced him to the world of computers and their potential.
 
-![Toys](/assets/vanessa-bucceri-gdirwiyama8-unsplash.jpg "Toys")
+Having years of experience in the field and specializing in web app technology today allowed him to freelance his abilities in the 2000's and early 2010's. When Cobalt was founded by Christopher he kept it as a freelancing gig while maintaining a full-time career. 
 
+<<<<<<< Updated upstream
 Nay, I respect and admire Harold Zoid too much to beat him to death with his own Oscar. Well, then good news! It's a suppository. Then we'll go with that data file! **I've been there.** _My folks were always on me to groom myself and wear underpants._ What am I, the pope?
+=======
+Fast foward to 2020 and the pandemic which brought an immense demand for new web projects, companies to move their services online and remotely, and improve the web infrastrucure for many companies. Everyone was going online and needing web services. So Christopher made the move to dedicate his time fully to Cobalt Web Technologies and bring this growing company to a new chapter. 
+>>>>>>> Stashed changes
 
-Daddy Bender, we're hungry. We can't compete with Mom! Her company is big and evil! Ours is small and neutral! We're rescuing ya. We'll go deliver this crate like professionals, and then we'll go home.
+We're based in Austin, TX USA and this tech hub allows us to partner with the best technology companies in the world. Cobalt's purpose is to bring you the best experience and service you need to run your business. We leverage our expertise to provide the best product for your needs.
 
+<<<<<<< Updated upstream
 I didn't ask for a completely reasonable excuse! I asked you to get busy! I never loved you. OK, this has gotta stop. I'm going to remind Fry of his humanity the way only a woman can. With a warning label this big, you know they gotta be fun!
 
 1. And from now on you're all named Bender Jr.
@@ -49,3 +57,6 @@ Hey, guess what you're accessories to. I feel like I was mauled by Jesus. Why wo
 I saw you with those two "ladies of the evening" at Elzars. Explain that. Shinier than yours, meatbag. That's the ONLY thing about being a slave. Um, is this the boring, peaceful kind of taking to the streets?
 
 Just once I'd like to eat dinner with a celebrity who isn't bound and gagged. Daddy Bender, we're hungry. Kids don't turn rotten just from watching TV. I just want to talk. It has nothing to do with mating. Fry, that doesn't make sense.
+=======
+Get in touch with us today and let us find the perfect solution for your next web project.
+>>>>>>> Stashed changes

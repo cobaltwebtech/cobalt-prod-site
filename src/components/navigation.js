@@ -11,6 +11,7 @@ const MenuItems = [
     title: "Home",
   },
   {
+<<<<<<< Updated upstream
     path: "/about",
     title: "About",
   },
@@ -21,6 +22,18 @@ const MenuItems = [
   {
     path: "/contact",
     title: "Contact",
+=======
+    path: "/#services",
+    title: "Services",
+  },
+  {
+    path: "/about",
+    title: "About",
+  },
+  {
+    path: "/contact",
+    title: "Contact Us",
+>>>>>>> Stashed changes
   },
 ]
 

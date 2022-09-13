@@ -15,7 +15,7 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  padding: 30px 20px;
+  padding: 10px 20px;
 }
 .site-navigation {
   ul {
@@ -28,6 +28,7 @@
     margin-left: 20px;
   }
   a {
+<<<<<<< Updated upstream
     color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
     &:hover {
@@ -37,6 +38,14 @@
   a[aria-current="page"] {
     color: rgba(255, 255, 255, 1);
   }
+=======
+    color: #ffffff;
+    text-decoration: none;
+    &:hover {
+      color: #d67d15;
+    }
+  }
+>>>>>>> Stashed changes
   .menu-trigger {
     display: none;
     font-size: 24px;
@@ -94,6 +103,10 @@
 }
 .site-logo {
   font-weight: bold;
+  .logo-img {
+    margin: 10px auto;
+    padding: 10px 0;
+  }
   a {
     color: #fff;
     text-decoration: none;
@@ -340,7 +353,11 @@ article img {
   align-items: center;
   background: #eee;
   text-align: center;
+<<<<<<< Updated upstream
   font-size: 14px;
+=======
+  font-size: 18px;
+>>>>>>> Stashed changes
   padding: 20px 0;
   p {
     margin: 0;
