@@ -22,7 +22,7 @@ const PostCard = ({ data }) => (
       ""
     )}
     <div className="post-content">
-      <h2 className="title">
+      <h3 className="title">
         <Link
           to={data.frontmatter.slug}
           sx={{
@@ -31,15 +31,7 @@ const PostCard = ({ data }) => (
         >
           {data.frontmatter.title}
         </Link>
-      </h2>
-      <p
-        className="meta"
-        sx={{
-          color: "muted",
-        }}
-      >
-        <time>{data.frontmatter.date}</time>
-      </p>
+      </h3>
     </div>
   </article>
 )

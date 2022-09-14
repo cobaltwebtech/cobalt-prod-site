@@ -1,5 +1,7 @@
-import React from "react"
-import { graphql } from "gatsby"
+/** @jsx jsx */
+import { jsx } from "theme-ui"
+import { graphql, Link } from "gatsby"
+import { MdMessage } from "react-icons/md"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -26,9 +28,21 @@ const AboutPage = ({ data }) => {
       <div className="wrapper">
         <h1>{frontmatter.title}</h1>
         <article dangerouslySetInnerHTML={{ __html: html }} />
+        <Link
+          className="button"
+          to="/contact"
+          sx={{
+            variant: "variants.button",
+          }}
+        >
+          Contact Us for More Info
+          <span className="icon -right">
+            <MdMessage />
+          </span>
+        </Link>
       </div>
     </Layout>
-  )
+      )
 }
 
 export default AboutPage

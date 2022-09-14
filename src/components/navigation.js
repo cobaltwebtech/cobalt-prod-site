@@ -11,16 +11,16 @@ const MenuItems = [
     title: "Home",
   },
   {
+    path: "/#services",
+    title: "Services",
+  },
+  {
     path: "/about",
     title: "About",
   },
   {
-    path: "/blog",
-    title: "Blog",
-  },
-  {
     path: "/contact",
-    title: "Contact",
+    title: "Contact Us",
   },
 ]
 

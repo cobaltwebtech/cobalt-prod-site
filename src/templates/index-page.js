@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { RiArrowRightSLine } from "react-icons/ri"
+import { RiCodeSSlashFill } from "react-icons/ri"
 import {
   RiFacebookBoxFill,
   RiTwitterFill,
@@ -19,7 +19,7 @@ import {
   RiMediumFill,
   RiBehanceFill,
 } from "react-icons/ri"
-import { faTiktok, FaWordpress, FaVk } from "react-icons/fa"
+import { FaArrowAltCircleRight, FaWordpress, FaVk } from "react-icons/fa"
 
 import Layout from "../components/layout"
 import BlogListHome from "../components/blog-list-home"
@@ -163,13 +163,6 @@ const HomePage = ({ data }) => {
         ) : (
           ""
         )}
-        {icons.icon === "tiktok" ? (
-          <a href={icons.url} target="_blank" aria-label="link to Wordpress" rel="noopener noreferrer">
-            <FaTiktok alt="tiktok icon" />
-          </a>
-        ) : (
-          ""
-        )}
         {icons.icon === "dribbble" ? (
           <a href={icons.url} target="_blank" aria-label="link to Dribbble" rel="noopener noreferrer">
             <RiDribbbleFill alt="Dribbble icon" />
@@ -204,7 +197,7 @@ const HomePage = ({ data }) => {
   return (
     <Layout>
       <Seo />
-      <div className="home-banner grids col-1 sm-2">
+      <section className="home-banner grids col-1 sm-2">
         <div>
           <h1 className="title">{frontmatter.title}</h1>
           <p
@@ -228,7 +221,7 @@ const HomePage = ({ data }) => {
           >
             {frontmatter.cta.ctaText}
             <span className="icon -right">
-              <RiArrowRightSLine />
+              <FaArrowAltCircleRight />
             </span>
           </Link>
           <div
@@ -251,7 +244,7 @@ const HomePage = ({ data }) => {
             ""
           )}
         </div>
-      </div>
+      </section>
       <BlogListHome data={posts} />
     </Layout>
   )
