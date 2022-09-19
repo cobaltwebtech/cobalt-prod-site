@@ -1,13 +1,16 @@
 .text-align-right {
   text-align: right;
 }
+.text-align-center {
+  text-align: center;
+}
 
 .icon {
   display: inline-block;
   line-height: inherit;
   vertical-align: middle;
   align-items: center;
-  &.-love {
-    color: red;
+  &.-ricodebox {
+    color: #9fe8f5;
   }
 }

@@ -3,6 +3,7 @@ import { jsx } from "theme-ui"
 import { Link, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { RiArrowRightLine, RiArrowLeftLine } from "react-icons/ri"
+import { MdMessage } from "react-icons/md"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -95,7 +96,6 @@ const Post = ({ data, pageContext }) => {
         <header className="featured-banner">
           <section className="article-header">
             <h1>{frontmatter.title}</h1>
-            <time sx={{color: "muted"}}>{frontmatter.date}</time>
           </section>
           {Image ? (
             <GatsbyImage
@@ -113,6 +113,20 @@ const Post = ({ data, pageContext }) => {
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </article>
+      <p className="text-align-center">
+        <Link
+          className="button"
+          to="/contact"
+          sx={{
+            variant: "variants.button",
+          }}
+        >
+          Contact Us for More Info
+          <span className="icon -right">
+            <MdMessage />
+          </span>
+        </Link>
+      </p>
       {(previous || next) && <Pagination {...props} />}
     </Layout>
   )

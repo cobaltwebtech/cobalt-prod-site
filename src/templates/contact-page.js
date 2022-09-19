@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { RiSendPlane2Line } from "react-icons/ri"
+import { BiPhoneCall } from "react-icons/bi"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -40,6 +41,18 @@ const Contact = ({ data }) => {
           className="description"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+        <Link
+          className="button"
+          to="tel:5122941600"
+          sx={{
+            variant: "variants.button",
+          }}
+        >
+          Call 512-294-1600
+          <span className="icon -right">
+            <BiPhoneCall />
+          </span>
+        </Link>
         <form
           className="contact-form"
           action="/thanks"
@@ -63,8 +76,8 @@ const Contact = ({ data }) => {
           </p>
           <p>
             <label>
-              Subject
-              <input type="text" name="subject" required />
+              Phone Number
+              <input type="text" name="phone" required />
             </label>
           </p>
           <p>
@@ -80,7 +93,7 @@ const Contact = ({ data }) => {
               }}
               type="submit"
             >
-              Send Message{" "}
+              Send Contact Request{" "}
               <span className="icon -right">
                 <RiSendPlane2Line />
               </span>
