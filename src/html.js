@@ -12,11 +12,8 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {props.headComponents}
-        <script dangerouslySetInnerHTML={{
-        __html: `defer data-domain="cobaltweb.tech" src="https://analytics.cobaltweb.tech/js/plausible.js">
-        `,
-        }}
-        />
+        <script defer data-domain="cobaltweb.tech" src="https://analytics.cobaltweb.tech/js/plausible.js"></script>
+
         <script dangerouslySetInnerHTML={{
         __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
