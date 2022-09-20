@@ -14,6 +14,7 @@ const settings = require("./src/util/site.json")
 
 module.exports = {
   siteMetadata: settings.meta,
+  assetPrefix: `https://cdn.cobaltweb.tech`,
   plugins: [
     `gatsby-plugin-mdx`,
     {
