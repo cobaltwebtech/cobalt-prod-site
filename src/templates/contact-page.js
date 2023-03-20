@@ -43,7 +43,7 @@ const Contact = ({ data }) => {
         />
         <Link
           className="button"
-          to="tel:5122941600"
+          to="tel:+15122941600"
           sx={{
             variant: "variants.button",
           }}
@@ -82,7 +82,7 @@ const Contact = ({ data }) => {
           </p>
           <p>
             <label>
-              Message<textarea name="message" required></textarea>
+              How can we help you?<textarea name="message" required></textarea>
             </label>
           </p>
           <p className="text-align-right">
