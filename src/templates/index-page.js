@@ -2,7 +2,6 @@
 import { jsx } from "theme-ui"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { RiCodeSSlashFill } from "react-icons/ri"
 import {
   RiFacebookBoxFill,
   RiTwitterFill,
@@ -18,8 +17,13 @@ import {
   RiDribbbleFill,
   RiMediumFill,
   RiBehanceFill,
+  RiCodeSSlashFill
 } from "react-icons/ri"
-import { FaArrowAltCircleRight, FaWordpress, FaVk } from "react-icons/fa"
+import { 
+  FaArrowAltCircleRight, 
+  FaWordpress,
+  FaVk
+ } from "react-icons/fa"
 
 import Layout from "../components/layout"
 import BlogListHome from "../components/blog-list-home"
@@ -219,10 +223,11 @@ const HomePage = ({ data }) => {
               variant: "variants.button",
             }}
           >
-            {frontmatter.cta.ctaText}
-            <span className="icon -right">
-              <FaArrowAltCircleRight />
-            </span>
+            <strong>{frontmatter.cta.ctaText}
+              <span className="icon -right">
+                <FaArrowAltCircleRight size={30} />
+              </span>
+            </strong>
           </Link>
           <div
             className="social-icons"

@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui"
 import { graphql, Link } from "gatsby"
 import { RiSendPlane2Line } from "react-icons/ri"
-import { BiPhoneCall } from "react-icons/bi"
+import { BiPhoneCall, BiChat } from "react-icons/bi"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -42,16 +42,31 @@ const Contact = ({ data }) => {
           dangerouslySetInnerHTML={{ __html: html }}
         />
         <Link
+        className="button"
+        target={"_blank"}
+        to="https://salesiq.zoho.com/signaturesupport.ls?widgetcode=b02c0667d93a35346839e5ab730f507af85d02062470316501c1c4d80b9136f1eae322a2a89cfbc9b10746de3549cb8f&e=5b06d9d30bf5dec14988cd9797a5152059d50679bd36922dbfc8e8610bc7cd03"
+        sx={{
+            variant: "variants.button",
+         }}
+        >
+          <strong>Live Chat
+            <span className="icon -right">
+              <BiChat size="30" />
+            </span>
+           </strong>
+        </Link>
+        <Link
           className="button"
           to="tel:+15122941600"
           sx={{
             variant: "variants.button",
           }}
         >
-          Call 512-294-1600
-          <span className="icon -right">
-            <BiPhoneCall />
-          </span>
+          <strong>Call 512-294-1600
+            <span className="icon -right">
+              <BiPhoneCall size="30" />
+            </span>
+          </strong>
         </Link>
         <form
           className="contact-form"

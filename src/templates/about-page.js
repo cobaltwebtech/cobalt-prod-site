@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { graphql, Link } from "gatsby"
-import { MdMessage } from "react-icons/md"
+import { MdContactMail } from "react-icons/md"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -35,10 +35,11 @@ const AboutPage = ({ data }) => {
             variant: "variants.button",
           }}
         >
-          Contact Us for More Info
-          <span className="icon -right">
-            <MdMessage />
-          </span>
+          <strong>Contact Us for More Info
+            <span className="icon -right">
+              <MdContactMail size={30} />
+            </span>
+          </strong>
         </Link>
       </div>
     </Layout>

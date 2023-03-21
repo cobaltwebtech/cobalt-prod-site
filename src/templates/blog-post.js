@@ -3,7 +3,7 @@ import { jsx } from "theme-ui"
 import { Link, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { RiArrowRightLine, RiArrowLeftLine } from "react-icons/ri"
-import { MdMessage } from "react-icons/md"
+import { MdContactMail } from "react-icons/md"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -121,10 +121,11 @@ const Post = ({ data, pageContext }) => {
             variant: "variants.button",
           }}
         >
-          Contact Us for More Info
-          <span className="icon -right">
-            <MdMessage />
-          </span>
+          <strong>Contact Us for More Info
+            <span className="icon -right">
+              <MdContactMail size={30} />
+            </span>
+          </strong>
         </Link>
       </p>
       {(previous || next) && <Pagination {...props} />}

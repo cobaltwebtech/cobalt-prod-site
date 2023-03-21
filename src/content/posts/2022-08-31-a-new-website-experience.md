@@ -13,10 +13,10 @@ Do you need a brand new website to showcase your products or services? Is your c
 
 We have the experience in current web technologies and design. Your website should be designed and deployed with the best modern practices today.
 
-### Modern design and comptatibility.
+### Modern design and compatibility.
 We can build your website to be exactly what you want with any custom design. Your website is there to showcase your brand and products and should reflect your exact design elements and that is what we can deliver you. 
 
-All our websites are built with your goals in mind. We specialize in WordPress CMS (content managment system), Woocommerce integrations, Stripe payment gateway integrations, static site generators such as Hugo and Gatsby. Our website is actually built upon Gatsby for lightning fast performance and cost savings.
+All our websites are built with your goals in mind. We specialize in WordPress CMS (content management system), Woocommerce integrations, Stripe payment gateway integrations, static site generators such as Hugo and Gatsby. Our website is actually built upon Gatsby for lightning-fast performance and cost savings.
 
 ### Built on modern technologies.
 Cobalt partners with the leading cloud service providers to provide your website with unparalleled service and performance. Whether you are running a small personal blog to a high traffic ecommerce website we have the right tools and products to provide that service and can easily scale your hosting needs to fit any budget. 

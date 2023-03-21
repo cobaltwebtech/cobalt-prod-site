@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { Link } from "gatsby"
-import { RiContactsFill } from "react-icons/ri"
+import { MdContactMail } from "react-icons/md"
 
 import PostCard from "./post-card"
 
@@ -26,10 +26,11 @@ const PostMaker = ({ data }) => (
         variant: "variants.button",
       }}
     >
-      Contact Us for More Info
-      <span className="icon -right">
-        <RiContactsFill />
-      </span>
+      <strong>Contact Us for More Info
+        <span className="icon -right">
+          <MdContactMail size={30} />
+        </span>
+      </strong>
     </Link>
   </section>
 )

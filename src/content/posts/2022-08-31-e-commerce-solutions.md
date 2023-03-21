@@ -8,10 +8,10 @@ featuredImage: /assets/ecommerce-graphic.jpg
 ---
 
 ### Is your business online?
-How well does it sell online? Whether you already online or just starting out Cobalt Web Technologies can help you bring your business to the web. We can build your ecommerce website to showcase your brand and product exactly how you want.
+How well does it sell online? Whether you are already online or just starting out Cobalt Web Technologies can help you bring your business to the web. We can build your ecommerce website to showcase your brand and product exactly how you want.
 
 ### Easy to use interface
-Cobalt uses Woocommerce as its backend for the ecommerce platform. It has an easy to use interface to manage inventory, orders, product images, and everything else you could need for an online store.
+Cobalt uses Woocommerce as its backend for the ecommerce platform. It has an easy-to-use interface to manage inventory, orders, product images, and everything else you could need for an online store.
 
 
 ### Getting paid shouldn't require an act of congress

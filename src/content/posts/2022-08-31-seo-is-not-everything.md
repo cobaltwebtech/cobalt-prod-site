@@ -33,6 +33,6 @@ Of course, one method to increase your rankings is to implement a paid search ca
 
 ### Is SEO worth implementing?
 
-Yes! Just because we don't know Google or the other search engine's magic sauce does not mean you should not implement SEO in your website. It's all about getting your content and website visible to as many people as possble. It starts with knowing your audience and who you are targeting along with the content on your website.
+Yes! Just because we don't know Google's or the other search engine's magic sauce does not mean you should not implement SEO in your website. It's all about getting your content and website visible to as many people as possible. It starts with knowing your audience and who you are targeting along with the content on your website.
 
 Get in touch with us today to let us help with your SEO strategy and online ad campaign opportunities as well.

@@ -1,7 +1,7 @@
 ---
 template: about-page
 slug: /about
-title: About Cobalt Web Technolgies
+title: About Cobalt Web Technologies
 ---
 Cobalt Web Technologies was founded by Christopher Garza in 2015 with the express goal of providing unparalleled service and expertise in the world of information and web technology. Christopher got his start in technology at a young age by first tinkering with his family's business computer that ran on MS-DOS. Being immersed in the command line interface of that time introduced him to the world of computers and their potential.
 

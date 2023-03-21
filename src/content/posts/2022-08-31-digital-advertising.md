@@ -14,12 +14,12 @@ Cobalt Web Technologies is a partner with Google Ads. We utilize their expertise
 
 ### I thought SEO was how to get ranked up top?
 
-Sure, SEO (search engine optimization, [read more about it here](/services/seo-is-not-everything)) can definitely help with your search rankings and visibilty to the search engine bots. However, SEO in itself does not guarantee top ranking in search results alone. This is where a digital ad can step in. With a digital ad campaign in Google Ads, your search ranking can be higher and targeted to an audience and/or search keywords.
+Sure, SEO (search engine optimization, [read more about it here](/services/seo-is-not-everything)) can definitely help with your search rankings and visibility to the search engine bots. However, SEO itself does not guarantee top ranking in search results alone. This is where a digital ad can step in. With a digital ad campaign in Google Ads, your search ranking can be higher and targeted to an audience and/or search keywords.
 
 ### What is the return on spend (ROS)?
-The best about digital advertising is you don't pay until a customer actually clicks on your ad or you have a conversion (ie purchase a product, signup for a service, call your phone number link). Unlike traditional advertising where you pay to blanket display your ad and hope you have enough impressions to get a lead such as radio or print, digital advertising is highly targeted with very high conversion rates.
+The best thing about digital advertising is you don't pay until a customer actually clicks on your ad or you have a conversion (i.e. purchase a product, signup for a service, call your phone number link). Unlike traditional advertising where you pay to blanket display your ad and hope you have enough impressions to get a lead such as radio or print, digital advertising is highly targeted with very high conversion rates.
 
-Google Ads have the ability to target your customers from demographics to a particular ZIP code to keywords and any combination in between. Campaigns can be scheduled to run on certain days and times of the week. Costs are kept in check by setting a budget that works for you. 
+Google Ads can target your customers from demographics to a particular ZIP code to keywords and any combination in between. Campaigns can be scheduled to run on certain days and times of the week. Costs are kept in check by setting a budget that works for you. 
 
 Cobalt has the expertise in the digital marketing field to get your website and its products and services visible to the world so you can earn more leads and sales. Our partnership with Google Ads allows us to leverage the vast platform to reach as many people as possible for you. 
 
