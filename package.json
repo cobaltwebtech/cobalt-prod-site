@@ -22,8 +22,10 @@
   },
   "dependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^3.0.2",
+    "@mdx-js/react": "^2.3.0",
     "@react-icons/all-files": "^4.1.0",
     "@theme-ui/color": "^0.15.7",
+    "@theme-ui/mdx": "^0.15.7",
     "gatsby": "^5.8.1",
     "gatsby-plugin-google-analytics": "^5.8.0",
     "gatsby-plugin-image": "^3.8.0",
@@ -50,6 +52,7 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.8.0",
     "sass": "^1.49.7",
+    "sharp": "^0.32.0",
     "theme-ui": "^0.15.7"
   },
   "devDependencies": {
