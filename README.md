@@ -1,4 +1,4 @@
-> **Update** Cobalt is now built with Gatsby V5, this include many performance update
+> **Update** Cobalt is now built with Gatsby V5, this includes many performance updates.
 
 ---
 
