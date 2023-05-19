@@ -44,7 +44,7 @@ const Contact = ({ data }) => {
         <Link
         className="button"
         target={"_blank"}
-        to="https://salesiq.zoho.com/signaturesupport.ls?widgetcode=b02c0667d93a35346839e5ab730f507af85d02062470316501c1c4d80b9136f1eae322a2a89cfbc9b10746de3549cb8f&e=5b06d9d30bf5dec14988cd9797a5152059d50679bd36922dbfc8e8610bc7cd03"
+        to="https://salesiq.zoho.com/signaturesupport.ls?widgetcode=b02c0667d93a35346839e5ab730f507af85d02062470316501c1c4d80b9136f1eae322a2a89cfbc9b10746de3549cb8f"
         sx={{
             variant: "variants.button",
          }}
