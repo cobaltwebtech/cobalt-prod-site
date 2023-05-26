@@ -103,7 +103,7 @@ module.exports = {
         icon: "static" + settings.meta.iconimage,
       },
     },
-    "gatsby-plugin-offline",
+    `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-netlify`,
