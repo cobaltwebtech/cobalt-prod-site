@@ -38,7 +38,7 @@
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-sass": "^6.8.0",
     "gatsby-plugin-sharp": "^5.8.1",
-    "gatsby-plugin-sitemap": "^6.8.0",
+    "gatsby-plugin-sitemap": "^6.11.0",
     "gatsby-plugin-theme-ui": "^0.15.7",
     "gatsby-remark-images": "^7.8.0",
     "gatsby-remark-prismjs": "^7.8.0",
