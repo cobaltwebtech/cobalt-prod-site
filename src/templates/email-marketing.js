@@ -65,13 +65,13 @@ const EmailMarketing = ({ data }) => {
         </a>
         <form
           className="contact-form"
-          action="/thanks"
+          action="/thanks/"
           name="email-marketing"
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
-          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="form-name" value="email-marketing" />
           <p>
             <label>
               First and Last Name
