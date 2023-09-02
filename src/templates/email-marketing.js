@@ -8,7 +8,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 export const pageQuery = graphql`
-  query ContactQuery($id: String!) {
+  query EmailMarketingQuery($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
@@ -25,12 +25,12 @@ export const pageQuery = graphql`
   }
 `
 
-const Contact = ({ data }) => {
+const EmailMarketing = ({ data }) => {
   const { markdownRemark, site } = data // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark
 
   return (
-    <Layout className="contact-page" sx={contactStyles.contactPage}>
+    <Layout className="contact-page" sx={emailmarketingStyles.emailmarketingPage}>
       <Seo
         title={frontmatter.title}
         description={frontmatter.title + " " + site.siteMetadata.title}
@@ -66,7 +66,7 @@ const Contact = ({ data }) => {
         <form
           className="contact-form"
           action="/thanks"
-          name="contact"
+          name="email-marketing"
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
@@ -74,8 +74,14 @@ const Contact = ({ data }) => {
           <input type="hidden" name="form-name" value="contact" />
           <p>
             <label>
-              Name
+              First and Last Name
               <input type="text" name="name" required />
+            </label>
+          </p>
+          <p>
+            <label>
+              Company Name
+              <input type="text" name="company" />
             </label>
           </p>
           <p>
@@ -92,7 +98,44 @@ const Contact = ({ data }) => {
           </p>
           <p>
             <label>
-              How can we help you?<textarea name="message" required></textarea>
+              Are you currently using an email service now?
+              <select name="email-service" required >
+                <option value="">Please select an email service from the list</option>
+                <option value="n/a">n/a</option>
+                <option value="ActiveCampaign">ActiveCampaign</option>
+                <option value="AWeber">AWeber</option>
+                <option value="Brevo">Brevo</option>
+                <option value="Campaign Monitor">Campaign Monitor</option>
+                <option value="Campaigner">Campaigner</option>
+                <option value="Constant Contact">Constant Contact</option>
+                <option value="ConvertKit">ConvertKit</option>
+                <option value="Drip">Drip</option>
+                <option value="GetResponse">GetResponse</option>
+                <option value="HubSpot">HubSpot</option>
+                <option value="Klaviyo">Klaviyo</option>
+                <option value="Mailchimp">Mailchimp</option>
+                <option value="MailerLite">MailerLite</option>
+                <option value="Moosend">Moosend</option>
+                <option value="Salesforce">Salesforce</option>
+                <option value="SendGrid">SendGrid</option>
+                <option value="Zoho Campaigns">Zoho Campaigns</option>
+              </select>
+            </label>
+          </p>
+          <p>
+            <label>
+              How many subscribers or contacts do you currently have?
+              <select name="subscribers" required >
+                <option value="">Please select from list.</option>
+                <option value="Less than 500">Less than 500</option>
+                <option value="501-1,000">501-1,000</option>
+                <option value="1,001-5,000">1,001-5,000</option>
+                <option value="5,001-10,000">5,001-10,000</option>
+                <option value="10,001-20,000">10,001-20,000</option>
+                <option value="20,001-50,000">20,001-50,000</option>
+                <option value="50,001-100,000">50,001-100,000</option>
+                <option value="More than 100,000">More than 100,000</option>
+              </select>
             </label>
           </p>
           <p className="text-align-right">
@@ -103,22 +146,23 @@ const Contact = ({ data }) => {
               }}
               type="submit"
             >
-              Send Contact Request{" "}
+              Submit Request{" "}
               <span className="icon -right">
                 <RiSendPlane2Line />
               </span>
             </button>
           </p>
+          <p className="form-notice">*Limitations apply. 25,000 emails for $25 applies to a contact list of 1,000 or less. If number of contacts is over 1,000 or sending more than 25,000 emails during promotional period may incur additional fees at retail prices. During promotional period unlimited campaigns may be scheduled up to the allotted amount of emails. Sign up deadline is September 30, 2023 and promotional period to use allotted emails is Sep 1 - Dec 31, 2023.</p>
         </form>
       </div>
     </Layout>
   )
 }
 
-export default Contact
+export default EmailMarketing
 
-const contactStyles = {
-  contactPage: {
+const emailmarketingStyles = {
+  emailmarketingPage: {
     input: {
       border: "6px solid",
       borderColor: "inputBorder",

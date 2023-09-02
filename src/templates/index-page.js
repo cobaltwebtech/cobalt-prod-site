@@ -17,13 +17,13 @@ import {
   RiDribbbleFill,
   RiMediumFill,
   RiBehanceFill,
-  RiCodeSSlashFill
 } from "react-icons/ri"
 import { 
-  FaArrowAltCircleRight, 
+  FaArrowAltCircleRight,
   FaWordpress,
   FaVk
  } from "react-icons/fa"
+ import { BsEnvelopePaperHeartFill } from "react-icons/bs"
 
 import Layout from "../components/layout"
 import BlogListHome from "../components/blog-list-home"
@@ -45,6 +45,12 @@ export const pageQuery = graphql`query HomeQuery($id: String!) {
       cta {
         ctaText
         ctaLink
+      }
+      belowHighlight {
+        bhHeader
+        bhSubtext
+        bhButtonText
+        bhButtonLink
       }
     }
   }
@@ -248,6 +254,31 @@ const HomePage = ({ data }) => {
           )}
         </div>
       </section>
+
+      <section id="below-highlight" className="home-banner grids col-1 sm-2">
+        <div className="below-highlight-col bh-col-1">
+          <h2>{frontmatter.belowHighlight.bhHeader}</h2>
+          <p>{frontmatter.belowHighlight.bhSubtext}</p>
+        </div>
+        
+        <div className="below-highlight-col bh-col-2">
+          <Link
+              to={frontmatter.belowHighlight.bhButtonLink}
+              className="button"
+              sx={{
+                variant: "variants.button",
+              }}
+            >
+              <strong>{frontmatter.belowHighlight.bhButtonText}
+                <span className="icon -right">
+                  <BsEnvelopePaperHeartFill size={30} />
+                </span>
+              </strong>
+            </Link>
+          </div>
+
+      </section>
+
       <BlogListHome data={posts} />
     </Layout>
   )
