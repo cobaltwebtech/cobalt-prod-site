@@ -1,9 +1,9 @@
 ---
 template: blog-post
-title: Digital Advertising
-slug: /services/digital-advertising
+title: Digital Marketing
+slug: /services/digital-marketing
 date: 2022-08-31 11:31
-description: Digital advertising
+description: Digital marketing
 featuredImage: /assets/digital-marketing-graphic.jpg
 ---
 ### Do you want your website to be more visible to more users?

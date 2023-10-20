@@ -21,6 +21,6 @@ All our websites are built with your goals in mind. We specialize in WordPress C
 ### Built on modern technologies.
 Cobalt partners with the leading cloud service providers to provide your website with unparalleled service and performance. Whether you are running a small personal blog to a high traffic ecommerce website we have the right tools and products to provide that service and can easily scale your hosting needs to fit any budget. 
 
-We partner with DigitalOcean, Cloudflare, Amazon Web Services, Bunny.net CDN, Stripe, and many more to provide the tailored service and performance you require for your website and project.
+We partner with Vultr, DigitalOcean, Cloudflare, Amazon Web Services, Bunny.net CDN, Stripe, and many more services to provide the tailored experience and performance you require for your website and applications.
 
 Get in touch with us now to find the exact solution to web needs.

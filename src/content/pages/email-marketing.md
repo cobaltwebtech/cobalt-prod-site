@@ -5,10 +5,6 @@ title: Supercharge Your Email Marketing!
 
 ---
 ## Grow your brand with email marketing.
-### 📩 25K for $25 💰
-For a limited time get 25,000* emails for only $25. That's $0.001 or ⅒th of a cent per email sent!
-
-***<span style="color: red;">Don't wait too long deal ends Sep 30th.</span>***
 
 How much are you spending now with your current email marketing and automation tools? Are you still spending money on snail mails too? Postage ain't cheap now.
 

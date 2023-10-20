@@ -152,7 +152,6 @@ const EmailMarketing = ({ data }) => {
               </span>
             </button>
           </p>
-          <p className="form-notice">*Limitations apply. 25,000 emails for $25 applies to a contact list of 1,000 or less. If number of contacts is over 1,000 or sending more than 25,000 emails during promotional period may incur additional fees at retail prices. During promotional period unlimited campaigns may be scheduled up to the allotted amount of emails. Sign up deadline is September 30, 2023 and promotional period to use allotted emails is Sep 1 - Dec 31, 2023.</p>
         </form>
       </div>
     </Layout>

@@ -9,8 +9,8 @@ cta:
   ctaLink: /#services
 
 belowHighlight: 
-  bhHeader: 📩 25K for $25 💰
-  bhSubtext: For a limited time get 25,000 emails for only $25! Grow your brand with email marketing! Don't wait around too long. This deal ends September 30th.
+  bhHeader: Get Ready for the Holiday Season 🎄
+  bhSubtext: Is your digital marketing campaign strategy up to par for your business needs? Grow your brand, drive revenue, and engage with your customers with our managed email marketing services.
   bhButtonText: SIGN UP NOW!
   bhButtonLink: /services/email-marketing/
 
