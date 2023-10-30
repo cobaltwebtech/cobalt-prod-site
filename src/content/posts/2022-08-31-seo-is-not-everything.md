@@ -29,7 +29,7 @@ Let's get real here. SEO will not automatically place your website to #1 ranked 
 
 Organic search is generated from users searching for your website, content, or product directly in the search engine. This is where SEO has the most effect along with popular your content is.
 
-Of course, one method to increase your rankings is to implement a paid search campaign. Using a digital ad campaign you can target your audience directly through their search inputs, demographics, and so many other targeting methods. Cobalt can help you with both SEO and digital ad campaigns. [For more info about online advertising go here.](/services/digital-advertising)
+Of course, one method to increase your rankings is to implement a paid search campaign. Using a digital ad campaign you can target your audience directly through their search inputs, demographics, and so many other targeting methods. Cobalt can help you with both SEO and digital ad campaigns. [For more info about online advertising go here.](/services/digital-marketing)
 
 ### Is SEO worth implementing?
 

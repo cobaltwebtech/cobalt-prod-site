@@ -26,7 +26,7 @@ const PostCard = ({ data }) => (
         <Link
           to={data.frontmatter.slug}
           sx={{
-            variant: "links.postLink",
+            color: "heading",
           }}
         >
           {data.frontmatter.title}

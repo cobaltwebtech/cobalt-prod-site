@@ -1,7 +1,7 @@
 {
   "name": "@cobaltwebtech/cobalt-prod-site",
   "description": "Cobalt Web Technologies website production repo",
-  "version": "1.3.3",
+  "version": "1.3.6",
   "author": "Cobalt Web Technologies <info@cobaltweb.tech>",
   "license": "MIT",
   "repository": {
@@ -26,8 +26,8 @@
     "@react-icons/all-files": "^4.1.0",
     "@theme-ui/color": "^0.15.7",
     "@theme-ui/mdx": "^0.15.7",
-    "gatsby": "^5.9.0",
-    "gatsby-cli": "^5.9.0",
+    "gatsby": "^5.12.9",
+    "gatsby-cli": "^5.12.4",
     "gatsby-plugin-google-analytics": "^5.8.0",
     "gatsby-plugin-image": "^3.8.0",
     "gatsby-plugin-manifest": "^5.8.0",
