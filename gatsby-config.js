@@ -103,6 +103,14 @@ module.exports = {
         icon: "static" + settings.meta.iconimage,
       },
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.cobaltweb.tech/',
+        sitemap: 'https://www.cobaltweb.tech/sitemap-0.xml',
+        policy: [{userAgent: '*', allow: '/'}],
+      }
+    },
     `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-netlify`,
     {
