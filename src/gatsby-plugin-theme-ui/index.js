@@ -20,7 +20,7 @@ const theme = {
     buttonColor: lightness("siteColor", 1.0),
     buttonHoverBg: lightness("siteColor", 0.4),
     buttonHoverColor: "#D67D15",
-    bhbackground: "#A3FFC9",
+    bhbackground: "#EEE3FF",
     bhborderColor: "#82CCA0",
     modes: {
       dark: {
@@ -40,7 +40,7 @@ const theme = {
         buttonColor: lightness("siteColor", 1.0),
         buttonHoverBg: lightness("siteColor", 0.3),
         buttonHoverColor: "#D67D15",
-        bhbackground: "#008A1B",
+        bhbackground: "#512B81",
         bhborderColor: "#517F64",
         ...darkColors,
       },

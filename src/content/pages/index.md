@@ -9,7 +9,7 @@ cta:
   ctaLink: /#services
 
 belowHighlight: 
-  bhHeader: Get Ready for the Holiday Season 🎄
+  bhHeader: How Good Is Your Digital Marketing Strategy?  📩
   bhSubtext: Is your digital marketing campaign strategy up to par for your business needs? Grow your brand, drive revenue, and engage with your customers with our managed email marketing services.
   bhButtonText: SIGN UP NOW!
   bhButtonLink: /services/email-marketing/
