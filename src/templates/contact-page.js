@@ -7,6 +7,8 @@ import { BiPhoneCall, BiChat } from "react-icons/bi"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
+import { useTurnstileSiteKey } from 'gatsby-plugin-turnstile/src';
+
 export const pageQuery = graphql`
   query ContactQuery($id: String!) {
     markdownRemark(id: { eq: $id }) {
