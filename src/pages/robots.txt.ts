@@ -7,6 +7,21 @@ Disallow:
 Allow: /
 Crawl-delay: 10
 
+User-agent: AhrefsBot
+Disallow:
+Allow: /
+Crawl-delay: 2
+
+User-agent: AhrefsSiteAudit
+Disallow:
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Disallow:
+Allow: /
+Crawl-delay: 2
+
 User-agent: Yandex
 Disallow:
 Allow: /
