@@ -49,7 +49,7 @@ if (Astro.request.method === "POST") {
       errorMessage = "CAPTCHA verification failed. Please try again.";
     } else {
       // Proceed with form submission
-      const response = await fetch('https://cobalt-dev-site.vercel.app/api/sendEmailSupport', {
+      const response = await fetch('https://www.cobaltweb.tech/api/sendEmailSupport', {
         method: "POST",
         body: formData,
       });
