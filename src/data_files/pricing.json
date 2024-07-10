@@ -1,0 +1,42 @@
+{
+  "title": "Plans and Pricing to Fit Your Needs",
+  "subTitle": "Whether you need just one cloud server, load balancer, or digital marketing campaign we can create a plan that is simple and afforable for your business needs. We offer custom plans that are tailored exactly to what you need without the extra fat that runs up costs.",
+  "badge": "Best value",
+  "textUnder": "We also offer customized plans that can fit your budget needs. Annual plans come with a discount for paying upfront. Get in touch with us to see what solution will work for you.",
+  "thirdOption": "Enterprise Solutions?",
+  "btnText": "Get a Custom Quote",
+
+  "staterPlan": {
+    "name": "Starter Plan",
+    "description": "Best option for simple projects and low-traffic websites",
+    "subDescription": "Starting at",
+    "price": "$59",
+    "cents": ".00",
+    "billingFrequency": "USD / monthly",
+    "features": [
+      "Managed cloud compute VPS",
+      "Cloudflare DDoS protection and WAF",
+      "Bunny CDN for fast global content delivery"
+    ],
+    "purchaseBtnTitle": "Get the Starter Plan",
+    "purchaseLink": "/contact/"
+  },
+
+  "proPlan": {
+    "name": "Pro Plan",
+    "description": "Suited for businesses running more complex needs and services",
+    "subDescription": "Starting at",
+    "price": "$119",
+    "cents": ".00",
+    "billingFrequency": "USD / monthly",
+    "features": [
+      "Everything in Starter Plan plus",
+      "Upgraded managed cloud compute VPS",
+      "Email marketing campaign plan",
+      "Upgraded Cloudflare plan for better protection",
+      "Priority support"
+    ],
+    "purchaseBtnTitle": "Get the Pro Plan",
+    "purchaseLink": "/contact/"
+  }
+}

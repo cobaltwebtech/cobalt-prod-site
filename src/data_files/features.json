@@ -1,0 +1,22 @@
+[
+  {
+    "heading": "Website Development & Design",
+    "content": "We can build your website to be exactly what you want with any custom design. Your website is there to showcase your brand and products and should reflect your exact design elements and that is what we can deliver you.",
+    "svg": "codeSquare"
+  },
+  {
+    "heading": "Cloud Computing Services",
+    "content": "Cobalt partners with the leading cloud service providers to provide your website with unparalleled service and performance. Whether you are running a small personal blog to a high traffic ecommerce website we have the right tools and products to provide that service and can easily scale your hosting needs to fit any budget.",
+    "svg": "cloudCompute"
+  },
+  {
+    "heading": "Digital Marketing",
+    "content": "What kind of digital marketing strategy are you implementing? If you have none you may be losing out on valuable business and customers. No matter what your website is about you can leverage digital marketing to gain more business.",
+    "svg": "marketing"
+  },
+  {
+    "heading": "Live Life on the Edge",
+    "content": "Speed is paramount in the web today. Is your website stuck in 1996 on a 56K modem? No matter if you have a simple blog on a static site, an ecommerce store with over 100,000 items, or a media-intensive site with large images and videos you need performance and speed to serve your web platform.",
+    "svg": "lightning"
+  }
+]

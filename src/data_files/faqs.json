@@ -1,0 +1,25 @@
+{
+  "subTitle": "Some common questions about our services. If you have other questions, please get in touch with us and we will give you a quick and honest answer.",
+  "faqs": [
+    {
+      "question": "Can you build me a website that is custom made to my design and needs?",
+      "answer": "Absoulutely! At Cobalt we can build you the website that you need without the extra fluff that can make a website run slow. We are not the typical website builder companies that tries to build a single product that fits everyone's needs. Your business is unique and your web presence should reflect your brand so we build and design your website with that in mind."
+    },
+    {
+      "question": "My website is slow and not working right. How do I improve its performance?",
+      "answer": "No matter if you have a simple blog on a static site or an ecommerce store with over 100,000 items or media-rich site with large images and videos you need performance and speed built into your web platform. We partner with Cloudflare and Bunny.net CDN (content delivery network) to provide the ultimate performance boost to your web apps. Your content is sped up with a next-generation CDN, Edge Storage, and Optimization Services. "
+    },
+    {
+      "question": "Do you offer SEO for a website?",
+      "answer": "Many marketing agencies tout improving search rankings with SEO (search engine optimization) without understanding what is going on under the hood and first making sure the root code and performance of your website is optimized. We do understand how to build and optimize a website to improve your search results."
+    },
+    {
+      "question": "What kind of customer support can I expect?",
+      "answer": "Cobalt Web Technologies's core mission is to provide you the service you need and not trying to sell you a product. We believe in having honest clear communication at all times with our clients. We are available by phone, email, and chat. Anytime you have an issue arise we aim to repsond within minutes up to an hour."
+    },
+    {
+      "question": "I don't know anything about websites. Do you offer any help running our website?",
+      "answer": "Yes, we offer what is called managed services. You don't need to know anything about coding, running a web server, or anything technical. We handle all the backend services for you. The only thing you have to do is update your frontend content which we provide assistance and instruction on how to do this using a simple and easy to use CMS (content management system)."
+    }
+  ]
+}

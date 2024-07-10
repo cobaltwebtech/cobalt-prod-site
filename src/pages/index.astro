@@ -1,0 +1,125 @@
+---
+// Import the necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import HeroSection from "@/components/sections/landing/HeroSection.astro";
+import HeroSectionAlt from "@/components/sections/landing/HeroSectionAlt.astro";
+import ClientsSection from "@/components/sections/landing/ClientsSection.astro";
+import FeaturesGeneral from "@/components/sections/features/FeaturesGeneral.astro";
+import FeaturesNavs from "@/components/sections/features/FeaturesNavs.astro";
+import TestimonialsSection from "@/components/sections/testimonials/TestimonialsSection.astro";
+import PricingSection from "@/components/sections/pricing/PricingSection.astro";
+import FAQ from "@/components/sections/FAQ.astro";
+import AnnouncementBanner from "@/components/ui/banners/AnnouncementBanner.astro";
+import heroImage from "@/images/laptop-opened.avif";
+import faqs from "@/data_files/faqs.json";
+import features from "@/data_files/features.json";
+import pricing from "@/data_files/pricing.json";
+import featureImage from "@/images/website-experience-graphic.avif";
+import ecommerce from "@/images/online-shopping-phone.avif";
+import laptop from "@/images/laptop-dark-tall.avif";
+import globe from "@/images/global-network-tall.avif";
+---
+
+<MainLayout>
+  <AnnouncementBanner
+    btnId="dismiss-button"
+    btnTitle="How Good is Your Digital Marketing Strategy?"
+    url="/contact/"
+  />
+
+  <HeroSection
+    title=`Unleash Your Online Presence <br><span class="text-orange-600 dark:text-yellow-400">Elevate Your Website Today!</span>`
+    subTitle="Excellent design built with performance and security."
+    paragraph1="Are you looking to supercharge your current website or build a brand new one from the ground up? From e-commerce to a simple blog to large-scale asset delivery web application we can create whatever you need."
+    paragraph2="Let us build you an amazing web experience for you and your customers."
+    primaryBtn="View Our Services"
+    primaryBtnURL="/services/"
+    primaryBtnIconName="infoCircle"
+    secondaryBtn="Contact Us"
+    secondaryBtnURL="/contact/"
+    secondaryBtnIconName="chatBubble"
+    src={heroImage}
+    alt="Cobalt Web Technologies laptop graphic"
+  />
+
+  <ClientsSection
+    title="Cobalt Builds the Website You Need"
+    subTitle="Experience performance and security with excellent modern design."
+  />
+
+  <FeaturesGeneral
+    title="Modern Technical Solutions"
+    subTitle="Do you need a brand new website to showcase your products or services? Is your current website slow, unresponsive, and dated looking? Let Cobalt Web Technologies build your next web project for you."
+    src={featureImage}
+    alt="Computer and phone on table photo"
+    features={features}
+  />
+
+  <FeaturesNavs
+    title=`Performant & Secure Websites`
+    tabs={[
+      {
+        heading: "Modern Design & Compatibility",
+        content:
+          "We can build your website to be exactly what you want with any custom design. Your website is there to showcase your brand and products and should reflect your exact design elements and that is what we can deliver you.",
+        svg: "designComputer",
+        src: laptop,
+        alt: "Laptop halfway opened photo",
+        first: true,
+      },
+      {
+        heading: "Lightning Fast Performance",
+        content:
+          "From Auckland to Zürich no matter where your website visitors are located on the planet, they will reach the nearest PoP (point of presence) server to them to deliver a blazingly fast website experience.",
+        svg: "lightning",
+        src: globe,
+        alt: "Globe network graphic illustration",
+        second: false,
+      },
+      {
+        heading: "Ecommerce Solutions",
+        content:
+          "How well does it sell online? Whether you are already online or just starting out, Cobalt Web Technologies can help you bring your business to the web. We can build your ecommerce website to showcase your brand and product exactly how you want.",
+        svg: "ecommerce",
+        src: ecommerce,
+        alt: "Ecommerce online shopping on mobile device",
+      },
+    ]}
+  />
+
+  <TestimonialsSection
+    title="Take Your Web Presence to the Next Level"
+    subTitle="At Cobalt we can build you exactly what you need with performance in mind. From online threat mitigations to digital marketing we have a broad range of services and tools to fit your exact needs."
+    statistics={[
+      {
+        count: "3",
+        description:
+          "seconds or less to mitigate malicious traffic and keep your business online",
+      },
+      {
+        count: "123",
+        description:
+          "global PoPs on a CDN for global distribution and unparalleled speed",
+      },
+      {
+        count: "24ms",
+        description: "average global latency for super fast load times of your web app",
+      },
+      {
+        count: "6X",
+        description:
+          "engagement with digital marketing targeted ads and email campaigns",
+      },
+    ]}
+  />
+
+  <PricingSection pricing={pricing} />
+
+  <FAQ title="Frequently Asked Questions" faqs={faqs} />
+
+  <HeroSectionAlt
+    title="We Connect You to the World"
+    subTitle="Contact us today to see how our solutions can help solve your web app problems so you can get back to running your business."
+    url="/contact/"
+  />
+</MainLayout>

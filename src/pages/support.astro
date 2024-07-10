@@ -1,0 +1,40 @@
+---
+export const prerender = false;
+
+// Import the necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import SupportSection from "@/components/sections/SupportSection.astro";
+import { SITE } from "@/data_files/constants";
+
+const pageTitle: string = `Support | ${SITE.title}`;
+const cfTurnstile = {
+  src: "https://challenges.cloudflare.com/turnstile/v0/api.js",
+  type: "text/javascript"
+};
+
+---
+
+<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.cobaltweb.tech/support/",
+    "url": "https://www.cobaltweb.tech/support/",
+    "name": "Contact | Cobalt Web Technologies",
+    "description":
+      "If you have questions or want to discuss your project needs please let us know. Cobalt Web Technologies is here to help you with all your website and web hosting needs.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://www.cobaltweb.tech/",
+      "name": "Cobalt Web Technologies",
+      "description":
+        "Cobalt Web Technologies provides guidance and services to meet your demands of a high performance secure and modern website.",
+    },
+    "inLanguage": "en-US"
+  }}
+    externalScript={cfTurnstile}
+>
+  <SupportSection />
+</MainLayout>

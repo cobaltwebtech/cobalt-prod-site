@@ -1,0 +1,78 @@
+---
+// Importing necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import MainSection from "@/components/ui/blocks/MainSection.astro";
+import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
+import CardSmall from "@/components/ui/cards/CardSmall.astro";
+import CardWide from "@/components/ui/cards/CardWide.astro";
+import FeaturesStatsAlt from "@/components/sections/features/FeaturesStatsAlt.astro";
+
+// Importing necessary functions from Astro
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { SITE } from "@/data_files/constants";
+
+// Fetching all the product related content and sorting it by main.id
+const product: CollectionEntry<"products">[] = (
+  await getCollection("products")
+).sort(
+  (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
+    a.data.main.id - b.data.main.id,
+);
+
+const pageTitle: string = `Products | ${SITE.title}`;
+---
+
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.cobaltweb.tech/products/",
+    "url": "https://www.cobaltweb.tech/products/",
+    "name": "Products | Cobalt Web Technologies",
+    "description": "Cobalt Web Technologies offeres the latest in next-gen high performance cloud prodcuts and digital marketing.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://www.cobaltweb.tech/",
+      "name": "Cobalt Web Technologies",
+      "description": "Cobalt Web Technologies provides guidance and services to meet your demands of a high performance secure and modern website."
+    },
+    "inLanguage": "en-US"
+  }}
+>
+  <!--MainSection is the introductory section of the page, it also contains a CTA button-->
+  <MainSection
+    title="Products"
+    subTitle="From high performance cloud hosting to ultra-fast CDN, Web Application Firewall, and much more, we have the right suite of products with excellent value for your web app. Cobalt has what you need to meet the demands of your business's web app. "
+    btnExists={true}
+    btnTitle="Contact Us to Learn More"
+    btnURL="/contact/"
+    btnIconName="chatBubble"
+  />
+   <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
+    <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
+  <section class="mx-auto mt-10 max-w-[85rem] px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-14 2xl:max-w-full grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+    {
+      product.map((product, index) => {
+        const position = index % 4;
+        if (position === 0 || position === 3) {
+          return <CardSmall product={product} />;
+        } else {
+          return <CardWide product={product} />;
+        }
+      })
+    }
+  </section>
+
+  <!--Features statistics section-->
+  <FeaturesStatsAlt
+    title="The right product for your web app"
+    subTitle="Cobalt has what you need to meet the demands of your business's web app. From high performance cloud hosting to ultra-fast CDN, Web Application Firewall, and much more, we have the right suite of products with excellent value for your web app."
+    benefits={[
+      "Saving you time and money with managed cloud products",
+      "Dedicated and personalized client support that understands your needs",
+      "Turbocharge your online presence with our next-gen high performance cloud solutions.",
+    ]}
+  />
+</MainLayout>

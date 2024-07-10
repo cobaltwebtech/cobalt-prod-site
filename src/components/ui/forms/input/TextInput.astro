@@ -1,0 +1,21 @@
+---
+const { label, id, name } = Astro.props;
+
+interface Props {
+  label: string;
+  name: string;
+  id: string;
+}
+---
+
+<div>
+  <label for={id} class="sr-only">{label}</label>
+  <input
+    type="text"
+    name={name}
+    id={id}
+    class="block w-full px-4 py-3 text-sm rounded-lg border-2 border-slate-400 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-100 placeholder:text-slate-800 dark:placeholder:text-slate-100 focus:border-slate-400 focus:outline-none focus:ring focus:ring-cyan-400 disabled:pointer-events-none disabled:opacity-50"
+    placeholder={label}
+    required
+  />
+</div>
