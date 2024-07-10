@@ -7,6 +7,11 @@ Disallow:
 Allow: /
 Crawl-delay: 10
 
+User-agent: Bingbot
+Disallow:
+Allow: /
+Crawl-delay: 2
+
 User-agent: AhrefsBot
 Disallow:
 Allow: /
