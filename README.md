@@ -18,8 +18,6 @@ Let us build you an amazing web experience for you and your customers.
 
 Check us out [https://www.cobaltweb.tech/](https://www.cobaltweb.tech/?utm_source=github&utm_medium=web&utm_campaign=github-repo)
 
-[![Check out Cobalt Web Technologies](static/assets/cwt-screenshot.png)](https://www.cobaltweb.tech/?utm_source=github&utm_medium=web&utm_campaign=github-repo)
-
 ## 🆒 Features
 
 - **Astro-Powered:** Utilize a modern static-site generation framework.
