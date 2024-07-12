@@ -4,6 +4,7 @@ import vercelServerless from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
+import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,18 +13,19 @@ export default defineConfig({
   site: "https://www.cobaltweb.tech/",
   prefetch: true,
   build: {
-    assets: 'assets',
+    assets: 'assets'
   },
   integrations: [
-    tailwind(),
+    tailwind(), 
     sitemap({
       i18n: {
-        defaultLocale: "en", // All urls that don't contain `fr` after `https://www.cobaltweb.tech/` will be treated as default locale, i.e. `en`
+        defaultLocale: "en",
+        // All urls that don't contain `fr` after `https://www.cobaltweb.tech/` will be treated as default locale, i.e. `en`
         locales: {
-          en: "en", // The `defaultLocale` value must present in `locales` keys
-        },
-      },
-    }),
+          en: "en" // The `defaultLocale` value must present in `locales` keys
+        }
+      }
+    }), 
     starlight({
       title: "Cobalt Web Technologies Docs",
       defaultLocale: "root",
@@ -32,37 +34,43 @@ export default defineConfig({
       favicon: "/favicon.ico",
       components: {
         SiteTitle: "./src/components/ui/starlight/SiteTitle.astro",
-        Head: "./src/components/ui/starlight/Head.astro",
+        Head: "./src/components/ui/starlight/Head.astro"
       },
-      head: [
-        {
-          tag: "meta",
-          attrs: {
-            property: "og:image",
-            content: "https://www.cobaltweb.tech/" + "/cobalt-social.webp",
-          },
-        },
-        {
-          tag: "meta",
-          attrs: {
-            property: "twitter:image",
-            content: "https://www.cobaltweb.tech/" + "/cobalt-social.webp",
-          },
-        },
-      ],
-    }),
+      head: [{
+        tag: "meta",
+        attrs: {
+          property: "og:image",
+          content: "https://www.cobaltweb.tech/" + "/cobalt-social.webp"
+        }
+      }, {
+        tag: "meta",
+        attrs: {
+          property: "twitter:image",
+          content: "https://www.cobaltweb.tech/" + "/cobalt-social.webp"
+        }
+      }]
+    }), 
     compressor({
       gzip: false,
-      brotli: true,
-    }),
+      brotli: true
+    }), 
+    partytown({
+      debug: true,
+      config: {
+        forward: ["dataLayer.push", "umami.trackEvent", "umami.trackView", "turnstile.render"]
+      }
+    })
   ],
   output: 'server',
   experimental: {
     clientPrerender: true,
-    directRenderScript: true,
+    directRenderScript: true
   },
   adapter: vercelServerless({
     edgeMiddleware: true,
     imageService: true,
-  }),
+    webAnalytics: { 
+      enabled: true 
+    }
+  })
 });

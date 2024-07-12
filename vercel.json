@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'self'; form-action 'self'; frame-src 'self' https://challenges.cloudflare.com; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://umami.cobaltweb.tech https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; object-src 'none'; upgrade-insecure-requests; block-all-mixed-content"
+          "value": "default-src 'self'; base-uri 'self'; form-action 'self'; frame-src 'self' https://challenges.cloudflare.com; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://umami.cobaltweb.tech https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self' https://umami.cobaltweb.tech; object-src 'none'; upgrade-insecure-requests; block-all-mixed-content"
         },
         {
           "key": "Permissions-Policy",
