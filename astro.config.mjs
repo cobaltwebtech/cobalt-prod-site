@@ -16,7 +16,13 @@ export default defineConfig({
     assets: 'assets'
   },
   integrations: [
-    tailwind(), 
+    tailwind(),
+    partytown({
+      debug: true,
+      config: {
+        forward: ["dataLayer.push", "umami.trackEvent", "umami.trackView", "turnstile.render"],
+      },
+    }),
     sitemap({
       i18n: {
         defaultLocale: "en",
@@ -49,16 +55,11 @@ export default defineConfig({
           content: "https://www.cobaltweb.tech/" + "/cobalt-social.webp"
         }
       }]
-    }), 
-    compressor({
+    }),
+    //astro-compressor must be last config in the integrations parameters
+    compressor({ 
       gzip: false,
       brotli: true
-    }), 
-    partytown({
-      debug: true,
-      config: {
-        forward: ["dataLayer.push", "umami.trackEvent", "umami.trackView", "turnstile.render"]
-      }
     })
   ],
   output: 'server',
