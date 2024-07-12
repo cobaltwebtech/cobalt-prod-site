@@ -4,9 +4,11 @@ import Meta from "@/components/Meta.astro";
 import Navbar from "@/components/sections/Navbar.astro";
 import FooterSection from "@/components/sections/FooterSection.astro";
 import { SITE } from "@/data_files/constants";
+import  SpeedInsights  from "@vercel/speed-insights/astro"
 
 // Setting expected props
 const { title = SITE.title, meta, structuredData, externalScript, lang = "en" } = Astro.props;
+const umamiId = import.meta.env.UMAMI_WEBSITE_ID;
 
 // Interface to type-check the properties
 interface Props {
@@ -52,11 +54,19 @@ We set the language of the page to English and add classes for scrollbar and scr
 
       requestAnimationFrame(raf);
     </script>
-
-    <!-- Pass in external script if needed -->
-
-    {externalScript && <script async defer is:inline {...externalScript}>
+    <!-- Pass in conditional external script if needed on defined pages using Partytown integration -->
+    {externalScript && <script async defer {...externalScript}>
     </script>}
+    <!-- Umami Analytics script tag -->
+    <script defer src="https://umami.cobaltweb.tech/script.js" data-website-id={umamiId}></script>
+    <!-- Vercel Speed Insights analytics  -->
+    <script is:inline>
+      function speedInsightsBeforeSend(data){
+        console.log("Speed Insights before send", data)
+        return data;
+      }
+    </script>
+    <SpeedInsights />
   </head>
   <body
     class="bg-slate-100 dark:bg-cobalt-950 selection:bg-cyan-200 dark:selection:bg-cyan-700"

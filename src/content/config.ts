@@ -97,9 +97,3 @@ const servicesCollection = defineCollection({
     ).optional(),
   }),
 });
-
-export const collections = {
-  docs: defineCollection({ schema: docsSchema() }),
-  'products': productsCollection,
-  'services': servicesCollection,
-};

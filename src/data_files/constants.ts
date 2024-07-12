@@ -14,7 +14,7 @@ export const SEO = {
   description: SITE.description,
   structuredData: {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "Webpage",
     inLanguage: "en-US",
     "@id": SITE.url,
     url: SITE.url,
@@ -33,7 +33,7 @@ export const OG = {
   locale: "en_US",
   type: "website",
   url: SITE.url,
-  title: `${SITE.title}: : Website Development, Cloud Computing Services, Digital Marketing, and IT Consulting`,
+  title: `${SITE.title} - Website Development, Cloud Computing Services, Digital Marketing, and IT Consulting`,
   description: "Cobalt Web Technologies offers website development, cloud computing services, digital marketing, online threat mitigations, content delivery networks, and much more. Cobalt's purpose is to bring you the best experience and service you need to run your business. We leverage our expertise to provide the best product for your needs.",
   image: ogImageSrc,
 };
