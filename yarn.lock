@@ -1971,10 +1971,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-vtbot@npm:^1.7.26":
-  version: 1.7.26
-  resolution: "astro-vtbot@npm:1.7.26"
-  checksum: 10c0/1b365b5470b988a636d99d485e6e940c947ad5f9db5718fbc2116e4ad87a5f3791fc7fa11481f69aa8213303801fc375158ae633f19b000bc48bd5d886e87af0
+"astro-vtbot@npm:^1.7.27":
+  version: 1.7.27
+  resolution: "astro-vtbot@npm:1.7.27"
+  checksum: 10c0/7afd8086ee9f9ec99e5e5d90dd3f1196bbfb084c9124e4524ec6745889b048b645394edb01849eaca3047ea4f49b1d53219d4a86bf07caee5cf3b6f0e9fd8e49
   languageName: node
   linkType: hard
 
@@ -6448,7 +6448,7 @@ __metadata:
     astro: "npm:4.11.5"
     astro-compressor: "npm:^0.4.1"
     astro-font: "npm:^0.0.81"
-    astro-vtbot: "npm:^1.7.26"
+    astro-vtbot: "npm:^1.7.27"
     globby: "npm:^14.0.2"
     gsap: "npm:^3.12.5"
     html-minifier: "npm:^4.0.0"
@@ -7132,11 +7132,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.5.3#optional!builtin<compat/typescript>":
   version: 5.5.3
-  resolution: "typescript@patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=379a07"
+  resolution: "typescript@patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/911c7811d61f57f07df79c4a35f56a0f426a65426a020e5fcd792f66559f399017205f5f10255329ab5a3d8c2d1f1d19530aeceffda70758a521fae1d469432e
+  checksum: 10c0/5a437c416251334deeaf29897157032311f3f126547cfdc4b133768b606cb0e62bcee733bb97cf74c42fe7268801aea1392d8e40988cdef112e9546eba4c03c5
   languageName: node
   linkType: hard
 
