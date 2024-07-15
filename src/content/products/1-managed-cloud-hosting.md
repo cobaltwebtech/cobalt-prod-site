@@ -1,6 +1,6 @@
 ---
 title: "Managed Cloud Hosting"
-subHeading: "High performance scalable cloud hosting with simple managed platform."
+subHeading: "High performance scalable cloud hosting with a simple managed platform."
 main:
   id: 1
   description1: |
@@ -24,11 +24,11 @@ tabFirst:
   btnIconName: "chatBubble"
 tabFirstItems:
   - title: "We Partner with the Very Best Cloud Providers"
-    subTitle: "Our managed providers include Vultr, DigitalOcean, Linode, Amazon Web Services, Hetzner, and many more. We select the right backend provider for your services. "
+    subTitle: "Our managed providers include Vultr, DigitalOcean, Linode, Amazon Web Services, Hetzner, and many more. We will select the right backend provider for your services. "
   - title: "Hassle-Free Cloud Experience"
-    subTitle: "Cobalt makes it extremely easy to host your application and data. We set up and manage the right cloud provider for you without you having to worry about anything."
+    subTitle: "Cobalt makes it extremely easy to host your application and data. We will set up and manage the right cloud provider for you without you having to worry about anything."
   - title: "Affordable Cloud Plans"
-    subTitle: "Cobalt partners with the leading cloud service providers to provide your website with unparalleled service and performance. Whether you are running a small personal blog to a high traffic ecommerce website, we pick the right cloud provider that can easily scale your hosting needs to fit any budget."
+    subTitle: "Cobalt partners with the leading cloud service providers to provide your website with unparalleled service and performance. Whether you are running a small personal blog to a high traffic ecommerce website, we can pick the right cloud provider that can easily scale your hosting needs to fit any budget."
 tabSecond:
   title: "Features From Our Cloud Providers"
   subTitle: |
@@ -40,12 +40,12 @@ tabSecond:
   btnIconName: "chatBubble"
 tabSecondItems:
   - title: "High Performance Cloud Compute"
-    subTitle: "Global datacenters with multiple products. Cloud GPU for large-scale intensive workloads, Shared Cloud Compute for afforable basic workloads, Optimized Cloud Compute for higher performance hardware, and custom Bare Metal installs."
+    subTitle: "Global datacenters with multiple products. Cloud GPU for large-scale intensive workloads, Shared Cloud Compute for affordable basic workloads, Optimized Cloud Compute for higher performance hardware, and custom Bare Metal installs."
   - title: "Managed Databases"
     subTitle: "We can create secure and highly available managed databases without the need to worry about dealing with vendor upgrades or administering the system. Managed Databases are scalable to fit your needs as you grow and are enabled with backups off-site to keep your data secure."
   - title: "Cloud Data Storage"
-    subTitle: "Do you need reliable and high performance storage? We have access to a variety of cloud storage options to fit your budget. We offer both Block and Object storage options for your data needs in varying capacites that can be scaled up or down at any time. Affordable storage on standard HDDs or high performance speed on NVMe SSDs give you options for your storage types."
+    subTitle: "Do you need reliable and high performance storage? We have access to a variety of cloud storage options to fit your budget. We offer both Block and Object storage options for your data needs in varying capacities that can be scaled up or down at any time. Affordable storage on standard HDDs or high performance speed on NVMe SSDs give you options for your storage types."
   - title: "Load Balancers"
-    subTitle: "Leverage Load Balancers to increase performance and stability on your infrastructure. We can build highly available and secure Load Balancers attached to your cloud cluster with health monitoring and automatic failover for 99.999% uptime."
+    subTitle: "Leverage Load Balancers to increase performance and stability of your infrastructure. We build highly available and secure Load Balancers attached to your cloud cluster with health monitoring and automatic failover for 99.999% uptime."
 slug: managed-cloud-hosting/
 ---

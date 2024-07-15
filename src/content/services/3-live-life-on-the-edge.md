@@ -6,7 +6,7 @@ main:
   description1: |
     Speed is paramount for anything delivered over the web today. Is your website stuck in 1996 on a 56K modem? Your end users don't have time to wait on a slow website to load. This could mean lost sales and poor user experience.
   description2: |
-    No matter if you have a simple blog on a static site generator or an ecommerce store with over 100,000 items or media-rich site with large images and videos, you need performance and speed built into your web platform.
+    Whether you have a simple blog on a static site generator, an ecommerce store with over 100,000 items, or media-rich site with large images and videos, you need performance and speed built into your web platform.
   imgMain: "@/images/services/service-global-network-wide.avif"
   imgAlt: "Global network graphic image"
 tabs:
@@ -15,7 +15,7 @@ tabs:
 tabFirst:
   title: "Are You Using a CDN for Your Web Apps?"
   subTitle: |
-    From Auckland to Zürich, no matter where your website visitors are located on the whole planet, they will reach the nearest PoP (point of presence) server. This can significantly speed up delivery of digital assets and save considerbaly on bandwidth charges. A CDN can deliver a blazingly fast website experience for your end users. 
+    From Auckland to Zürich, no matter where your website visitors are located on the whole planet, they will reach the nearest PoP (point of presence) server. This can significantly speed up the delivery of digital assets and save considerably on bandwidth charges. A CDN can deliver a blazingly fast website experience for your end users. 
   ctaDescription: |
     Let Cobalt help you put your web app and its content on the edge for lightning-fast performance. Get in touch with us today.
   btnTitle: "Contact Us to Learn More"
@@ -23,9 +23,9 @@ tabFirst:
   btnIconName: "chatBubble"
 tabFirstItems:
   - title: "Putting Your Digital Assets on the Edge"
-    subTitle: "Cobalt Web Technologies partners with Cloudflare and Bunny.net CDN to provide the ultimate performance boost to your web apps. Your content is sped up with a next-generation CDN, Edge Storage, and Optimization Services. By placing all of your digital assets from your website such as images, videos, JavaScript files, CSS files, etc. to the CDN edge they can be served to the end user much quicker. Lower latency means a faster webpage load on their visit and the added benefit of cost savings on bandwidth usage."
+    subTitle: "Cobalt Web Technologies partners with Cloudflare and Bunny.net CDN to provide the ultimate performance boost to your web apps. Your content is sped up with a next-generation CDN, Edge Storage, and Optimization Services. By placing all of your digital assets from your website such as images, videos, JavaScript files, CSS files, etc. to the CDN edge, they can be served to the end user much quicker. Lower latency means a faster webpage load on their visit and the added benefit of cost savings on bandwidth usage."
   - title: "Highly Scalable Solutions for Your Growth"
-    subTitle: "Growth is great and when that happens your platform needs to be able to handle that growth. You don't want a nightmare when your infrastructure buckles under the traffic load and your web app goes down. We have the services to deliver the scaled-up growth requirements of your web app and its users. From the cloud server your app is hosted on to the CDN that is used to deliver the content we can customize your needs to meet your traffic requirements."
+    subTitle: "Growth is great and when that happens your platform needs to be able to handle that growth. You don't want a nightmare when your infrastructure buckles under the traffic load and your web app goes down. We have the services to deliver the scaled-up growth requirements of your web app and its users. From the cloud server your app is hosted on to the CDN that is used to deliver the content, we can customize your needs to meet your traffic requirements."
 tabSecond:
   title: "A CDN That Doesn’t Keep Your Users Waiting"
   subTitle: |

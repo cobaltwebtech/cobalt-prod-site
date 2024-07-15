@@ -18,7 +18,7 @@ tabFirst:
   subTitle: |
     Cobalt partners with Cloudflare application services to help you block DDoS attacks and bad bots, close zero-days and other vulnerabilities, cache and accelerate content, manage APIs, and more.
   ctaDescription: |
-    Get in touch with us to secure and improve performance of your web app.
+    Get in touch with us to secure and improve the performance of your web app.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
   btnIconName: "chatBubble"
@@ -34,7 +34,7 @@ tabSecond:
   subTitle: |
     We can help you speed up your network modernization journey without security or performance tradeoffs. Cloudflare’s networking services can help you accelerate cloud migration, block attacks, embrace SASE, and meet other critical corporate networking needs.
   ctaDescription: |
-    Get in touch with us to secure and improve performance of your web app.
+    Get in touch with us to secure and improve the performance of your web app.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
   btnIconName: "chatBubble"
@@ -44,7 +44,7 @@ tabSecondItems:
   - title: "Web Application Firewall"
     subTitle: "Protect your business-critical web applications from attacks."
   - title: "DNS"
-    subTitle: "Ultra fast, resilient, and secure authoritative DNS."
+    subTitle: "Ultra-fast, resilient, and secure authoritative DNS."
   - title: "Argo Smart Routing"
     subTitle: "Route web traffic across the most reliable network paths."
   - title: "Bot Management"
