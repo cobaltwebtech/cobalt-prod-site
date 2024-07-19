@@ -1,5 +1,3 @@
-import { paths } from "node_modules/@astrojs/starlight/utils/routing";
-
 export const Icons = {
   groups: {
     paths: [

@@ -3,7 +3,6 @@ import tailwind from "@astrojs/tailwind";
 import vercelServerless from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
-import starlight from "@astrojs/starlight";
 import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
@@ -32,30 +31,6 @@ export default defineConfig({
         }
       }
     }), 
-    starlight({
-      title: "Cobalt Web Technologies Docs",
-      defaultLocale: "root",
-      disable404Route: true,
-      customCss: ["./src/styles/starlight.css"],
-      favicon: "/favicon.ico",
-      components: {
-        SiteTitle: "./src/components/ui/starlight/SiteTitle.astro",
-        Head: "./src/components/ui/starlight/Head.astro"
-      },
-      head: [{
-        tag: "meta",
-        attrs: {
-          property: "og:image",
-          content: "https://www.cobaltweb.tech/" + "/cobalt-social.webp"
-        }
-      }, {
-        tag: "meta",
-        attrs: {
-          property: "twitter:image",
-          content: "https://www.cobaltweb.tech/" + "/cobalt-social.webp"
-        }
-      }]
-    }),
     //astro-compressor must be last config in the integrations parameters
     compressor({ 
       gzip: false,
@@ -64,6 +39,7 @@ export default defineConfig({
   ],
   output: 'server',
   experimental: {
+    serverIslands: true,
     clientPrerender: true,
     directRenderScript: true
   },

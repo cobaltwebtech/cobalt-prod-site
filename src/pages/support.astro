@@ -36,5 +36,6 @@ const cfTurnstile = {
   }}
     externalScript={cfTurnstile}
 >
-  <SupportSection />
+  <!--Support form component. Use the server:defer option which enables experimental Server Island features. Server Islands offer the ability to defer a component to render asynchronously after the page has already rendered.-->
+  <SupportSection server:defer />
 </MainLayout>
