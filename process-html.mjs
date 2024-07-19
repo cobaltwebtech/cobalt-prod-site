@@ -2,6 +2,8 @@ import fs from 'node:fs/promises'
 import { globby } from 'globby'
 import { minify } from 'html-minifier'
 
+console.log('Starting process-html.mjs script...');
+
 // Get all HTML files from the output directory
 const path = './.vercel/output/static'
 const files = await globby(`${path}/**/*.html`)
@@ -20,4 +22,6 @@ await Promise.all(
    	 })
    	 await fs.writeFile(file, html)
     })
-)
+);
+console.log('process-html.mjs script completed.');
+
