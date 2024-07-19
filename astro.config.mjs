@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-import vercelServerless from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import partytown from "@astrojs/partytown";
@@ -39,11 +39,10 @@ export default defineConfig({
   ],
   output: 'server',
   experimental: {
-    serverIslands: true,
     clientPrerender: true,
     directRenderScript: true
   },
-  adapter: vercelServerless({
+  adapter: vercel({
     edgeMiddleware: true,
     imageService: true,
     webAnalytics: { 
