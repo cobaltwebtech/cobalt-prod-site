@@ -1,5 +1,5 @@
 ---
-export const prerender = true;
+export const prerender = false;
 
 // Import the necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
@@ -36,6 +36,5 @@ const pageTitle: string = `Contact | ${SITE.title}`;
   }}
   externalScript={cfTurnstile}
 >
-  <!--Contact form component. Use the server:defer option which enables experimental Server Island features. Server Islands offer the ability to defer a component to render asynchronously after the page has already rendered.-->
-  <ContactSection server:defer />
+  <ContactSection />
 </MainLayout>
