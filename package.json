@@ -4,8 +4,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build:favicon": "node build-favicon.mjs",
-    "build": "yarn build:favicon && astro check && astro build && node process-html.mjs",
+    "build": "astro check && astro build && node build-favicon.mjs && node process-html.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

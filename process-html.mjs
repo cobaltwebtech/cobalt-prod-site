@@ -13,7 +13,7 @@ await Promise.all(
 
    	 // Minify the HTML
    	 html = minify(html, {
-   		 removeComments: true,
+		 removeComments: true,
    		 preserveLineBreaks: true,
    		 collapseWhitespace: true,
 		 minifyJS: true
