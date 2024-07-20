@@ -1,6 +1,13 @@
 // Middleware script
-import { minify } from 'html-minifier-terser';
 import type { MiddlewareHandler } from 'astro';
+
+// Simple HTML minification function
+function minifyHTML(html: string): string {
+  return html
+    .replace(/\s+/g, ' ')
+    .replace(/>\s+</g, '><')
+    .replace(/<!--[\s\S]*?-->/g, '');
+}
 
 export const onRequest: MiddlewareHandler = async (context, next) => {
   const response = await next();
@@ -10,12 +17,7 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
     const html = await response.text();
     
     try {
-      const minifiedHtml = await minify(html, {
-        removeComments: true,
-        preserveLineBreaks: true,
-        collapseWhitespace: true,
-        minifyJS: true,
-      });
+      const minifiedHtml = minifyHTML(html);
 
       return new Response(minifiedHtml, {
         status: response.status,
