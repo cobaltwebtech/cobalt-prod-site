@@ -1,4 +1,6 @@
 {
+  "buildCommand": "astro check && astro build && node build-favicon.mjs && node process-html.mjs",
+  
   "headers": [
     {
       "source": "/(.*)",
