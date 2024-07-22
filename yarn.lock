@@ -4988,12 +4988,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"preline@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "preline@npm:2.3.0"
+"preline@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "preline@npm:2.4.0"
   dependencies:
     "@popperjs/core": "npm:^2.11.2"
-  checksum: 10c0/017d920079a1f1d65649226576eb4c70ac1e061f2385b9b1d7287504dfbfd6c6b4b537cf384e702eaf30c486d316f7f8926ee5e8a18821f098d0c5a8df1efb32
+  checksum: 10c0/b106ed2a2223e72f77b13ca966dbaf9c799107f609765e25ed33747fa165601cf9dbd91c879a09be572b280bc18cf31e48f732a75800061e40deee235924f14e
   languageName: node
   linkType: hard
 
@@ -5519,7 +5519,7 @@ __metadata:
     globby: "npm:^14.0.2"
     gsap: "npm:^3.12.5"
     html-minifier: "npm:^4.0.0"
-    preline: "npm:^2.3.0"
+    preline: "npm:^2.4.0"
     prettier: "npm:^3.3.3"
     prettier-plugin-astro: "npm:^0.14.0"
     prettier-plugin-tailwindcss: "npm:^0.6.5"
@@ -6174,11 +6174,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.5.3#optional!builtin<compat/typescript>":
   version: 5.5.3
-  resolution: "typescript@patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=379a07"
+  resolution: "typescript@patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/911c7811d61f57f07df79c4a35f56a0f426a65426a020e5fcd792f66559f399017205f5f10255329ab5a3d8c2d1f1d19530aeceffda70758a521fae1d469432e
+  checksum: 10c0/5a437c416251334deeaf29897157032311f3f126547cfdc4b133768b606cb0e62bcee733bb97cf74c42fe7268801aea1392d8e40988cdef112e9546eba4c03c5
   languageName: node
   linkType: hard
 
