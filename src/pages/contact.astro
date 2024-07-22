@@ -10,6 +10,12 @@ const cfTurnstile = {
   src: "https://challenges.cloudflare.com/turnstile/v0/api.js",
   type: "text/javascript"
 };
+// Global declaration for gsap animation library
+declare global {
+  interface Window {
+    gsap: any;
+  }
+}
 
 const pageTitle: string = `Contact | ${SITE.title}`;
 ---
@@ -38,3 +44,86 @@ const pageTitle: string = `Contact | ${SITE.title}`;
 >
   <ContactSection />
 </MainLayout>
+<!-- GSAP animations on success message. Targets the elements in SuccessMessage.astro component -->
+<script>
+  import { gsap } from "gsap";
+
+  type AnimationSettings = {
+    autoAlpha?: number;
+    y?: number;
+    x?: number;
+    willChange?: string;
+  };
+
+  function setElementAnimationDefaults(
+    id: string,
+    settings: AnimationSettings
+  ) {
+    gsap.set(id, settings);
+  }
+
+  setElementAnimationDefaults(
+    "#fadeText", {
+      autoAlpha: 0,
+      y: 50,
+      willChange: "transform, opacity",
+    });
+
+  setElementAnimationDefaults(
+    "#fadeInUp", {
+      autoAlpha: 0,
+      y: 50,
+      willChange: "transform, opacity",
+    });
+
+  setElementAnimationDefaults(
+    "#fadeInMoveRight", {
+      autoAlpha: 0,
+      x: 300,
+      willChange: "transform, opacity",
+    });
+
+  let timeline = gsap.timeline(
+    { 
+      defaults: { overwrite: "auto" } 
+    }
+  );
+
+  timeline.to(
+    "#fadeText", {
+      duration: 0.25,
+      autoAlpha: 1,
+      y: 0,
+      delay: 0.25,
+      ease: "power2.out",
+    }
+  );
+
+  timeline.to(
+    "#fadeInUp", { 
+      duration: 1, 
+      autoAlpha: 1, 
+      y: 0, 
+      ease: "power2.out" 
+    },
+    "-=0.5"
+  );
+
+  timeline.to(
+    "#fadeInMoveRight", { 
+      duration: 1, 
+      autoAlpha: 1, 
+      x: 0, 
+      ease: "power2.inOut" 
+    },
+    "-=0.75"
+  );
+
+  timeline.to(
+    "#overlay", {
+      duration: 1, 
+      autoAlpha: 0, 
+      delay: 0.2 
+    }
+  );
+</script>
