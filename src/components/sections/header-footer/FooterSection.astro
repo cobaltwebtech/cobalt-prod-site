@@ -1,9 +1,9 @@
 ---
 // Import the necessary dependencies
-import FooterSocialLink from "../ui/links/FooterSocialLink.astro";
+import FooterSocialLink from "../../ui/links/FooterSocialLink.astro";
 import SecondaryCTA from "@/components/ui/buttons/SecondaryCTA.astro";
 import enStrings from "@/utils/navigation.ts";
-import Icon from "../ui/icons/Icon.astro";
+import Icon from "../../ui/icons/Icon.astro";
 import BrandLogo from "@/components/BrandLogo.astro";
 import { SITE } from "@/data_files/constants";
 
@@ -11,7 +11,9 @@ import { SITE } from "@/data_files/constants";
 const strings = enStrings;
 
 // Define the variables that will be used in this component
-const sectionThreeTitle: string = "Stay up to date";
+const sectionThreeTitle: string = "Hours of Operation";
+const sectionThreeDays: string = "Monday - Friday"
+const sectionThreeHours: string = "9AM - 5PM (US Central, UTC -5)"
 ---
 
 <footer class="w-full bg-cobalt-50 dark:bg-cobalt-900">
@@ -50,11 +52,12 @@ const sectionThreeTitle: string = "Stay up to date";
         <h3 class="mb-2 font-bold text-slate-800 dark:text-slate-200">
           {sectionThreeTitle}
         </h3>
-        <SecondaryCTA 
-        title="Subscribe to Our Email List"
-        url="#"
-        iconName="messageSend"
-        />
+        <p class="text-slate-600 dark:text-slate-400">
+          {sectionThreeDays}
+        </p>
+        <p class="text-slate-600 dark:text-slate-400">
+          {sectionThreeHours}
+        </p>
       </div>
     </div>
 
