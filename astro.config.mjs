@@ -3,10 +3,6 @@ import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
-<<<<<<< HEAD
-=======
-import partytown from "@astrojs/partytown";
->>>>>>> 08a45c879942ff02514f53583df287d427f26cb8
 
 // https://astro.build/config
 export default defineConfig({
