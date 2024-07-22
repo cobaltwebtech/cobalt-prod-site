@@ -78,41 +78,15 @@ src/
 ├── pages/                # Astro files representing individual pages and website sections
 │   ├── 404.astro         # Custom 404 page
 │   ├── about.astro       # About us page
-│   ├── contact.astro     
+│   ├── contact.astro     # General contact page with webform
 │   ├── index.astro       # The landing/home page
 │   ├── products/         # Product page contains ..slug.astro for rendering each product page dynamically
 │   ├── services/         # Services page contains ..slug.astro for rendering each service page dynamically
 │   ├── robots.txt.ts     # Dynamically generates robots.txt
-│   ├── support.astro     # Support contact page (webform)
+│   ├── support.astro     # Support contact page with webform
 └── utils/                # Shared utility functions and helpers
 
 ```
-
-## Static Assets and Public Resources
-
-Static files served directly to the browser are within the `public` directory at the root of the project.
-
-```md
-
-public/
-└── scripts/
-    └── vendor/
-        ├── gsap/ # Animations powered by GSAP (GreenSock Animation Platform)
-        │   └── gsap.min.js 
-        ├── lenis/ # Lenis script for smooth scrolling effects
-        │   └── lenis.js
-        └── preline/   # Preline UI plugins
-            ├── accordion/
-            ├── collapse/
-            ├── dropdown/
-            ├── overlay/
-            └── tabs/
-
-
-```
-
-The scripts in the `public/scripts/vendor` directory are essential for the interactivity and aesthetic features of the website. Do not remove these unless you plan to replace their functionality.
-
 ## Integrations and Enhancements
 
 Cobalt leverages the power of Astro — a modern, cutting-edge site building framework — and integrates it seamlessly with the utility-first CSS framework TailwindCSS, to deliver exceptional site performance and a seamless user experience. Here are some notable integrations and enhancements included in the project:
