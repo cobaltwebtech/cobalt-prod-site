@@ -3,7 +3,6 @@ import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
-import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,12 +15,6 @@ export default defineConfig({
   },
   integrations: [
     tailwind(),
-    partytown({
-      debug: true,
-      config: {
-        forward: ["dataLayer.push", "umami.trackEvent", "umami.trackView", "turnstile.render"],
-      },
-    }),
     sitemap({
       i18n: {
         defaultLocale: "en",
