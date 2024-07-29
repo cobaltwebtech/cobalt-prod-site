@@ -1007,10 +1007,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@preline/accordion@npm:^2.4.0":
-  version: 2.4.0
-  resolution: "@preline/accordion@npm:2.4.0"
-  checksum: 10c0/e46fe0f5294ac6e9d76b846c7024c88dd4829a3bc1382b5af4b38fc4f20ef3d3bd37eaab147ae184d73f2459cf746a9bce6b748775af411ac242bad5672ffeed
+"@preline/accordion@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "@preline/accordion@npm:2.4.1"
+  checksum: 10c0/02e8400ae1c7b1afd3bde02ec6d6f25d939e692dcad1ac4de6506e4e22f8931517ebabe5f3790ce3f6348a71e0607974e21f6cc8f818f46e2ac67b848317786f
   languageName: node
   linkType: hard
 
@@ -5608,7 +5608,7 @@ __metadata:
     "@astrojs/sitemap": "npm:^3.1.6"
     "@astrojs/tailwind": "npm:^5.1.0"
     "@astrojs/vercel": "npm:^7.7.2"
-    "@preline/accordion": "npm:^2.4.0"
+    "@preline/accordion": "npm:^2.4.1"
     "@preline/collapse": "npm:^2.4.0"
     "@preline/dropdown": "npm:^2.4.0"
     "@preline/overlay": "npm:^2.4.0"
@@ -6299,11 +6299,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.5.3#optional!builtin<compat/typescript>":
   version: 5.5.3
-  resolution: "typescript@patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=379a07"
+  resolution: "typescript@patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/911c7811d61f57f07df79c4a35f56a0f426a65426a020e5fcd792f66559f399017205f5f10255329ab5a3d8c2d1f1d19530aeceffda70758a521fae1d469432e
+  checksum: 10c0/5a437c416251334deeaf29897157032311f3f126547cfdc4b133768b606cb0e62bcee733bb97cf74c42fe7268801aea1392d8e40988cdef112e9546eba4c03c5
   languageName: node
   linkType: hard
 
