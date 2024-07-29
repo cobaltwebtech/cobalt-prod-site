@@ -1028,10 +1028,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@preline/overlay@npm:^2.4.0":
-  version: 2.4.0
-  resolution: "@preline/overlay@npm:2.4.0"
-  checksum: 10c0/f72f4721dcd250c607cb8d92f24aed25a4a53229121eef36f53ac59fe6b4bc684e144944473077b6d4c8f6093a4c546df29a320b5d77e45383753240e99cd59f
+"@preline/overlay@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "@preline/overlay@npm:2.4.1"
+  checksum: 10c0/18ff52620f811475c07a4cb5431aad43a3c708be74530c9919c6b50e0b95869fa1c02e0c16b275c858a2764675336d576befd9c13d32577964a3a843d1dca806
   languageName: node
   linkType: hard
 
@@ -5611,7 +5611,7 @@ __metadata:
     "@preline/accordion": "npm:^2.4.0"
     "@preline/collapse": "npm:^2.4.0"
     "@preline/dropdown": "npm:^2.4.0"
-    "@preline/overlay": "npm:^2.4.0"
+    "@preline/overlay": "npm:^2.4.1"
     "@preline/tabs": "npm:^2.4.0"
     "@tailwindcss/forms": "npm:^0.5.7"
     "@tailwindcss/typography": "npm:0.5.13"
@@ -6299,11 +6299,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.5.3#optional!builtin<compat/typescript>":
   version: 5.5.3
-  resolution: "typescript@patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=379a07"
+  resolution: "typescript@patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/911c7811d61f57f07df79c4a35f56a0f426a65426a020e5fcd792f66559f399017205f5f10255329ab5a3d8c2d1f1d19530aeceffda70758a521fae1d469432e
+  checksum: 10c0/5a437c416251334deeaf29897157032311f3f126547cfdc4b133768b606cb0e62bcee733bb97cf74c42fe7268801aea1392d8e40988cdef112e9546eba4c03c5
   languageName: node
   linkType: hard
 
