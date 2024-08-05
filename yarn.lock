@@ -1837,10 +1837,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-font@npm:^0.0.81":
-  version: 0.0.81
-  resolution: "astro-font@npm:0.0.81"
-  checksum: 10c0/2c8bc55823cdb17d040381ef3d32a9a3bc50240c2ce0df4b780a8c6d016d24702384ce9218214a668a2229f3cc7d7adde6b13b552df2662d5f771c396c4afb7d
+"astro-font@npm:^0.1.81":
+  version: 0.1.81
+  resolution: "astro-font@npm:0.1.81"
+  checksum: 10c0/03816ed1e4a8b7cb1d4930f2032b06292e8cac4ec631a0b779b22990e3092687f2fdaf5d627d2fb936c0ddc541d08f2afd7a57d4d478e23fc149f1c66d6cd4cf
   languageName: node
   linkType: hard
 
@@ -5707,7 +5707,7 @@ __metadata:
     "@vercel/speed-insights": "npm:^1.0.12"
     astro: "npm:4.13.1"
     astro-compressor: "npm:^0.4.1"
-    astro-font: "npm:^0.0.81"
+    astro-font: "npm:^0.1.81"
     astro-vtbot: "npm:^1.8.3"
     clipboard: "npm:^2.0.11"
     globby: "npm:^14.0.2"
@@ -6395,11 +6395,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.5.4#optional!builtin<compat/typescript>":
   version: 5.5.4
-  resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"
+  resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/73409d7b9196a5a1217b3aaad929bf76294d3ce7d6e9766dd880ece296ee91cf7d7db6b16c6c6c630ee5096eccde726c0ef17c7dfa52b01a243e57ae1f09ef07
+  checksum: 10c0/10dd9881baba22763de859e8050d6cb6e2db854197495c6f1929b08d1eb2b2b00d0b5d9b0bcee8472f1c3f4a7ef6a5d7ebe0cfd703f853aa5ae465b8404bc1ba
   languageName: node
   linkType: hard
 
