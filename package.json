@@ -42,7 +42,7 @@
     "@tailwindcss/typography": "0.5.13",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "astro-vtbot": "^1.8.3",
+    "astro-vtbot": "^1.8.4",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.5",
