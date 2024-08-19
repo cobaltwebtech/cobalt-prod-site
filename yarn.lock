@@ -1562,10 +1562,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vtbag/inspection-chamber@npm:^1.0.6":
-  version: 1.0.7
-  resolution: "@vtbag/inspection-chamber@npm:1.0.7"
-  checksum: 10c0/c9047c492f502681b3e8ed3ece568f764275628819a4bf96adb322c165f50742759a3797f07a5e8c61c5010b7c3c3631011669120cfb7cf9778475fb520f2fae
+"@vtbag/inspection-chamber@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "@vtbag/inspection-chamber@npm:1.0.8"
+  checksum: 10c0/220d8d5cbb5e03c18b33ecf17c2984cb8bb8cf8487443b8d4ef9334181be8f024edf1bf3120b394446efe16bd8a22c2fdc0a166d142c83a6727e4d53d3213178
   languageName: node
   linkType: hard
 
@@ -1776,12 +1776,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-vtbot@npm:^1.8.4":
-  version: 1.8.4
-  resolution: "astro-vtbot@npm:1.8.4"
+"astro-vtbot@npm:^1.8.6":
+  version: 1.8.6
+  resolution: "astro-vtbot@npm:1.8.6"
   dependencies:
-    "@vtbag/inspection-chamber": "npm:^1.0.6"
-  checksum: 10c0/bb65d4c0fc575842dcc6157c1054c5b96c56f15b6de92bc829d285a05d3cae97ea07e8c0de475e6790d99d3c4bfef14d3f884665a083edffed5880bdcc899ca6
+    "@vtbag/inspection-chamber": "npm:^1.0.8"
+  checksum: 10c0/11cc932dbcea1dfd737d1f800992f72f5bd61771c86374d204afda65c48f009ea68f876d6d08c88a73cdcec862e89870f92b1710df22d4daa4c22e637af3f79e
   languageName: node
   linkType: hard
 
@@ -5701,7 +5701,7 @@ __metadata:
     astro: "npm:4.14.1"
     astro-compressor: "npm:^0.4.1"
     astro-font: "npm:^0.1.81"
-    astro-vtbot: "npm:^1.8.4"
+    astro-vtbot: "npm:^1.8.6"
     clipboard: "npm:^2.0.11"
     globby: "npm:^14.0.2"
     gsap: "npm:^3.12.5"
@@ -6378,11 +6378,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.5.4#optional!builtin<compat/typescript>":
   version: 5.5.4
-  resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"
+  resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/73409d7b9196a5a1217b3aaad929bf76294d3ce7d6e9766dd880ece296ee91cf7d7db6b16c6c6c630ee5096eccde726c0ef17c7dfa52b01a243e57ae1f09ef07
+  checksum: 10c0/10dd9881baba22763de859e8050d6cb6e2db854197495c6f1929b08d1eb2b2b00d0b5d9b0bcee8472f1c3f4a7ef6a5d7ebe0cfd703f853aa5ae465b8404bc1ba
   languageName: node
   linkType: hard
 
