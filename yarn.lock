@@ -3906,9 +3906,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lenis@npm:^1.1.10":
-  version: 1.1.10
-  resolution: "lenis@npm:1.1.10"
+"lenis@npm:^1.1.11":
+  version: 1.1.11
+  resolution: "lenis@npm:1.1.11"
   dependencies:
     "@darkroom.engineering/tempus": "npm:^0.0.46"
   peerDependencies:
@@ -3919,7 +3919,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10c0/903c5b69ab0a44cb0fdce5751521df55917ac7d08155029f794df51f07f25a7fcbb4934178f7f9a16c6f569afb9b21454cbf8663382571257d50ab561b65d282
+  checksum: 10c0/5410148ba55f279549110247778ecca0eead04f90c1b343ed8c696b9f50ad7b70d210466e0a259a3875bd9f646e9800b1be02b90afb064b5ba93954f736789d6
   languageName: node
   linkType: hard
 
@@ -5889,7 +5889,7 @@ __metadata:
     globby: "npm:^14.0.2"
     gsap: "npm:^3.12.5"
     html-minifier: "npm:^4.0.0"
-    lenis: "npm:^1.1.10"
+    lenis: "npm:^1.1.11"
     preline: "npm:^2.4.1"
     prettier: "npm:^3.3.3"
     prettier-plugin-astro: "npm:^0.14.1"
@@ -6633,11 +6633,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.5.4#optional!builtin<compat/typescript>":
   version: 5.5.4
-  resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"
+  resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/73409d7b9196a5a1217b3aaad929bf76294d3ce7d6e9766dd880ece296ee91cf7d7db6b16c6c6c630ee5096eccde726c0ef17c7dfa52b01a243e57ae1f09ef07
+  checksum: 10c0/10dd9881baba22763de859e8050d6cb6e2db854197495c6f1929b08d1eb2b2b00d0b5d9b0bcee8472f1c3f4a7ef6a5d7ebe0cfd703f853aa5ae465b8404bc1ba
   languageName: node
   linkType: hard
 
