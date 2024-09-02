@@ -1,22 +1,20 @@
-> **Update** Cobalt Web Technologies website has had a major change and is now built with [Astro](https://astro.build/).
+> **Update** Cobalt Web Technologies website has updated with major changes and we are now using the web framework [Astro](https://astro.build/).
 
 # 💻 Cobalt Web Technologies
 
-Cobalt's website is blazing fast and built with [Astro](https://astro.build/) and hosted on [Vercel](https://vercel.com/) for super fast deployment.
+Cobalt's website is lightning fast and built with [Astro](https://astro.build/) and deployed on [Vercel](https://vercel.com/) for super fast performance.
 
-<div align="center">
 [![Built with Astro](https://astro.badg.es/v2/built-with-astro/small.svg)](https://astro.build)
-</div>
 
 Find us at [https://www.cobaltweb.tech/](https://www.cobaltweb.tech/?utm_source=github&utm_medium=web&utm_campaign=github-repo)
 
-![Cobalt Web Technologies screenshot](https://cobalt2.b-cdn.net/graphics/cobalt-screenshot.avif)
-
 This is the production code repo for our website. 
+
+![Cobalt Web Technologies screenshot](https://cobalt2.b-cdn.net/graphics/cobalt-screenshot.avif)
 
 ## 💾 Is your website stuck in the 90's? 📠
 
-Are you looking to supercharge your current website or build a brand new one from the ground up? From e-commerce to a simple blog to large-scale asset delivery web application, we can create whatever you need.
+Are you looking to supercharge your current website or build a brand new one from the ground up? From e-commerce to a simple blog to large-scale asset delivery web application, we can design and build whatever you need.
 
 Let us build you an amazing web experience for you and your customers.
 
