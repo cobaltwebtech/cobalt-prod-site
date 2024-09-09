@@ -1215,14 +1215,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/forms@npm:^0.5.8":
-  version: 0.5.8
-  resolution: "@tailwindcss/forms@npm:0.5.8"
+"@tailwindcss/forms@npm:^0.5.9":
+  version: 0.5.9
+  resolution: "@tailwindcss/forms@npm:0.5.9"
   dependencies:
     mini-svg-data-uri: "npm:^1.2.3"
   peerDependencies:
     tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1 || >= 4.0.0-alpha.20"
-  checksum: 10c0/c6f95edb6253730d1eed4a6e2aa1cd699f2b39c47963082469133677e8d0495be814f0171c6c440582cf593a7efddc76bac0474e7c7a16b6416b9c03bde189a0
+  checksum: 10c0/c7b99bc41ec548a27b68735ae459f5102535b3577020db3d9f348c88d997a623405e0833cf59beff5ca1bac7e7e2c55d5948ab374706277937e512e934947210
   languageName: node
   linkType: hard
 
@@ -5630,7 +5630,7 @@ __metadata:
     "@preline/dropdown": "npm:^2.4.1"
     "@preline/overlay": "npm:^2.4.1"
     "@preline/tabs": "npm:^2.4.1"
-    "@tailwindcss/forms": "npm:^0.5.8"
+    "@tailwindcss/forms": "npm:^0.5.9"
     "@tailwindcss/typography": "npm:^0.5.15"
     "@types/react": "npm:^18.3.5"
     "@types/react-dom": "npm:^18.3.0"
@@ -6320,11 +6320,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.5.4#optional!builtin<compat/typescript>":
   version: 5.5.4
-  resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"
+  resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/73409d7b9196a5a1217b3aaad929bf76294d3ce7d6e9766dd880ece296ee91cf7d7db6b16c6c6c630ee5096eccde726c0ef17c7dfa52b01a243e57ae1f09ef07
+  checksum: 10c0/10dd9881baba22763de859e8050d6cb6e2db854197495c6f1929b08d1eb2b2b00d0b5d9b0bcee8472f1c3f4a7ef6a5d7ebe0cfd703f853aa5ae465b8404bc1ba
   languageName: node
   linkType: hard
 
