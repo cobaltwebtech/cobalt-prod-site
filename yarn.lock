@@ -1609,10 +1609,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vtbag/inspection-chamber@npm:^1.0.10":
-  version: 1.0.11
-  resolution: "@vtbag/inspection-chamber@npm:1.0.11"
-  checksum: 10c0/6fe19889bc1342918671b9c764c095b2ce7615a4b050054a55b74d624f08d4247d109bcc908fdef44925a9c444cbdd41a169a628db09ff49daa0872af2e20874
+"@vtbag/inspection-chamber@npm:^1.0.12":
+  version: 1.0.12
+  resolution: "@vtbag/inspection-chamber@npm:1.0.12"
+  checksum: 10c0/371342e857ebb688aba4463c7ef79fe8787b0a809c583e70061769a1adb8492f3807024603b8b715d72412d43f162d35d4b75526a4c66ea01c63841451f3efaf
   languageName: node
   linkType: hard
 
@@ -1821,19 +1821,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-vtbot@npm:^1.9.2":
-  version: 1.9.2
-  resolution: "astro-vtbot@npm:1.9.2"
+"astro-vtbot@npm:^1.9.3":
+  version: 1.9.3
+  resolution: "astro-vtbot@npm:1.9.3"
   dependencies:
     "@vtbag/element-crossing": "npm:^1.0.1"
-    "@vtbag/inspection-chamber": "npm:^1.0.10"
-  checksum: 10c0/0f86168fc6da24cdc8d5df4e76a4c363e62a1be83680f85741f6f713eb7eb96b6296e3a990a928784f8be9823171b413709a0346981c270a28e33946906b79cb
+    "@vtbag/inspection-chamber": "npm:^1.0.12"
+  checksum: 10c0/a4467d1d847b18deb9c4a3281b83cf227748c1b82397acb9627a0cb56104dc1f8d239da9764a77166f6c179fc719701e75230690718caa18dd87cc3522903536
   languageName: node
   linkType: hard
 
-"astro@npm:4.15.7":
-  version: 4.15.7
-  resolution: "astro@npm:4.15.7"
+"astro@npm:4.15.8":
+  version: 4.15.8
+  resolution: "astro@npm:4.15.8"
   dependencies:
     "@astrojs/compiler": "npm:^2.10.3"
     "@astrojs/internal-helpers": "npm:0.4.1"
@@ -1881,7 +1881,6 @@ __metadata:
     ora: "npm:^8.1.0"
     p-limit: "npm:^6.1.0"
     p-queue: "npm:^8.0.1"
-    path-to-regexp: "npm:6.2.2"
     preferred-pm: "npm:^4.0.0"
     prompts: "npm:^2.4.2"
     rehype: "npm:^13.0.1"
@@ -1907,7 +1906,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10c0/793d9c3480fd5d4d9cef304fc611cf5813af40a5b06514ca32621d8c385c02010f7bf0c915dad2956d9b66709298e420cba11cf48bd7c0b60a0150f907c6cc7c
+  checksum: 10c0/8c8b1c0af59452cd4450e3ebd868ac85e0054ebac41b21ab57210cd3390f3e88ceb5f8c988806395eef1f133a4683c022361312a5a183602b575c86a946f2a50
   languageName: node
   linkType: hard
 
@@ -4963,13 +4962,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-to-regexp@npm:6.2.2":
-  version: 6.2.2
-  resolution: "path-to-regexp@npm:6.2.2"
-  checksum: 10c0/4b60852d3501fd05ca9dd08c70033d73844e5eca14e41f499f069afa8364f780f15c5098002f93bd42af8b3514de62ac6e82a53b5662de881d2b08c9ef21ea6b
-  languageName: node
-  linkType: hard
-
 "path-type@npm:^5.0.0":
   version: 5.0.0
   resolution: "path-type@npm:5.0.0"
@@ -5704,10 +5696,10 @@ __metadata:
     "@types/react-dom": "npm:^18.3.0"
     "@vercel/analytics": "npm:^1.3.1"
     "@vercel/speed-insights": "npm:^1.0.12"
-    astro: "npm:4.15.7"
+    astro: "npm:4.15.8"
     astro-compressor: "npm:^0.4.1"
     astro-font: "npm:^0.1.81"
-    astro-vtbot: "npm:^1.9.2"
+    astro-vtbot: "npm:^1.9.3"
     clipboard: "npm:^2.0.11"
     globby: "npm:^14.0.2"
     gsap: "npm:^3.12.5"
