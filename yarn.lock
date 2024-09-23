@@ -1609,10 +1609,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vtbag/inspection-chamber@npm:^1.0.10":
-  version: 1.0.11
-  resolution: "@vtbag/inspection-chamber@npm:1.0.11"
-  checksum: 10c0/6fe19889bc1342918671b9c764c095b2ce7615a4b050054a55b74d624f08d4247d109bcc908fdef44925a9c444cbdd41a169a628db09ff49daa0872af2e20874
+"@vtbag/inspection-chamber@npm:^1.0.13":
+  version: 1.0.13
+  resolution: "@vtbag/inspection-chamber@npm:1.0.13"
+  checksum: 10c0/82231b5760a94eadf311da189794f54f5ba0de9c4e7203cd1f748b73d656d73ec71734ad8766570422507a936aa50527d3efd8b0d2fc9a36eb494e0f97293534
   languageName: node
   linkType: hard
 
@@ -1821,13 +1821,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-vtbot@npm:^1.9.2":
-  version: 1.9.2
-  resolution: "astro-vtbot@npm:1.9.2"
+"astro-vtbot@npm:^1.9.4":
+  version: 1.9.4
+  resolution: "astro-vtbot@npm:1.9.4"
   dependencies:
     "@vtbag/element-crossing": "npm:^1.0.1"
-    "@vtbag/inspection-chamber": "npm:^1.0.10"
-  checksum: 10c0/0f86168fc6da24cdc8d5df4e76a4c363e62a1be83680f85741f6f713eb7eb96b6296e3a990a928784f8be9823171b413709a0346981c270a28e33946906b79cb
+    "@vtbag/inspection-chamber": "npm:^1.0.13"
+  checksum: 10c0/e4ba8765e824734a3a882df0646b5ea60047ee86ba2714f1776f2690f284dfa123682a02713c79df7aa6691cd2f93a40bf6bb267eb24c69bf281257255764eb3
   languageName: node
   linkType: hard
 
@@ -5707,7 +5707,7 @@ __metadata:
     astro: "npm:4.15.7"
     astro-compressor: "npm:^0.4.1"
     astro-font: "npm:^0.1.81"
-    astro-vtbot: "npm:^1.9.2"
+    astro-vtbot: "npm:^1.9.4"
     clipboard: "npm:^2.0.11"
     globby: "npm:^14.0.2"
     gsap: "npm:^3.12.5"
@@ -6381,11 +6381,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.6.2#optional!builtin<compat/typescript>":
   version: 5.6.2
-  resolution: "typescript@patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=8c6c40"
+  resolution: "typescript@patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/94eb47e130d3edd964b76da85975601dcb3604b0c848a36f63ac448d0104e93819d94c8bdf6b07c00120f2ce9c05256b8b6092d23cf5cf1c6fa911159e4d572f
+  checksum: 10c0/e6c1662e4852e22fe4bbdca471dca3e3edc74f6f1df043135c44a18a7902037023ccb0abdfb754595ca9028df8920f2f8492c00fc3cbb4309079aae8b7de71cd
   languageName: node
   linkType: hard
 
