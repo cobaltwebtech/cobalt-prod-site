@@ -36,7 +36,6 @@ export default defineConfig({
     directRenderScript: true
   },
   adapter: vercel({
-    edgeMiddleware: true,
     imageService: true,
     webAnalytics: { 
       enabled: true 

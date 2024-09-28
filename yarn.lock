@@ -985,38 +985,38 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@preline/accordion@npm:^2.4.1":
-  version: 2.4.1
-  resolution: "@preline/accordion@npm:2.4.1"
-  checksum: 10c0/02e8400ae1c7b1afd3bde02ec6d6f25d939e692dcad1ac4de6506e4e22f8931517ebabe5f3790ce3f6348a71e0607974e21f6cc8f818f46e2ac67b848317786f
+"@preline/accordion@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@preline/accordion@npm:2.5.0"
+  checksum: 10c0/4ee4a253ef7f434b4f4b3169bedff01bd44256833b6a8c22e27691ec1031eba16b2b09285b24d9ae4ad2002b88bed2e70bb727b2aba55e000d40a09bc2e9fd31
   languageName: node
   linkType: hard
 
-"@preline/collapse@npm:^2.4.1":
-  version: 2.4.1
-  resolution: "@preline/collapse@npm:2.4.1"
-  checksum: 10c0/29107715b918c7cb8b661e8bbcc5cfc6145753a3d720ea43e64ff8017b039f21a22c53c2c9925e9bfcd8f9b161d79f92e6852100ef8c7dcf5992a83ba44a5326
+"@preline/collapse@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@preline/collapse@npm:2.5.0"
+  checksum: 10c0/aa73180fe1cb95c3f05220dd0612a6411ad725e9879242b29527c8419c65e822b887bf4f4da5c0053668c4c478a4bf9c8b0270e792ec7f99007d0d09d48a5635
   languageName: node
   linkType: hard
 
-"@preline/dropdown@npm:^2.4.1":
-  version: 2.4.1
-  resolution: "@preline/dropdown@npm:2.4.1"
-  checksum: 10c0/8de725d80d9a519ef58a32a22e78b030cfe2c2e3d964efbd711153edab78fdc5561793dfc9d495cc2f5d434daed17b8a28a004d14757281f51906e94550ad800
+"@preline/dropdown@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@preline/dropdown@npm:2.5.0"
+  checksum: 10c0/77a7495be36b7d3632c828aa96a2b8c46762f55e24f23dd3528de06c05f5cb9e96eb7de21ec47297557c762a54cc09333725148d7ef906c9c1859a83989127f4
   languageName: node
   linkType: hard
 
-"@preline/overlay@npm:^2.4.1":
-  version: 2.4.1
-  resolution: "@preline/overlay@npm:2.4.1"
-  checksum: 10c0/18ff52620f811475c07a4cb5431aad43a3c708be74530c9919c6b50e0b95869fa1c02e0c16b275c858a2764675336d576befd9c13d32577964a3a843d1dca806
+"@preline/overlay@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@preline/overlay@npm:2.5.0"
+  checksum: 10c0/1fa0effca2abfce66a79752ee50289777e7e616415c326d2bdd69c22a31e39c769ae0f3d410f1b1ecafec8e8171a47c6a6087b3fbf03b58a0223c188aa619354
   languageName: node
   linkType: hard
 
-"@preline/tabs@npm:^2.4.1":
-  version: 2.4.1
-  resolution: "@preline/tabs@npm:2.4.1"
-  checksum: 10c0/59265abfe38c2108145b28b9672da4216c3f1d228c778220ef226829894199a09282d4a0ee5cf997ac38de64014bcc5d334dcd2344f3cc25ff454a5999186dd5
+"@preline/tabs@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@preline/tabs@npm:2.5.0"
+  checksum: 10c0/c709917a8287c22d11b971189424b7d4ab597afb8b3e299445d7822d9c561d18abb53d14f11ddebbb1d76833bcabae1933495ace1b03b1e603f4df430d817e46
   languageName: node
   linkType: hard
 
@@ -1405,13 +1405,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.3.8":
-  version: 18.3.8
-  resolution: "@types/react@npm:18.3.8"
+"@types/react@npm:^18.3.10":
+  version: 18.3.10
+  resolution: "@types/react@npm:18.3.10"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10c0/367312c9fe276639ecb142265e090a4dd04bb39f8d718cbab546de3f1ddcfddeff415e1147d0fc40f734badaa7420b7b109d511bd4304b2c4c9c36164612fdf8
+  checksum: 10c0/f5be1de1b0331c1fdb33d577f4cf7f1b949d4bded5347b2351a537f03c51dade5be115e21b161dcf1b37061954d320f6a0bdf8d7b70e24eda51071fdd614383d
   languageName: node
   linkType: hard
 
@@ -1609,10 +1609,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vtbag/inspection-chamber@npm:^1.0.13":
-  version: 1.0.13
-  resolution: "@vtbag/inspection-chamber@npm:1.0.13"
-  checksum: 10c0/82231b5760a94eadf311da189794f54f5ba0de9c4e7203cd1f748b73d656d73ec71734ad8766570422507a936aa50527d3efd8b0d2fc9a36eb494e0f97293534
+"@vtbag/inspection-chamber@npm:^1.0.14":
+  version: 1.0.14
+  resolution: "@vtbag/inspection-chamber@npm:1.0.14"
+  checksum: 10c0/d3705ca68f43735cb3024673787f87fed86e36ce0d49a7414d2362049fee76c1bb117607d2a9f5f9b10eec586861695e2abfd01c2602a2ab35155f3d558e64ff
+  languageName: node
+  linkType: hard
+
+"@vtbag/turn-signal@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@vtbag/turn-signal@npm:1.0.2"
+  checksum: 10c0/2c428af8dd228bb8b51ff1bedb64d954bbc28685a5e7dbb001ca72b74b87afce720423c9425b9bcdd11276006de11b2db7306c0793a965933365758cab625824
   languageName: node
   linkType: hard
 
@@ -1821,13 +1828,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-vtbot@npm:^1.9.4":
-  version: 1.9.4
-  resolution: "astro-vtbot@npm:1.9.4"
+"astro-vtbot@npm:^1.10.2":
+  version: 1.10.2
+  resolution: "astro-vtbot@npm:1.10.2"
   dependencies:
     "@vtbag/element-crossing": "npm:^1.0.1"
-    "@vtbag/inspection-chamber": "npm:^1.0.13"
-  checksum: 10c0/e4ba8765e824734a3a882df0646b5ea60047ee86ba2714f1776f2690f284dfa123682a02713c79df7aa6691cd2f93a40bf6bb267eb24c69bf281257255764eb3
+    "@vtbag/inspection-chamber": "npm:^1.0.14"
+    "@vtbag/turn-signal": "npm:^1.0.2"
+  checksum: 10c0/fdea0be000b638cda72257c1bc147eaedf888274baec54c9c63c797d4203bc0c66b8e8206929d8df4c71f741c6324dc04a86b4cbe0c7889a1141bb4016cce247
   languageName: node
   linkType: hard
 
@@ -5133,12 +5141,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"preline@npm:^2.4.1":
-  version: 2.4.1
-  resolution: "preline@npm:2.4.1"
+"preline@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "preline@npm:2.5.0"
   dependencies:
     "@popperjs/core": "npm:^2.11.2"
-  checksum: 10c0/1d9d12c64469778b9ea57b3f7a45fcb52ff2cc4594f6dbbc7d05ce3a850affb632e8e332a64f922ee950fc7c756ec3feabc4f3f9f052075364232f745f6e6aed
+  checksum: 10c0/1b7727f9c4ef77b0669c99ece9a0b58d93abe5ce48d8933ff994bd92660056ed95889b9471fe1027523ab28bfc9b16283808557ae673322fe82123e6b680d4e6
   languageName: node
   linkType: hard
 
@@ -5153,9 +5161,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-tailwindcss@npm:^0.6.6":
-  version: 0.6.6
-  resolution: "prettier-plugin-tailwindcss@npm:0.6.6"
+"prettier-plugin-tailwindcss@npm:^0.6.8":
+  version: 0.6.8
+  resolution: "prettier-plugin-tailwindcss@npm:0.6.8"
   peerDependencies:
     "@ianvs/prettier-plugin-sort-imports": "*"
     "@prettier/plugin-pug": "*"
@@ -5207,7 +5215,7 @@ __metadata:
       optional: true
     prettier-plugin-svelte:
       optional: true
-  checksum: 10c0/e34743a768631ebc69690b97d7018500f497815bbdc59c95604d09c65ffc25823ffb181e62a457f4d77594bf4ee2de50bab579e68b55440e3fcfa91713b7d7e6
+  checksum: 10c0/b74b9594928cce715a272e6837b30ff7090f5e24cc556c579b84e4d1740787aa15d48179e6f99ef11c6c879941dec66413a1f9c3e5e980a94520dc50ed21bc8f
   languageName: node
   linkType: hard
 
@@ -5685,30 +5693,30 @@ __metadata:
     "@astrojs/sitemap": "npm:^3.1.6"
     "@astrojs/tailwind": "npm:5.1.1"
     "@astrojs/vercel": "npm:7.8.1"
-    "@preline/accordion": "npm:^2.4.1"
-    "@preline/collapse": "npm:^2.4.1"
-    "@preline/dropdown": "npm:^2.4.1"
-    "@preline/overlay": "npm:^2.4.1"
-    "@preline/tabs": "npm:^2.4.1"
+    "@preline/accordion": "npm:^2.5.0"
+    "@preline/collapse": "npm:^2.5.0"
+    "@preline/dropdown": "npm:^2.5.0"
+    "@preline/overlay": "npm:^2.5.0"
+    "@preline/tabs": "npm:^2.5.0"
     "@tailwindcss/forms": "npm:^0.5.9"
     "@tailwindcss/typography": "npm:^0.5.15"
-    "@types/react": "npm:^18.3.8"
+    "@types/react": "npm:^18.3.10"
     "@types/react-dom": "npm:^18.3.0"
     "@vercel/analytics": "npm:^1.3.1"
     "@vercel/speed-insights": "npm:^1.0.12"
     astro: "npm:4.15.9"
     astro-compressor: "npm:^0.4.1"
     astro-font: "npm:^0.1.81"
-    astro-vtbot: "npm:^1.9.4"
+    astro-vtbot: "npm:^1.10.2"
     clipboard: "npm:^2.0.11"
     globby: "npm:^14.0.2"
     gsap: "npm:^3.12.5"
     html-minifier: "npm:^4.0.0"
     lenis: "npm:^1.1.13"
-    preline: "npm:^2.4.1"
+    preline: "npm:^2.5.0"
     prettier: "npm:^3.3.3"
     prettier-plugin-astro: "npm:^0.14.1"
-    prettier-plugin-tailwindcss: "npm:^0.6.6"
+    prettier-plugin-tailwindcss: "npm:^0.6.8"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     resend: "npm:^4.0.0"
