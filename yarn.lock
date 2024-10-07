@@ -22,20 +22,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/check@npm:0.9.3":
-  version: 0.9.3
-  resolution: "@astrojs/check@npm:0.9.3"
+"@astrojs/check@npm:0.9.4":
+  version: 0.9.4
+  resolution: "@astrojs/check@npm:0.9.4"
   dependencies:
-    "@astrojs/language-server": "npm:^2.14.1"
-    chokidar: "npm:^3.5.3"
-    fast-glob: "npm:^3.3.1"
+    "@astrojs/language-server": "npm:^2.15.0"
+    chokidar: "npm:^4.0.1"
     kleur: "npm:^4.1.5"
     yargs: "npm:^17.7.2"
   peerDependencies:
     typescript: ^5.0.0
   bin:
     astro-check: dist/bin.js
-  checksum: 10c0/fab8d39ca0734777534e54940c888663f7e448b53b0b6eb64d0008b9219da893b61ddbb281843a4ab05ae854cbfefca4e6dd43b3a2e1727bf71498de47935a87
+  checksum: 10c0/0e9b554413319faea379a0b79380ba29e96be4cc93ae5df9154d6a4470082b314c184ac32079bbe20c83a933801e942370261a44fa35742fa87db0281d9ffb87
   languageName: node
   linkType: hard
 
@@ -53,18 +52,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/language-server@npm:^2.14.1":
-  version: 2.14.2
-  resolution: "@astrojs/language-server@npm:2.14.2"
+"@astrojs/language-server@npm:^2.15.0":
+  version: 2.15.0
+  resolution: "@astrojs/language-server@npm:2.15.0"
   dependencies:
     "@astrojs/compiler": "npm:^2.10.3"
     "@astrojs/yaml2ts": "npm:^0.2.1"
     "@jridgewell/sourcemap-codec": "npm:^1.4.15"
-    "@volar/kit": "npm:~2.4.0"
-    "@volar/language-core": "npm:~2.4.0"
-    "@volar/language-server": "npm:~2.4.0"
-    "@volar/language-service": "npm:~2.4.0"
-    "@volar/typescript": "npm:~2.4.0"
+    "@volar/kit": "npm:~2.4.5"
+    "@volar/language-core": "npm:~2.4.5"
+    "@volar/language-server": "npm:~2.4.5"
+    "@volar/language-service": "npm:~2.4.5"
     fast-glob: "npm:^3.2.12"
     muggle-string: "npm:^0.4.1"
     volar-service-css: "npm:0.0.61"
@@ -86,7 +84,7 @@ __metadata:
       optional: true
   bin:
     astro-ls: bin/nodeServer.js
-  checksum: 10c0/d7ad3d29034ccab4c1274c1e24b987d40ff66280204615465d26f36d29127019a1a031ae93b160b9a7733202cf117c7542c49df38571d2f296afe89547aa74d0
+  checksum: 10c0/62a03a6df546e93d41361432afd7c51aeb28a018476a0bd1c7a3e6c0c8c005d70f31f9424c203a13d219a2a2f5e637736b6f7996a014117c700825bbfa97836e
   languageName: node
   linkType: hard
 
@@ -1511,74 +1509,74 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@volar/kit@npm:~2.4.0":
-  version: 2.4.4
-  resolution: "@volar/kit@npm:2.4.4"
+"@volar/kit@npm:~2.4.5":
+  version: 2.4.6
+  resolution: "@volar/kit@npm:2.4.6"
   dependencies:
-    "@volar/language-service": "npm:2.4.4"
-    "@volar/typescript": "npm:2.4.4"
+    "@volar/language-service": "npm:2.4.6"
+    "@volar/typescript": "npm:2.4.6"
     typesafe-path: "npm:^0.2.2"
     vscode-languageserver-textdocument: "npm:^1.0.11"
     vscode-uri: "npm:^3.0.8"
   peerDependencies:
     typescript: "*"
-  checksum: 10c0/9e2ca70f3d96eaf00427b5b33cc64be6b07f8159221d23f3f37d2a9355af082ca93577acf09896e4d544f39774ce303ffe794d04ba2cd0017d4ec891809c0e34
+  checksum: 10c0/74ae6f6c6e69c0b6344f87a7041ceafafd81dda90f43c9048bdaa7773baee88ec836943298fae217af8b3c881ca73f29c1b0617daefe13ce1c2ef842feb05042
   languageName: node
   linkType: hard
 
-"@volar/language-core@npm:2.4.4, @volar/language-core@npm:~2.4.0":
-  version: 2.4.4
-  resolution: "@volar/language-core@npm:2.4.4"
+"@volar/language-core@npm:2.4.6, @volar/language-core@npm:~2.4.5":
+  version: 2.4.6
+  resolution: "@volar/language-core@npm:2.4.6"
   dependencies:
-    "@volar/source-map": "npm:2.4.4"
-  checksum: 10c0/455c088c7e6cd0583633300f8f3a6a2d78ee35b7cb15401516f4fde8cab41cbc5b55b5855f9627e2840d7af6fc4a74d175039bdde96b8c27e8f949441bc06670
+    "@volar/source-map": "npm:2.4.6"
+  checksum: 10c0/01802825d561c49f3b2b8362cc01a37ca1845ae2c59b0458be5732e444904d3f4c6bf1cfa7e3bb19faf2ae05f6553b2ecce37b18d07c55922623aa5a6e03cfc1
   languageName: node
   linkType: hard
 
-"@volar/language-server@npm:~2.4.0":
-  version: 2.4.4
-  resolution: "@volar/language-server@npm:2.4.4"
+"@volar/language-server@npm:~2.4.5":
+  version: 2.4.6
+  resolution: "@volar/language-server@npm:2.4.6"
   dependencies:
-    "@volar/language-core": "npm:2.4.4"
-    "@volar/language-service": "npm:2.4.4"
-    "@volar/typescript": "npm:2.4.4"
+    "@volar/language-core": "npm:2.4.6"
+    "@volar/language-service": "npm:2.4.6"
+    "@volar/typescript": "npm:2.4.6"
     path-browserify: "npm:^1.0.1"
     request-light: "npm:^0.7.0"
     vscode-languageserver: "npm:^9.0.1"
     vscode-languageserver-protocol: "npm:^3.17.5"
     vscode-languageserver-textdocument: "npm:^1.0.11"
     vscode-uri: "npm:^3.0.8"
-  checksum: 10c0/7422a29f5440c83704b80ad3a8866ccbc18b8044425905ee415ab65156e833fd7f61972d9c56cb611093045cc4eea47021d62a8ea58c9a0311d81938f3ea8a7f
+  checksum: 10c0/6d52623101ce7cfaccbd8f881d848011958fdd17c367cd9a88fbf9f07c6c9ffbc716d8869e41c71542ac5cf903428b9e9b8f3ded44e68ac05a858e75a371c824
   languageName: node
   linkType: hard
 
-"@volar/language-service@npm:2.4.4, @volar/language-service@npm:~2.4.0":
-  version: 2.4.4
-  resolution: "@volar/language-service@npm:2.4.4"
+"@volar/language-service@npm:2.4.6, @volar/language-service@npm:~2.4.5":
+  version: 2.4.6
+  resolution: "@volar/language-service@npm:2.4.6"
   dependencies:
-    "@volar/language-core": "npm:2.4.4"
+    "@volar/language-core": "npm:2.4.6"
     vscode-languageserver-protocol: "npm:^3.17.5"
     vscode-languageserver-textdocument: "npm:^1.0.11"
     vscode-uri: "npm:^3.0.8"
-  checksum: 10c0/6501f3c82d1b1d2927cf52a9d665f389841c7ee54512f932442310984a537d5211da4c1b16851b54db20631159921b4c213712771a15bc296cda717669ca9921
+  checksum: 10c0/2845d65fb3b841b8583ae35b28d14559d65c0036b852d3e3744c5da92fe7b75466899f6f9ae292d8f6907923790d945e117df114fc7c61d5297a2d07d212d9d0
   languageName: node
   linkType: hard
 
-"@volar/source-map@npm:2.4.4":
-  version: 2.4.4
-  resolution: "@volar/source-map@npm:2.4.4"
-  checksum: 10c0/c5875ecb1961108e6c24d26add81355057517f2a874f64f1abc65fd0d90fb3b6feebd5a8305a76e0089948a124b2ec7d889ade51bade3341baf3e3b7e118c8e6
+"@volar/source-map@npm:2.4.6":
+  version: 2.4.6
+  resolution: "@volar/source-map@npm:2.4.6"
+  checksum: 10c0/5ebfdb3b25697272fce6b5782bb54230a851ae9d33c30243b376ff168e2d08dc9093e0a74d39c30e668157bd06741640ba3cb8fd4c6a3be43bf2335a5de3775f
   languageName: node
   linkType: hard
 
-"@volar/typescript@npm:2.4.4, @volar/typescript@npm:~2.4.0":
-  version: 2.4.4
-  resolution: "@volar/typescript@npm:2.4.4"
+"@volar/typescript@npm:2.4.6":
+  version: 2.4.6
+  resolution: "@volar/typescript@npm:2.4.6"
   dependencies:
-    "@volar/language-core": "npm:2.4.4"
+    "@volar/language-core": "npm:2.4.6"
     path-browserify: "npm:^1.0.1"
     vscode-uri: "npm:^3.0.8"
-  checksum: 10c0/07d404aa7024ff8b8231b5c21460b990344beb2179dd772931811f3107a2ddd1ff9ba02446cb30c6699a9ea0868cf76af4027e3168f1761ba8a0013def9ebf96
+  checksum: 10c0/5d6913151dcb6366a961d47dcf8858e35c094ef247fc14cc6b11349e3a3993abbd9dde8e5bde1b71d202c208d61c4989ae63da1bfd183c02d0ea4652a26e6a59
   languageName: node
   linkType: hard
 
@@ -2158,6 +2156,15 @@ __metadata:
     fsevents:
       optional: true
   checksum: 10c0/8361dcd013f2ddbe260eacb1f3cb2f2c6f2b0ad118708a343a5ed8158941a39cb8fb1d272e0f389712e74ee90ce8ba864eece9e0e62b9705cb468a2f6d917462
+  languageName: node
+  linkType: hard
+
+"chokidar@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "chokidar@npm:4.0.1"
+  dependencies:
+    readdirp: "npm:^4.0.1"
+  checksum: 10c0/4bb7a3adc304059810bb6c420c43261a15bb44f610d77c35547addc84faa0374265c3adc67f25d06f363d9a4571962b02679268c40de07676d260de1986efea9
   languageName: node
   linkType: hard
 
@@ -2818,7 +2825,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.12, fast-glob@npm:^3.3.0, fast-glob@npm:^3.3.1, fast-glob@npm:^3.3.2":
+"fast-glob@npm:^3.2.12, fast-glob@npm:^3.3.0, fast-glob@npm:^3.3.2":
   version: 3.3.2
   resolution: "fast-glob@npm:3.3.2"
   dependencies:
@@ -5342,6 +5349,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"readdirp@npm:^4.0.1":
+  version: 4.0.2
+  resolution: "readdirp@npm:4.0.2"
+  checksum: 10c0/a16ecd8ef3286dcd90648c3b103e3826db2b766cdb4a988752c43a83f683d01c7059158d623cbcd8bdfb39e65d302d285be2d208e7d9f34d022d912b929217dd
+  languageName: node
+  linkType: hard
+
 "readdirp@npm:~3.6.0":
   version: 3.6.0
   resolution: "readdirp@npm:3.6.0"
@@ -5689,7 +5703,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@astrojs/check": "npm:0.9.3"
+    "@astrojs/check": "npm:0.9.4"
     "@astrojs/sitemap": "npm:^3.1.6"
     "@astrojs/tailwind": "npm:5.1.1"
     "@astrojs/vercel": "npm:7.8.1"
@@ -6381,11 +6395,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.6.2#optional!builtin<compat/typescript>":
   version: 5.6.2
-  resolution: "typescript@patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=8c6c40"
+  resolution: "typescript@patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/94eb47e130d3edd964b76da85975601dcb3604b0c848a36f63ac448d0104e93819d94c8bdf6b07c00120f2ce9c05256b8b6092d23cf5cf1c6fa911159e4d572f
+  checksum: 10c0/e6c1662e4852e22fe4bbdca471dca3e3edc74f6f1df043135c44a18a7902037023ccb0abdfb754595ca9028df8920f2f8492c00fc3cbb4309079aae8b7de71cd
   languageName: node
   linkType: hard
 
