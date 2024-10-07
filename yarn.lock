@@ -1602,6 +1602,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vtbag/cam-shaft@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@vtbag/cam-shaft@npm:1.0.0"
+  checksum: 10c0/857a2fc3ccfa8bd050bcf0bf090510dc81468ec1fdc411c1b8d1c06255a8517a35ce37bf5594563005989fcc4d802d2d5ede73f4c334e497309a54fdfaff5a78
+  languageName: node
+  linkType: hard
+
 "@vtbag/element-crossing@npm:^1.0.1":
   version: 1.0.1
   resolution: "@vtbag/element-crossing@npm:1.0.1"
@@ -1609,10 +1616,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vtbag/inspection-chamber@npm:^1.0.14":
-  version: 1.0.14
-  resolution: "@vtbag/inspection-chamber@npm:1.0.14"
-  checksum: 10c0/d3705ca68f43735cb3024673787f87fed86e36ce0d49a7414d2362049fee76c1bb117607d2a9f5f9b10eec586861695e2abfd01c2602a2ab35155f3d558e64ff
+"@vtbag/inspection-chamber@npm:^1.0.15":
+  version: 1.0.15
+  resolution: "@vtbag/inspection-chamber@npm:1.0.15"
+  checksum: 10c0/2218c37b04bcd7d289d73d7ddcb32cd37d754cac08527da6680c18077cc15043da2d49a98539330b2b7a37cab802c546a02664ebbdcf769b5ae4fd796f07c639
   languageName: node
   linkType: hard
 
@@ -1828,14 +1835,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-vtbot@npm:^1.10.2":
-  version: 1.10.2
-  resolution: "astro-vtbot@npm:1.10.2"
+"astro-vtbot@npm:^1.10.3":
+  version: 1.10.3
+  resolution: "astro-vtbot@npm:1.10.3"
   dependencies:
+    "@vtbag/cam-shaft": "npm:^1.0.0"
     "@vtbag/element-crossing": "npm:^1.0.1"
-    "@vtbag/inspection-chamber": "npm:^1.0.14"
+    "@vtbag/inspection-chamber": "npm:^1.0.15"
     "@vtbag/turn-signal": "npm:^1.0.2"
-  checksum: 10c0/fdea0be000b638cda72257c1bc147eaedf888274baec54c9c63c797d4203bc0c66b8e8206929d8df4c71f741c6324dc04a86b4cbe0c7889a1141bb4016cce247
+  checksum: 10c0/08a6f0886e44a41b82336b86e2e620d13707e0e3d6a291b07e00e89e002fcf46d4d239dcccd5a399d69e97f80270608a0febb02a2242ad185d9990a129acb29b
   languageName: node
   linkType: hard
 
@@ -5707,7 +5715,7 @@ __metadata:
     astro: "npm:4.15.9"
     astro-compressor: "npm:^0.4.1"
     astro-font: "npm:^0.1.81"
-    astro-vtbot: "npm:^1.10.2"
+    astro-vtbot: "npm:^1.10.3"
     clipboard: "npm:^2.0.11"
     globby: "npm:^14.0.2"
     gsap: "npm:^3.12.5"
@@ -6381,11 +6389,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.6.2#optional!builtin<compat/typescript>":
   version: 5.6.2
-  resolution: "typescript@patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=8c6c40"
+  resolution: "typescript@patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/94eb47e130d3edd964b76da85975601dcb3604b0c848a36f63ac448d0104e93819d94c8bdf6b07c00120f2ce9c05256b8b6092d23cf5cf1c6fa911159e4d572f
+  checksum: 10c0/e6c1662e4852e22fe4bbdca471dca3e3edc74f6f1df043135c44a18a7902037023ccb0abdfb754595ca9028df8920f2f8492c00fc3cbb4309079aae8b7de71cd
   languageName: node
   linkType: hard
 
