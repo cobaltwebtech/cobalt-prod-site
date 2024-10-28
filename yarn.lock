@@ -1605,19 +1605,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vtbag/inspection-chamber@npm:^1.0.16":
-  version: 1.0.16
-  resolution: "@vtbag/inspection-chamber@npm:1.0.16"
+"@vtbag/inspection-chamber@npm:^1.0.17":
+  version: 1.0.17
+  resolution: "@vtbag/inspection-chamber@npm:1.0.17"
   dependencies:
     eruda: "npm:^3.4.0"
-  checksum: 10c0/d41cc106ac964474330669eaa47fb5566bd8efa052e1d3363843b718760e67ffec7008e5b6f2fd641d9284d1182c62bf7dd6b80ba2fce6e04695d33f0b59013b
+  checksum: 10c0/0767891d0fab855d3b27f4025cd122f6003cee96c9e59c7d6c9dd621acf9bf40098d1611c7603ddf2f7e943ddc9629fb15f57ea5134523f7b2258afa0d001e82
   languageName: node
   linkType: hard
 
-"@vtbag/turn-signal@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "@vtbag/turn-signal@npm:1.0.3"
-  checksum: 10c0/5ab070f8e92b56e7675b6943513b5608467030d4225aadbdeebfa166bf315f0f65b1eaec4c70687d883b23cc9ec3b0d96b61e436baeebb62a6c787aadeff7eef
+"@vtbag/turn-signal@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@vtbag/turn-signal@npm:1.1.0"
+  checksum: 10c0/a31c7c84588465b6cbf9a91ed734aaf10f624748848f40e67bf16f3de1bf0bf5d5dbbebbc01db7485805861c13d0d78eb478608e6a31224cf1fa16df0d51c882
   languageName: node
   linkType: hard
 
@@ -1826,15 +1826,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-vtbot@npm:^1.10.4":
-  version: 1.10.4
-  resolution: "astro-vtbot@npm:1.10.4"
+"astro-vtbot@npm:^1.10.5":
+  version: 1.10.5
+  resolution: "astro-vtbot@npm:1.10.5"
   dependencies:
     "@vtbag/cam-shaft": "npm:^1.0.1"
     "@vtbag/element-crossing": "npm:^1.0.2"
-    "@vtbag/inspection-chamber": "npm:^1.0.16"
-    "@vtbag/turn-signal": "npm:^1.0.3"
-  checksum: 10c0/ea0f222fb7745f9e6895596e38d795ae81fa7486e253e7c4672aff7703b4d9fbd5008e5e5162bb2c0958304623206800788e2e45506143a73f4f056eec0413eb
+    "@vtbag/inspection-chamber": "npm:^1.0.17"
+    "@vtbag/turn-signal": "npm:^1.1.0"
+  checksum: 10c0/8da4375fe6f53c7d9816e9ac17e8c0dc7dceb07c312064028e43f512f5a474298034cbdf28a21f8fcffc7bc9fc11985e706039447fc2d85144b83f3d4e4bffe4
   languageName: node
   linkType: hard
 
@@ -5715,7 +5715,7 @@ __metadata:
     astro: "npm:4.16.6"
     astro-compressor: "npm:^0.4.1"
     astro-font: "npm:^0.1.81"
-    astro-vtbot: "npm:^1.10.4"
+    astro-vtbot: "npm:^1.10.5"
     clipboard: "npm:^2.0.11"
     globby: "npm:^14.0.2"
     gsap: "npm:^3.12.5"
@@ -6389,11 +6389,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>":
   version: 5.6.3
-  resolution: "typescript@patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"
+  resolution: "typescript@patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/7c9d2e07c81226d60435939618c91ec2ff0b75fbfa106eec3430f0fcf93a584bc6c73176676f532d78c3594fe28a54b36eb40b3d75593071a7ec91301533ace7
+  checksum: 10c0/ac8307bb06bbfd08ae7137da740769b7d8c3ee5943188743bb622c621f8ad61d244767480f90fbd840277fbf152d8932aa20c33f867dea1bb5e79b187ca1a92f
   languageName: node
   linkType: hard
 
