@@ -989,17 +989,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-email/render@npm:0.0.17":
-  version: 0.0.17
-  resolution: "@react-email/render@npm:0.0.17"
+"@react-email/render@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@react-email/render@npm:1.0.1"
   dependencies:
     html-to-text: "npm:9.0.5"
     js-beautify: "npm:^1.14.11"
     react-promise-suspense: "npm:0.3.4"
   peerDependencies:
-    react: ^18.2.0
-    react-dom: ^18.2.0
-  checksum: 10c0/34a1c5a55586d7cd723638d8cd5328fddf30015e5065a2e9d5204772e0532e84d63af1b2b1b8ec02cef52a8f57d34871200c0075a9ed7b2861362d8138d3db5e
+    react: ^18.0 || ^19.0 || ^19.0.0-rc
+    react-dom: ^18.0 || ^19.0 || ^19.0.0-rc
+  checksum: 10c0/52a96fb4ca502cb577071779a665520403b1f5910b7267df91486d2a05bda7ede9e65e2427752c870801aae5c9d18a2d9da0706032388a966ef910ce831a5af5
   languageName: node
   linkType: hard
 
@@ -5487,12 +5487,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resend@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "resend@npm:4.0.0"
+"resend@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "resend@npm:4.0.1"
   dependencies:
-    "@react-email/render": "npm:0.0.17"
-  checksum: 10c0/45934a4a044ead8afe17e9d9982f468f66979b4078b15d512b440354467bc50946a856e1eb8e7fe5af9113cf32e0495995ab00a039692d7e2778022041f50105
+    "@react-email/render": "npm:1.0.1"
+  checksum: 10c0/0330ed3b654e7d5ebe3e4d0ff459a6d6a2e550d6bfe6d4e8e9a4d6459fe4a35c9158ca317599304c203ec76171f1e2bc4f078daec64843e191cbdfed46084141
   languageName: node
   linkType: hard
 
@@ -5712,7 +5712,7 @@ __metadata:
     prettier-plugin-tailwindcss: "npm:^0.6.8"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
-    resend: "npm:^4.0.0"
+    resend: "npm:^4.0.1"
     sharp: "npm:^0.33.5"
     tailwindcss: "npm:^3.4.15"
     typescript: "npm:^5.6.3"
@@ -6351,11 +6351,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>":
   version: 5.6.3
-  resolution: "typescript@patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"
+  resolution: "typescript@patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/7c9d2e07c81226d60435939618c91ec2ff0b75fbfa106eec3430f0fcf93a584bc6c73176676f532d78c3594fe28a54b36eb40b3d75593071a7ec91301533ace7
+  checksum: 10c0/ac8307bb06bbfd08ae7137da740769b7d8c3ee5943188743bb622c621f8ad61d244767480f90fbd840277fbf152d8932aa20c33f867dea1bb5e79b187ca1a92f
   languageName: node
   linkType: hard
 
