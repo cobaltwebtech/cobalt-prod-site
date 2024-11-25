@@ -3704,9 +3704,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lenis@npm:^1.1.16":
-  version: 1.1.16
-  resolution: "lenis@npm:1.1.16"
+"lenis@npm:^1.1.17":
+  version: 1.1.17
+  resolution: "lenis@npm:1.1.17"
   peerDependencies:
     react: ">=17.0.0"
     vue: ">=3.0.0"
@@ -3715,7 +3715,7 @@ __metadata:
       optional: true
     vue:
       optional: true
-  checksum: 10c0/b64137f50a37271faa3b53328f9cf7b984284b4bf78ab75b6e9a1defacbe5da46d8440da675322acc2925def320fc778a29c60d3b10fed1e51286b4c673bcb02
+  checksum: 10c0/64508d8cb2148d71f707bcaf4f2caf4219f5647f36b14e2aa8093dddda8ae7c6d85d831e89d06573966289e326f012015a38b3744a493671af359e5c70ef9cdd
   languageName: node
   linkType: hard
 
@@ -5705,7 +5705,7 @@ __metadata:
     globby: "npm:^14.0.2"
     gsap: "npm:^3.12.5"
     html-minifier: "npm:^4.0.0"
-    lenis: "npm:^1.1.16"
+    lenis: "npm:^1.1.17"
     preline: "npm:^2.5.1"
     prettier: "npm:^3.3.3"
     prettier-plugin-astro: "npm:^0.14.1"
@@ -6351,11 +6351,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>":
   version: 5.6.3
-  resolution: "typescript@patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"
+  resolution: "typescript@patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/7c9d2e07c81226d60435939618c91ec2ff0b75fbfa106eec3430f0fcf93a584bc6c73176676f532d78c3594fe28a54b36eb40b3d75593071a7ec91301533ace7
+  checksum: 10c0/ac8307bb06bbfd08ae7137da740769b7d8c3ee5943188743bb622c621f8ad61d244767480f90fbd840277fbf152d8932aa20c33f867dea1bb5e79b187ca1a92f
   languageName: node
   linkType: hard
 
