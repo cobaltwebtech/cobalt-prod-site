@@ -8,7 +8,8 @@
     "preview": "astro preview",
     "update": "yarn dlx @astrojs/upgrade",
     "cc": "yarn cache clean",
-    "astro": "astro"
+    "astro": "astro",
+    "clean": "rimraf dist .astro node_modules yarn.lock .yarn"
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
@@ -20,16 +21,16 @@
     "@preline/dropdown": "^2.5.0",
     "@preline/overlay": "^2.5.0",
     "@preline/tabs": "^2.5.0",
-    "@vercel/analytics": "^1.4.0",
+    "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
-    "astro": "4.16.13",
+    "astro": "4.16.14",
     "astro-compressor": "^0.4.1",
     "astro-font": "^0.1.81",
     "clipboard": "^2.0.11",
     "globby": "^14.0.2",
     "gsap": "^3.12.5",
     "html-minifier": "^4.0.0",
-    "lenis": "^1.1.16",
+    "lenis": "^1.1.17",
     "preline": "^2.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -45,8 +46,9 @@
     "astro-vtbot": "^1.10.7",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.8",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "rimraf": "^6.0.1",
     "sharp": "^0.33.5",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.2"
   }
 }
