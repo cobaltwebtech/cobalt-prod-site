@@ -30,6 +30,9 @@ export const POST: APIRoute = async ({ request }) => {
     }), 
     {
       status: 200,
+      headers: {
+        'Content-Type': 'application/json'
+      }  
     });
   } catch (error) {
     console.error('Failed to send email:', error);
