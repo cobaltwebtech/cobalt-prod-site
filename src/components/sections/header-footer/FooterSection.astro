@@ -64,12 +64,17 @@ const sectionThreeHours: string = "9AM - 5PM (US Central, UTC -5)"
     <div
       class="mt-9 grid gap-y-2 sm:mt-12 sm:flex sm:items-center sm:justify-between sm:gap-y-0"
     >
-      <div class="flex gap-2.5 items-center justify-between">
-        <p class="text-sm text-slate-600 dark:text-slate-400">
-          © <span id="current-year"></span> <span class="font-bold">{SITE.title}</span> - Based, built, and coded in Austin, Texas USA.
+      <div>
+        <p class="mb-2 text-sm text-slate-800 dark:text-slate-200">
+          © <span id="current-year"></span> - <span class="font-bold text-xl">{SITE.title}</span>
         </p>
-        <Icon name="usFlag" />
-        <Icon name="txFlag" />
+        <p class="mb-4 text-sm text-slate-600 dark:text-slate-400">
+          Based, built, and coded in Austin, Texas USA.
+        </p>
+        <div class="flex gap-2.5">
+          <Icon name="usFlag" />
+          <Icon name="txFlag" />
+        </div>
       </div>
 
       <!-- Social Brands -->

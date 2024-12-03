@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 
@@ -32,8 +32,7 @@ export default defineConfig({
   ],
   output: 'server',
   experimental: {
-    clientPrerender: true,
-    directRenderScript: true
+    clientPrerender: true
   },
   adapter: vercel({
     imageService: true,
