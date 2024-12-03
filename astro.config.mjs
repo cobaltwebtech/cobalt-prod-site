@@ -31,6 +31,9 @@ export default defineConfig({
     })
   ],
   output: 'server',
+  server: {
+    host: true
+  },
   experimental: {
     clientPrerender: true
   },
