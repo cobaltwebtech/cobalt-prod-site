@@ -1,10 +1,6 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
-export const config = {
-  runtime: 'edge',
-};
-
 export const POST: APIRoute = async ({ request }) => {
   try {
     const formData = await request.formData();
@@ -13,6 +9,8 @@ export const POST: APIRoute = async ({ request }) => {
     const email = formData.get('email') as string;
     const phone = formData.get('phone') as string;
     const message = formData.get('message') as string;
+
+    console.log('Received form data:', { firstname, lastname, email, phone, message });
 
     const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
@@ -37,6 +35,8 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
+    console.log('Email sent successfully:', data);
+
     return new Response(JSON.stringify({ 
       success: true,
       data: data
@@ -60,7 +60,3 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 };
-
-console.log('Request received:', request.method, request.url);
-console.log('Request headers:', Object.fromEntries(request.headers));
-console.log('Form data:', Object.fromEntries(formData));
