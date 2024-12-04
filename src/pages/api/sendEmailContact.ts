@@ -4,11 +4,11 @@ import { Resend } from 'resend';
 export const POST: APIRoute = async ({ request }) => {
   try {
     const formData = await request.formData();
-    const firstname = formData.get('firstname');
-    const lastname = formData.get('lastname');
-    const email = formData.get('email');
-    const phone = formData.get('phone');
-    const message = formData.get('message');
+    const firstname = formData.get('firstname') as string;
+    const lastname = formData.get('lastname') as string;
+    const email = formData.get('email') as string;
+    const phone = formData.get('phone') as string;
+    const message = formData.get('message') as string;
 
     const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
