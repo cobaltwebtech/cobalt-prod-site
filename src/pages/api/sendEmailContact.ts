@@ -1,6 +1,10 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
+export const config = {
+  runtime: 'edge',
+};
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     const formData = await request.formData();
@@ -56,3 +60,7 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 };
+
+console.log('Request received:', request.method, request.url);
+console.log('Request headers:', Object.fromEntries(request.headers));
+console.log('Form data:', Object.fromEntries(formData));
