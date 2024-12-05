@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-import vercel from "@astrojs/vercel";
+import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 
@@ -31,9 +31,6 @@ export default defineConfig({
     })
   ],
   output: 'server',
-  server: {
-    host: true
-  },
   experimental: {
     clientPrerender: true
   },
@@ -41,6 +38,9 @@ export default defineConfig({
     imageService: true,
     webAnalytics: { 
       enabled: true 
+    },
+    serverless: {
+      maxDuration: 60 // Set the maximum execution time for serverless functions (in seconds)
     }
   })
 });
