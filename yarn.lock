@@ -1759,9 +1759,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:5.0.1":
-  version: 5.0.1
-  resolution: "astro@npm:5.0.1"
+"astro@npm:5.0.3":
+  version: 5.0.3
+  resolution: "astro@npm:5.0.3"
   dependencies:
     "@astrojs/compiler": "npm:^2.10.3"
     "@astrojs/internal-helpers": "npm:0.4.2"
@@ -1827,7 +1827,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10c0/ebaaa53e3843deaf354f66a58c15a8da8e05830b980c25f606314863cb2a8c3db6151b6010740781b454f6e299cecbadf8e2bbd072792ae5ac58b155dd8e606b
+  checksum: 10c0/df8e925a87c5904d286b44081cbbe9e8fb662e3647156e52a85a0f124b13f19648caadf2fe28e7338a4e644f70da984cd9bcd012779d40627d5dbe6c0f822d9e
   languageName: node
   linkType: hard
 
@@ -5593,7 +5593,7 @@ __metadata:
     "@types/react-dom": "npm:^18.3.1"
     "@vercel/analytics": "npm:^1.4.1"
     "@vercel/speed-insights": "npm:^1.1.0"
-    astro: "npm:5.0.1"
+    astro: "npm:5.0.3"
     astro-compressor: "npm:^1.0.0"
     astro-font: "npm:^0.1.81"
     astro-vtbot: "npm:^1.10.7"
