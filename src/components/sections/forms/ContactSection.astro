@@ -44,17 +44,22 @@ if (Astro.request.method === "POST") {
     if (!verificationResult.success) {
       errorMessage = "CAPTCHA verification failed. Please try again.";
     } else {
-      // Proceed with form submission
+      // If Turnstile check is verified then proceed with form submission
       const response = await fetch('https://testing.cobaltweb.dev/api/sendEmailContact', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.FORM_API_SECRET}`
         },
         body: JSON.stringify(Object.fromEntries(formData)),
       });
 
       console.log('API Response Status:', response.status);
       console.log('API Response Headers:', Object.fromEntries(response.headers));
+
+      if (response.status === 401) {
+      throw new Error('Unauthorized: Please check your API credentials.');
+      }
 
       if (!response.ok) {
         const errorText = await response.text();

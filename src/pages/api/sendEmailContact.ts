@@ -2,6 +2,18 @@ import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
 export const POST: APIRoute = async ({ request }) => {
+  // Check for authentication
+  const authHeader = request.headers.get('Authorization');
+  if (!authHeader || authHeader !== `Bearer ${import.meta.env.FORM_API_SECRET}`) {
+    console.error('Authentication failed:', { authHeader, expectedAuth: `Bearer ${import.meta.env.FORM_API_SECRET}` });
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 401,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  }
+
   try {
     const formData = await request.formData();
     const firstname = formData.get('firstname') as string;
@@ -13,7 +25,8 @@ export const POST: APIRoute = async ({ request }) => {
     console.log('Received form data:', { firstname, lastname, email, phone, message });
 
     const resend = new Resend(import.meta.env.RESEND_API_KEY);
-
+    
+    // Format the email template
     const { data, error } = await resend.emails.send({
       from: 'noreply@contact.cobaltweb.tech',
       to: 'info@cobaltweb.tech',
