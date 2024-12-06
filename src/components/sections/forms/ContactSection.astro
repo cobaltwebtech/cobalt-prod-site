@@ -45,7 +45,7 @@ if (Astro.request.method === "POST") {
       errorMessage = "CAPTCHA verification failed. Please try again.";
     } else {
       // Proceed with form submission
-      const response = await fetch('https://testing.cobaltweb.dev/api/sendEmailContact', {
+      const response = await fetch('/api/sendEmailContact', {
         method: "POST",
         body: formData,
       });
@@ -95,7 +95,7 @@ if (Astro.request.method === "POST") {
 
           {errorMessage && <p class="my-6 p-3 rounded text-center font-bold text-white bg-orange-700">{errorMessage}</p>}
 
-          <form id="contact-form" method="POST">
+          <form id="contact-form" method="POST" action="/api/sendEmailContact">
             <!-- Form fields -->
             <div class="grid gap-4">
               <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
