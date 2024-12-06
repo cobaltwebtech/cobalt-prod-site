@@ -20,6 +20,8 @@ let isSubmitted: boolean = false;
 // Cloudflare Turnstile CAPTCHA spam protection public key
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
+const { cookies, locals } = Astro;
+
 if (Astro.request.method === "POST") {
   try {
     const formData = await Astro.request.formData();
@@ -45,7 +47,7 @@ if (Astro.request.method === "POST") {
       errorMessage = "CAPTCHA verification failed. Please try again.";
     } else {
       // Proceed with form submission
-      const response = await fetch('/api/sendEmailContact', {
+      const response = await fetch(`${Astro.url.origin}/api/sendEmailContact`, {
         method: "POST",
         body: formData,
       });
