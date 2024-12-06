@@ -4,19 +4,19 @@ import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
 export const POST: APIRoute = async ({ request }) => {
-  // Define form inputs here
-  const formData = await request.formData();
-  const firstname = formData.get('firstname');
-  const lastname = formData.get('lastname');
-  const email = formData.get('email');
-  const phone = formData.get('phone');
-  const message = formData.get('message');
-
-  // Import Resend API key
-  const resend = new Resend(import.meta.env.RESEND_API_KEY);
-
-  // Email message to Resend
   try {
+    // Define form inputs here
+    const formData = await request.formData();
+    const firstname = formData.get('firstname');
+    const lastname = formData.get('lastname');
+    const email = formData.get('email');
+    const phone = formData.get('phone');
+    const message = formData.get('message');
+
+    // Import Resend API key
+    const resend = new Resend(import.meta.env.RESEND_API_KEY);
+
+    // Email message to Resend
     await resend.emails.send({
       from: 'noreply@contact.cobaltweb.tech',
       to: 'info@cobaltweb.tech',
@@ -30,6 +30,9 @@ export const POST: APIRoute = async ({ request }) => {
     }), 
     {
       status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
   } catch (error) {
     console.error('Failed to send email:', error);
@@ -39,6 +42,9 @@ export const POST: APIRoute = async ({ request }) => {
     }), 
     {
       status: 500,
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
   }
 };
