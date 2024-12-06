@@ -18,7 +18,7 @@ let errorMessage: string | null = null;
 let isSubmitted: boolean = false;
 
 // Cloudflare Turnstile CAPTCHA spam protection public key
-const turnstileSiteKey = import.meta.env.DEV_TS_PUBLIC_KEY;
+const turnstileSiteKey = import.meta.env.TURNSTILE_PUBLIC_KEY;
 
 if (Astro.request.method === "POST") {
   try {
@@ -34,7 +34,7 @@ if (Astro.request.method === "POST") {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        secret: import.meta.env.DEV_TS_SECRET_KEY,
+        secret: import.meta.env.TURNSTILE_SECRET_KEY,
         response: turnstileResponse,
       }),
     });
@@ -99,7 +99,7 @@ if (Astro.request.method === "POST") {
 
           {errorMessage && <p class="my-6 p-3 rounded text-center font-bold text-white bg-orange-700">{errorMessage}</p>}
 
-          <form id="contact-form" method="POST">
+          <form id="contact-form" method="POST" action={Astro.url.pathname}>
             <!-- Form fields -->
             <div class="grid gap-4">
               <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
