@@ -95,7 +95,7 @@ if (Astro.request.method === "POST") {
 
           {errorMessage && <p class="my-6 p-3 rounded text-center font-bold text-white bg-orange-700">{errorMessage}</p>}
 
-          <form id="contact-form" method="POST" action={Astro.url.pathname}>
+          <form id="contact-form" method="POST">
             <!-- Form fields -->
             <div class="grid gap-4">
               <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
