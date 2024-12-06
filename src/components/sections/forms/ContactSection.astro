@@ -20,8 +20,6 @@ let isSubmitted: boolean = false;
 // Cloudflare Turnstile CAPTCHA spam protection public key
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
-const { cookies, locals } = Astro;
-
 if (Astro.request.method === "POST") {
   try {
     const formData = await Astro.request.formData();
