@@ -44,6 +44,51 @@ const pageTitle: string = `Contact | ${SITE.title}`;
 >
   <ContactSection />
 </MainLayout>
+
+<!-- Handle form submission data and messages. See ContactSection.astro for elements -->
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const errorMessageContainer = document.getElementById('error-message') as HTMLDivElement;
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        
+        try {
+          const response = await fetch('/api/sendEmailContact', {
+            method: 'POST',
+            body: formData
+          });
+
+          if (response.redirected) {
+            // If the server responded with a redirect, follow it
+            window.location.href = response.url;
+          } else if (response.ok) {
+            const result = await response.json();
+            if (result.success) {
+              // Redirect to the confirmation page if the server didn't already do so
+              window.location.href = '/contact/submission-received/';
+            } else {
+              throw new Error(result.error || 'An error occurred');
+            }
+          } else {
+            throw new Error('Server responded with an error');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          if (errorMessageContainer) {
+            errorMessageContainer.textContent = error instanceof Error ? error.message : 'An unexpected error occurred. Please try again later.';
+            errorMessageContainer.style.display = 'block';
+          }
+        }
+      });
+    }
+  });
+</script>
+
 <!-- GSAP animations on success message. Targets the elements in SuccessMessage.astro component -->
 <script>
   import { gsap } from "gsap";
