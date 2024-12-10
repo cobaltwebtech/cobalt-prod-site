@@ -134,7 +134,7 @@ const appleTouchIcon = await getImage({
 <AstroFont
 	config={[
 		{
-			preload: false,
+			preload: true,
 			display: 'swap',
 			name: 'Proxima Nova',
 			fallback: 'sans-serif',
@@ -146,7 +146,6 @@ const appleTouchIcon = await getImage({
 				},
 				{
 					weight: '700',
-					preload: true,
 					style: 'normal',
 					path: join(process.cwd(), 'public', 'fonts', 'ProximaNova-Bold.woff2')
 				},
