@@ -1,8 +1,0 @@
-{
-  "outputDirectory": "dist/client",
-  "routes": [
-    { "src": "/sitemap-index.xml", "dest": "/sitemap-index.xml" },
-    { "src": "/sitemap-0.xml", "dest": "/sitemap-0.xml" }
-  ]
-}
-
