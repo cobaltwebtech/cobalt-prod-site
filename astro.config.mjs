@@ -10,6 +10,7 @@ export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
   site: "https://www.cobaltweb.tech/",
   prefetch: true,
+  outDir: './dist',
   build: {
     assets: 'assets'
   },
