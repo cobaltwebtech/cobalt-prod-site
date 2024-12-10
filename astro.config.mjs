@@ -10,13 +10,13 @@ export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
   site: "https://www.cobaltweb.tech/",
   prefetch: true,
-  outDir: './dist',
   build: {
     assets: 'assets'
   },
   integrations: [
     tailwind(),
     sitemap({
+      outDir: './dist/client',
       i18n: {
         defaultLocale: "en",
         // All urls that don't contain `fr` after `https://www.cobaltweb.tech/` will be treated as default locale, i.e. `en`
