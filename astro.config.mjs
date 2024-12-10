@@ -38,6 +38,7 @@ export default defineConfig({
     imageService: true,
     webAnalytics: { 
       enabled: true 
-    }
+    },
+    edgeMiddleware: true
   })
 });
