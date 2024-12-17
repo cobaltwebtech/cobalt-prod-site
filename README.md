@@ -80,12 +80,13 @@ src/
 ├── pages/                # Astro files representing individual pages and website sections
 │   ├── 404.astro         # Custom 404 page
 │   ├── about.astro       # About us page
-│   ├── contact.astro     # General contact page with webform
+│   ├── api/              # API routes are placed here
+│   ├── contact/          # General contact page with webform
 │   ├── index.astro       # The landing/home page
 │   ├── products/         # Product page contains ..slug.astro for rendering each product page dynamically
 │   ├── services/         # Services page contains ..slug.astro for rendering each service page dynamically
 │   ├── robots.txt.ts     # Dynamically generates robots.txt
-│   ├── support.astro     # Support contact page with webform
+│   ├── support/          # Support contact page with webform
 └── utils/                # Shared utility functions and helpers
 
 ```
@@ -99,7 +100,11 @@ Experience buttery smooth scrolling with [Lenis](https://lenis.studiofreight.com
 
 ### GSAP Integration
 
- For individual product pages, [GSAP](https://gsap.com/) has been integrated to add engaging animations that execute as soon as the product page loads.
+For individual product pages, [GSAP](https://gsap.com/) has been integrated to add engaging animations that execute as soon as the product page loads.
+
+### Resend Integration
+
+Send page form data securely using [Resend](https://resend.com/). The Resend API route can be customized to set up any template to email any or all of the form data caputred. This is set up as a transactional email service as notification.
 
 ### Hiding Scrollbar
 

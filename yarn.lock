@@ -154,9 +154,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/vercel@npm:8.0.0":
-  version: 8.0.0
-  resolution: "@astrojs/vercel@npm:8.0.0"
+"@astrojs/vercel@npm:8.0.1":
+  version: 8.0.1
+  resolution: "@astrojs/vercel@npm:8.0.1"
   dependencies:
     "@astrojs/internal-helpers": "npm:^0.4.1"
     "@vercel/analytics": "npm:^1.4.1"
@@ -166,7 +166,7 @@ __metadata:
     fast-glob: "npm:^3.3.2"
   peerDependencies:
     astro: ^5.0.0
-  checksum: 10c0/66c3ddff1f0a2fa577bd12274fff351c7e76ba520578cf718a2c899aac39039fc75f5ede86605e2dc22e837919fd27a12b55f1d2ab03acd34b59fc20901763c9
+  checksum: 10c0/8ad405397ea93008fb51a3b159b21b9fc7aa4dadd8efb12ebb04fb1e737b9f882a67eee3b60d5fad2e8553cf7d0359f34c885f47be6bdd91376d00f6602f0832
   languageName: node
   linkType: hard
 
@@ -1720,9 +1720,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:5.0.4":
-  version: 5.0.4
-  resolution: "astro@npm:5.0.4"
+"astro@npm:5.0.9":
+  version: 5.0.9
+  resolution: "astro@npm:5.0.9"
   dependencies:
     "@astrojs/compiler": "npm:^2.10.3"
     "@astrojs/internal-helpers": "npm:0.4.2"
@@ -1788,7 +1788,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10c0/0a2835f7475f3c3228619f6a482f9aa5c5ea764b141b6a10ca6157dfe544a381528bd50d05eba855cd7c1f2e69fc7d141a6f8ead0e4af0d053d06bbbb4457c4f
+  checksum: 10c0/84d2cbe75e9a6e0bef414f88db2a6da470120089de4944c2f35c63214649794be3f7aab3bd15c3a22ac22316380433b6932542c790b671e599fa33f61b6eb33a
   languageName: node
   linkType: hard
 
@@ -5402,7 +5402,7 @@ __metadata:
     "@astrojs/check": "npm:0.9.4"
     "@astrojs/sitemap": "npm:3.2.1"
     "@astrojs/tailwind": "npm:5.1.3"
-    "@astrojs/vercel": "npm:8.0.0"
+    "@astrojs/vercel": "npm:8.0.1"
     "@preline/accordion": "npm:^2.6.0"
     "@preline/collapse": "npm:^2.6.0"
     "@preline/dropdown": "npm:^2.6.0"
@@ -5414,7 +5414,7 @@ __metadata:
     "@types/react-dom": "npm:^19.0.2"
     "@vercel/analytics": "npm:^1.4.1"
     "@vercel/speed-insights": "npm:^1.1.0"
-    astro: "npm:5.0.4"
+    astro: "npm:5.0.9"
     astro-compressor: "npm:^1.0.0"
     astro-font: "npm:^0.1.81"
     astro-vtbot: "npm:^1.10.7"
@@ -5432,7 +5432,7 @@ __metadata:
     resend: "npm:^4.0.1"
     rimraf: "npm:^6.0.1"
     sharp: "npm:^0.33.5"
-    tailwindcss: "npm:^3.4.16"
+    tailwindcss: "npm:^3.4.17"
     typescript: "npm:^5.7.2"
   languageName: unknown
   linkType: soft
@@ -5832,9 +5832,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.4.16":
-  version: 3.4.16
-  resolution: "tailwindcss@npm:3.4.16"
+"tailwindcss@npm:^3.4.17":
+  version: 3.4.17
+  resolution: "tailwindcss@npm:3.4.17"
   dependencies:
     "@alloc/quick-lru": "npm:^5.2.0"
     arg: "npm:^5.0.2"
@@ -5861,7 +5861,7 @@ __metadata:
   bin:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
-  checksum: 10c0/f716ff38e0ea6f25c2b3d811e0aaac07f627193e8527d8ad945d5088d4a188ac1eb1e8ee9aef76d8525e756ffbb8369d717013d3ffc2f49fabaa94cb1e6784c1
+  checksum: 10c0/cc42c6e7fdf88a5507a0d7fea37f1b4122bec158977f8c017b2ae6828741f9e6f8cb90282c6bf2bd5951fd1220a53e0a50ca58f5c1c00eb7f5d9f8b80dc4523c
   languageName: node
   linkType: hard
 
