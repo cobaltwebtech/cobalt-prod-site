@@ -1473,7 +1473,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^19.0.1":
+"@types/react@npm:^19.0.2":
   version: 19.0.2
   resolution: "@types/react@npm:19.0.2"
   dependencies:
@@ -5889,7 +5889,7 @@ __metadata:
     "@preline/tabs": "npm:^2.6.0"
     "@tailwindcss/forms": "npm:^0.5.9"
     "@tailwindcss/typography": "npm:^0.5.15"
-    "@types/react": "npm:^19.0.1"
+    "@types/react": "npm:^19.0.2"
     "@types/react-dom": "npm:^19.0.2"
     "@vercel/analytics": "npm:^1.4.1"
     "@vercel/speed-insights": "npm:^1.1.0"
