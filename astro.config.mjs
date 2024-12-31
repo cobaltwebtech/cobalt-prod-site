@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
-import { CopyFilesPlugin } from "@/utils/copy-files";
+import { CopyFilesPlugin } from "@/copy-files";
 
 // https://astro.build/config
 export default defineConfig({
