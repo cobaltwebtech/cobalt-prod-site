@@ -3,6 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
+import { CopyFilesPlugin } from "@/utils/copy-files";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,7 +24,9 @@ export default defineConfig({
           en: "en" // The `defaultLocale` value must present in `locales` keys
         }
       }
-    }), 
+    }),
+    //Run CopyFilesPlugin to copy all files in output directory to Vercel static output
+    CopyFilesPlugin(),
     //astro-compressor must be last config in the integrations parameters
     compressor({ 
       gzip: false,
