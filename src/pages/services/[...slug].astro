@@ -14,7 +14,7 @@ declare global {
   interface Window {
     gsap: any;
   }
-}
+};
 // This gets the static paths for all the unique services
 export async function getStaticPaths() {
   const serviceEntries = await getCollection("services");
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
     params: { slug: service.slug },
     props: { service },
   }));
-}
+};
 
 const { service } = Astro.props;
 

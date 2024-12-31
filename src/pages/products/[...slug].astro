@@ -14,7 +14,7 @@ declare global {
   interface Window {
     gsap: any;
   }
-}
+};
 // This gets the static paths for all the unique products
 export async function getStaticPaths() {
   const productEntries = await getCollection("products");
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
     params: { slug: product.slug },
     props: { product },
   }));
-}
+};
 
 const { product } = Astro.props;
 

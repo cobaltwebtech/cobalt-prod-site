@@ -114,7 +114,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/sitemap@npm:3.2.1":
+"@astrojs/sitemap@npm:^3.2.1":
   version: 3.2.1
   resolution: "@astrojs/sitemap@npm:3.2.1"
   dependencies:
@@ -789,6 +789,42 @@ __metadata:
   version: 0.33.5
   resolution: "@img/sharp-win32-x64@npm:0.33.5"
   conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@inox-tools/aik-route-config@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "@inox-tools/aik-route-config@npm:0.8.0"
+  dependencies:
+    "@inox-tools/utils": "npm:^0.3.0"
+    debug: "npm:^4.3.7"
+    recast: "npm:^0.23.9"
+    vite: "npm:^6.0.2"
+  peerDependencies:
+    astro: ^5
+    astro-integration-kit: ~0.17
+  checksum: 10c0/568bb6ae84c14bdf8d7e68f15df3fe9bf7f0e03ff4fdbcc16a6b987b106cf6f14083bf45fb362479c3f8fa5d5522e3db4778822e14bc1a99f70981c72e25fba4
+  languageName: node
+  linkType: hard
+
+"@inox-tools/sitemap-ext@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@inox-tools/sitemap-ext@npm:0.4.0"
+  dependencies:
+    "@astrojs/sitemap": "npm:^3.2.1"
+    "@inox-tools/aik-route-config": "npm:^0.8.0"
+    astro-integration-kit: "npm:~0.17.0"
+    sitemap: "npm:^8.0.0"
+  peerDependencies:
+    astro: ^5
+  checksum: 10c0/1a1e338319acb392e9c098d153e0fdc31fa1b22179446ebee0e1c35f8030ca4cd58ce1bc6be683345960bc8ed408180d4dc77b6bb797bf35866167d6abb5e828
+  languageName: node
+  linkType: hard
+
+"@inox-tools/utils@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@inox-tools/utils@npm:0.3.0"
+  checksum: 10c0/f3f5c2a3f2b943fdaee0312519418f16c4bdd19fc0bb7d8ed36f336de8371f5ae673ffd6a871b5dafee975729ff27aacfef5905b4b3df4d24311984a946fea0f
   languageName: node
   linkType: hard
 
@@ -1701,6 +1737,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ast-types@npm:^0.16.1":
+  version: 0.16.1
+  resolution: "ast-types@npm:0.16.1"
+  dependencies:
+    tslib: "npm:^2.0.1"
+  checksum: 10c0/abcc49e42eb921a7ebc013d5bec1154651fb6dbc3f497541d488859e681256901b2990b954d530ba0da4d0851271d484f7057d5eff5e07cb73e8b10909f711bf
+  languageName: node
+  linkType: hard
+
 "astro-compressor@npm:^1.0.0":
   version: 1.0.0
   resolution: "astro-compressor@npm:1.0.0"
@@ -1712,6 +1757,18 @@ __metadata:
   version: 0.1.81
   resolution: "astro-font@npm:0.1.81"
   checksum: 10c0/03816ed1e4a8b7cb1d4930f2032b06292e8cac4ec631a0b779b22990e3092687f2fdaf5d627d2fb936c0ddc541d08f2afd7a57d4d478e23fc149f1c66d6cd4cf
+  languageName: node
+  linkType: hard
+
+"astro-integration-kit@npm:~0.17.0":
+  version: 0.17.0
+  resolution: "astro-integration-kit@npm:0.17.0"
+  dependencies:
+    pathe: "npm:^1.1.2"
+    recast: "npm:^0.23.7"
+  peerDependencies:
+    astro: ^4.12.0 || ^5.0.0-beta
+  checksum: 10c0/53f34d09003127719a52bd15a5f931c6dc25f77073576af6dd488b04870fd32741f718971cb99d5a8fd5f17042ff0ecc468dfba983b8cf1e579d3117821def8b
   languageName: node
   linkType: hard
 
@@ -2689,7 +2746,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esprima@npm:^4.0.0":
+"esprima@npm:^4.0.0, esprima@npm:~4.0.0":
   version: 4.0.1
   resolution: "esprima@npm:4.0.1"
   bin:
@@ -5146,6 +5203,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"recast@npm:^0.23.7, recast@npm:^0.23.9":
+  version: 0.23.9
+  resolution: "recast@npm:0.23.9"
+  dependencies:
+    ast-types: "npm:^0.16.1"
+    esprima: "npm:~4.0.0"
+    source-map: "npm:~0.6.1"
+    tiny-invariant: "npm:^1.3.3"
+    tslib: "npm:^2.0.1"
+  checksum: 10c0/65d6e780351f0180ea4fe5c9593ac18805bf2b79977f5bedbbbf26f6d9b619ed0f6992c1bf9e06dd40fca1aea727ad6d62463cfb5d3a33342ee5a6e486305fe5
+  languageName: node
+  linkType: hard
+
 "regex-recursion@npm:^5.0.0":
   version: 5.1.1
   resolution: "regex-recursion@npm:5.1.1"
@@ -5515,9 +5585,9 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@astrojs/check": "npm:0.9.4"
-    "@astrojs/sitemap": "npm:3.2.1"
     "@astrojs/tailwind": "npm:5.1.4"
     "@astrojs/vercel": "npm:8.0.1"
+    "@inox-tools/sitemap-ext": "npm:^0.4.0"
     "@preline/accordion": "npm:^2.6.0"
     "@preline/collapse": "npm:^2.6.0"
     "@preline/dropdown": "npm:^2.6.0"
@@ -5801,7 +5871,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map@npm:~0.6.0":
+"source-map@npm:~0.6.0, source-map@npm:~0.6.1":
   version: 0.6.1
   resolution: "source-map@npm:0.6.1"
   checksum: 10c0/ab55398007c5e5532957cb0beee2368529618ac0ab372d789806f5718123cc4367d57de3904b4e6a4170eb5a0b0f41373066d02ca0735a0c4d75c7d328d3e011
@@ -6019,6 +6089,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tiny-invariant@npm:^1.3.3":
+  version: 1.3.3
+  resolution: "tiny-invariant@npm:1.3.3"
+  checksum: 10c0/65af4a07324b591a059b35269cd696aba21bef2107f29b9f5894d83cc143159a204b299553435b03874ebb5b94d019afa8b8eff241c8a4cfee95872c2e1c1c4a
+  languageName: node
+  linkType: hard
+
 "tinyexec@npm:^0.3.1":
   version: 0.3.2
   resolution: "tinyexec@npm:0.3.2"
@@ -6077,7 +6154,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.4.0":
+"tslib@npm:^2.0.1, tslib@npm:^2.4.0":
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10c0/9c4759110a19c53f992d9aae23aac5ced636e99887b51b9e61def52611732872ff7668757d4e4c61f19691e36f4da981cd9485e869b4a7408d689f6bf1f14e62
@@ -6434,7 +6511,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^6.0.5":
+"vite@npm:^6.0.2, vite@npm:^6.0.5":
   version: 6.0.6
   resolution: "vite@npm:6.0.6"
   dependencies:
