@@ -5301,12 +5301,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"preline@npm:^2.6.0":
-  version: 2.6.0
-  resolution: "preline@npm:2.6.0"
+"preline@npm:^2.7.0":
+  version: 2.7.0
+  resolution: "preline@npm:2.7.0"
   dependencies:
     "@popperjs/core": "npm:^2.11.2"
-  checksum: 10c0/c11a367739ab87a23184a4fcd7adc3bd67c7d8569110b39ba67a10736c5f4122d96f5252a5aca0cad26584739a7cba304028520b3c22f05e434e20e418cb019a
+  checksum: 10c0/57790e6a72dc92482afb5db2ba9947beb237fb5c4014c656a89036c7301908b23f0c0041eca426e610a659d1dde078b01d3d7459172b86879b55567b0305952f
   languageName: node
   linkType: hard
 
@@ -5902,7 +5902,7 @@ __metadata:
     gsap: "npm:^3.12.5"
     html-minifier: "npm:^4.0.0"
     lenis: "npm:^1.1.18"
-    preline: "npm:^2.6.0"
+    preline: "npm:^2.7.0"
     prettier: "npm:^3.4.2"
     prettier-plugin-astro: "npm:^0.14.1"
     prettier-plugin-tailwindcss: "npm:^0.6.9"
