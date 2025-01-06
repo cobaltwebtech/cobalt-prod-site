@@ -1682,33 +1682,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vtbag/cam-shaft@npm:^1.0.1":
-  version: 1.0.3
-  resolution: "@vtbag/cam-shaft@npm:1.0.3"
-  checksum: 10c0/35ff5346fcb3745ee5208aa34bea9d45c670931868a6281b31421a58c984dbb2221541400386d9f413dd119ae6f4956e741d7231b7459824885d91a2285b07aa
+"@vtbag/cam-shaft@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "@vtbag/cam-shaft@npm:1.0.5"
+  checksum: 10c0/beecd239d43b91981ee3aba3435c4b91b5f1c9868174e0ab848c5de973cc12e16dc63a3c9de87cac0a9120f98259999ee9630312a879f70d880c70f5cd449a51
   languageName: node
   linkType: hard
 
-"@vtbag/element-crossing@npm:^1.0.4":
-  version: 1.0.4
-  resolution: "@vtbag/element-crossing@npm:1.0.4"
-  checksum: 10c0/505cc6e6372d39baeef523ad5f318ed986928cf1a7f4d5929fe04cb4f3d67417cde6c18200ce819fbca55ece9a0f921340cb42b6a7b99722c0ebad9dc9650c8f
+"@vtbag/element-crossing@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@vtbag/element-crossing@npm:1.1.0"
+  checksum: 10c0/92c36d1e5c02f5a5cc84c30dabf03ac8e71a924ac48f91a2d11c4ec437d70f3193b99f9dc3d7e5c5f0d453edcc4cf0ac135aed93b71fe2c4ce0a40a4f07204e7
   languageName: node
   linkType: hard
 
-"@vtbag/inspection-chamber@npm:^1.0.17":
-  version: 1.0.18
-  resolution: "@vtbag/inspection-chamber@npm:1.0.18"
-  dependencies:
-    eruda: "npm:^3.4.1"
-  checksum: 10c0/be563caff2030cf5d485979e2b75eabac3ead9cc9f30c4d282f4b5ade1a71e4e9670c575ad6fac2859bc17a7780e51c3c9ba21a4781bb6781491131cb752f82f
+"@vtbag/inspection-chamber@npm:^1.0.19":
+  version: 1.0.19
+  resolution: "@vtbag/inspection-chamber@npm:1.0.19"
+  checksum: 10c0/7bdc83e1b29a4d2c16095e1bb1838cd56d76c7c5424fc4a7fdfbbd39833588da021395600b2e09091ae75ad99cf2f60db21a717381324b24fc76ded88371afd1
   languageName: node
   linkType: hard
 
-"@vtbag/turn-signal@npm:^1.1.0":
-  version: 1.2.2
-  resolution: "@vtbag/turn-signal@npm:1.2.2"
-  checksum: 10c0/30cf0536f83dcf9f797c8df20329d6731b1d3518661cbf271942156ef110bad11b7ae7b05449c5fe2f08ee09b1b14f7f7007e3846515923a6bd06b8d8bdb3bb0
+"@vtbag/turn-signal@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@vtbag/turn-signal@npm:1.3.0"
+  checksum: 10c0/7155a5bb33b4c643e8425a4925e477a2391c157c9a99af99985cd1d7657ec1a7d063877202e5e92903e7cf342065ebba6673ac139e21ff918557fce1f0176407
   languageName: node
   linkType: hard
 
@@ -1863,15 +1861,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-vtbot@npm:^1.10.7":
-  version: 1.10.7
-  resolution: "astro-vtbot@npm:1.10.7"
+"astro-vtbot@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "astro-vtbot@npm:2.0.3"
   dependencies:
-    "@vtbag/cam-shaft": "npm:^1.0.1"
-    "@vtbag/element-crossing": "npm:^1.0.4"
-    "@vtbag/inspection-chamber": "npm:^1.0.17"
-    "@vtbag/turn-signal": "npm:^1.1.0"
-  checksum: 10c0/df91627a79fb5d737d9a6bac6ac210dc8ac4bc7526ba82b4578d16fd474071ca7199c8d81fef544dc066c9062ac1e58e2dad877e086f3cb0afb34b25011dff0d
+    "@vtbag/cam-shaft": "npm:^1.0.5"
+    "@vtbag/element-crossing": "npm:^1.1.0"
+    "@vtbag/inspection-chamber": "npm:^1.0.19"
+    "@vtbag/turn-signal": "npm:^1.3.0"
+  checksum: 10c0/265dfdea05d03dc9c8c604aa3447d45db9b4a49a23b4ce8b5cb220fb2e55e569869c6be7fb4223e70aab4b43f200c6c25e5feffc095814e663258350fbe53b9e
   languageName: node
   linkType: hard
 
@@ -2676,13 +2674,6 @@ __metadata:
   version: 2.0.3
   resolution: "err-code@npm:2.0.3"
   checksum: 10c0/b642f7b4dd4a376e954947550a3065a9ece6733ab8e51ad80db727aaae0817c2e99b02a97a3d6cecc648a97848305e728289cf312d09af395403a90c9d4d8a66
-  languageName: node
-  linkType: hard
-
-"eruda@npm:^3.4.1":
-  version: 3.4.1
-  resolution: "eruda@npm:3.4.1"
-  checksum: 10c0/815e86c708f494ee3e36dabc5bb75b6a5ac35bc2bd212b25dbe5b5527b1c0b116f03c7659b0186dd915f26e2380e1eae7e51ce79582991703bac45ed6788e043
   languageName: node
   linkType: hard
 
@@ -5896,7 +5887,7 @@ __metadata:
     astro: "npm:5.1.0"
     astro-compressor: "npm:^1.0.0"
     astro-font: "npm:^0.1.81"
-    astro-vtbot: "npm:^1.10.7"
+    astro-vtbot: "npm:^2.0.3"
     clipboard: "npm:^2.0.11"
     globby: "npm:^14.0.2"
     gsap: "npm:^3.12.5"
