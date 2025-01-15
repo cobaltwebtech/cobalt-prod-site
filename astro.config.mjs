@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel";
 import sitemap from '@inox-tools/sitemap-ext';
 import compressor from "astro-compressor";
-import { CopyFilesPlugin } from "./copy-files.ts";
+import {CopyFilesPlugin} from './copy-files.ts';
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,13 +25,11 @@ export default defineConfig({
         }
       }
     }),
-    //Run CopyFilesPlugin to copy all files in output directory to Vercel static output
-    CopyFilesPlugin(),
-    //astro-compressor must be last config in the integrations parameters
     compressor({ 
       gzip: false,
       brotli: true
-    })
+    }),
+    CopyFilesPlugin()
   ],
   output: 'server',
   experimental: {
@@ -43,5 +41,5 @@ export default defineConfig({
       enabled: true 
     },
     edgeMiddleware: true
-  })
+  }),
 });
