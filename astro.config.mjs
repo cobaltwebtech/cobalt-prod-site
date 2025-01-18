@@ -3,15 +3,16 @@ import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel";
 import sitemap from '@inox-tools/sitemap-ext';
 import compressor from "astro-compressor";
-import {CopyFilesPlugin} from './copy-files.ts';
 
-// https://astro.build/config
 export default defineConfig({
-  // https://docs.astro.build/en/guides/images/#authorizing-remote-images
-  site: "https://www.cobaltweb.tech/",
+  site: "https://www.cobaltweb.tech",
   prefetch: true,
   build: {
     assets: 'assets'
+  },
+  output: 'server',
+  experimental: {
+    clientPrerender: true
   },
   integrations: [
     tailwind(),
@@ -29,12 +30,7 @@ export default defineConfig({
       gzip: false,
       brotli: true
     }),
-    CopyFilesPlugin()
   ],
-  output: 'server',
-  experimental: {
-    clientPrerender: true
-  },
   adapter: vercel({
     imageService: true,
     webAnalytics: { 

@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
