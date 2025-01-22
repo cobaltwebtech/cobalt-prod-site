@@ -1,4 +1,4 @@
-import ogImageSrc from "@/images/cobalt-social.png";
+import ogImageSrc from "@/images/cobalt-ogimage.jpg";
 
 export const SITE = {
   title: "Cobalt Web Technologies",

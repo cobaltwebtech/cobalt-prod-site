@@ -12,7 +12,7 @@ async function buildFavicon() {
 
   try {
     await sharp(inputPath)
-      .resize(32, 32)
+      .resize(64, 64)
       .toFile(outputPath);
     console.log('Favicon generated successfully');
   } catch (error) {
