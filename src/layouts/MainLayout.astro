@@ -4,7 +4,8 @@ import Meta from "@/components/Meta.astro";
 import Navbar from "@/components/sections/header-footer/Navbar.astro";
 import FooterSection from "@/components/sections/header-footer/FooterSection.astro";
 import { SITE } from "@/data_files/constants";
-import  SpeedInsights  from "@vercel/speed-insights/astro"
+import  SpeedInsights  from "@vercel/speed-insights/astro";
+import "@styles/global.css";
 
 // Setting expected props
 const { title = SITE.title, meta, structuredData, externalScript, lang = "en" } = Astro.props;
@@ -26,12 +27,12 @@ We set the language of the page to English and add classes for scrollbar and scr
 -->
 <html lang={lang} class="scrollbar-hide lenis lenis-smooth scroll-pt-16">
   <head>
-    <!-- Adding metadata to the HTML document -->
-    <Meta meta={meta} structuredData={structuredData} />
     <!-- Define the title of the page -->
     <title>{title}</title>
+    <!-- Adding metadata to the HTML document -->
+    <Meta meta={meta} structuredData={structuredData} />
+    <!-- Script to handle dark mode. It will check if the theme is stored in localStorage or if dark theme is preferred by system settings -->
     <script is:inline>
-      // Script to handle dark mode. It will check if the theme is stored in localStorage or if dark theme is preferred by system settings
       if (
         localStorage.getItem("hs_theme") === "dark" ||
         (!("hs_theme" in localStorage) &&
@@ -74,17 +75,6 @@ We set the language of the page to English and add classes for scrollbar and scr
       </main>
     </div>
     <FooterSection />
-    <style>
-      /* CSS rules for the page scrollbar */
-      .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-      }
-
-      .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-    </style>
   </body>
 </html>
 <!-- 
