@@ -15,7 +15,7 @@ tabs:
 tabFirst:
   title: "Are You Using a CDN for Your Web Apps?"
   subTitle: |
-    From Auckland to Zürich, no matter where your website visitors are located on the whole planet, they will reach the nearest PoP (point of presence) server. This can significantly speed up the delivery of digital assets and save considerably on bandwidth charges. A CDN can deliver a blazingly fast website experience for your end users. 
+    From Auckland to Zürich, no matter where your website visitors are located on the whole planet, they will reach the nearest PoP (point of presence) server. This can significantly speed up the delivery of digital assets and save considerably on bandwidth charges. A CDN can deliver a blazingly fast website experience for your end users.
   ctaDescription: |
     Let Cobalt help you put your web app and its content on the edge for lightning-fast performance. Get in touch with us today.
   btnTitle: "Contact Us to Learn More"
@@ -29,7 +29,7 @@ tabFirstItems:
 tabSecond:
   title: "A CDN That Doesn’t Keep Your Users Waiting"
   subTitle: |
-    Supercharge your content delivery via a global distribution network with unparalleled speed, security, and stability. Deliver exceptional performance. For every request. Every time. 
+    Supercharge your content delivery via a global distribution network with unparalleled speed, security, and stability. Deliver exceptional performance. For every request. Every time.
   ctaDescription: |
     Let Cobalt help you put your web app and its content on the edge for lightning-fast performance. Get in touch with us today.
   btnTitle: "Contact Us to Learn More"

@@ -15,7 +15,7 @@ tabs:
 tabFirst:
   title: "What is the return on spend (ROS)?"
   subTitle: |
-    The best thing about digital advertising is that you don't pay until a customer clicks on your ad or you have a conversion (i.e. purchase a product, signup for a service, call your phone number link). Unlike legacy advertising platforms where you pay to blanket display your ad and hope you receive enough impressions to get a lead, such as radio or print, digital advertising is highly targeted with very high conversion rates. This means more sales, higher revenue, and more new customers for you. 
+    The best thing about digital advertising is that you don't pay until a customer clicks on your ad or you have a conversion (i.e. purchase a product, signup for a service, call your phone number link). Unlike legacy advertising platforms where you pay to blanket display your ad and hope you receive enough impressions to get a lead, such as radio or print, digital advertising is highly targeted with very high conversion rates. This means more sales, higher revenue, and more new customers for you.
   ctaDescription: |
     Get in touch with us today and we can find the right digital ad campaign solution for you.
   btnTitle: "Contact Us to Learn More"
@@ -31,7 +31,7 @@ tabFirstItems:
 tabSecond:
   title: "SEO Is Not Everything"
   subTitle: |
-    Are marketing companies and agencies touting buzzwords like SEO optimization, conversions, rankings, and ROI? Sometimes these agencies have the right idea and certainly can sell you promises of ranking higher in search results. SEO is more than a simple strategy to have. It starts with the optimization of your website and most agencies don't understand how the underlying technology works. At Cobalt, we do and can help with optimizing your website for best results in search rankings.  
+    Are marketing companies and agencies touting buzzwords like SEO optimization, conversions, rankings, and ROI? Sometimes these agencies have the right idea and certainly can sell you promises of ranking higher in search results. SEO is more than a simple strategy to have. It starts with the optimization of your website and most agencies don't understand how the underlying technology works. At Cobalt, we do and can help with optimizing your website for best results in search rankings.
   ctaDescription: |
     Get in touch with us today to find out how we can help with your SEO strategy.
   btnTitle: "Contact Us to Learn More"

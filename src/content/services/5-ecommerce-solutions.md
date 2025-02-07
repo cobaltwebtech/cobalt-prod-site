@@ -4,7 +4,7 @@ subHeading: "Are you selling your products online?"
 main:
   id: 5
   description1: |
-    How well does it sell online? Whether you are already online or just starting out, Cobalt Web Technologies can help bring your business online and reach a wider customer base. We can build your ecommerce website to showcase your brand and products exactly how you want. 
+    How well does it sell online? Whether you are already online or just starting out, Cobalt Web Technologies can help bring your business online and reach a wider customer base. We can build your ecommerce website to showcase your brand and products exactly how you want.
   description2: |
     Whether you are selling t-shirts to subscriptions, Cobalt can build your ecommerce solution today. We have the right solutions to make it easy to take your ecommerce site to the next level.
   imgMain: "@/images/services/service-ecommerce-shopping-phone.avif"
@@ -31,7 +31,7 @@ tabFirstItems:
 tabSecond:
   title: "Taking payments online shouldn't require an act of congress"
   subTitle: |
-    Is your payment system clunky, insecure, and problematic? Taking payments online can be complicated, but it doesn't have to be. We partner with Stripe, the world's leading online payment processor, to handle all the complication of integrating a payment gateway for your ecommerce website.  
+    Is your payment system clunky, insecure, and problematic? Taking payments online can be complicated, but it doesn't have to be. We partner with Stripe, the world's leading online payment processor, to handle all the complication of integrating a payment gateway for your ecommerce website.
   ctaDescription: |
     Find out how we can give you and your customers an excellent ecommerce shopping experience.
   btnTitle: "Contact Us to Learn More"

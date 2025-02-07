@@ -1,16 +1,16 @@
-export const prerender = true
+export const prerender = true;
 
-import type { APIRoute, ImageMetadata } from "astro"
-import icon from "@/images/icon.png"
-import maskableIcon from "@/images/icon-maskable.png"
+import type { APIRoute, ImageMetadata } from "astro";
+import icon from "@/images/icon.png";
+import maskableIcon from "@/images/icon-maskable.png";
 
 interface Favicon {
-  purpose: "any" | "maskable" | "monochrome"
-  src: ImageMetadata
-  sizes: number[]
+  purpose: "any" | "maskable" | "monochrome";
+  src: ImageMetadata;
+  sizes: number[];
 }
 
-const sizes = [192, 512]
+const sizes = [192, 512];
 const favicons: Favicon[] = [
   {
     purpose: "any",
@@ -22,7 +22,7 @@ const favicons: Favicon[] = [
     src: maskableIcon,
     sizes,
   },
-]
+];
 
 export const GET: APIRoute = async () => {
   const icons = favicons.flatMap((favicon) =>
@@ -32,7 +32,7 @@ export const GET: APIRoute = async () => {
       type: "image/png",
       purpose: favicon.purpose,
     })),
-  )
+  );
 
   const manifest = {
     short_name: "Cobalt",
@@ -43,8 +43,7 @@ export const GET: APIRoute = async () => {
     start_url: "/",
     theme_color: "#001689",
     background_color: "#000835",
-  }
+  };
 
-  return new Response(JSON.stringify(manifest))
-}
-
+  return new Response(JSON.stringify(manifest));
+};

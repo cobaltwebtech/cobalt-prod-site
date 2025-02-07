@@ -15,7 +15,7 @@ tabs:
 tabFirst:
   title: "Security and Performance Bundled Together"
   subTitle: |
-    Cobalt offers application security to protect from abuse, bad bots, DDoS attacks, and thwart suspicious activity. 
+    Cobalt offers application security to protect from abuse, bad bots, DDoS attacks, and thwart suspicious activity.
   ctaDescription: |
     Get in touch with us to find the exact solution to your web needs.
   btnTitle: "Contact Us to Learn More"
@@ -31,7 +31,7 @@ tabFirstItems:
 tabSecond:
   title: "Security Services in the Cloud"
   subTitle: |
-    By leveraging the power of our partner Cloudflare we can keep your web app secure from their global edge network of 300 data centers in more than 100 countries across the globe. This allows us to provide incredible performance, reliability, and scalability. 
+    By leveraging the power of our partner Cloudflare we can keep your web app secure from their global edge network of 300 data centers in more than 100 countries across the globe. This allows us to provide incredible performance, reliability, and scalability.
   ctaDescription: |
     Get in touch with us so we can help stop malicious actions on your web apps and protect your digital assets and customers from  threats.
   btnTitle: "Contact Us to Learn More"
