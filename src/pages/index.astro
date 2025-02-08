@@ -1,20 +1,22 @@
 ---
 export const prerender = true;
-// Import the necessary components
+// Import components
 import MainLayout from "@/layouts/MainLayout.astro";
 import HeroSection from "@/components/sections/landing/HeroSection.astro";
 import HeroSectionAlt from "@/components/sections/landing/HeroSectionAlt.astro";
 import ClientsSection from "@/components/sections/landing/ClientsSection.astro";
 import FeaturesGeneral from "@/components/sections/features/FeaturesGeneral.astro";
 import FeaturesNavs from "@/components/sections/features/FeaturesNavs.astro";
-import TestimonialsSection from "@/components/sections/testimonials/TestimonialsSection.astro";
+import HomePageStats from "@/components/sections/landing/HomePageStats.astro";
 import PricingSection from "@/components/sections/features/PricingSection.astro";
 import FAQ from "@/components/sections/features/FAQ.astro";
 import AnnouncementBanner from "@/components/ui/banners/AnnouncementBanner.astro";
-import heroImage from "@/images/highlight-ecommerce-stripe.avif";
+// Import data files
 import faqs from "@/data_files/faqs.json";
 import features from "@/data_files/features.json";
 import pricing from "@/data_files/pricing.json";
+// Import images
+import heroImage from "@/images/highlight-ecommerce-stripe.avif";
 import featureImage from "@/images/laptop-office-desk.avif";
 import ecommerce from "@/images/online-shopping-phone.avif";
 import laptop from "@/images/laptop-dark-tall.avif";
@@ -98,7 +100,7 @@ import globe from "@/images/global-network-tall.avif";
     ]}
   />
 
-  <TestimonialsSection
+  <HomePageStats
     title="Take Your Web Presence to the Next Level"
     subTitle="At Cobalt we can build you exactly what you need with performance in mind. From online threat mitigation to digital marketing, we have a broad range of services and tools to fit your exact needs."
     statistics={[
