@@ -7,7 +7,7 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     // Define form inputs here
     const formData = await request.formData();
-    const supportType = formData.get("support-type") as string;
+    const supportType = formData.get("supporttype") as string;
     const firstName = formData.get("firstname") as string;
     const lastName = formData.get("lastname") as string;
     const email = formData.get("email") as string;
