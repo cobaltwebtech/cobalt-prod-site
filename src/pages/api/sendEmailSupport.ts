@@ -8,11 +8,11 @@ export const POST: APIRoute = async ({ request }) => {
     // Define form inputs here
     const formData = await request.formData();
     const supportType = formData.get("support-type") as string;
-    const firstName = formData.get("first-name") as string;
-    const lastName = formData.get("last-name") as string;
+    const firstName = formData.get("firstname") as string;
+    const lastName = formData.get("lastname") as string;
     const email = formData.get("email") as string;
     const phone = formData.get("phone") as string;
-    const supportMessage = formData.get("support-message") as string;
+    const supportMessage = formData.get("supportmessage") as string;
 
     // Import Resend API key
     const resend = new Resend(import.meta.env.RESEND_API_KEY);
