@@ -11,6 +11,12 @@
       "@scripts/*": ["src/assets/scripts/*"],
       "@styles/*": ["src/assets/styles/*"],
       "@utils/*": ["src/utils/*"]
-    }
-  }
+    },
+    "verbatimModuleSyntax": true,
+    "moduleResolution": "bundler",
+    "allowJs": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

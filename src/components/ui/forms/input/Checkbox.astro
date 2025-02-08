@@ -1,5 +1,8 @@
 ---
-const { label = Astro.currentLocale === "fr" ? "Me rappeler" : "Remember me", id } = Astro.props;
+const {
+  label = Astro.currentLocale === "fr" ? "Me rappeler" : "Remember me",
+  id,
+} = Astro.props;
 
 interface Props {
   label?: string;
@@ -15,7 +18,7 @@ interface Props {
       id={id}
       name="remember-me"
       type="checkbox"
-      class="pointer-events-none mt-0.5 shrink-0 rounded border-slate-200 text-slate-600 focus:ring-yellow-400 dark:border-slate-700 dark:bg-slate-800 dark:checked:border-yellow-400 dark:checked:bg-yellow-400 dark:focus:ring-offset-slate-800"
+      class="focus:ring-yellow-400 dark:checked:border-yellow-400 dark:checked:bg-yellow-400 pointer-events-none mt-0.5 shrink-0 rounded border-slate-200 text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:focus:ring-offset-slate-800"
     />
   </div>
   <!-- Label for the checkbox -->

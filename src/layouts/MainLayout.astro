@@ -4,11 +4,18 @@ import Meta from "@/components/Meta.astro";
 import Navbar from "@/components/sections/header-footer/Navbar.astro";
 import FooterSection from "@/components/sections/header-footer/FooterSection.astro";
 import { SITE } from "@/data_files/constants";
-import  SpeedInsights  from "@vercel/speed-insights/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 import "@styles/global.css";
 
 // Setting expected props
-const { title = SITE.title, meta, structuredData, externalScript, lang = "en" } = Astro.props;
+const {
+  title = SITE.title,
+  meta,
+  structuredData,
+  externalScript,
+  scriptURL,
+  lang = "en",
+} = Astro.props;
 const umamiId = import.meta.env.UMAMI_WEBSITE_ID;
 
 // Interface to type-check the properties
@@ -17,8 +24,9 @@ interface Props {
   meta?: string;
   structuredData?: object;
   lang?: string;
-  externalScript?: string;
-};
+  externalScript?: boolean;
+  scriptURL?: string;
+}
 ---
 
 <!--
@@ -46,23 +54,25 @@ We set the language of the page to English and add classes for scrollbar and scr
     <!--Import Lenis smooth scroll script -->
     <script>
       import "@scripts/lenisSmoothScroll.js";
-    </script>    
-    <!-- Pass in conditional external script if needed on defined pages -->
-    {externalScript && <script async defer {...externalScript}>
-    </script>}
+    </script>
+    <!-- Pass in conditional script if needed on pages where the prop externalScript={true} -->
+    {externalScript && <script is:inline src={scriptURL} async defer />}
     <!-- Umami Analytics script tag -->
-    <script defer src="https://umami.cobaltweb.tech/script.js" data-website-id={umamiId}></script>
+    <script
+      defer
+      src="https://umami.cobaltweb.tech/script.js"
+      data-website-id={umamiId}></script>
     <!-- Vercel Speed Insights analytics  -->
     <script is:inline>
-      function speedInsightsBeforeSend(data){
-        console.log("Speed Insights before send", data)
+      function speedInsightsBeforeSend(data) {
+        console.log("Speed Insights before send", data);
         return data;
       }
     </script>
     <SpeedInsights />
   </head>
   <body
-    class="bg-slate-100 dark:bg-cobalt-950 selection:bg-cyan-200 dark:selection:bg-cyan-700"
+    class="bg-slate-100 selection:bg-cyan-200 dark:bg-cobalt-950 dark:selection:bg-cyan-700"
   >
     <!--
     Setting up the main structure of the page.
@@ -80,11 +90,11 @@ We set the language of the page to English and add classes for scrollbar and scr
 <!-- 
 Based, built, and coded in Austin, Texas USA by
 
- ██████╗ ██████╗ ██████╗  █████╗ ██╗  ████████╗    ██╗    ██╗███████╗██████╗     ████████╗███████╗ ██████╗██╗  ██╗
-██╔════╝██╔═══██╗██╔══██╗██╔══██╗██║  ╚══██╔══╝    ██║    ██║██╔════╝██╔══██╗    ╚══██╔══╝██╔════╝██╔════╝██║  ██║
-██║     ██║   ██║██████╔╝███████║██║     ██║       ██║ █╗ ██║█████╗  ██████╔╝       ██║   █████╗  ██║     ███████║
-██║     ██║   ██║██╔══██╗██╔══██║██║     ██║       ██║███╗██║██╔══╝  ██╔══██╗       ██║   ██╔══╝  ██║     ██╔══██║
-╚██████╗╚██████╔╝██████╔╝██║  ██║███████╗██║       ╚███╔███╔╝███████╗██████╔╝       ██║   ███████╗╚██████╗██║  ██║
- ╚═════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝        ╚══╝╚══╝ ╚══════╝╚═════╝        ╚═╝   ╚══════╝ ╚═════╝╚═╝  ╚═╝
+####################################
+||                                ||
+||    COBALT WEB TECHNOLOGIES     ||
+||  https://www.cobaltweb.tech/   ||
+||                                ||
+####################################
 
 -->

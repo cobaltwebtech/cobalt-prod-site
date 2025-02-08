@@ -60,7 +60,9 @@ interface PricingSectionProps {
           {pricing.staterPlan.name}
         </h3>
         <p class="text-cyan-200">{pricing.staterPlan.description}</p>
-        <p class="text-slate-200 italic mt-2">{pricing.staterPlan.subDescription}</p>
+        <p class="mt-2 italic text-slate-200">
+          {pricing.staterPlan.subDescription}
+        </p>
       </div>
 
       <div class="mb-4">
@@ -105,11 +107,13 @@ interface PricingSectionProps {
             {pricing.proPlan.name}
           </h3>
           <p class="text-cyan-200">{pricing.proPlan.description}</p>
-          <p class="text-slate-200 italic mt-2">{pricing.staterPlan.subDescription}</p>
+          <p class="mt-2 italic text-slate-200">
+            {pricing.staterPlan.subDescription}
+          </p>
         </div>
 
         <span
-          class="order-first inline-block rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-center text-orange-600 lg:order-none"
+          class="order-first inline-block rounded-full bg-slate-100 px-3 py-1 text-center text-xs font-bold uppercase tracking-wider text-orange-600 lg:order-none"
           >{pricing.badge}</span
         >
       </div>
@@ -146,7 +150,7 @@ interface PricingSectionProps {
     </div>
   </div>
   <!-- Call to action under products -->
-  <p class="mt-16 text-lg text-center text-slate-600 dark:text-slate-200">
+  <p class="mt-16 text-center text-lg text-slate-600 dark:text-slate-200">
     {pricing.textUnder}
   </p>
   <div class="mt-8 flex items-center justify-center gap-x-3 md:mt-12">
@@ -154,6 +158,10 @@ interface PricingSectionProps {
       {pricing.thirdOption}
     </p>
 
-    <SecondaryCTA title={pricing.btnText} url="/contact/" iconName="chatBubble"/>
+    <SecondaryCTA
+      title={pricing.btnText}
+      url="/contact/"
+      iconName="chatBubble"
+    />
   </div>
 </section>

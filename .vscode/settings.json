@@ -15,6 +15,12 @@
   "markdown.copyFiles.destination": {
     "/src/content/**/*": "/src/images/content/${documentBaseName}/"
   },
+
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
   "eslint.validate": [
     "javascript",
     "javascriptreact",

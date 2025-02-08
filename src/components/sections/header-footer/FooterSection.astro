@@ -12,8 +12,8 @@ const strings = enStrings;
 
 // Define the variables that will be used in this component
 const sectionThreeTitle: string = "Hours of Operation";
-const sectionThreeDays: string = "Monday - Friday"
-const sectionThreeHours: string = "9AM - 5PM (US Central Time)"
+const sectionThreeDays: string = "Monday - Friday";
+const sectionThreeHours: string = "9AM - 5PM (US Central Time)";
 ---
 
 <footer class="w-full bg-cobalt-50 dark:bg-cobalt-900">
@@ -37,7 +37,7 @@ const sectionThreeHours: string = "9AM - 5PM (US Central Time)"
                 <li>
                   <a
                     href={link.url}
-                    class="inline-flex gap-x-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-orange-700 outline-none ring-slate-500 transition duration-300 focus-visible:ring dark:ring-slate-200 dark:hover:text-slate-300 dark:focus:outline-none"
+                    class="inline-flex gap-x-2 rounded-lg text-slate-600 outline-none ring-slate-500 transition duration-300 hover:text-orange-700 focus-visible:ring dark:text-slate-400 dark:ring-slate-200 dark:hover:text-slate-300 dark:focus:outline-none"
                   >
                     {link.name}
                   </a>
@@ -66,7 +66,9 @@ const sectionThreeHours: string = "9AM - 5PM (US Central Time)"
     >
       <div>
         <p class="mb-2 text-sm text-slate-800 dark:text-slate-200">
-          © <span id="current-year"></span> - <span class="font-bold text-xl">{SITE.title}</span>
+          © <span id="current-year"></span> - <span class="text-xl font-bold"
+            >{SITE.title}</span
+          >
         </p>
         <p class="mb-4 text-sm text-slate-600 dark:text-slate-400">
           Based, built, and coded in Austin, Texas USA.

@@ -39,7 +39,7 @@ const socialPlatforms: SocialPlatform[] = [
   <button
     id="hs-dropup"
     type="button"
-    class="hs-dropdown-toggle inline-flex items-center gap-x-2 rounded-lg px-4 py-3 text-sm font-medium text-slate-600 outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-100 hover:text-slate-700 focus-visible:ring dark:text-slate-400 dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:hover:text-slate-300 dark:focus:outline-none"
+    class="hs-dropdown-toggle ring-zinc-500 hover:bg-neutral-100 dark:ring-zinc-200 dark:hover:bg-neutral-700 inline-flex items-center gap-x-2 rounded-lg px-4 py-3 text-sm font-medium text-slate-600 outline-none transition duration-300 hover:text-slate-700 focus-visible:ring dark:text-slate-400 dark:hover:text-slate-300 dark:focus:outline-none"
   >
     <Icon name="share" />
 
@@ -47,14 +47,14 @@ const socialPlatforms: SocialPlatform[] = [
   </button>
 
   <div
-    class="hs-dropdown-menu duration z-10 hidden w-72 divide-y divide-neutral-200 rounded-lg bg-neutral-50 p-2 opacity-0 shadow-md transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:border dark:border-neutral-700 dark:bg-neutral-800"
+    class="hs-dropdown-menu duration divide-neutral-200 bg-neutral-50 dark:divide-neutral-700 dark:border-neutral-700 dark:bg-neutral-800 z-10 hidden w-72 divide-y rounded-lg p-2 opacity-0 shadow-md transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:border"
     aria-labelledby="hs-dropup"
   >
     <div class="py-2 first:pt-0 last:pb-0">
       {
         socialPlatforms.map((platform) => (
           <a
-            class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-neutral-200 focus:bg-neutral-100  focus:outline-none dark:text-slate-300 dark:hover:bg-neutral-700 dark:hover:text-slate-300 dark:focus:bg-neutral-700 "
+            class="hover:bg-neutral-200 focus:bg-neutral-100 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-slate-700 focus:outline-none dark:text-slate-300 dark:hover:text-slate-300"
             href={platform.url}
           >
             <Icon name={platform.svg} />
@@ -66,7 +66,7 @@ const socialPlatforms: SocialPlatform[] = [
     <div class="py-2 first:pt-0 last:pb-0">
       <button
         type="button"
-        class="js-clipboard hover:text-dark focus-visible:ring-secondary group inline-flex w-full items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-neutral-200 focus:bg-neutral-100 focus:outline-none focus-visible:outline-none focus-visible:ring-1 dark:text-slate-300 dark:hover:bg-neutral-700 dark:hover:text-slate-300 dark:focus:bg-neutral-700"
+        class="js-clipboard hover:text-dark focus-visible:ring-secondary hover:bg-neutral-200 focus:bg-neutral-100 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 group inline-flex w-full items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-slate-700 focus:outline-none focus-visible:outline-none focus-visible:ring-1 dark:text-slate-300 dark:hover:text-slate-300"
         data-clipboard-success-text="Copied"
       >
         <svg
@@ -87,7 +87,7 @@ const socialPlatforms: SocialPlatform[] = [
         </svg>
 
         <svg
-          class="js-clipboard-success text-slate-700 dark:text-slate-300 hidden h-4 w-4"
+          class="js-clipboard-success hidden h-4 w-4 text-slate-700 dark:text-slate-300"
           width="24"
           height="24"
           viewBox="0 0 24 24"

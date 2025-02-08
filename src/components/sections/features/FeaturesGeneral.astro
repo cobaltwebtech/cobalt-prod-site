@@ -25,7 +25,9 @@ const { title, subTitle, src, alt, features } = Astro.props;
   class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
 >
   <!-- Block to display the feature image -->
-  <div class="md:w-3/4 mx-auto relative mb-6 overflow-hidden md:mb-8 rounded-2xl">
+  <div
+    class="relative mx-auto mb-6 overflow-hidden rounded-2xl md:mb-8 md:w-3/4"
+  >
     {
       src && alt && (
         <Image
@@ -64,12 +66,13 @@ const { title, subTitle, src, alt, features } = Astro.props;
     <div class="lg:col-span-2">
       <div class="grid gap-8 sm:grid-cols-2 md:gap-12">
         <!-- Injecting IconBlock components with different properties -->
-        { features &&
-          features.map((feature) => (
-            <IconBlock heading={feature.heading} content={feature.content}>
-              <Icon name={feature.svg} />
-            </IconBlock>
-          ))
+        {
+          features &&
+            features.map((feature) => (
+              <IconBlock heading={feature.heading} content={feature.content}>
+                <Icon name={feature.svg} />
+              </IconBlock>
+            ))
         }
       </div>
     </div>

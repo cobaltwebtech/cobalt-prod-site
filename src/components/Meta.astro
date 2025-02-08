@@ -3,9 +3,8 @@ import { getImage } from "astro:assets";
 import { OG, SEO, SITE } from "@/data_files/constants";
 import faviconSvgSrc from "@/images/icon.svg";
 import faviconSrc from "@/images/icon-maskable.png";
-import { join } from 'path';
-import { AstroFont } from 'astro-font';
-
+import { join } from "path";
+import { AstroFont } from "astro-font";
 
 // Default properties for the Meta component. These values are used if props are not provided.
 // 'meta' sets a default description meta tag to describe the page content.
@@ -132,29 +131,44 @@ const appleTouchIcon = await getImage({
 <meta name="theme-color" content="#001689" />
 
 <AstroFont
-	config={[
-		{
-			preload: true,
-			display: 'swap',
-			name: 'Proxima Nova',
-			fallback: 'sans-serif',
-			src: [
-				{
-					weight: '400',
-					style: 'normal',
-					path: join(process.cwd(), 'public', 'fonts', 'ProximaNova-Regular.woff2')
-				},
-				{
-					weight: '700',
-					style: 'normal',
-					path: join(process.cwd(), 'public', 'fonts', 'ProximaNova-Bold.woff2')
-				},
-				{
-					weight: '800',
-					style: 'normal',
-					path: join(process.cwd(), 'public', 'fonts', 'ProximaNova-ExtraBold.woff2')
-				}
-			]
-		}
-	]}
+  config={[
+    {
+      preload: true,
+      display: "swap",
+      name: "Proxima Nova",
+      fallback: "sans-serif",
+      src: [
+        {
+          weight: "400",
+          style: "normal",
+          path: join(
+            process.cwd(),
+            "public",
+            "fonts",
+            "ProximaNova-Regular.woff2",
+          ),
+        },
+        {
+          weight: "700",
+          style: "normal",
+          path: join(
+            process.cwd(),
+            "public",
+            "fonts",
+            "ProximaNova-Bold.woff2",
+          ),
+        },
+        {
+          weight: "800",
+          style: "normal",
+          path: join(
+            process.cwd(),
+            "public",
+            "fonts",
+            "ProximaNova-ExtraBold.woff2",
+          ),
+        },
+      ],
+    },
+  ]}
 />

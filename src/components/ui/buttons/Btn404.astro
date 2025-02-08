@@ -19,13 +19,12 @@ const ringClasses = "dark:ring-zinc-200";
 ---
 
 <!-- Button with dynamic title, id, and optional arrow -->
-<a 
-  href="/"
->
+<a href="/">
   <button
     class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses}`}
     id={id}
   >
-    <Icon name="house" /> {title}
+    <Icon name="house" />
+    {title}
   </button>
 </a>

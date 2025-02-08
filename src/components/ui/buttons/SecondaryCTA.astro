@@ -14,8 +14,7 @@ const baseClasses =
   "group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-center text-sm font-bold text-slate-50 shadow-sm outline-none ring-slate-500 focus-visible:ring transition duration-300";
 const borderClasses = "border-2 border-orange-300";
 const bgColorClasses = "bg-orange-600";
-const hoverClasses =
-  "hover:bg-orange-700 hover:text-slate-50";
+const hoverClasses = "hover:bg-orange-700 hover:text-slate-50";
 const disableClasses = "disabled:pointer-events-none disabled:opacity-50";
 const fontSizeClasses = "2xl:text-base";
 const ringClasses = "ring-slate-500";
@@ -29,5 +28,6 @@ const darkClasses =
   class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${hoverClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses} ${darkClasses}`}
   href={url}
 >
-  <Icon name={iconName} /> {title}
+  <Icon name={iconName} />
+  {title}
 </a>

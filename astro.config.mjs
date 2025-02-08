@@ -22,7 +22,7 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const url = new URL(page);
-        if (url.pathname.includes('/submission-received')) return false;
+        if (url.pathname.includes("/submission-received")) return false;
         return true;
       },
     }),

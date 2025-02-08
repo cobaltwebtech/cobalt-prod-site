@@ -42,14 +42,12 @@ const productsCollection = defineCollection({
         btnURL: z.string(),
         btnIconName: z.string(),
       }),
-      tabSecondItems: z
-        .array(
-          z.object({
-            title: z.string(),
-            subTitle: z.string(),
-          }),
-        )
-        .optional(),
+      tabSecondItems: z.array(
+        z.object({
+          title: z.string(),
+          subTitle: z.string(),
+        }),
+      ),
     }),
 });
 
@@ -92,14 +90,12 @@ const servicesCollection = defineCollection({
         btnURL: z.string(),
         btnIconName: z.string(),
       }),
-      tabSecondItems: z
-        .array(
-          z.object({
-            title: z.string(),
-            subTitle: z.string(),
-          }),
-        )
-        .optional(),
+      tabSecondItems: z.array(
+        z.object({
+          title: z.string(),
+          subTitle: z.string(),
+        }),
+      ),
     }),
 });
 

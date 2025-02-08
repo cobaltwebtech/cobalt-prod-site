@@ -6,11 +6,22 @@ import EmailContactInput from "../../ui/forms/input/EmailContactInput.astro";
 import PhoneInput from "../../ui/forms/input/PhoneInput.astro";
 import TextAreaInput from "../../ui/forms/input/TextAreaInput.astro";
 import Icon from "../../ui/icons/Icon.astro";
+import { z } from "zod";
 
 const title: string = "Contact Us";
 const subTitle: string =
   "Have questions or want to discuss a project? We would be thrilled to help you build your next web project or revamp your current one. Fill out the contact form below and our team will be in touch with you.";
 const formTitle: string = "Fill the form below";
+
+// Validate form inputs
+const formSchema = z.object({
+  firstname: z.string().min(1, "First name is required"),
+  lastname: z.string().min(1, "Last name is required"),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().optional(),
+  message: z.string().min(1, "Message is required"),
+  "cf-turnstile-response": z.string(),
+});
 
 const turnstileSiteKey = import.meta.env.TURNSTILE_PUBLIC_KEY;
 
@@ -24,7 +35,8 @@ if (Astro.request.method === "POST") {
     if (!result.success) {
       errorMessage = "Please fill out all required fields correctly.";
     } else {
-      const { "cf-turnstile-response": turnstileResponse, ...formFields } = result.data;
+      const { "cf-turnstile-response": turnstileResponse, ...formFields } =
+        result.data;
 
       // Verify the Turnstile token
       const verificationResponse = await fetch(
@@ -38,7 +50,7 @@ if (Astro.request.method === "POST") {
             secret: import.meta.env.TURNSTILE_SECRET_KEY,
             response: turnstileResponse,
           }),
-        }
+        },
       );
 
       const verificationResult = await verificationResponse.json();
@@ -47,16 +59,19 @@ if (Astro.request.method === "POST") {
         errorMessage = "CAPTCHA verification failed. Please try again.";
       } else {
         // Proceed with form submission
-        const response = await fetch(`${Astro.url.origin}/api/sendEmailContact`, {
-          method: "POST",
-          body: formData,
-        });
+        const response = await fetch(
+          `${Astro.url.origin}/api/sendEmailContact`,
+          {
+            method: "POST",
+            body: formData,
+          },
+        );
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         // Redirect to the confirmation page
-        return Astro.redirect('/contact/submission-received/', 302);
+        return Astro.redirect("/contact/submission-received/", 302);
       }
     }
   } catch (e) {
@@ -79,7 +94,12 @@ if (Astro.request.method === "POST") {
         {subTitle}
       </p>
       <p class="mt-3 text-center text-slate-600 dark:text-slate-400">
-        If you are a current customer and have a support question or issue, please use the <a href="/support/" class="text-cyan-500 hover:text-orange-600 dark:text-cyan-400 dark:hover:text-orange-400">Support Form</a>.
+        If you are a current customer and have a support question or issue,
+        please use the <a
+          href="/support/"
+          class="text-cyan-500 hover:text-orange-600 dark:text-cyan-400 dark:hover:text-orange-400"
+          >Support Form</a
+        >.
       </p>
     </div>
 
@@ -89,11 +109,16 @@ if (Astro.request.method === "POST") {
           {formTitle}
         </h2>
 
-        {errorMessage && (
-          <div id="error-message" class="my-6 p-3 rounded text-center font-bold text-white bg-orange-700">
-            {errorMessage}
-          </div>
-        )}
+        {
+          errorMessage && (
+            <div
+              id="error-message"
+              class="my-6 rounded bg-orange-700 p-3 text-center font-bold text-white"
+            >
+              {errorMessage}
+            </div>
+          )
+        }
 
         <form id="contact-form" method="POST">
           <!-- Form fields -->
@@ -102,23 +127,16 @@ if (Astro.request.method === "POST") {
               <TextInput
                 id="firstname"
                 label="First Name"
-                name="firstname"
+                inputName="firstname"
               />
-              <TextInput
-                id="lastname"
-                label="Last Name"
-                name="lastname"
-              />
+              <TextInput id="lastname" label="Last Name" inputName="lastname" />
             </div>
-            <EmailContactInput 
-              id="email" 
+            <EmailContactInput
+              id="email"
               label="Email Address"
-              name="email"
+              inputName="email"
             />
-            <PhoneInput 
-              id="phone" 
-              name="phone"
-            />
+            <PhoneInput id="phone" inputName="phone" />
             <TextAreaInput
               id="message"
               label="How can we help you?"
@@ -128,25 +146,24 @@ if (Astro.request.method === "POST") {
           <!-- Add Cloudflare Turnstile widget -->
           <div class="cf-turnstile mt-4" data-sitekey={turnstileSiteKey}></div>
           <p class="text-xs text-slate-600 dark:text-slate-400">
-            We're just checking that you're a real human filling out this form. 
-            <br>Bad bots stay away!
+            We're just checking that you're a real human filling out this form.
+            <br />Bad bots stay away!
           </p>
           <div class="mt-4 grid">
-            <AuthBtn 
-              title="Send Contact Request" 
-              iconName="messageSend"
-            />
+            <AuthBtn title="Send Contact Request" iconName="messageSend" />
           </div>
         </form>
       </div>
 
       <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
-      <div class="text-slate-600 dark:text-slate-50 divide-y divide-slate-300 dark:divide-slate-700">
+      <div
+        class="divide-y divide-slate-300 text-slate-600 dark:divide-slate-700 dark:text-slate-50"
+      >
         <ContactIconBlock
           heading="Hours of Operation"
           content="Monday - Friday, 9AM - 5PM (US Central)"
           isLinkVisible={false}
-        ><Icon name="clock" />
+          ><Icon name="clock" />
         </ContactIconBlock>
 
         <ContactIconBlock
@@ -156,7 +173,7 @@ if (Astro.request.method === "POST") {
           linkTitle="Start a chat session"
           linkURL="https://salesiq.zoho.com/signaturesupport.ls?widgetcode=b02c0667d93a35346839e5ab730f507af85d02062470316501c1c4d80b9136f1eae322a2a89cfbc9b10746de3549cb8f"
           isArrowVisible={true}
-        ><Icon name="chatBubble" />
+          ><Icon name="chatBubble" />
         </ContactIconBlock>
 
         <ContactIconBlock
@@ -166,7 +183,7 @@ if (Astro.request.method === "POST") {
           linkTitle="+1-512-294-1600"
           linkURL="tel:+15122941600"
           isArrowVisible={true}
-        ><Icon name="phone" />
+          ><Icon name="phone" />
         </ContactIconBlock>
 
         <ContactIconBlock
@@ -176,7 +193,7 @@ if (Astro.request.method === "POST") {
           linkTitle="info@cobaltweb.tech"
           linkURL="mailto:info@cobaltweb.tech"
           isArrowVisible={true}
-        ><Icon name="envelopeOpen" />
+          ><Icon name="envelopeOpen" />
         </ContactIconBlock>
       </div>
     </div>

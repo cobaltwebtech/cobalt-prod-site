@@ -1,15 +1,18 @@
 ---
 import Icon from "../icons/Icon.astro";
-const { title } = Astro.props;
+
+const { title, btnURL } = Astro.props;
 
 interface Props {
   title?: string;
+  btnURL: string;
 }
 
 const baseClasses =
   "group inline-flex items-center justify-center gap-x-3 rounded-lg px-4 py-3 text-center text-sm font-bold text-slate-100 ring-slate-500 focus-visible:ring transition duration-300 outline-none";
 const borderClasses = "border-2 border-cobalt-50 dark:border-cobalt-600";
-const bgColorClasses = "bg-cobalt-700 hover:bg-cobalt-800 dark:focus:outline-none";
+const bgColorClasses =
+  "bg-cobalt-700 hover:bg-cobalt-800 dark:focus:outline-none";
 const hoverClasses = "hover:shadow-2xl hover:shadow-orange-600";
 const fontSizeClasses = "2xl:text-base";
 const ringClasses = "dark:ring-cobalt-200";
@@ -17,7 +20,7 @@ const ringClasses = "dark:ring-cobalt-200";
 
 <a
   class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${hoverClasses} ${fontSizeClasses} ${ringClasses}`}
-  href='/contact/'
+  href={btnURL}
 >
   <Icon name="chatBubble" />
   {title}

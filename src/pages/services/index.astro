@@ -85,8 +85,7 @@ const articles: Article[] = [
     subTitle:
       "What kind of digital marketing strategy are you implementing? If you have none, you may be losing out on valuable business and customers. No matter what your website is about, you can leverage digital marketing to gain more business. Whether you are selling goods or services we can create an ad campaign to fit any budget. At Cobalt, we do and can help with optimizing your website for best results in search rankings.",
     img: serviceDigitalMarketing,
-    imgAlt:
-      "Digital marketing graphic with mobile phone",
+    imgAlt: "Digital marketing graphic with mobile phone",
     btnExists: true,
     btnTitle: "Learn More",
     btnURL: "/services/digital-marketing/",
@@ -118,16 +117,18 @@ const pageTitle: string = `Services | ${SITE.title}`;
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://www.cobaltweb.tech/services/",
-    "url": "https://www.cobaltweb.tech/services/",
-    "name": "Services | Cobalt Web Technologies",
-    "description": "Cobalt Web Technologies provides managed services for your web application needs.",
-    "isPartOf": {
-        "@type": "WebSite",
-        "url": "https://www.cobaltweb.tech/",
-        "name": "Cobalt Web Technologies",
-        "description": "Cobalt Web Technologies builds high performance websites with secure managed cloud infrastructure along with digital marketing and SEO services."
+    url: "https://www.cobaltweb.tech/services/",
+    name: "Services | Cobalt Web Technologies",
+    description:
+      "Cobalt Web Technologies provides managed services for your web application needs.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://www.cobaltweb.tech/",
+      name: "Cobalt Web Technologies",
+      description:
+        "Cobalt Web Technologies builds high performance websites with secure managed cloud infrastructure along with digital marketing and SEO services.",
     },
-    "inLanguage": "en-US"
+    inLanguage: "en-US",
   }}
 >
   <!--MainSection is the introductory section of the page, it also contains a CTA button-->
@@ -148,7 +149,7 @@ const pageTitle: string = `Services | ${SITE.title}`;
   If 'single' is true, it displays one image, otherwise it displays two.
   -->
   {
-    articles.map(article => {
+    articles.map((article) => {
       return article.isRightSection ? (
         <RightSection
           title={article.title}

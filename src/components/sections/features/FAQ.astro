@@ -43,19 +43,17 @@ const makeId = (base: any, index: any) => `${base}${index + 1}`;
     </div>
     <!-- FAQ accordion items -->
     <div class="md:col-span-3">
-      <div
-        class="hs-accordion-group divide-y divide-slate-500"
-      >
+      <div class="hs-accordion-group divide-y divide-slate-500">
         {
           faqs.faqs.map((question, i) => {
             // Generate ids dynamically for each FAQ accordion item.
             let id = makeId(
               "hs-basic-with-title-and-arrow-stretched-heading-",
-              i
+              i,
             );
             let collapseId = makeId(
               "hs-basic-with-title-and-arrow-stretched-collapse",
-              i
+              i,
             );
 
             return (

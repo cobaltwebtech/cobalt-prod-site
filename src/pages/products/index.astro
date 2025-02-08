@@ -29,16 +29,18 @@ const pageTitle: string = `Products | ${SITE.title}`;
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://www.cobaltweb.tech/products/",
-    "url": "https://www.cobaltweb.tech/products/",
-    "name": "Products | Cobalt Web Technologies",
-    "description": "Cobalt Web Technologies offers the latest in next-gen high performance cloud infrastructure, content delivery network, and digital marketing.",
-    "isPartOf": {
+    url: "https://www.cobaltweb.tech/products/",
+    name: "Products | Cobalt Web Technologies",
+    description:
+      "Cobalt Web Technologies offers the latest in next-gen high performance cloud infrastructure, content delivery network, and digital marketing.",
+    isPartOf: {
       "@type": "WebSite",
-      "url": "https://www.cobaltweb.tech/",
-      "name": "Cobalt Web Technologies",
-      "description": "Cobalt Web Technologies provides guidance and services to meet your demands of a high performance secure and modern website."
+      url: "https://www.cobaltweb.tech/",
+      name: "Cobalt Web Technologies",
+      description:
+        "Cobalt Web Technologies provides guidance and services to meet your demands of a high performance secure and modern website.",
     },
-    "inLanguage": "en-US"
+    inLanguage: "en-US",
   }}
 >
   <!--MainSection is the introductory section of the page, it also contains a CTA button-->
@@ -50,9 +52,11 @@ const pageTitle: string = `Products | ${SITE.title}`;
     btnURL="/contact/"
     btnIconName="chatBubble"
   />
-   <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
-    <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
-  <section class="mx-auto mt-10 max-w-[85rem] px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-14 2xl:max-w-full grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+  <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
+  <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
+  <section
+    class="mx-auto mt-10 grid max-w-[85rem] grid-cols-1 gap-4 px-4 py-10 sm:grid-cols-3 sm:px-6 sm:py-16 md:gap-6 lg:px-8 lg:py-14 xl:gap-8 2xl:max-w-full"
+  >
     {
       product.map((product, index) => {
         const position = index % 4;

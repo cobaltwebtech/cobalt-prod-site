@@ -14,7 +14,7 @@ import BrandLogo from "../../BrandLogo.astro";
 >
   <!-- Navigation container -->
   <nav
-    class="relative mx-2 w-full rounded-3xl sm:rounded-[36px] border border-yellow-100/40 bg-cobalt-800/85 p-2 sm:px-4 sm:py-3 backdrop-blur-md dark:border-slate-700/40 dark:backdrop-blur-md md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto"
+    class="border-yellow-100/40 relative mx-2 w-full rounded-3xl border bg-cobalt-800/85 p-2 backdrop-blur-md dark:border-slate-700/40 dark:backdrop-blur-md sm:rounded-[36px] sm:px-4 sm:py-3 md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto"
     aria-label="Navigation"
   >
     <div class="flex items-center justify-between">
@@ -24,8 +24,12 @@ import BrandLogo from "../../BrandLogo.astro";
         href="/"
         aria-label="Cobalt Web Technologies Logo"
       >
-        <BrandLogo class="h-auto w-16 sm:w-24 m-2" />
-        <div class="font-bold flex items-center mx-2 sm:w-28 xl:w-max sm:text-lg xl:text-3xl text-slate-200">Cobalt Web Technologies</div>
+        <BrandLogo class="m-2 h-auto w-16 sm:w-24" />
+        <div
+          class="mx-2 flex items-center font-bold text-slate-200 sm:w-28 sm:text-lg xl:w-max xl:text-3xl"
+        >
+          Cobalt Web Technologies
+        </div>
       </a>
       <!-- Collapse toggle for smaller screens -->
       <div class="ml-auto md:hidden">
@@ -79,12 +83,14 @@ import BrandLogo from "../../BrandLogo.astro";
     >
       <!-- Navigation links container -->
       <div
-        class="m-5 sm:mr-0 flex flex-col gap-x-0 gap-y-4 md:flex-row md:items-center md:justify-end md:gap-x-4 lg:gap-x-7 md:gap-y-0 md:ps-5"
+        class="m-5 flex flex-col gap-x-0 gap-y-4 sm:mr-0 md:flex-row md:items-center md:justify-end md:gap-x-4 md:gap-y-0 md:ps-5 lg:gap-x-7"
       >
         <!-- Navigation links and Authentication component -->
-        {enStrings.navBarLinks.map(link => (
-          <NavLink url={link.url} name={link.name} />
-        ))}
+        {
+          enStrings.navBarLinks.map((link) => (
+            <NavLink url={link.url} name={link.name} />
+          ))
+        }
 
         <!-- ThemeIcon component specifically for larger screens -->
         <span class="hidden md:inline-block">

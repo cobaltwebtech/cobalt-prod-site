@@ -8,7 +8,7 @@ import { SITE } from "@/data_files/constants";
 
 const cfTurnstile = {
   src: "https://challenges.cloudflare.com/turnstile/v0/api.js",
-  type: "text/javascript"
+  type: "text/javascript",
 };
 
 const pageTitle: string = `Support | ${SITE.title}`;
@@ -21,39 +21,41 @@ const pageTitle: string = `Support | ${SITE.title}`;
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://www.cobaltweb.tech/support/",
-    "url": "https://www.cobaltweb.tech/support/",
-    "name": "Support | Cobalt Web Technologies",
-    "description":
-      "Cobalt Web Technologies technical and billing support page.",
-    "isPartOf": {
+    url: "https://www.cobaltweb.tech/support/",
+    name: "Support | Cobalt Web Technologies",
+    description: "Cobalt Web Technologies technical and billing support page.",
+    isPartOf: {
       "@type": "WebSite",
-      "url": "https://www.cobaltweb.tech/",
-      "name": "Cobalt Web Technologies",
-      "description":
+      url: "https://www.cobaltweb.tech/",
+      name: "Cobalt Web Technologies",
+      description:
         "Cobalt Web Technologies builds high performance websites with secure managed cloud infrastructure along with digital marketing and SEO services.",
     },
-    "inLanguage": "en-US"
+    inLanguage: "en-US",
   }}
-    externalScript={cfTurnstile}
+  externalScript={true}
+  scriptURL="https://challenges.cloudflare.com/turnstile/v0/api.js"
 >
   <SupportSection />
 </MainLayout>
 <!-- Handle form submission data and messages. See SupportSection.astro for elements -->
 <script>
-  document.addEventListener('DOMContentLoaded', (event) => {
-    const form = document.getElementById('support-form') as HTMLFormElement;
-    const errorMessageContainer = document.getElementById('error-message') as HTMLDivElement;
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const form = document.getElementById("support-form") as HTMLFormElement;
+    const errorMessageContainer = document.getElementById(
+      "error-message",
+    ) as HTMLDivElement;
 
     if (form) {
-      form.addEventListener('submit', async (e) => {
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        
+
         const formData = new FormData(form);
-        
+
         try {
-          const response = await fetch('/api/sendEmailSupport', {
-            method: 'POST',
-            body: formData
+          const response = await fetch("/api/sendEmailSupport", {
+            method: "POST",
+            body: formData,
           });
 
           if (response.redirected) {
@@ -63,18 +65,21 @@ const pageTitle: string = `Support | ${SITE.title}`;
             const result = await response.json();
             if (result.success) {
               // Redirect to the confirmation page if the server didn't already do so
-              window.location.href = '/support/submission-received/';
+              window.location.href = "/support/submission-received/";
             } else {
-              throw new Error(result.error || 'An error occurred');
+              throw new Error(result.error || "An error occurred");
             }
           } else {
-            throw new Error('Server responded with an error');
+            throw new Error("Server responded with an error");
           }
         } catch (error) {
-          console.error('Error:', error);
+          console.error("Error:", error);
           if (errorMessageContainer) {
-            errorMessageContainer.textContent = error instanceof Error ? error.message : 'An unexpected error occurred. Please try again later.';
-            errorMessageContainer.style.display = 'block';
+            errorMessageContainer.textContent =
+              error instanceof Error
+                ? error.message
+                : "An unexpected error occurred. Please try again later.";
+            errorMessageContainer.style.display = "block";
           }
         }
       });

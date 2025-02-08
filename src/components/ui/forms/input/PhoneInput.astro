@@ -1,9 +1,14 @@
 ---
-const { label= Astro.currentLocale === "fr" ? "Numéro de téléphone" : "Phone Number", id } = Astro.props;
+const {
+  label = Astro.currentLocale === "fr" ? "Numéro de téléphone" : "Phone Number",
+  id,
+  inputName,
+} = Astro.props;
 
 interface Props {
   label?: string;
   id: string;
+  inputName: string;
 }
 ---
 
@@ -11,9 +16,9 @@ interface Props {
   <label for={id} class="sr-only">{label}</label>
   <input
     type="tel"
-    name={id}
+    name={inputName}
     id={id}
-    class="block w-full px-4 py-3 text-sm rounded-lg border-2 border-slate-400 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-100 placeholder:text-slate-800 dark:placeholder:text-slate-100 focus:border-slate-400 focus:outline-none focus:ring focus:ring-cyan-400 disabled:pointer-events-none disabled:opacity-50"
+    class="block w-full rounded-lg border-2 border-slate-400 bg-white px-4 py-3 text-sm text-slate-800 placeholder:text-slate-800 focus:border-slate-400 focus:outline-none focus:ring focus:ring-cyan-400 disabled:pointer-events-none disabled:opacity-50 dark:bg-slate-700 dark:text-slate-100 dark:placeholder:text-slate-100"
     placeholder={label}
     required
   />
