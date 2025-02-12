@@ -11,7 +11,7 @@
     "update": "yarn dlx @astrojs/upgrade",
     "cc": "yarn cache clean",
     "astro": "astro",
-    "clean": "rimraf dist .astro node_modules yarn.lock .yarn .vercel"
+    "clean": "rimraf dist .astro node_modules yarn.lock .yarn .pnpm-lock.yaml .vercel"
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
