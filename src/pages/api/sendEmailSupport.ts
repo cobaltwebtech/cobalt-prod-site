@@ -1,18 +1,55 @@
+export const prerender = false;
+
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
 
-export const prerender = false;
-
 export const POST: APIRoute = async ({ request }) => {
   try {
-    // Define form inputs here
-    const formData = await request.formData();
-    const supportType = formData.get("support-type") as string;
-    const firstName = formData.get("first-name") as string;
-    const lastName = formData.get("last-name") as string;
-    const email = formData.get("email") as string;
-    const phone = formData.get("phone") as string;
-    const supportMessage = formData.get("support-message") as string;
+    console.log("API route initiated");
+    const formData = await request.json();
+    console.log("Form data submitted:", formData);
+    const {
+      supporttype,
+      firstname,
+      lastname,
+      email,
+      phone,
+      message,
+      "cf-turnstile-response": turnstileResponse,
+    } = formData;
+
+    // Verify the Turnstile token server-side
+    const verificationResponse = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          secret: import.meta.env.TURNSTILE_SECRET_KEY,
+          response: turnstileResponse,
+        }),
+      },
+    );
+
+    const verificationResult = await verificationResponse.json();
+
+    if (!verificationResult.success) {
+      console.log("Turnstile verification failed");
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: "CAPTCHA verification failed. Please try again.",
+        }),
+        {
+          status: 400,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+    }
 
     // Import Resend API key
     const resend = new Resend(import.meta.env.RESEND_API_KEY);
@@ -22,13 +59,14 @@ export const POST: APIRoute = async ({ request }) => {
       from: "noreply@contact.cobaltweb.tech",
       to: "info@cobaltweb.tech",
       subject: "Support Form Submission",
-      html: `<p>Support Type: ${supportType}</p><p>Name: ${firstName} ${lastName}</p><p>Email: ${email}</p><p>Phone: ${phone}</p><p>Message: ${supportMessage}</p>`,
+      html: `<p>Support Type: ${supporttype}</p><p>Name: ${firstname} ${lastname}</p><p>Email: ${email}</p><p>Phone: ${phone}</p><p>Message: ${message}</p>`,
     });
 
-    // Response messages
+    console.log("Email sent successfully");
     return new Response(
       JSON.stringify({
         success: true,
+        redirectUrl: "/support/submission-received/",
       }),
       {
         status: 200,

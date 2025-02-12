@@ -15,7 +15,7 @@ const subTitle: string =
 const formTitle: string = "Fill the form below";
 const supportType: string = "Please select the support type you require.";
 
-// Validate form fields
+// Validate form inputs
 const formSchema = z.object({
   supporttype: z.enum(["technical-support", "billing-support"], {
     required_error: "Please select a support type",
@@ -24,24 +24,32 @@ const formSchema = z.object({
   lastname: z.string().min(1, "Last name is required"),
   email: z.string().email("Invalid email address"),
   phone: z.string().optional(),
-  supportmessage: z.string().min(1, "Please give additional info"),
-  "cf-turnstile-response": z.string(),
+  message: z.string().min(1, "Please give additional info"),
+  "cf-turnstile-response": z
+    .string()
+    .min(1, "CAPTCHA verification is required"),
 });
 
 const turnstileSiteKey = import.meta.env.TURNSTILE_PUBLIC_KEY;
 
 let errorMessage: string | null = null;
+let formData: z.infer<typeof formSchema> | null = null;
 
+// Process form submission on server
 if (Astro.request.method === "POST") {
   try {
-    const formData = await Astro.request.formData();
-    const result = formSchema.safeParse(Object.fromEntries(formData));
+    console.log("Form submitted");
+    const data = await Astro.request.formData();
+    const result = formSchema.safeParse(Object.fromEntries(data));
 
     if (!result.success) {
+      console.log("Form validation failed", result.error.errors);
       errorMessage = "Please fill out all required fields correctly.";
     } else {
+      console.log("Form validation successful", result.data);
+      formData = result.data;
       const { "cf-turnstile-response": turnstileResponse, ...formFields } =
-        result.data;
+        formData;
 
       // Verify the Turnstile token
       const verificationResponse = await fetch(
@@ -61,19 +69,31 @@ if (Astro.request.method === "POST") {
       const verificationResult = await verificationResponse.json();
 
       if (!verificationResult.success) {
+        console.log("Turnstile verification failed");
         errorMessage = "CAPTCHA verification failed. Please try again.";
       } else {
+        console.log("Turnstile verification successful, calling API route");
         // Proceed with form submission
-        const response = await fetch(
+        const apiResponse = await fetch(
           `${Astro.url.origin}/api/sendEmailSupport`,
           {
             method: "POST",
-            body: formData,
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formFields),
           },
         );
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        console.log("API route response status:", apiResponse.status);
+
+        if (!apiResponse.ok) {
+          const errorData = await apiResponse.json();
+          throw new Error(
+            errorData.error || `HTTP error! status: ${apiResponse.status}`,
+          );
+        } else {
+          console.log("Email sent successfully");
         }
         // Redirect to the confirmation page
         return Astro.redirect("/support/submission-received/", 302);
@@ -114,17 +134,6 @@ if (Astro.request.method === "POST") {
           {formTitle}
         </h2>
 
-        {
-          errorMessage && (
-            <div
-              id="error-message"
-              class="my-6 rounded bg-orange-700 p-3 text-center font-bold text-white"
-            >
-              {errorMessage}
-            </div>
-          )
-        }
-
         <form id="support-form" method="POST">
           <div class="grid gap-4">
             <p class="text-slate-700 dark:text-slate-300">
@@ -157,9 +166,9 @@ if (Astro.request.method === "POST") {
             />
             <PhoneInput id="phone" label="Phone Number" inputName="phone" />
             <TextAreaInput
-              id="supportmessage"
+              id="message"
               label="Please describe your issue here"
-              name="supportmessage"
+              name="message"
             />
           </div>
           <!-- Add Cloudflare Turnstile widget -->
@@ -168,6 +177,12 @@ if (Astro.request.method === "POST") {
             We're just checking that you're a real human filling out this form.
             <br />Bad bots stay away!
           </p>
+          <div
+            id="error-message"
+            class="my-6 hidden animate-bounce rounded-lg border-4 border-orange-400 bg-orange-700 p-3 text-center font-bold text-white"
+          >
+            {errorMessage}
+          </div>
           <div class="mt-4 grid">
             <AuthBtn title="Send Support Request" iconName="messageSend" />
           </div>
@@ -218,3 +233,83 @@ if (Astro.request.method === "POST") {
     </div>
   </div>
 </section>
+<!-- Process form submission on client side -->
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const form = document.getElementById("support-form") as HTMLFormElement;
+    const errorMessageContainer = document.getElementById(
+      "error-message",
+    ) as HTMLDivElement;
+
+    const displayError = (message: string) => {
+      if (errorMessageContainer) {
+        errorMessageContainer.textContent = message;
+        errorMessageContainer.classList.remove("hidden");
+        errorMessageContainer.classList.add("block");
+      }
+      console.log("Error displayed:", message);
+    };
+
+    const isValidEmail = (email: string) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    };
+
+    if (form) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const emailInput = form.querySelector(
+          'input[name="email"]',
+        ) as HTMLInputElement;
+        const email = emailInput ? emailInput.value : "";
+
+        // Client-side email validation
+        if (!isValidEmail(email)) {
+          displayError("Please enter a valid email address.");
+          return;
+        }
+
+        // Check if Turnstile is ready
+        const turnstileToken = formData.get("cf-turnstile-response");
+        if (!turnstileToken) {
+          displayError("Please complete verification above.");
+          return; // Stop submission
+        }
+
+        try {
+          const response = await fetch("/api/sendEmailSupport", {
+            method: "POST",
+            body: JSON.stringify(Object.fromEntries(formData)),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+
+          const contentType = response.headers.get("content-type");
+
+          if (contentType && contentType.includes("application/json")) {
+            const result = await response.json();
+
+            if (result.success) {
+              console.log("Form submission successful. Redirecting...");
+              window.location.href = result.redirectUrl; // Redirect on success
+            } else {
+              displayError(result.error || "An error occurred");
+            }
+          } else {
+            displayError("Server responded with an unexpected content type.");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          displayError(
+            error instanceof Error
+              ? error.message
+              : "An unexpected error occurred. Please try again later.",
+          );
+        }
+      });
+    }
+  });
+</script>

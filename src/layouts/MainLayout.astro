@@ -5,6 +5,8 @@ import Navbar from "@/components/sections/header-footer/Navbar.astro";
 import FooterSection from "@/components/sections/header-footer/FooterSection.astro";
 import { SITE } from "@/data_files/constants";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import { ClientRouter } from "astro:transitions";
+import TwSizeIndicator from "@/components/ui/TwSizeIndicator.astro";
 import "@styles/global.css";
 
 // Setting expected props
@@ -33,7 +35,7 @@ interface Props {
 This is the main structure for the page.
 We set the language of the page to English and add classes for scrollbar and scroll behavior.
 -->
-<html lang={lang} class="scrollbar-hide lenis lenis-smooth scroll-pt-16">
+<html lang={lang} class="scrollbar-hide lenis lenis-smooth">
   <head>
     <!-- Define the title of the page -->
     <title>{title}</title>
@@ -41,15 +43,21 @@ We set the language of the page to English and add classes for scrollbar and scr
     <Meta meta={meta} structuredData={structuredData} />
     <!-- Script to handle dark mode. It will check if the theme is stored in localStorage or if dark theme is preferred by system settings -->
     <script is:inline>
-      if (
-        localStorage.getItem("hs_theme") === "dark" ||
-        (!("hs_theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
+      function setThemeFromLocalStorage() {
+        if (
+          localStorage.getItem("hs_theme") === "dark" ||
+          (!("hs_theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
       }
+      setThemeFromLocalStorage();
+      document.addEventListener("astro:after-swap", () => {
+        setThemeFromLocalStorage();
+      });
     </script>
     <!--Import Lenis smooth scroll script -->
     <script>
@@ -59,9 +67,11 @@ We set the language of the page to English and add classes for scrollbar and scr
     {externalScript && <script is:inline src={scriptURL} async defer />}
     <!-- Umami Analytics script tag -->
     <script
+      is:inline
       defer
       src="https://umami.cobaltweb.tech/script.js"
-      data-website-id={umamiId}></script>
+      data-website-id={umamiId}
+    ></script>
     <!-- Vercel Speed Insights analytics  -->
     <script is:inline>
       function speedInsightsBeforeSend(data) {
@@ -70,9 +80,10 @@ We set the language of the page to English and add classes for scrollbar and scr
       }
     </script>
     <SpeedInsights />
+    <ClientRouter />
   </head>
   <body
-    class="bg-slate-100 selection:bg-cyan-200 dark:bg-cobalt-950 dark:selection:bg-cyan-700"
+    class="bg-slate-200 selection:bg-cyan-200 dark:bg-cobalt-950 dark:selection:bg-cyan-700"
   >
     <!--
     Setting up the main structure of the page.
@@ -85,6 +96,14 @@ We set the language of the page to English and add classes for scrollbar and scr
       </main>
     </div>
     <FooterSection />
+    <TwSizeIndicator />
+    <!-- Import Preline UI with View Transition support -->
+    <script>
+      document.addEventListener("astro:page-load", async () => {
+        const preline = await import("preline/dist/preline.js");
+        preline.HSStaticMethods.autoInit();
+      });
+    </script>
   </body>
 </html>
 <!-- 

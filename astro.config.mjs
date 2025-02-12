@@ -4,6 +4,7 @@ import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
 import minify from "@playform/compress";
 import compressor from "astro-compressor";
+import icon from "astro-icon";
 
 export default defineConfig({
   site: "https://www.cobaltweb.tech",
@@ -19,6 +20,7 @@ export default defineConfig({
   },
   integrations: [
     tailwind(),
+    icon(),
     sitemap({
       filter: (page) => {
         const url = new URL(page);
