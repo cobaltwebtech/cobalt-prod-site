@@ -79,6 +79,26 @@ We set the language of the page to English and add classes for scrollbar and scr
         return data;
       }
     </script>
+    <style is:global>
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation-duration: 0.5s;
+      }
+      .logo {
+        view-transition-name: logo;
+      }
+    </style>
+    <script>
+      document.addEventListener('astro:page-load', () => {
+        // This will run on every page navigation
+        console.log('Page loaded');
+      });
+
+      document.addEventListener('astro:after-swap', () => {
+        // This will run after the new page content has been swapped in
+        console.log('Content swapped');
+      });
+    </script>
     <SpeedInsights />
     <ClientRouter />
   </head>

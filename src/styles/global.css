@@ -1,11 +1,3 @@
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.5s;
-}
-.logo {
-  view-transition-name: logo;
-}
-
 /* Lenis smooth scroll rules */
 html.lenis,
 html.lenis body {
