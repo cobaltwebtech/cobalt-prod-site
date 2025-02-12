@@ -5,7 +5,7 @@ import Navbar from "@/components/sections/header-footer/Navbar.astro";
 import FooterSection from "@/components/sections/header-footer/FooterSection.astro";
 import { SITE } from "@/data_files/constants";
 import SpeedInsights from "@vercel/speed-insights/astro";
-import { ClientRouter } from "astro:transitions";
+import { ClientRouter, fade } from "astro:transitions";
 import TwSizeIndicator from "@/components/ui/TwSizeIndicator.astro";
 import "@/styles/global.css";
 
@@ -91,7 +91,7 @@ We set the language of the page to English and add classes for scrollbar and scr
     -->
     <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
       <Navbar />
-      <main>
+      <main transition:animate={fade({duration: "0.75s"})}>
         <slot />
       </main>
     </div>
