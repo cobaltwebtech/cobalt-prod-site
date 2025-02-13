@@ -42,6 +42,11 @@ We set the language of the page to English and add classes for scrollbar and scr
     <!-- Adding metadata to the HTML document -->
     <Meta meta={meta} structuredData={structuredData} />
     <!-- Script to handle dark mode. It will check if the theme is stored in localStorage or if dark theme is preferred by system settings -->
+    <style>
+      @view-transition {
+        navigation: auto; /* enabled! */
+      }
+    </style>
     <script is:inline>
       function setThemeFromLocalStorage() {
         if (
