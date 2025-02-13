@@ -172,7 +172,12 @@ if (Astro.request.method === "POST") {
             />
           </div>
           <!-- Add Cloudflare Turnstile widget -->
-          <div class="cf-turnstile mt-4" data-sitekey={turnstileSiteKey}></div>
+          <div
+            id="turnstile-widget"
+            class="mt-4"
+            data-sitekey={turnstileSiteKey}
+          >
+          </div>
           <p class="text-xs text-slate-600 dark:text-slate-400">
             We're just checking that you're a real human filling out this form.
             <br />Bad bots stay away!
@@ -233,9 +238,23 @@ if (Astro.request.method === "POST") {
     </div>
   </div>
 </section>
-<!-- Process form submission on client side -->
+<!-- Initialize Turnstile widget and process form submission on client side -->
 <script>
   document.addEventListener("astro:page-load", () => {
+    //Initialize and render the CF Turnstile widget
+    const turnstileContainer = document.getElementById("turnstile-widget");
+    if (turnstileContainer && !turnstileContainer.hasChildNodes()) {
+      const tsSiteKey = turnstileContainer.getAttribute("data-sitekey");
+
+      if (typeof turnstile !== "undefined") {
+        turnstile.render("#turnstile-widget", {
+          sitekey: tsSiteKey,
+        });
+      } else {
+        console.error("Turnstile not loaded");
+      }
+    }
+    // Get the form and error message div container
     const form = document.getElementById("support-form") as HTMLFormElement;
     const errorMessageContainer = document.getElementById(
       "error-message",

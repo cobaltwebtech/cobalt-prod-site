@@ -15,7 +15,7 @@ const {
   meta,
   structuredData,
   externalScript,
-  scriptURL,
+  scriptUrl,
   lang = "en",
 } = Astro.props;
 const umamiId = import.meta.env.UMAMI_WEBSITE_ID;
@@ -27,7 +27,7 @@ interface Props {
   structuredData?: object;
   lang?: string;
   externalScript?: boolean;
-  scriptURL?: string;
+  scriptUrl?: string;
 }
 ---
 
@@ -64,14 +64,13 @@ We set the language of the page to English and add classes for scrollbar and scr
       import "@scripts/lenisSmoothScroll.js";
     </script>
     <!-- Pass in conditional script if needed on pages where the prop externalScript={true} -->
-    {externalScript && <script is:inline src={scriptURL} async defer />}
+    {externalScript && <script is:inline src={scriptUrl} async defer />}
     <!-- Umami Analytics script tag -->
     <script
       is:inline
       defer
       src="https://umami.cobaltweb.tech/script.js"
-      data-website-id={umamiId}
-    ></script>
+      data-website-id={umamiId}></script>
     <!-- Vercel Speed Insights analytics  -->
     <script is:inline>
       function speedInsightsBeforeSend(data) {
@@ -91,7 +90,7 @@ We set the language of the page to English and add classes for scrollbar and scr
     -->
     <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
       <Navbar />
-      <main transition:animate={fade({duration: "0.75s"})}>
+      <main transition:animate={fade({ duration: "0.75s" })}>
         <slot />
       </main>
     </div>

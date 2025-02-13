@@ -13,6 +13,7 @@ export default defineConfig({
   },
   build: {
     assets: "assets",
+    inlineStylesheets: "always",
   },
   output: "server",
   experimental: {
