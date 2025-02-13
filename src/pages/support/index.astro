@@ -6,11 +6,6 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import { SITE } from "@/data_files/constants";
 import SupportForm from "@/components/sections/forms/SupportForm.astro";
 
-const cfTurnstile = {
-  src: "https://challenges.cloudflare.com/turnstile/v0/api.js",
-  type: "text/javascript",
-};
-
 const pageTitle: string = `Support | ${SITE.title}`;
 ---
 
@@ -34,7 +29,7 @@ const pageTitle: string = `Support | ${SITE.title}`;
     inLanguage: "en-US",
   }}
   externalScript={true}
-  scriptURL="https://challenges.cloudflare.com/turnstile/v0/api.js"
+  scriptUrl="https://challenges.cloudflare.com/turnstile/v0/api.js"
 >
   <SupportForm />
 </MainLayout>
