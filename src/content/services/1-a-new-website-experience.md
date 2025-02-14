@@ -7,7 +7,7 @@ main:
     Do you need a brand new website to showcase your products or services? Is your current website stuck in the 1990's being slow, unresponsive, and looking dated? Let Cobalt Web Technologies build your next web project for you.
   description2: |
     We have expertise in current web technologies and design. Your website should be designed and deployed with the best modern practices today.
-  imgMain: "@/images/services/service-website-experience.avif"
+  imgMain: "@/images/services/service-new-website.avif"
   imgAlt: "Laptop with web browser open"
 tabs:
   title1: "Your New Website"
