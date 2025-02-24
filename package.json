@@ -17,7 +17,7 @@
     "@astrojs/check": "0.9.4",
     "@astrojs/sitemap": "3.2.1",
     "@astrojs/tailwind": "5.1.5",
-    "@astrojs/vercel": "8.0.7",
+    "@astrojs/vercel": "8.0.8",
     "@playform/compress": "^0.1.7",
     "@preline/accordion": "^2.6.0",
     "@preline/collapse": "^2.6.0",
