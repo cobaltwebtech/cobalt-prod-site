@@ -1,5 +1,3 @@
-export const prerender = true;
-
 import type { APIRoute, ImageMetadata } from "astro";
 import icon from "@/images/icon.png";
 import maskableIcon from "@/images/icon-maskable.png";
