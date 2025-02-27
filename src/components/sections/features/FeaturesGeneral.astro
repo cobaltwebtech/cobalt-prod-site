@@ -1,8 +1,9 @@
 ---
 // Import the necessary dependencies
 import { Image } from "astro:assets";
-import IconBlock from "../../ui/blocks/IconBlock.astro";
-import Icon from "../../ui/icons/Icon.astro";
+import IconBlock from "@comp/ui/blocks/IconBlock.astro";
+import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
+import { Icon } from "astro-icon/components";
 
 interface Feature {
   heading: string;
@@ -16,9 +17,12 @@ interface Props {
   features?: Feature[];
   src?: any;
   alt?: string;
+  primaryBtn?: string;
+  primaryBtnURL?: string;
 }
 // Define props from Astro
-const { title, subTitle, src, alt, features } = Astro.props;
+const { title, subTitle, src, alt, features, primaryBtn, primaryBtnURL } =
+  Astro.props;
 ---
 
 <section
@@ -55,9 +59,17 @@ const { title, subTitle, src, alt, features } = Astro.props;
       <!-- Rendering subtitle -->
       {
         subTitle && (
-          <p class="mt-2 text-pretty text-slate-600 dark:text-slate-200 md:mt-4">
+          <p class="my-4 text-pretty text-slate-600 dark:text-slate-200 md:mt-4">
             {subTitle}
           </p>
+        )
+      }
+      <!-- Rendering CTA button -->
+      {
+        primaryBtn && (
+          <div class="my-8">
+            <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />
+          </div>
         )
       }
     </div>
@@ -70,7 +82,10 @@ const { title, subTitle, src, alt, features } = Astro.props;
           features &&
             features.map((feature) => (
               <IconBlock heading={feature.heading} content={feature.content}>
-                <Icon name={feature.svg} />
+                <Icon
+                  name={feature.svg}
+                  class="h-fit w-full text-orange-400 dark:text-orange-300"
+                />
               </IconBlock>
             ))
         }

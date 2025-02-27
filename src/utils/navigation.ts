@@ -20,7 +20,7 @@ const footerLinks = [
     section: "Company",
     links: [
       { name: "About Us", url: "/about/" },
-      { name: "Support", url: "/support/" },
+      { name: "Client Support", url: "/support/" },
       { name: "Contact Us", url: "/contact/" },
     ],
   },

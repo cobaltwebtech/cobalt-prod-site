@@ -20,7 +20,6 @@ tabFirst:
     Let Cobalt help you put your web app and its content on the edge for lightning-fast performance. Get in touch with us today.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabFirstItems:
   - title: "Putting Your Digital Assets on the Edge"
     subTitle: "Cobalt Web Technologies partners with Cloudflare and Bunny.net CDN to provide the ultimate performance boost to your web apps. Your content is sped up with a next-generation CDN, Edge Storage, and Optimization Services. By placing all of your digital assets from your website such as images, videos, JavaScript files, CSS files, etc. to the CDN edge, they can be served to the end user much quicker. Lower latency means a faster webpage load on their visit and the added benefit of cost savings on bandwidth usage."
@@ -34,7 +33,6 @@ tabSecond:
     Let Cobalt help you put your web app and its content on the edge for lightning-fast performance. Get in touch with us today.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabSecondItems:
   - title: "Bunny.net Stats"
     subTitle: "Our CDN partner, Bunny.net, has over 123 global PoPs (points of presence), 150 Tbps+ network capacity, and 24ms average global latency."

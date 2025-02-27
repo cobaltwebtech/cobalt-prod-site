@@ -1,10 +1,10 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
-import Breadcrumb from "@/components/ui/buttons/Breadcrumb.astro";
+import TertiaryCTA from "@comp/ui/buttons/TertiaryCTA.astro";
+import Breadcrumb from "@comp/ui/buttons/Breadcrumb.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import { SITE } from "@/data_files/constants";
+import { SITE } from "@data/constants";
 
 // Global declaration for gsap animation library
 declare global {
@@ -63,8 +63,8 @@ const pageTitle: string = `${service.data.title} | ${SITE.title}`;
           src={service.data.main.imgMain}
           class="w-[600px] rounded-xl"
           alt={service.data.main.imgAlt}
-          format={"avif"}
-          loading={"eager"}
+          format="avif"
+          loading="eager"
           width="600"
         />
       </div>
@@ -132,10 +132,9 @@ const pageTitle: string = `${service.data.title} | ${SITE.title}`;
                 {service.data.tabFirst.ctaDescription}
               </p>
               <p class="mt-5">
-                <PrimaryCTA
+                <TertiaryCTA
                   title={service.data.tabFirst.btnTitle}
                   url={service.data.tabFirst.btnURL}
-                  iconName={service.data.tabFirst.btnIconName}
                 />
               </p>
             </div>
@@ -178,10 +177,9 @@ const pageTitle: string = `${service.data.title} | ${SITE.title}`;
                 {service.data.tabSecond.ctaDescription}
               </p>
               <p class="mt-5">
-                <PrimaryCTA
+                <TertiaryCTA
                   title={service.data.tabSecond.btnTitle}
                   url={service.data.tabSecond.btnURL}
-                  iconName={service.data.tabSecond.btnIconName}
                 />
               </p>
             </div>
@@ -206,11 +204,7 @@ const pageTitle: string = `${service.data.title} | ${SITE.title}`;
       </div>
     </div>
     <div class="my-8">
-      <Breadcrumb
-        title="Back to Services"
-        url="/services/"
-        iconName="arrowLeftCircle"
-      />
+      <Breadcrumb title="Back to Services" url="/services/" />
     </div>
   </div>
 </MainLayout>
@@ -294,7 +288,10 @@ const pageTitle: string = `${service.data.title} | ${SITE.title}`;
 </script>
 <script>
   document.addEventListener("astro:page-load", function () {
-    function setButtonInactive(btn: any, activeButton: any) {
+    function setButtonInactive(
+      btn: HTMLButtonElement,
+      activeButton: HTMLButtonElement,
+    ) {
       if (btn !== activeButton) {
         btn.classList.remove(
           "border-cyan-400",
@@ -319,7 +316,7 @@ const pageTitle: string = `${service.data.title} | ${SITE.title}`;
       }
     }
 
-    function activateButton(button: any) {
+    function activateButton(button: HTMLButtonElement) {
       button.classList.add(
         "border-cyan-400",
         "bg-cobalt-50/80",
@@ -345,10 +342,16 @@ const pageTitle: string = `${service.data.title} | ${SITE.title}`;
     const tabButtons = document.querySelectorAll("[data-target]");
 
     tabButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        tabButtons.forEach((btn) => setButtonInactive(btn, button));
-        activateButton(button);
-      });
+      if (button instanceof HTMLButtonElement) {
+        button.addEventListener("click", () => {
+          tabButtons.forEach((btn) => {
+            if (btn instanceof HTMLButtonElement) {
+              setButtonInactive(btn, button);
+            }
+          });
+          activateButton(button);
+        });
+      }
     });
   });
 </script>

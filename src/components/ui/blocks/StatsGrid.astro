@@ -1,5 +1,5 @@
 ---
-import Icon from "../icons/Icon.astro";
+import { Icon } from "astro-icon/components";
 
 const { count, description, index } = Astro.props;
 
@@ -14,8 +14,16 @@ interface Props {
   <div
     class="mb-2 flex items-end gap-x-2 text-3xl font-bold text-slate-800 dark:text-slate-200 sm:text-5xl"
   >
-    {index === 0 || index === 2 ? <Icon name="arrowDown" /> : null}
-    {index === 1 || index === 3 ? <Icon name="arrowUp" /> : null}
+    {
+      index === 0 || index === 2 ? (
+        <Icon class="size-12 rotate-180 text-orange-400" name="ArrowBracket" />
+      ) : null
+    }
+    {
+      index === 1 || index === 3 ? (
+        <Icon class="size-12 text-cyan-400" name="ArrowBracket" />
+      ) : null
+    }
     {count}
   </div>
   <p class="text-sm text-slate-800 dark:text-slate-200 sm:text-base">

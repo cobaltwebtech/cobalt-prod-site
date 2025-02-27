@@ -20,7 +20,6 @@ tabFirst:
     Get in touch with us to find the exact solution to your web needs.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabFirstItems:
   - title: "Custom Design with High Performance"
     subTitle: "Cobalt can build your next web project to your exact design. The design is built with high performance and lightning-fast speed to handle any amount of web traffic. Our builds look and work great across all devices from ultra-wide screens to tablets to mobile devices."
@@ -36,7 +35,6 @@ tabSecond:
     Get in touch with us to find the exact solution to your web needs.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabSecondItems:
   - title: "High Performance Cloud Compute"
     subTitle: "We partner with Vultr, DigitalOcean, Cloudflare, Amazon Web Services, Netlify, Vercel, Bunny.net CDN, and many more services to provide the tailored experience and performance you require for your website and application."

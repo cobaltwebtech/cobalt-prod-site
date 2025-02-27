@@ -1,13 +1,12 @@
 ---
-import Icon from "../icons/Icon.astro";
+import { Icon } from "astro-icon/components";
 // Destructure the properties from Astro.props
-const { title, url, iconName } = Astro.props;
+const { title, url } = Astro.props;
 
 // Define TypeScript interface for the properties
 interface Props {
   title?: string;
   url?: string;
-  iconName?: string;
 }
 // Define CSS classes for the hyperlink button
 const baseClasses =
@@ -28,6 +27,9 @@ const darkClasses =
   class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${hoverClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses} ${darkClasses}`}
   href={url}
 >
-  <Icon name={iconName} />
+  <Icon
+    name="ChatAnimate"
+    class="size-6 transition duration-300 group-hover:translate-x-1"
+  />
   {title}
 </a>

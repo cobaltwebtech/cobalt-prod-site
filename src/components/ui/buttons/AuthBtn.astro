@@ -1,20 +1,21 @@
 ---
-import Icon from "../icons/Icon.astro";
+import { Icon } from "astro-icon/components";
 // Destructure the properties from Astro.props
-const { title, iconName } = Astro.props;
+const { title, iconName, iconClass } = Astro.props;
 
 // Define TypeScript interface for the properties
 interface Props {
   title: string;
   iconName: string;
+  iconClass?: string;
 }
 // Define CSS classes for styling the button
 const baseClasses =
-  "group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm font-bold text-slate-50 ring-slate-500 transition duration-300 focus-visible:ring outline-none";
+  "group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 font-bold text-slate-50 ring-slate-500 transition duration-300 focus-visible:ring outline-none";
 const borderClasses = "border-2 border-cobalt-50 dark:border-cobalt-600";
 const bgColorClasses =
   "bg-cobalt-700 hover:bg-cobalt-800 dark:focus:outline-none";
-const fontSizeClasses = "2xl:text-base";
+const fontSizeClasses = "text-lg";
 const disabledClasses = "disabled:pointer-events-none disabled:opacity-50";
 const ringClasses = "ring-slate-500 dark:ring-slate-200";
 ---
@@ -23,5 +24,5 @@ const ringClasses = "ring-slate-500 dark:ring-slate-200";
 <button
   type="submit"
   class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${fontSizeClasses} ${disabledClasses} ${ringClasses}`}
-  >{title} <Icon name={iconName} /></button
+  >{title} <Icon name={iconName} class={iconClass} /></button
 >

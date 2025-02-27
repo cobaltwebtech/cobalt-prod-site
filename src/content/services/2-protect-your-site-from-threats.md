@@ -20,7 +20,6 @@ tabFirst:
     Get in touch with us to find the exact solution to your web needs.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabFirstItems:
   - title: "High Level of Security with Performance in Mind"
     subTitle: "Cobalt Web Technologies uses the latest in Web Application Firewalls and monitoring technology to stop bad bots, DDoS attacks, and suspicious payloads. We partner with Cloudflare, who is a global leader in network security, to provide powerful application security."
@@ -36,7 +35,6 @@ tabSecond:
     Get in touch with us so we can help stop malicious actions on your web apps and protect your digital assets and customers from  threats.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabSecondItems:
   - title: "DDoS Protection"
     subTitle: "Robots or other non-human visitors to your web app are a normal thing. Some bots are good such as search engine crawlers or social network bots. Some bots are bad such as scrapers, spammers, brute-force attackers, card testers, and many more. Our security partner Cloudflare provides an intelligent analysis of all bots and determines which are good while denying access to the bad bots."

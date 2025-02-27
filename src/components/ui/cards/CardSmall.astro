@@ -1,7 +1,7 @@
 ---
 // Import necessary modules and utilities
 import { Image } from "astro:assets";
-import Icon from "../icons/Icon.astro";
+import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
 
 const { product } = Astro.props;
@@ -39,7 +39,11 @@ const imageClass =
   <div class="relative w-full bg-slate-200/90 dark:bg-slate-800/90">
     <span
       class="my-3 ml-4 inline-block text-xl font-bold text-orange-600 transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110 dark:text-orange-400 md:ml-8 md:text-2xl"
-      >{product.data.title} <Icon name="openInNew" />
+      >{product.data.title}
+      <Icon
+        name="Arrow"
+        class="inline transition duration-[600ms] ease-in-out group-hover:-rotate-45"
+      />
     </span>
   </div>
 </a>

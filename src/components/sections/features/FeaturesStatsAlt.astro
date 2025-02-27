@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import featureImage from "@/images/products/product-features-graphic.svg";
 
 // Define props from Astro
@@ -11,9 +12,6 @@ interface Props {
   subTitle?: string;
   benefits?: Array<string>;
 }
-
-// Define SVG marker to be used in the component
-const ListItemMarker: string = `<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mt-0.5 h-6 w-6 text-orange-400 dark:text-orange-300 flex-none"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>`;
 ---
 
 <section
@@ -50,7 +48,10 @@ const ListItemMarker: string = `<svg fill="none" viewBox="0 0 24 24" stroke-widt
             <ul class="space-y-2 sm:space-y-4">
               {benefits.map((item) => (
                 <li class="flex space-x-3">
-                  <Fragment set:html={ListItemMarker} />
+                  <Icon
+                    name="CheckFill"
+                    class="size-6 flex-none text-orange-400 dark:text-orange-300"
+                  />
                   <span class="text-pretty text-base font-medium text-slate-800 dark:text-slate-200">
                     {item}
                   </span>

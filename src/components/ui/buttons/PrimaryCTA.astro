@@ -1,13 +1,11 @@
 ---
-import Icon from "../icons/Icon.astro";
+import { Icon } from "astro-icon/components";
 // Destructure the properties from Astro.props
-const { title, url, iconName, noArrow } = Astro.props;
+const { title, url } = Astro.props;
 // Define TypeScript interface for the properties
 interface Props {
   title?: string;
   url?: string;
-  iconName?: string;
-  noArrow?: boolean;
 }
 // Define CSS classes for styling the button
 const baseClasses =
@@ -25,7 +23,9 @@ const ringClasses = "dark:ring-slate-200";
   class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses}`}
   href={url}
 >
-  <!-- Display the icon based on the 'noArrow' property -->
-  {noArrow ? null : <Icon name={iconName} />}
+  <Icon
+    name="InfoFill"
+    class="size-6 transition duration-300 group-hover:translate-x-1"
+  />
   {title}
 </a>

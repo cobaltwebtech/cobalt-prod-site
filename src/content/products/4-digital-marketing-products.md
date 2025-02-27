@@ -21,7 +21,6 @@ tabFirst:
     Get in touch with us to implement your digital marketing strategy.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabFirstItems:
   - title: "Google Ads"
     subTitle: "Cobalt has the expertise in digital marketing to get your website and its products and services visible to the world so you can earn more leads and sales. Our partnership with Google Ads allows us to leverage their global platform to reach as many people as possible for you. Google Ads can target your customers from a set demographic to a particular ZIP code to keywords and any combination in between. Campaigns can be scheduled to run on certain days and times of the week. Costs are kept in check by setting a budget that works for you."
@@ -37,7 +36,6 @@ tabSecond:
     Get in touch with us to implement your digital marketing strategy.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabSecondItems:
   - title: "Google Ads"
     subTitle: "With Google Ads, you get the best of Google all-in-one. Powered by Google’s AI, reach valuable customers most likely to buy from you wherever they’re browsing, such as Search, Display, YouTube and more from a single campaign."

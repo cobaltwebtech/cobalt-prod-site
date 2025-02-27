@@ -20,7 +20,6 @@ tabFirst:
     Get in touch with us today and we can find the right digital ad campaign solution for you.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabFirstItems:
   - title: "We Are a Google Ads Partner"
     subTitle: "Cobalt has the expertise in digital marketing to get your website and its products and services visible to the world so you can earn more leads and sales. Our partnership with Google Ads allows us to leverage their global platform to reach as many people as possible for you. Google Ads can target your customers from any select demographic to a particular ZIP code to keywords and any combination in between. Campaigns can be scheduled to run on certain days and times of the week. Costs are kept in check by setting a budget that works for you."
@@ -36,7 +35,6 @@ tabSecond:
     Get in touch with us today to find out how we can help with your SEO strategy.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabSecondItems:
   - title: "What is SEO?"
     subTitle: "SEO stands for search engine optimization. The goal is to improve rankings in search results through optimizations of your website's code, readability, accessibility, and a multitude of other factors. The higher your website is ranked in search results the more likely you acquire new customers. SEO is very important to your online digital marketing strategy especially if you are looking to attract new clients or customers. SEO all starts with the optimization part of your website and that is how we can help you."

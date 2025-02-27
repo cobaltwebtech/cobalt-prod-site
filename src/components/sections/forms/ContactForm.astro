@@ -1,11 +1,10 @@
 ---
-import AuthBtn from "../../ui/buttons/AuthBtn.astro";
-import ContactIconBlock from "../../ui/blocks/ContactIconBlock.astro";
-import TextInput from "../../ui/forms/input/TextInput.astro";
-import EmailContactInput from "../../ui/forms/input/EmailContactInput.astro";
-import PhoneInput from "../../ui/forms/input/PhoneInput.astro";
-import TextAreaInput from "../../ui/forms/input/TextAreaInput.astro";
-import IconOld from "../../ui/icons/Icon.astro";
+import AuthBtn from "@comp/ui/buttons/AuthBtn.astro";
+import ContactIconBlock from "@comp/ui/blocks/ContactIconBlock.astro";
+import TextInput from "@comp/ui/forms/input/TextInput.astro";
+import EmailContactInput from "@comp/ui/forms/input/EmailContactInput.astro";
+import PhoneInput from "@comp/ui/forms/input/PhoneInput.astro";
+import TextAreaInput from "@comp/ui/forms/input/TextAreaInput.astro";
 import { Icon } from "astro-icon/components";
 import { z } from "astro:content";
 
@@ -171,20 +170,27 @@ if (Astro.request.method === "POST") {
             {errorMessage}
           </div>
           <div class="mt-4 grid">
-            <AuthBtn title="Send Contact Request" iconName="messageSend" />
+            <AuthBtn
+              title="Send Contact Request"
+              iconName="Send"
+              iconClass="size-5"
+            />
           </div>
         </form>
       </div>
 
       <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
       <div
-        class="divide-y divide-slate-300 text-slate-600 dark:divide-slate-700 dark:text-slate-50"
+        class="divide-y-2 divide-slate-300 text-slate-600 dark:divide-slate-600 dark:text-slate-50"
       >
         <ContactIconBlock
           heading="Hours of Operation"
           content="Monday - Friday, 9AM - 5PM (US Central)"
           isLinkVisible={false}
-          ><IconOld name="clock" />
+          ><Icon
+            name="Clock"
+            class="size-6 text-slate-600 dark:text-slate-200"
+          />
         </ContactIconBlock>
 
         <ContactIconBlock
@@ -194,7 +200,10 @@ if (Astro.request.method === "POST") {
           linkTitle="Start a chat session"
           linkURL="https://salesiq.zoho.com/signaturesupport.ls?widgetcode=b02c0667d93a35346839e5ab730f507af85d02062470316501c1c4d80b9136f1eae322a2a89cfbc9b10746de3549cb8f"
           isArrowVisible={true}
-          ><IconOld name="chatBubble" />
+          ><Icon
+            name="ChatFill"
+            class="size-6 text-slate-600 dark:text-slate-200"
+          />
         </ContactIconBlock>
 
         <ContactIconBlock
@@ -204,7 +213,10 @@ if (Astro.request.method === "POST") {
           linkTitle="+1-512-294-1600"
           linkURL="tel:+15122941600"
           isArrowVisible={true}
-          ><IconOld name="phone" />
+          ><Icon
+            name="Phone"
+            class="size-6 text-slate-600 dark:text-slate-200"
+          />
         </ContactIconBlock>
 
         <ContactIconBlock
@@ -214,7 +226,10 @@ if (Astro.request.method === "POST") {
           linkTitle="info@cobaltweb.tech"
           linkURL="mailto:info@cobaltweb.tech"
           isArrowVisible={true}
-          ><IconOld name="envelopeOpen" />
+          ><Icon
+            name="Envelope"
+            class="size-6 text-slate-600 dark:text-slate-200"
+          />
         </ContactIconBlock>
       </div>
     </div>

@@ -25,8 +25,6 @@ Check us out [https://www.cobaltweb.tech/](https://www.cobaltweb.tech/?utm_sourc
 - **Preline UI:** Implement prebuilt UI components for added elegance.
 - **GSAP Integration:** Impress with professional and polished animations.
 - **Markdown Content Collections:** Organize and manage the content seamlessly.
-- **Starlight Documentation:** A sleek, user-friendly, full-featured documentation theme.
-- **Internationalization (i18n):** Integrates Astro’s internationalization features.
 - **SEO and Responsiveness:** Ensure our site is discoverable and accessible on any device.
 - **Resend Email:** We use Resend integration for custom transactional emails from webforms.
 
@@ -34,27 +32,17 @@ Check us out [https://www.cobaltweb.tech/](https://www.cobaltweb.tech/?utm_sourc
 
 ### Added Features
 
-- [x] **Starlight Documentation Theme Integration**:
+- [x] **Astro Icon Integration**:
 
-  - A sleek, user-friendly, full-featured documentation theme, which enhances the readability and usability of documentation.
-  - Offers a range of features such as site navigation, built-in search functionality, dark mode, syntax highlighting for code, and improved SEO.
-  - Seamlessly integrates internationalization (i18n) to provide support for documentation in multiple languages, catering to a global audience.
-  - Designed to facilitate ease of use while offering a modern aesthetic in both light and dark themes to accommodate user preferences.
+  - Astro Icon is ready to use, with zero additional configuration. The included Icon component allows easy method to inline svgs directly into the Astro project.
+  - Icons can be imported and referenced from third party libraries by setting the name attribute in the Icon component.
+  - Custom local SVGs can also be used by placing the svg file in the /src/icons folder and referencing the name in the Icon component.
+  - Can apply Tailwind styling classes as well as custom styling on the icon.
 
-- [x] **Icon Set Component**:
+- [x] **View Transitions**:
 
-  - Convenient and reusable Icon component that allows adding icons simply by providing a name prop.
-  - Render any pre-defined icon SVG using `<Icon name="iconName" />` in the Astro components.
-  - The Icon Component offers a centralized location for all SVG Icons across the project in one TypeScript file - allowing unified updates and easy maintenance.
-
-- [x] **Internationalization (i18n) Features**:
-
-  - Integrates [Astro’s internationalization (i18n) features](https://docs.astro.build/en/guides/internationalization/).
-  - Additionally, a custom LanguagePicker component has been developed to facilitate language selection.
-
-- [x] **Dynamic Table of Contents (ToC) with Scroll Progress Indicator**:
-  - Enhances ease of navigation in insight posts by highlighting the relevant section in the ToC, and includes a progress indicator to visually represent scroll progress.
-  - Developers seeking alternatives might consider the [remark-toc](https://github.com/remarkjs/remark-toc) plugin.
+  - Astro supports view transitions with just a few lines of code. View transitions update the page content without the browser’s normal, full-page navigation refresh and provide seamless animations between pages.
+  - View Transitions can be customized with various animation effects and linking of assets to create a seamless transition effect while browsing the site.
 
 ## Project Structure
 
@@ -62,22 +50,19 @@ Cobalt organizes modular components, content, and layouts to streamline developm
 
 ```md
 src/
-├── assets/  
-│ ├── scripts/ # JS scripts
-│ └── styles/ # CSS styles
 ├── components/ # Reusable components
-│ ├── Meta.astro # Meta component for SEO
+│ ├── Meta.astro # Meta component injected into MainLayout.astro for SEO, favicons, and fonts
 │ ├── sections/ # Components for various sections of the website
-│ ├── ThemeIcon.astro # Component for toggling light/dark themes
 │ └── ui/ # UI components categorized by functionality
 ├── content/ # Markdown files for blog posts, insights, products, and site configuration
-│ ├── products/  
-│ ├── services/  
-│ └── config.ts # Contains site-wide configuration options
+│ ├── products/ # Markdown files for each product
+│ ├── services/ # Markdown files for each service
+│ └── config.ts # Contains content collections configuration options
 ├── data_files/ # Strings stored as JSON files
+├── icons/ # SVG icons used by Astro Icon plugin
 ├── images/ # Static image assets for use across the website
 ├── layouts/ # Components defining layout templates
-│ └── MainLayout.astro # The main wrapping layout for all pages
+│ └── MainLayout.astro # The base html structure layout for all pages
 ├── pages/ # Astro files representing individual pages and website sections
 │ ├── 404.astro # Custom 404 page
 │ ├── about.astro # About us page
@@ -87,6 +72,9 @@ src/
 │ ├── products/ # Product page contains ..slug.astro for rendering each product page dynamically
 │ ├── services/ # Services page contains ..slug.astro for rendering each service page dynamically
 │ ├── support/ # Support contact page with webform
+│ ├── manifest.json.ts # Web manifest rendered in json after build
+├── styles/ # CSS style sheets contains Tailwind config in global.css
+├── types/ # Custom types declarations for TypeScript
 └── utils/ # Shared utility functions and helpers
 ```
 
@@ -98,9 +86,13 @@ Cobalt leverages the power of Astro — a modern, cutting-edge site building fra
 
 Experience buttery smooth scrolling with [Lenis](https://lenis.studiofreight.com/). We've integrated Lenis to provide an enhanced scrolling experience that's both fluid and responsive.
 
+### Astro Icon
+
+[Astro Icon](https://www.astroicon.dev/) is integrated for easy to use SVG icons. The included Icon component allows easy method to inline svgs directly into the Astro project. Icons can be imported and referenced from third party libraries as well as local SVGs placed in the /src/icons folder. Tailwind classes can be used for styling the SVG icons.
+
 ### GSAP Integration
 
-For individual product pages, [GSAP](https://gsap.com/) has been integrated to add engaging animations that execute as soon as the product page loads.
+For individual product pages, [GSAP](https://gsap.com/) has been integrated to add engaging animations that execute as soon as the page loads.
 
 ### Resend Integration
 
@@ -118,19 +110,17 @@ The SEO Configuration is designed to optimize the website's visibility on search
 
 - Using constants.ts: The SEO configuration has been centralized using the `constants.ts` file. This file manages SEO-related data such as page titles, descriptions, structured data, and Open Graph tags, providing a more structured and manageable approach to SEO management.
 
-- Meta.astro Component: This astro component contains the metadata, sitemap location, Open Graph info, and other SEO configurations.
+- Meta.astro Component: This astro component contains the metadata, XML sitemap location, favicons, Open Graph info, and other SEO configurations.
 
 - Robots.txt: A robots.txt file is placed in the /public folder to be copied over during build. We list the allowed search engines to crawl the site and location of the sitemap.
 
-### Astro Integrations
+### Performance Enhancements
 
 Our website's efficiency is maximized with these built-in Astro integrations:
 
 - [Asset Minification](https://github.com/PlayForm/Compress): By default Astro will perform basic minification of most assets. For optimal site performance, the generated HTML is minified after the build phase to further reduce file size and speed up load times.
 
 - [Astro Compressor](https://github.com/sondr3/astro-compressor#readme): Automatically compresses Astro generated assets using brotli for smaller file sizes ensuring faster load times.
-
-- [Bag of Tricks for Astro's View Tran­si­tions](https://github.com/martrapp/astro-vtbot#readme): is a collection of extensions and support aimed at enhancing Astro's view transitions. This toolkit offers various techniques to elevate a project. In the template, it was used to add View Transitions to a Starlight docs.
 
 ### Preline UI
 
@@ -139,6 +129,8 @@ Interactive components like navbars, modals, and accordions are built using [Pre
 ### Tailwind CSS
 
 Styling across our project leverages the utility-first classes offered by [Tailwind CSS](https://tailwindcss.com). This methodology allows us to create custom layouts and components with speed and efficiency.
+
+- **Tailwind version 4 coming soon!**
 
 To ensure consistent code formatting, particularly for class sorting, we have integrated the `prettier-plugin-tailwindcss` [plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss).
 

@@ -1,5 +1,6 @@
 ---
-import Icon from "../icons/Icon.astro";
+import { Icon } from "astro-icon/components";
+
 // Destructure the properties from Astro.props
 const { title, id } = Astro.props;
 // Define TypeScript interface for the properties
@@ -9,12 +10,12 @@ interface Props {
 }
 // Define CSS classes for styling the button
 const baseClasses =
-  "group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm font-bold text-slate-50 ring-zinc-500 transition duration-300 focus-visible:ring outline-none";
+  "group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 font-bold text-slate-50 ring-zinc-500 transition duration-300 focus-visible:ring outline-none";
 const borderClasses = "border-2 border-slate-500";
 const bgColorClasses =
   "bg-orange-500 hover:bg-orange-700 active:bg-orange-500 dark:focus:outline-none";
 const disableClasses = "disabled:pointer-events-none disabled:opacity-50";
-const fontSizeClasses = "2xl:text-base";
+const fontSizeClasses = "text-xl";
 const ringClasses = "dark:ring-zinc-200";
 ---
 
@@ -24,7 +25,10 @@ const ringClasses = "dark:ring-zinc-200";
     class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses}`}
     id={id}
   >
-    <Icon name="house" />
+    <Icon
+      name="House"
+      class="size-8 transition duration-300 group-hover:translate-x-1"
+    />
     {title}
   </button>
 </a>

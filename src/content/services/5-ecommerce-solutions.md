@@ -20,7 +20,6 @@ tabFirst:
     Find out how we can give you and your customers an excellent ecommerce shopping experience.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabFirstItems:
   - title: "Shopify Platform"
     subTitle: "We are a partner with Shopify, the global leader in ecommerce. Leveraging the power of Shopify whose platform is omnichannel. From a brick-and-mortar store to online, you can have a unified experience with easy-to-use system. Shopify has integrations for both in-person point of sale (POS) and ecommerce. Managing inventory, advanced sales reporting, integrated payment solutions, and secure system with Shopify makes running your online business smooth and easy."
@@ -36,7 +35,6 @@ tabSecond:
     Find out how we can give you and your customers an excellent ecommerce shopping experience.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabSecondItems:
   - title: "Stripe Payment Gateway"
     subTitle: "Stripe is competitive on their processing rates with pricing at 2.9% + $0.30 per transaction and for high volume customers there may be further discounts. There are no hidden fees so you know exactly what you pay per transaction."

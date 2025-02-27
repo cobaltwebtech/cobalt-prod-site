@@ -25,23 +25,23 @@ If URL is '/' (home page), assign ID as 'home'
 </a>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    let url = window.location.pathname;
-    let urlSegments = url.split("/");
-    let navId;
+  document.addEventListener("astro:page-load", () => {
+    const setActiveNavLink = () => {
+      let url = window.location.pathname;
+      let navId = url === "/" ? "home" : url.replace("/", "");
+      let nav = document.getElementById(navId);
 
-    if (url === "/") {
-      navId = "home";
-    } else {
-      navId = url.replace("/", "");
-    }
+      if (nav) {
+        nav.classList.remove("text-slate-200");
+        nav.classList.add("text-cyan-400", "hover:text-cyan-400");
+        nav.setAttribute("aria-current", "page");
+      }
+    };
 
-    let nav = document.getElementById(navId);
+    // Run the function immediately after page load
+    setActiveNavLink();
 
-    if (nav) {
-      nav.classList.remove("text-slate-200");
-      nav.classList.add("text-cyan-400", "hover:text-cyan-400");
-      nav.setAttribute("aria-current", "page");
-    }
+    // Listen for view transitions and update the active link accordingly
+    document.addEventListener("astro:after-view-transition", setActiveNavLink);
   });
 </script>

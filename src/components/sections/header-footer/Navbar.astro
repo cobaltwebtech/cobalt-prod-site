@@ -1,12 +1,9 @@
 ---
-//Import relevant dependencies
-import NavLink from "../../ui/links/NavLink.astro";
-import enStrings from "@/utils/navigation";
-import BrandLogo from "../../BrandLogo.astro";
-import MobileMenuBtn from "@/components/ui/buttons/MobileMenuBtn.astro";
-import ThemeSwitchBtn from "@/components/ui/buttons/ThemeSwitchBtn.astro";
-
-// Select the correct translation based on the page's lang prop:
+import NavLink from "@comp/ui/links/NavLink.astro";
+import enStrings from "@utils/navigation";
+import Logo from "@comp/Logo.astro";
+import MobileMenuBtn from "@comp/ui/buttons/MobileMenuBtn.astro";
+import ThemeSwitchBtn from "@comp/ui/buttons/ThemeSwitchBtn.astro";
 ---
 
 <!-- Main header component -->
@@ -15,7 +12,7 @@ import ThemeSwitchBtn from "@/components/ui/buttons/ThemeSwitchBtn.astro";
 >
   <!-- Navigation container -->
   <nav
-    class="border-yellow-100/40 relative mx-2 w-full rounded-3xl border bg-cobalt-800/90 p-2 backdrop-blur-md dark:border-slate-700/40 dark:bg-cobalt-800/85 dark:backdrop-blur-md sm:rounded-[36px] sm:px-4 sm:py-3 md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto"
+    class="border-yellow-100/40 relative mx-2 w-full rounded-3xl border bg-cobalt-800/90 p-2 backdrop-blur-md dark:border-slate-700/40 dark:bg-cobalt-800/85 dark:backdrop-blur-md sm:rounded-[36px] sm:px-4 sm:py-3 md:flex md:items-center md:justify-between md:px-4 md:py-0 lg:px-8 xl:mx-auto"
     aria-label="Navigation"
   >
     <div class="flex items-center justify-between">
@@ -26,7 +23,7 @@ import ThemeSwitchBtn from "@/components/ui/buttons/ThemeSwitchBtn.astro";
         aria-label="Cobalt Web Technologies Logo"
       >
         <div class="m-2 h-auto w-16 sm:w-24">
-          <BrandLogo />
+          <Logo />
         </div>
         <div
           class="mx-2 flex items-center font-bold text-slate-200 sm:w-28 sm:text-lg xl:w-max xl:text-3xl"

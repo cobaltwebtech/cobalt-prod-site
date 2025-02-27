@@ -1,12 +1,12 @@
 ---
 // Importing necessary components
-import Meta from "@/components/Meta.astro";
-import Navbar from "@/components/sections/header-footer/Navbar.astro";
-import FooterSection from "@/components/sections/header-footer/FooterSection.astro";
-import { SITE } from "@/data_files/constants";
+import Meta from "@comp/Meta.astro";
+import Navbar from "@comp/sections/header-footer/Navbar.astro";
+import Footer from "@comp/sections/header-footer/Footer.astro";
+import { SITE } from "@data/constants";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import { ClientRouter, fade } from "astro:transitions";
-import TwSizeIndicator from "@/components/ui/TwSizeIndicator.astro";
+import TwSizeIndicator from "@comp/ui/TwSizeIndicator.astro";
 import "@/styles/global.css";
 
 // Setting expected props
@@ -61,7 +61,13 @@ We set the language of the page to English and add classes for scrollbar and scr
     </script>
     <!--Import Lenis smooth scroll script -->
     <script>
-      import "@scripts/lenisSmoothScroll.js";
+      import Lenis from "lenis";
+      const lenis = new Lenis();
+      function raf(time: number): void {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
     </script>
     <!-- Pass in conditional script if needed on pages where the prop externalScript={true} -->
     {externalScript && <script is:inline src={scriptUrl} async defer />}
@@ -72,12 +78,6 @@ We set the language of the page to English and add classes for scrollbar and scr
       src="https://umami.cobaltweb.tech/script.js"
       data-website-id={umamiId}></script>
     <!-- Vercel Speed Insights analytics  -->
-    <script is:inline>
-      function speedInsightsBeforeSend(data) {
-        console.log("Speed Insights before send", data);
-        return data;
-      }
-    </script>
     <SpeedInsights />
     <ClientRouter fallback="swap" />
   </head>
@@ -94,7 +94,7 @@ We set the language of the page to English and add classes for scrollbar and scr
         <slot />
       </main>
     </div>
-    <FooterSection />
+    <Footer />
     <TwSizeIndicator />
     <!-- Import Preline UI with View Transition support -->
     <script>

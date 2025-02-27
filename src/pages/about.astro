@@ -2,17 +2,30 @@
 // Import necessary components
 import { Image } from "astro:assets";
 import MainLayout from "@/layouts/MainLayout.astro";
-import MainSection from "@/components/ui/blocks/MainSection.astro";
-import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
+import MainSection from "@comp/ui/blocks/MainSection.astro";
+import SecondaryCTA from "@/components/ui/buttons/SecondaryCTA.astro";
+import { SITE } from "@data/constants";
 
 // Import necessary images
 import logo from "@/images/icon.svg";
 import cgarza from "@/images/cgarza-photo.avif";
 import serviceHacker from "@/images/services/service-global-network-1.avif";
 
-import { SITE } from "@/data_files/constants";
-
 const pageTitle: string = `About Us | ${SITE.title}`;
+
+// Define variables for page content
+const sectionTitleFirst: string = "How We Got Started";
+const sectionTopFirst: string =
+  "Cobalt Web Technologies was founded by Christopher Garza in 2015 with the express goal of providing unparalleled service and expertise in the world of information and web technology. Christopher got his start in technology at a young age by first tinkering with his family's business computers that ran on MS-DOS. Being immersed in the command line interface of that time introduced him to the world of computers and their potential.";
+const sectionTopSecond: string =
+  "Having years of experience in the field and specializing in web technologies today allowed him to freelance in the early 2010's. When Cobalt was founded in 2015 by Christopher, he kept it as a freelancing gig while maintaining a full-time career.";
+const sectionTitleSecond: string = "Where We Are Today";
+const sectionBottomFirst: string =
+  "Fast forward to 2020 and the chaotic times of the pandemic which brought an immense demand for new web projects, companies to move their services online and remotely, and improve the web infrastructure for many companies. Everyone was going online and needing web services. So Christopher made the move to dedicate his time fully to Cobalt Web Technologies and bring this growing company to a new chapter.";
+const sectionBottomSecond: string =
+  "We're based in Austin, Texas USA and the technology hub of the region allows us to partner with the best companies to bring you the very best services possible. Cobalt's mission is to bring you the best experience and service you need to run your business. We leverage our expertise to provide the best product for your needs.";
+const sectionBottomThird: string =
+  "Contact us today and let us find the perfect solution for your next web project.";
 ---
 
 <MainLayout
@@ -42,40 +55,31 @@ const pageTitle: string = `About Us | ${SITE.title}`;
   />
 
   <section
-    class="mx-auto max-w-[85rem] items-center gap-16 px-4 sm:px-6 lg:grid lg:grid-cols-2 lg:px-8 2xl:max-w-full"
+    class="mx-auto grid max-w-[85rem] grid-cols-1 items-center gap-16 px-4 sm:px-6 md:grid-cols-2 md:px-8 2xl:max-w-full"
   >
-    <div>
+    <div class="order-last md:order-first">
       <h2
         class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-slate-800 dark:text-slate-200"
       >
-        How We Got Started
+        {sectionTitleFirst}
       </h2>
       <p
-        class="mb-4 max-w-prose text-pretty font-light text-slate-600 dark:text-slate-200 sm:text-lg"
+        class="mb-4 text-pretty font-light text-slate-600 dark:text-slate-200 sm:text-lg"
       >
-        Cobalt Web Technologies was founded by Christopher Garza in 2015 with
-        the express goal of providing unparalleled service and expertise in the
-        world of information and web technology. Christopher got his start in
-        technology at a young age by first tinkering with his family's business
-        computers that ran on MS-DOS. Being immersed in the command line
-        interface of that time introduced him to the world of computers and
-        their potential.
+        {sectionTopFirst}
       </p>
       <p
-        class="mb-4 max-w-prose text-pretty font-light text-slate-600 dark:text-slate-200 sm:text-lg"
+        class="mb-4 text-pretty font-light text-slate-600 dark:text-slate-200 sm:text-lg"
       >
-        Having years of experience in the field and specializing in web
-        technologies today allowed him to freelance in the early 2010's. When
-        Cobalt was founded in 2015 by Christopher, he kept it as a freelancing
-        gig while maintaining a full-time career.
+        {sectionTopSecond}
       </p>
     </div>
 
-    <div>
+    <div class="order-first md:order-last">
       <Image
-        class="h-1/2 w-full rounded-xl"
+        class="mx-auto w-3/4 rounded-xl"
         src={logo}
-        alt="Cobalt Web Technologies logo"
+        alt="Cobalt Web Technologies Logo"
         format={"svg"}
         width="672"
         loading={"eager"}
@@ -107,41 +111,27 @@ const pageTitle: string = `About Us | ${SITE.title}`;
     </div>
     <div>
       <h2
-        class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-slate-800 dark:text-slate-200"
+        class="my-4 text-balance text-4xl font-extrabold tracking-tight text-slate-800 dark:text-slate-200"
       >
-        Where We Are Today
+        {sectionTitleSecond}
       </h2>
       <p
-        class="mb-4 max-w-prose text-pretty font-light text-slate-600 dark:text-slate-200 sm:text-lg"
+        class="mb-4 text-pretty font-light text-slate-600 dark:text-slate-200 sm:text-lg"
       >
-        Fast forward to 2020 and the chaotic times of the pandemic which brought
-        an immense demand for new web projects, companies to move their services
-        online and remotely, and improve the web infrastructure for many
-        companies. Everyone was going online and needing web services. So
-        Christopher made the move to dedicate his time fully to Cobalt Web
-        Technologies and bring this growing company to a new chapter.
+        {sectionBottomFirst}
       </p>
       <p
-        class="mb-4 max-w-prose text-pretty font-light text-slate-600 dark:text-slate-200 sm:text-lg"
+        class="mb-4 text-pretty font-light text-slate-600 dark:text-slate-200 sm:text-lg"
       >
-        We're based in Austin, Texas USA and the technology hub of the region
-        allows us to partner with the best companies to bring you the very best
-        services possible. Cobalt's mission is to bring you the best experience
-        and service you need to run your business. We leverage our expertise to
-        provide the best product for your needs.
+        {sectionBottomSecond}
       </p>
       <p
-        class="mb-4 max-w-prose text-pretty font-light text-slate-600 dark:text-slate-200 sm:text-lg"
+        class="mb-4 text-pretty font-semibold text-slate-600 dark:text-slate-200 sm:text-lg"
       >
-        Contact us today and let us find the perfect solution for your next web
-        project.
+        {sectionBottomThird}
       </p>
       <div>
-        <PrimaryCTA
-          title="Get in Touch with Us"
-          url="/contact/"
-          iconName="chatBubble"
-        />
+        <SecondaryCTA title="Get in Touch with Us" url="/contact/" />
       </div>
     </div>
   </section>

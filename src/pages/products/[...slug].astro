@@ -1,10 +1,10 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
-import Breadcrumb from "@/components/ui/buttons/Breadcrumb.astro";
+import TertiaryCTA from "@comp/ui/buttons/TertiaryCTA.astro";
+import Breadcrumb from "@comp/ui/buttons/Breadcrumb.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import { SITE } from "@/data_files/constants";
+import { SITE } from "@data/constants";
 
 // Global declaration for gsap animation library
 declare global {
@@ -15,7 +15,7 @@ declare global {
 // This gets the static paths for all the unique products
 export async function getStaticPaths() {
   const productEntries = await getCollection("products");
-  return productEntries.map((product) => ({
+  return productEntries.map((product: any) => ({
     params: { slug: product.slug },
     props: { product },
   }));
@@ -132,17 +132,16 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                 {product.data.tabFirst.ctaDescription}
               </p>
               <p class="mt-5">
-                <PrimaryCTA
+                <TertiaryCTA
                   title={product.data.tabFirst.btnTitle}
                   url={product.data.tabFirst.btnURL}
-                  iconName={product.data.tabFirst.btnIconName}
                 />
               </p>
             </div>
 
             <div class="space-y-6 lg:space-y-10">
               {
-                product.data.tabFirstItems.map((list) => (
+                product.data.tabFirstItems.map((list: any) => (
                   <div class="flex">
                     <div>
                       <h3 class="text-base font-bold text-slate-800 dark:text-slate-200 sm:text-lg">
@@ -178,16 +177,15 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                 {product.data.tabSecond.ctaDescription}
               </p>
               <p class="mt-5">
-                <PrimaryCTA
+                <TertiaryCTA
                   title={product.data.tabSecond.btnTitle}
                   url={product.data.tabSecond.btnURL}
-                  iconName={product.data.tabSecond.btnIconName}
                 />
               </p>
             </div>
             <div class="space-y-6 lg:space-y-10">
               {
-                product.data.tabSecondItems.map((list) => (
+                product.data.tabSecondItems.map((list: any) => (
                   <div class="flex">
                     <div>
                       <h3 class="text-base font-bold text-slate-800 dark:text-slate-200 sm:text-lg">
@@ -206,11 +204,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
       </div>
     </div>
     <div class="my-8">
-      <Breadcrumb
-        title="Back to Products"
-        url="/products/"
-        iconName="arrowLeftCircle"
-      />
+      <Breadcrumb title="Back to Products" url="/products/" />
     </div>
   </div>
 </MainLayout>
@@ -294,7 +288,10 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 </script>
 <script>
   document.addEventListener("astro:page-load", function () {
-    function setButtonInactive(btn: any, activeButton: any) {
+    function setButtonInactive(
+      btn: HTMLButtonElement,
+      activeButton: HTMLButtonElement,
+    ) {
       if (btn !== activeButton) {
         btn.classList.remove(
           "border-cyan-400",
@@ -319,7 +316,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
       }
     }
 
-    function activateButton(button: any) {
+    function activateButton(button: HTMLButtonElement) {
       button.classList.add(
         "border-cyan-400",
         "bg-cobalt-50/80",
@@ -345,10 +342,16 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
     const tabButtons = document.querySelectorAll("[data-target]");
 
     tabButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        tabButtons.forEach((btn) => setButtonInactive(btn, button));
-        activateButton(button);
-      });
+      if (button instanceof HTMLButtonElement) {
+        button.addEventListener("click", () => {
+          tabButtons.forEach((btn) => {
+            if (btn instanceof HTMLButtonElement) {
+              setButtonInactive(btn, button);
+            }
+          });
+          activateButton(button);
+        });
+      }
     });
   });
 </script>

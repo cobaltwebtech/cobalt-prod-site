@@ -1,5 +1,5 @@
 ---
-
+import { Icon } from "astro-icon/components";
 ---
 
 <!-- Menu Toggle button for small screens -->
@@ -10,35 +10,14 @@
   aria-controls="navbar-collapse-with-animation"
   aria-label="Toggle navigation"
 >
-  <!-- Hamburger Icon -->
-  <svg
-    class="size-5 flex-shrink-0 hs-collapse-open:hidden"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <line x1="3" x2="21" y1="6" y2="6"></line>
-    <line x1="3" x2="21" y1="12" y2="12"></line>
-    <line x1="3" x2="21" y1="18" y2="18"></line>
-  </svg>
+  <!-- Menu Icon -->
+  <Icon
+    name="MobileMenu"
+    class="size-6 flex-shrink-0 hs-collapse-open:hidden"
+  />
   <!-- Close (X) Icon -->
-  <svg
-    class="hidden size-5 flex-shrink-0 hs-collapse-open:block"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <path d="M18 6 6 18"></path>
-    <path d="m6 6 12 12"></path>
-  </svg>
+  <Icon
+    name="Close"
+    class="hidden size-6 flex-shrink-0 hs-collapse-open:block"
+  />
 </button>

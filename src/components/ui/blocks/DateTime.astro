@@ -1,0 +1,63 @@
+---
+
+---
+
+<div>
+  <h3 class="mt-4 text-lg font-bold text-slate-800 dark:text-slate-200">
+    Current Date and Time in Austin, TX
+  </h3>
+  <p id="date" class="text-orange-600 dark:text-orange-300"></p>
+  <p id="time" class="text-orange-600 dark:text-orange-300"></p>
+  <p id="offset" class="text-orange-600 dark:text-orange-300"></p>
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", async () => {
+    function updateTime() {
+      const optionsDate: Intl.DateTimeFormatOptions = {
+        timeZone: "America/Chicago",
+        weekday: "short",
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+      };
+      const optionsTime: Intl.DateTimeFormatOptions = {
+        timeZone: "America/Chicago",
+        hour: "numeric",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+      };
+      const dateFormatter = new Intl.DateTimeFormat("en-US", optionsDate);
+      const timeFormatter = new Intl.DateTimeFormat("en-US", optionsTime);
+      const date = new Date();
+      const formattedDate = dateFormatter.format(date);
+      const formattedTime = timeFormatter.format(date);
+      const dateElement = document.getElementById("date");
+      const timeElement = document.getElementById("time");
+      if (dateElement) {
+        dateElement.innerText = formattedDate;
+      }
+      if (timeElement) {
+        timeElement.innerText = formattedTime;
+      }
+
+      // Calculate UTC offset
+      const austinTime = new Date(
+        date.toLocaleString("en-US", { timeZone: "America/Chicago" }),
+      );
+      const utcOffset = -austinTime.getTimezoneOffset() / 60;
+      const offsetElement = document.getElementById("offset");
+      if (offsetElement) {
+        offsetElement.innerText = `UTC${utcOffset >= 0 ? "+" : ""}${utcOffset}`;
+      }
+    }
+
+    function startClock() {
+      updateTime();
+      setInterval(updateTime, 1000);
+    }
+
+    startClock();
+  });
+</script>

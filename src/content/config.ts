@@ -26,7 +26,6 @@ const productsCollection = defineCollection({
         ctaDescription: z.string(),
         btnTitle: z.string(),
         btnURL: z.string(),
-        btnIconName: z.string(),
       }),
       tabFirstItems: z.array(
         z.object({
@@ -40,7 +39,6 @@ const productsCollection = defineCollection({
         ctaDescription: z.string(),
         btnTitle: z.string(),
         btnURL: z.string(),
-        btnIconName: z.string(),
       }),
       tabSecondItems: z.array(
         z.object({
@@ -74,7 +72,6 @@ const servicesCollection = defineCollection({
         ctaDescription: z.string(),
         btnTitle: z.string(),
         btnURL: z.string(),
-        btnIconName: z.string(),
       }),
       tabFirstItems: z.array(
         z.object({
@@ -88,7 +85,6 @@ const servicesCollection = defineCollection({
         ctaDescription: z.string(),
         btnTitle: z.string(),
         btnURL: z.string(),
-        btnIconName: z.string(),
       }),
       tabSecondItems: z.array(
         z.object({

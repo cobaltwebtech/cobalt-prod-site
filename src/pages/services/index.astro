@@ -1,9 +1,9 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import MainSection from "@/components/ui/blocks/MainSection.astro";
-import LeftSection from "@/components/ui/blocks/LeftSection.astro";
-import RightSection from "@/components/ui/blocks/RightSection.astro";
-import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
+import MainSection from "@comp/ui/blocks/MainSection.astro";
+import LeftSection from "@comp/ui/blocks/LeftSection.astro";
+import RightSection from "@comp/ui/blocks/RightSection.astro";
+import FeaturesStats from "@comp/sections/features/FeaturesStats.astro";
 
 // Import necessary images
 import serviceBuild1 from "@/images/services/service-let-us-build-1.avif";
@@ -15,7 +15,7 @@ import serviceDigitalMarketing from "@/images/services/service-digital-marketing
 import serviceEcommerce1 from "@/images/services/service-ecommerce-tall-1.avif";
 import serviceEcommerce2 from "@/images/services/service-ecommerce-tall-2.avif";
 
-import { SITE } from "@/data_files/constants";
+import { SITE } from "@data/constants";
 
 interface Article {
   isRightSection: boolean;
@@ -24,7 +24,6 @@ interface Article {
   btnExists?: boolean;
   btnTitle?: string;
   btnURL?: string;
-  btnIconName?: string;
   single?: boolean;
   img?: any;
   imgAlt?: string;
@@ -48,7 +47,6 @@ const articles: Article[] = [
     btnExists: true,
     btnTitle: "Learn More",
     btnURL: "/services/a-new-website-experience/",
-    btnIconName: "arrowRightCircle",
   },
   {
     isRightSection: false,
@@ -60,7 +58,6 @@ const articles: Article[] = [
     btnExists: true,
     btnTitle: "Learn More",
     btnURL: "/services/protect-your-site-from-threats/",
-    btnIconName: "arrowRightCircle",
   },
   {
     isRightSection: true,
@@ -75,7 +72,6 @@ const articles: Article[] = [
     btnExists: true,
     btnTitle: "Learn More",
     btnURL: "/services/live-life-on-the-edge/",
-    btnIconName: "arrowRightCircle",
   },
   {
     isRightSection: false,
@@ -87,7 +83,6 @@ const articles: Article[] = [
     btnExists: true,
     btnTitle: "Learn More",
     btnURL: "/services/digital-marketing/",
-    btnIconName: "arrowRightCircle",
   },
   {
     isRightSection: true,
@@ -102,7 +97,6 @@ const articles: Article[] = [
     btnExists: true,
     btnTitle: "Learn More",
     btnURL: "/services/ecommerce-solutions/",
-    btnIconName: "arrowRightCircle",
   },
 ];
 
@@ -136,7 +130,6 @@ const pageTitle: string = `Services | ${SITE.title}`;
     btnExists={true}
     btnTitle="Schedule a Consultation"
     btnURL="/contact/"
-    btnIconName="chatBubble"
   />
   <!-- RightSection and LeftSection contain details about various services along with pertinent imagery.
   They alternate for variety in design.
@@ -160,7 +153,6 @@ const pageTitle: string = `Services | ${SITE.title}`;
           btnExists={article.btnExists}
           btnTitle={article.btnTitle}
           btnURL={article.btnURL}
-          btnIconName={article.btnIconName}
         />
       ) : (
         <LeftSection
@@ -171,7 +163,6 @@ const pageTitle: string = `Services | ${SITE.title}`;
           btnExists={article.btnExists}
           btnTitle={article.btnTitle}
           btnURL={article.btnURL}
-          btnIconName={article.btnIconName}
         />
       );
     })

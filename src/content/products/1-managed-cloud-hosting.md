@@ -21,7 +21,6 @@ tabFirst:
     Find out how we can offer you the right managed cloud product at an affordable price.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabFirstItems:
   - title: "We Partner with the Very Best Cloud Providers"
     subTitle: "Our managed providers include Vultr, DigitalOcean, Linode, Amazon Web Services, Hetzner, and many more. We will select the right backend provider for your services. "
@@ -37,7 +36,6 @@ tabSecond:
     Get in touch with us to find the exact cloud hosting solution for you.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabSecondItems:
   - title: "High Performance Cloud Compute"
     subTitle: "Global datacenters with multiple products. Cloud GPU for large-scale intensive workloads, Shared Cloud Compute for affordable basic workloads, Optimized Cloud Compute for higher performance hardware, and custom Bare Metal installs."

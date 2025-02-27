@@ -21,7 +21,6 @@ tabFirst:
     Get in touch with us to secure and improve the performance of your web app.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabFirstItems:
   - title: "Global Connectivity with Security"
     subTitle: "Cloudflare's application services protect millions of web properties and serve tens of millions of HTTP requests per second on average. We seamlessly connect your apps and APIs hosted in public, private and hybrid clouds, and hosted on-premises."
@@ -37,7 +36,6 @@ tabSecond:
     Get in touch with us to secure and improve the performance of your web app.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabSecondItems:
   - title: "DDoS Protection"
     subTitle: "Protect against DDoS attacks of any size and kind. Always-on DDoS protection for web applications and websites."

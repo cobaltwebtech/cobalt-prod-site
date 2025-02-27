@@ -21,7 +21,6 @@ tabFirst:
     Get in touch with us to supercharge your content delivery.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabFirstItems:
   - title: "A Truly Global Presence"
     subTitle: "A global network is provided with 123 PoPs (point of presence). No matter where your users are located, there is a PoP within reach to deliver your digital assets and data to them. Reach users in 24 ms or less."
@@ -37,7 +36,6 @@ tabSecond:
     Get in touch with us to supercharge your content delivery.
   btnTitle: "Contact Us to Learn More"
   btnURL: "/contact/"
-  btnIconName: "chatBubble"
 tabSecondItems:
   - title: "Perma-Cache"
     subTitle: "Permanently store your files on the edge with Bunny Storage for a 100% cache HIT rate. Guaranteed excellent performance for every request, every time, and avoid hefty origin traffic bills. Deliver optimal performance for every request, at all times, by keeping uncached CDN files distributed across fourteen ultra-fast SSD storage regions. Perma-Cache ensures your users are always just a hop away regardless of their location."

@@ -1,5 +1,5 @@
 ---
-import Icon from "../icons/Icon.astro";
+import { Icon } from "astro-icon/components";
 
 const { title, btnURL } = Astro.props;
 
@@ -22,6 +22,6 @@ const ringClasses = "dark:ring-cobalt-200";
   class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${hoverClasses} ${fontSizeClasses} ${ringClasses}`}
   href={btnURL}
 >
-  <Icon name="chatBubble" />
+  <Icon name="ChatAnimate" class="size-8" />
   {title}
 </a>

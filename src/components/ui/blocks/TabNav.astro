@@ -16,7 +16,7 @@ const BUTTON_CLASS =
   "bg-cobalt-50/50 dark:bg-cobalt-700 dark:hover:bg-cobalt-800 rounded-xl p-4 text-start outline-none ring-slate-500 transition duration-300 hover:bg-cobalt-100 focus-visible:ring hs-tab-active:bg-cobalt-50 hs-tab-active:shadow-md hs-tab-active:hover:border-transparent dark:ring-slate-200 dark:focus:outline-none dark:hs-tab-active:bg-cyan-950 md:p-5";
 
 /*
-first: This property should be set to true for the initial TabNav component in your list
+first: This property should be set to true for the initial TabNav component in the list
 to ensure that it's visible when the page first loads. All subsequent TabNav components
 should omit this property or set it to false.
 
@@ -37,19 +37,18 @@ Example:
   role="tab"
 >
   <!-- Slot for additional content -->
-  <span class="flex">
+  <div class="flex">
     <slot />
     <!-- Container for the heading and content of the tab -->
-    <span class="ms-6 grow">
+    <div class="ms-6 grow">
       <!-- Heading of the tab, changes color when active -->
-      <span
+      <h4
         class="block text-lg font-bold text-slate-950 hs-tab-active:text-cyan-800 dark:text-slate-200 dark:hs-tab-active:text-orange-300"
-        >{heading}</span
       >
+        {heading}
+      </h4>
       <!-- Content of the tab, changes color when active -->
-      <span class="mt-1 block text-slate-900 dark:text-slate-200"
-        >{content}</span
-      >
-    </span>
-  </span>
+      <p class="mt-1 block text-slate-900 dark:text-slate-200">{content}</p>
+    </div>
+  </div>
 </button>
