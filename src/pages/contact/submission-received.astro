@@ -2,7 +2,7 @@
 import MainLayout from "@/layouts/MainLayout.astro";
 import SuccessMessage from "@comp/ui/forms/SuccessMessage.astro";
 import ContactIconBlock from "@comp/ui/blocks/ContactIconBlock.astro";
-import Icon from "@comp/ui/icons/Icon.astro";
+import { Icon } from "astro-icon/components";
 import { SITE } from "@data/constants";
 
 // Global declaration for gsap animation library
@@ -26,13 +26,16 @@ const pageTitle: string = `Submission Received | ${SITE.title}`;
 
         <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
         <div
-          class="divide-y divide-slate-300 text-slate-600 dark:divide-slate-700 dark:text-slate-50"
+          class="divide-y-2 divide-slate-300 text-slate-600 dark:divide-slate-600 dark:text-slate-50"
         >
           <ContactIconBlock
             heading="Hours of Operation"
             content="Monday - Friday, 9AM - 5PM (US Central)"
             isLinkVisible={false}
-            ><Icon name="clock" />
+            ><Icon
+              name="Clock"
+              class="size-6 text-slate-600 dark:text-slate-200"
+            />
           </ContactIconBlock>
 
           <ContactIconBlock
@@ -42,7 +45,10 @@ const pageTitle: string = `Submission Received | ${SITE.title}`;
             linkTitle="Start a chat session"
             linkURL="https://salesiq.zoho.com/signaturesupport.ls?widgetcode=b02c0667d93a35346839e5ab730f507af85d02062470316501c1c4d80b9136f1eae322a2a89cfbc9b10746de3549cb8f"
             isArrowVisible={true}
-            ><Icon name="chatBubble" />
+            ><Icon
+              name="ChatFill"
+              class="size-6 text-slate-600 dark:text-slate-200"
+            />
           </ContactIconBlock>
 
           <ContactIconBlock
@@ -52,7 +58,10 @@ const pageTitle: string = `Submission Received | ${SITE.title}`;
             linkTitle="+1-512-294-1600"
             linkURL="tel:+15122941600"
             isArrowVisible={true}
-            ><Icon name="phone" />
+            ><Icon
+              name="Phone"
+              class="size-6 text-slate-600 dark:text-slate-200"
+            />
           </ContactIconBlock>
 
           <ContactIconBlock
@@ -62,7 +71,10 @@ const pageTitle: string = `Submission Received | ${SITE.title}`;
             linkTitle="info@cobaltweb.tech"
             linkURL="mailto:info@cobaltweb.tech"
             isArrowVisible={true}
-            ><Icon name="envelopeOpen" />
+            ><Icon
+              name="Envelope"
+              class="size-6 text-slate-600 dark:text-slate-200"
+            />
           </ContactIconBlock>
         </div>
       </div>

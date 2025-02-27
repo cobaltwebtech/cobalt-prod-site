@@ -9,7 +9,6 @@ const {
   btnExists,
   btnTitle,
   btnURL,
-  btnIconName,
   single,
   imgOne,
   imgOneAlt,
@@ -23,7 +22,6 @@ interface Props {
   btnExists?: boolean;
   btnTitle?: string;
   btnURL?: string;
-  btnIconName?: string;
   single?: boolean;
   imgOne?: any;
   imgOneAlt?: any;
@@ -50,11 +48,7 @@ interface Props {
       {subTitle}
     </p>
     <!-- Conditional rendering of the Primary Call-To-Action button if 'btnExists' is true -->
-    {
-      btnExists ? (
-        <PrimaryCTA title={btnTitle} url={btnURL} iconName={btnIconName} />
-      ) : null
-    }
+    {btnExists ? <PrimaryCTA title={btnTitle} url={btnURL} /> : null}
   </div>
   <!-- Conditionally render one or two images based on 'single' property -->
   {
