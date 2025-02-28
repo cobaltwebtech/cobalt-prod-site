@@ -3,7 +3,6 @@
 import { Image } from "astro:assets";
 import IconBlock from "@comp/ui/blocks/IconBlock.astro";
 import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
-import { Icon } from "astro-icon/components";
 
 interface Feature {
   heading: string;
@@ -81,12 +80,11 @@ const { title, subTitle, src, alt, features, primaryBtn, primaryBtnURL } =
         {
           features &&
             features.map((feature) => (
-              <IconBlock heading={feature.heading} content={feature.content}>
-                <Icon
-                  name={feature.svg}
-                  class="h-fit w-full text-orange-400 dark:text-orange-300"
-                />
-              </IconBlock>
+              <IconBlock
+                heading={feature.heading}
+                content={feature.content}
+                iconName={feature.svg}
+              />
             ))
         }
       </div>

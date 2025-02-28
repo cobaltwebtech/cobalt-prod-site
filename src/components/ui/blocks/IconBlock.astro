@@ -1,10 +1,12 @@
 ---
+import { Icon } from "astro-icon/components";
 // Get heading and content from Astro props
-const { heading, content } = Astro.props;
+const { heading, content, iconName } = Astro.props;
 // Define TypeScript interface for props
 interface Props {
   heading?: string;
   content?: string;
+  iconName?: string;
 }
 // Define classes for heading and content
 const headingClasses =
@@ -14,9 +16,13 @@ const contentClasses = "mt-1 text-pretty text-slate-700 dark:text-slate-300";
 
 <!-- The root container that arranges your slot and the heading/content -->
 <div class="flex gap-x-5">
-  <!-- Slot to allow for extensibility of the component -->
-  <slot />
-  <div class="grow">
+  <div class="basis-1/5 self-start">
+    <Icon
+      name={iconName}
+      class="size-16 text-orange-400 dark:text-orange-300"
+    />
+  </div>
+  <div class="basis-4/5">
     <!-- Heading of the section -->
     <h3 class={headingClasses}>
       {heading}

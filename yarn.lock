@@ -69,6 +69,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@astrojs/internal-helpers@npm:0.6.0":
+  version: 0.6.0
+  resolution: "@astrojs/internal-helpers@npm:0.6.0"
+  checksum: 10c0/fd6d57a5b7df8f32aaae50ca2cf08566b56a610b23d5afac32cacbf7ee88a02c3f16850e6ea7773774d9a04067a37b4c8979febd38aac3d83b6a48206087bd53
+  languageName: node
+  linkType: hard
+
 "@astrojs/language-server@npm:^2.15.0":
   version: 2.15.4
   resolution: "@astrojs/language-server@npm:2.15.4"
@@ -133,6 +140,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@astrojs/markdown-remark@npm:6.2.0":
+  version: 6.2.0
+  resolution: "@astrojs/markdown-remark@npm:6.2.0"
+  dependencies:
+    "@astrojs/internal-helpers": "npm:0.6.0"
+    "@astrojs/prism": "npm:3.2.0"
+    github-slugger: "npm:^2.0.0"
+    hast-util-from-html: "npm:^2.0.3"
+    hast-util-to-text: "npm:^4.0.2"
+    import-meta-resolve: "npm:^4.1.0"
+    js-yaml: "npm:^4.1.0"
+    mdast-util-definitions: "npm:^6.0.0"
+    rehype-raw: "npm:^7.0.0"
+    rehype-stringify: "npm:^10.0.1"
+    remark-gfm: "npm:^4.0.0"
+    remark-parse: "npm:^11.0.0"
+    remark-rehype: "npm:^11.1.1"
+    remark-smartypants: "npm:^3.0.2"
+    shiki: "npm:^1.29.2"
+    smol-toml: "npm:^1.3.1"
+    unified: "npm:^11.0.5"
+    unist-util-remove-position: "npm:^5.0.0"
+    unist-util-visit: "npm:^5.0.0"
+    unist-util-visit-parents: "npm:^6.0.1"
+    vfile: "npm:^6.0.3"
+  checksum: 10c0/f487efa0959e025fb35bacadcd83d4bf227e758388c544bf263a606615311a5f1274ec7fc52053278787446499614aff27cad5ad61059dba55daad863f2a4452
+  languageName: node
+  linkType: hard
+
 "@astrojs/prism@npm:3.2.0":
   version: 3.2.0
   resolution: "@astrojs/prism@npm:3.2.0"
@@ -182,20 +218,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/vercel@npm:^8.0.8":
-  version: 8.0.8
-  resolution: "@astrojs/vercel@npm:8.0.8"
+"@astrojs/vercel@npm:8.1.0":
+  version: 8.1.0
+  resolution: "@astrojs/vercel@npm:8.1.0"
   dependencies:
-    "@astrojs/internal-helpers": "npm:0.5.1"
+    "@astrojs/internal-helpers": "npm:0.6.0"
     "@vercel/analytics": "npm:^1.4.1"
     "@vercel/edge": "npm:^1.2.1"
     "@vercel/nft": "npm:^0.29.0"
     "@vercel/routing-utils": "npm:^5.0.4"
-    esbuild: "npm:^0.24.0"
+    esbuild: "npm:^0.25.0"
     tinyglobby: "npm:^0.2.12"
   peerDependencies:
     astro: ^5.0.0
-  checksum: 10c0/9573b3ed37bc7747be4a8e07bd638807e28ef06cf182b304ac8187a04475344f483b65ebe83e97a5bc8eb1b63d242fecbcf0cecd3e403eb1352d88e6834d4c53
+  checksum: 10c0/d7611f38b5dcb8f61e36547fd9512e729dee975420259422d056aaca234a75f36ddb0b4ea67f9fa6f7635183a8203e6b5b49d19aabb68ad7fea84a73274bfd4d
   languageName: node
   linkType: hard
 
@@ -3116,7 +3152,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:*, astro@npm:5.3.1":
+"astro@npm:*":
   version: 5.3.1
   resolution: "astro@npm:5.3.1"
   dependencies:
@@ -3186,6 +3222,79 @@ __metadata:
   bin:
     astro: astro.js
   checksum: 10c0/3592ae255cd7b0a402617ae3c06da5e72033b911c577409531be10371fab1871f156581fae6aa132dc796d0a7f1d0e9a50e14065d45e3e66cbd08666811677bb
+  languageName: node
+  linkType: hard
+
+"astro@npm:5.4.0":
+  version: 5.4.0
+  resolution: "astro@npm:5.4.0"
+  dependencies:
+    "@astrojs/compiler": "npm:^2.10.3"
+    "@astrojs/internal-helpers": "npm:0.6.0"
+    "@astrojs/markdown-remark": "npm:6.2.0"
+    "@astrojs/telemetry": "npm:3.2.0"
+    "@oslojs/encoding": "npm:^1.1.0"
+    "@rollup/pluginutils": "npm:^5.1.4"
+    "@types/cookie": "npm:^0.6.0"
+    acorn: "npm:^8.14.0"
+    aria-query: "npm:^5.3.2"
+    axobject-query: "npm:^4.1.0"
+    boxen: "npm:8.0.1"
+    ci-info: "npm:^4.1.0"
+    clsx: "npm:^2.1.1"
+    common-ancestor-path: "npm:^1.0.1"
+    cookie: "npm:^0.7.2"
+    cssesc: "npm:^3.0.0"
+    debug: "npm:^4.4.0"
+    deterministic-object-hash: "npm:^2.0.2"
+    devalue: "npm:^5.1.1"
+    diff: "npm:^5.2.0"
+    dlv: "npm:^1.1.3"
+    dset: "npm:^3.1.4"
+    es-module-lexer: "npm:^1.6.0"
+    esbuild: "npm:^0.25.0"
+    estree-walker: "npm:^3.0.3"
+    flattie: "npm:^1.1.1"
+    github-slugger: "npm:^2.0.0"
+    html-escaper: "npm:3.0.3"
+    http-cache-semantics: "npm:^4.1.1"
+    js-yaml: "npm:^4.1.0"
+    kleur: "npm:^4.1.5"
+    magic-string: "npm:^0.30.17"
+    magicast: "npm:^0.3.5"
+    mrmime: "npm:^2.0.0"
+    neotraverse: "npm:^0.6.18"
+    p-limit: "npm:^6.2.0"
+    p-queue: "npm:^8.1.0"
+    picomatch: "npm:^4.0.2"
+    preferred-pm: "npm:^4.1.1"
+    prompts: "npm:^2.4.2"
+    rehype: "npm:^13.0.2"
+    semver: "npm:^7.7.1"
+    sharp: "npm:^0.33.3"
+    shiki: "npm:^1.29.2"
+    tinyexec: "npm:^0.3.2"
+    tinyglobby: "npm:^0.2.12"
+    tsconfck: "npm:^3.1.4"
+    ultrahtml: "npm:^1.5.3"
+    unist-util-visit: "npm:^5.0.0"
+    unstorage: "npm:^1.14.4"
+    vfile: "npm:^6.0.3"
+    vite: "npm:^6.2.0"
+    vitefu: "npm:^1.0.5"
+    which-pm: "npm:^3.0.1"
+    xxhash-wasm: "npm:^1.1.0"
+    yargs-parser: "npm:^21.1.1"
+    yocto-spinner: "npm:^0.2.0"
+    zod: "npm:^3.24.1"
+    zod-to-json-schema: "npm:^3.24.1"
+    zod-to-ts: "npm:^1.2.0"
+  dependenciesMeta:
+    sharp:
+      optional: true
+  bin:
+    astro: astro.js
+  checksum: 10c0/90d0592103b6731a25eef9f004fdff6f1fadae3db4f327ab4ecc2bea72ebb3e47e0f2a4f2358e06fe0346d443e734770ad3cb25a0061274ffc91fdb0e59b37d5
   languageName: node
   linkType: hard
 
@@ -4202,7 +4311,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.24.0, esbuild@npm:^0.24.2":
+"esbuild@npm:^0.24.2":
   version: 0.24.2
   resolution: "esbuild@npm:0.24.2"
   dependencies:
@@ -8241,7 +8350,7 @@ __metadata:
     "@astrojs/check": "npm:^0.9.4"
     "@astrojs/sitemap": "npm:^3.2.1"
     "@astrojs/tailwind": "npm:^6.0.0"
-    "@astrojs/vercel": "npm:^8.0.8"
+    "@astrojs/vercel": "npm:8.1.0"
     "@playform/compress": "npm:^0.1.7"
     "@preline/accordion": "npm:^2.6.0"
     "@preline/collapse": "npm:^2.6.0"
@@ -8256,7 +8365,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^8.25.0"
     "@vercel/analytics": "npm:^1.5.0"
     "@vercel/speed-insights": "npm:^1.2.0"
-    astro: "npm:5.3.1"
+    astro: "npm:5.4.0"
     astro-compressor: "npm:^1.0.0"
     astro-font: "npm:^1.0.0"
     astro-icon: "npm:^1.1.5"
@@ -9309,7 +9418,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^6.0.11":
+"vite@npm:^6.0.11, vite@npm:^6.2.0":
   version: 6.2.0
   resolution: "vite@npm:6.2.0"
   dependencies:

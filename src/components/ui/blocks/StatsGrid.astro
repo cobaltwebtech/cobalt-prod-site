@@ -10,10 +10,8 @@ interface Props {
 }
 ---
 
-<li class="-m-0.5 flex flex-col p-4 sm:p-8">
-  <div
-    class="mb-2 flex items-end gap-x-2 text-3xl font-bold text-slate-800 dark:text-slate-200 sm:text-5xl"
-  >
+<li class="-m-0.5 flex flex-col p-3 sm:p-6">
+  <div class="mb-2 flex items-center">
     {
       index === 0 || index === 2 ? (
         <Icon class="size-12 rotate-180 text-orange-400" name="ArrowBracket" />
@@ -24,7 +22,10 @@ interface Props {
         <Icon class="size-12 text-cyan-400" name="ArrowBracket" />
       ) : null
     }
-    {count}
+    <span
+      class="text-3xl font-bold text-slate-800 dark:text-slate-200 sm:text-4xl"
+      >{count}</span
+    >
   </div>
   <p class="text-sm text-slate-800 dark:text-slate-200 sm:text-base">
     {description}
