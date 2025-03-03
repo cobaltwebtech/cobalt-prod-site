@@ -24,7 +24,7 @@
     "@preline/dropdown": "^2.6.0",
     "@preline/overlay": "^2.6.0",
     "@preline/tabs": "^2.6.0",
-    "@sentry/astro": "^9.2.0",
+    "@sentry/astro": "^9.3.0",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "astro": "5.4.0",
