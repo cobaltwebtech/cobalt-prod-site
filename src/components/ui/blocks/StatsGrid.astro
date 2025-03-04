@@ -10,16 +10,16 @@ interface Props {
 }
 ---
 
-<li class="-m-0.5 flex flex-col p-3 sm:p-6">
+<li class="-m-0.5 flex flex-col p-4 sm:p-6">
   <div class="mb-2 flex items-center">
     {
       index === 0 || index === 2 ? (
-        <Icon class="size-12 rotate-180 text-orange-400" name="ArrowBracket" />
+        <Icon class="size-12 text-orange-400" name="ArrowBracketLeft" />
       ) : null
     }
     {
       index === 1 || index === 3 ? (
-        <Icon class="size-12 text-cyan-400" name="ArrowBracket" />
+        <Icon class="size-12 text-cyan-400" name="ArrowBracketRight" />
       ) : null
     }
     <span
