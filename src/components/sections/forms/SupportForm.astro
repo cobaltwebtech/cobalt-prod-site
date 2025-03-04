@@ -44,7 +44,7 @@ if (Astro.request.method === "POST") {
 
     if (!result.success) {
       console.log("Form validation failed", result.error.errors);
-      errorMessage = "Please fill out all required fields correctly.";
+      errorMessage = "Error: Please fill out all required fields correctly.";
     } else {
       console.log("Form validation successful", result.data);
       formData = result.data;
@@ -70,7 +70,7 @@ if (Astro.request.method === "POST") {
 
       if (!verificationResult.success) {
         console.log("Turnstile verification failed");
-        errorMessage = "CAPTCHA verification failed. Please try again.";
+        errorMessage = "Error: CAPTCHA verification failed. Please try again.";
       } else {
         console.log("Turnstile verification successful, calling API route");
         // Proceed with form submission
@@ -101,7 +101,7 @@ if (Astro.request.method === "POST") {
     }
   } catch (e) {
     console.error(`Error: ${e instanceof Error ? e.message : String(e)}`);
-    errorMessage = "An unexpected error occurred. Please try again.";
+    errorMessage = "ERROR: An unexpected error occurred. Please try again.";
   }
 }
 ---
@@ -111,7 +111,7 @@ if (Astro.request.method === "POST") {
   <div class="mx-auto max-w-2xl lg:max-w-5xl">
     <div class="text-center">
       <h1
-        class="text-balance text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-200 md:text-4xl md:leading-tight"
+        class="text-2xl font-bold tracking-tight text-balance text-slate-800 md:text-4xl md:leading-tight dark:text-slate-200"
       >
         {title}
       </h1>
@@ -184,7 +184,7 @@ if (Astro.request.method === "POST") {
           </p>
           <div
             id="error-message"
-            class="my-6 hidden animate-bounce rounded-lg border-4 border-orange-400 bg-orange-700 p-3 text-center font-bold text-white"
+            class="text-cobalt-50 my-6 hidden animate-bounce rounded-lg border-4 border-orange-400 bg-orange-700 p-3 text-center font-bold"
           >
             {errorMessage}
           </div>
@@ -309,7 +309,7 @@ if (Astro.request.method === "POST") {
         // Check if Turnstile is ready
         const turnstileToken = formData.get("cf-turnstile-response");
         if (!turnstileToken) {
-          displayError("Please complete verification above.");
+          displayError("ERROR: Please complete verification above.");
           return; // Stop submission
         }
 
@@ -334,14 +334,16 @@ if (Astro.request.method === "POST") {
               displayError(result.error || "An error occurred");
             }
           } else {
-            displayError("Server responded with an unexpected content type.");
+            displayError(
+              "ERROR: Server responded with an unexpected content type.",
+            );
           }
         } catch (error) {
           console.error("Error:", error);
           displayError(
             error instanceof Error
               ? error.message
-              : "An unexpected error occurred. Please try again later.",
+              : "ERROR: An unexpected error occurred. Please try again later.",
           );
         }
       });

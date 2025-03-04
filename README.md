@@ -32,6 +32,10 @@ Check us out [https://www.cobaltweb.tech/](https://www.cobaltweb.tech/?utm_sourc
 
 ### Added Features
 
+- [x] **Tailwind Upgraded**:
+
+  - Tailwind has been upgraded to version 4 with new enhancements and configurations. Version 4 brings easier to configure custom theming and utilities in the global.css file.
+
 - [x] **Astro Icon Integration**:
 
   - Astro Icon is ready to use, with zero additional configuration. The included Icon component allows easy method to inline svgs directly into the Astro project.
@@ -130,7 +134,7 @@ Interactive components like navbars, modals, and accordions are built using [Pre
 
 Styling across our project leverages the utility-first classes offered by [Tailwind CSS](https://tailwindcss.com). This methodology allows us to create custom layouts and components with speed and efficiency.
 
-- **Tailwind version 4 coming soon!**
+- **Now with Tailwind version 4!**
 
 To ensure consistent code formatting, particularly for class sorting, we have integrated the `prettier-plugin-tailwindcss` [plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss).
 

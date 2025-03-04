@@ -13,7 +13,7 @@ interface Props {
 }
 // Define button classes
 const BUTTON_CLASS =
-  "bg-cobalt-50/50 dark:bg-cobalt-700 dark:hover:bg-cobalt-800 rounded-xl p-4 text-start outline-none ring-slate-500 transition duration-300 hover:bg-cobalt-100 focus-visible:ring hs-tab-active:bg-cobalt-50 hs-tab-active:shadow-md hs-tab-active:hover:border-transparent dark:ring-slate-200 dark:focus:outline-none dark:hs-tab-active:bg-cyan-950 md:p-5";
+  "bg-cobalt-100/50 dark:bg-cobalt-700 dark:hover:bg-cobalt-800 rounded-xl p-4 text-start outline-none ring-slate-500 transition duration-300 hover:bg-cobalt-100 focus-visible:ring hs-tab-active:bg-cobalt-100 hs-tab-active:shadow-md hs-tab-active:hover:border-transparent dark:ring-slate-200 dark:focus:outline-none dark:hs-tab-active:bg-cyan-950 md:p-5";
 
 /*
 first: This property should be set to true for the initial TabNav component in the list
@@ -43,7 +43,7 @@ Example:
     <div class="ms-6 grow">
       <!-- Heading of the tab, changes color when active -->
       <h4
-        class="block text-lg font-bold text-slate-950 hs-tab-active:text-cyan-800 dark:text-slate-200 dark:hs-tab-active:text-orange-300"
+        class="hs-tab-active:text-cyan-800 dark:hs-tab-active:text-orange-300 block text-lg font-bold text-slate-950 dark:text-slate-200"
       >
         {heading}
       </h4>

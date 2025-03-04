@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
 import minify from "@playform/compress";
@@ -19,11 +19,13 @@ export default defineConfig({
     inlineStylesheets: "always",
   },
   output: "static",
+  vite: {
+    plugins: [tailwindcss()],
+  },
   experimental: {
     clientPrerender: true,
   },
   integrations: [
-    tailwind(),
     icon(),
     sitemap({
       filter: (page) => {

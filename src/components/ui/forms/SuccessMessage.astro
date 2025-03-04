@@ -2,7 +2,7 @@
 import Breadcrumb from "@comp/ui/buttons/Breadcrumb.astro";
 ---
 
-<div id="overlay" class="fixed inset-0 bg-slate-100 dark:bg-cobalt-950"></div>
+<div id="overlay" class="dark:bg-cobalt-950 fixed inset-0 bg-slate-100"></div>
 
 <div
   class="flex flex-col items-center justify-evenly gap-16 space-y-4 sm:flex-row sm:space-y-0"
@@ -30,7 +30,7 @@ import Breadcrumb from "@comp/ui/buttons/Breadcrumb.astro";
     </div>
     <p
       id="fadeText"
-      class="mb-8 max-w-prose text-pretty text-justify font-light text-slate-700 dark:text-slate-300 sm:text-xl"
+      class="mb-8 max-w-prose text-justify font-light text-pretty text-slate-700 sm:text-xl dark:text-slate-300"
     >
       We have received your request. Our team will review your information. We
       will be in touch with you soon, usually, within one business day or
@@ -38,7 +38,7 @@ import Breadcrumb from "@comp/ui/buttons/Breadcrumb.astro";
     </p>
     <p
       id="fadeText"
-      class="test-justify mb-8 max-w-prose text-pretty font-light text-slate-700 dark:text-slate-300 sm:text-xl"
+      class="test-justify mb-8 max-w-prose font-light text-pretty text-slate-700 sm:text-xl dark:text-slate-300"
     >
       If you require immediate assistance, please call us at <a
         href="tel:+15122941600"

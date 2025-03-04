@@ -18,7 +18,7 @@ const imageClass =
 <a
   href={"/products/" + product.slug}
   data-astro-prefetch
-  class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-cobalt-50 shadow-xl outline-none ring-slate-500 focus-visible:ring dark:bg-cobalt-900 dark:ring-slate-200 dark:focus:outline-none md:col-span-2 md:h-80"
+  class="group bg-cobalt-100 dark:bg-cobalt-900 relative flex h-48 items-end overflow-hidden rounded-lg shadow-xl ring-slate-500 outline-none focus-visible:ring md:col-span-2 md:h-80 dark:ring-slate-200 dark:focus:outline-none"
 >
   <!-- The product's main image -->
   <Image
@@ -38,7 +38,7 @@ const imageClass =
   <!-- This container includes product's title -->
   <div class="relative w-full bg-slate-200/90 dark:bg-slate-800/90">
     <span
-      class="my-3 ml-4 inline-block text-xl font-bold text-orange-600 transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110 dark:text-orange-400 md:ml-8 md:text-2xl"
+      class="my-3 ml-4 inline-block text-xl font-bold text-orange-600 transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110 md:ml-8 md:text-2xl dark:text-orange-400"
       >{product.data.title}
       <Icon
         name="Arrow"

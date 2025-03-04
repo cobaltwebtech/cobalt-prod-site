@@ -39,7 +39,7 @@ interface Props {
     <!-- Conditional rendering of address content if isAddressVisible is true -->
     {
       isAddressVisible ? (
-        <p class="mt-1 text-sm italic text-slate-500">{addressContent}</p>
+        <p class="mt-1 text-sm text-slate-500 italic">{addressContent}</p>
       ) : null
     }
     <!-- Conditional rendering of a link if isLinkVisible is true.
@@ -47,7 +47,7 @@ interface Props {
     {
       isLinkVisible ? (
         <a
-          class="group mt-2 inline-flex items-center gap-x-2 rounded-lg text-sm font-medium text-cyan-600 outline-none ring-slate-500 transition duration-300 hover:text-orange-600 focus-visible:ring dark:text-cyan-400 dark:ring-slate-200 dark:hover:text-orange-400 dark:focus:outline-none dark:focus:ring-1"
+          class="group mt-2 inline-flex items-center gap-x-2 rounded-lg text-sm font-medium text-cyan-600 ring-slate-500 transition duration-300 outline-none hover:text-orange-600 focus-visible:ring dark:text-cyan-400 dark:ring-slate-200 dark:hover:text-orange-400 dark:focus:ring-1 dark:focus:outline-none"
           href={linkURL}
           target="_blank"
         >

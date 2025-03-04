@@ -41,22 +41,22 @@ interface Props {
   <div class="text-slate-800 dark:text-slate-200">
     <!-- Each h1 and p tag renders a portion of the title and subTitle defined above -->
     <h1
-      class="mb-6 block text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl lg:leading-tight"
+      class="mb-6 block text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:text-5xl lg:leading-tight"
     >
       <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
       <Fragment set:html={title} />
     </h1>
     {
       subTitle && (
-        <p class="mb-4 text-pretty text-xl italic leading-relaxed dark:text-cyan-300 lg:w-4/5">
+        <p class="mb-4 text-xl leading-relaxed text-pretty text-cyan-700 italic lg:w-4/5 dark:text-cyan-300">
           {subTitle}
         </p>
       )
     }
-    <p class="text-l mb-4 text-pretty leading-relaxed lg:w-4/5">
+    <p class="text-l mb-4 leading-relaxed text-pretty lg:w-4/5">
       <Fragment set:html={paragraph1} />
     </p>
-    <p class="text-l mb-4 text-pretty leading-relaxed lg:w-4/5">
+    <p class="text-l mb-4 leading-relaxed text-pretty lg:w-4/5">
       <Fragment set:html={paragraph2} />
     </p>
 

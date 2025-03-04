@@ -1,31 +1,27 @@
-/* Lenis smooth scroll rules */
-html.lenis,
-html.lenis body {
-  height: auto;
+@import "tailwindcss";
+@import "../../node_modules/preline/variants.css";
+@import "@/styles/lenis.css";
+
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+
+@theme {
+  /* Font Family */
+  --default-font-family: "Proxima Nova", system-ui, -apple-system, sans-serif;
+  /* Color Palette */
+  --color-current: currentColor;
+  --color-transparent: transparent;
+  --color-cobalt-50: oklch(96.93% 0.014 264.5);
+  --color-cobalt-100: oklch(87.4% 0.061 263.74);
+  --color-cobalt-200: oklch(77.88% 0.112 264.3);
+  --color-cobalt-300: oklch(68.29% 0.166 265.27);
+  --color-cobalt-400: oklch(58.77% 0.224 264.09);
+  --color-cobalt-500: oklch(49.2% 0.286 264.02);
+  --color-cobalt-600: oklch(45.35% 0.2622 263.99);
+  --color-cobalt-700: oklch(36.85% 0.2195 264.1);
+  --color-cobalt-800: oklch(30.49% 0.1838 264.13);
+  --color-cobalt-900: oklch(21.71% 0.1225 263.87);
+  --color-cobalt-950: oklch(16.95% 0.0892 263.39);
 }
 
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
-
-/* CSS rules for the page scrollbar */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+@variant dark (&:where(.dark, .dark *));

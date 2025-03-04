@@ -36,7 +36,7 @@ type StatProps = {
       <!-- Title and Subtitle -->
       <div class="mb-8">
         <h2
-          class="mb-2 text-3xl font-bold text-slate-800 dark:text-slate-200 lg:text-4xl"
+          class="mb-2 text-3xl font-bold text-slate-800 lg:text-4xl dark:text-slate-200"
         >
           {title}
         </h2>
@@ -51,7 +51,7 @@ type StatProps = {
     {
       statistics && (
         <div class="mt-10 lg:col-span-6 lg:col-end-13 lg:mt-0">
-          <div class="space-y-6 rounded-lg bg-cobalt-50/50 p-4 dark:bg-cobalt-800 sm:space-y-8">
+          <div class="bg-cobalt-100/60 dark:bg-cobalt-800 space-y-6 rounded-lg p-4 sm:space-y-8">
             <ul class="grid grid-cols-2 divide-x-2 divide-y-2 divide-slate-400 overflow-hidden dark:divide-slate-600">
               {
                 //Generate a list item for each stat in the statistics array by mapping over the array.

@@ -34,7 +34,7 @@ interface Props {
       <!-- Section's heading and tab navigation -->
       <div class="mb-10 lg:order-2 lg:col-span-6 lg:col-start-8 lg:mb-0">
         <h3
-          class="text-2xl font-bold text-slate-800 dark:text-slate-200 sm:text-3xl"
+          class="text-2xl font-bold text-slate-800 sm:text-3xl dark:text-slate-200"
         >
           <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
           <Fragment set:html={title} />
@@ -85,14 +85,9 @@ interface Props {
     <div class="absolute inset-0 grid h-full w-full grid-cols-12">
       <!-- Decorative background and sizing -->
       <div
-        class="col-span-full h-5/6 w-full rounded-xl bg-slate-100 dark:bg-cobalt-900 sm:h-3/4 lg:col-span-7 lg:col-start-6 lg:h-full"
+        class="dark:bg-cobalt-900 col-span-full h-5/6 w-full rounded-xl bg-slate-100 sm:h-3/4 lg:col-span-7 lg:col-start-6 lg:h-full"
       >
       </div>
     </div>
   </div>
 </section>
-<!--Import the necessary Tabs plugin-->
-<!--https://preline.co/plugins/html/tabs.html-->
-<script>
-  import "@preline/tabs/index.js";
-</script>

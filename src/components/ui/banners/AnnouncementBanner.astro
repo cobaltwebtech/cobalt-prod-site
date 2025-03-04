@@ -12,7 +12,7 @@ interface Props {
 
 <astro-banner btnId={btnId}>
   <div
-    class="fixed bottom-0 start-1/2 z-50 mx-auto w-full -translate-x-1/2 transform p-6 sm:max-w-4xl"
+    class="fixed start-1/2 bottom-0 z-50 mx-auto w-full -translate-x-1/2 transform p-6 sm:max-w-4xl"
     role="region"
     aria-label="Informational Banner"
   >
@@ -29,7 +29,7 @@ interface Props {
             )
           }
           <a
-            class="group inline-flex items-center gap-x-2 rounded-full border-2 border-slate-50 bg-cobalt-700 px-3 py-2 text-sm font-semibold text-slate-50 backdrop-brightness-75 transition duration-300 disabled:pointer-events-none disabled:opacity-50 dark:backdrop-brightness-100 dark:focus:outline-none sm:backdrop-brightness-100"
+            class="group bg-cobalt-700 inline-flex items-center gap-x-2 rounded-full border-2 border-slate-50 px-3 py-2 text-sm font-semibold text-slate-50 backdrop-brightness-75 transition duration-300 disabled:pointer-events-none disabled:opacity-50 sm:backdrop-brightness-100 dark:backdrop-brightness-100 dark:focus:outline-none"
             href={url}
           >
             {btnTitle}

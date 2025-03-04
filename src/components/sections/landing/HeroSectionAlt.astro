@@ -17,11 +17,11 @@ interface Props {
 ---
 
 <section
-  class="relative mx-auto max-w-[85rem] px-4 pb-24 pt-10 sm:px-6 lg:px-8"
+  class="relative mx-auto max-w-[85rem] px-4 pt-10 pb-24 sm:px-6 lg:px-8"
 >
   <!-- Decorating SVG elements -->
   <div
-    class="absolute left-0 top-[60%] max-md:scale-50 sm:top-[50%] md:left-0 md:top-[50%]"
+    class="absolute top-[60%] left-0 max-md:scale-50 sm:top-[50%] md:top-[50%] md:left-0"
   >
     <Icon name="CodeBrackets" class="size-[120px]" />
   </div>
@@ -29,14 +29,14 @@ interface Props {
     <Icon name="CloudCompute" class="size-[120px]" />
   </div>
   <div
-    class="absolute bottom-0.5 right-0.5 scale-50 sm:right-[15%] md:bottom-[10%] md:right-[20%] md:scale-[80%]"
+    class="absolute right-0.5 bottom-0.5 scale-50 sm:right-[15%] md:right-[20%] md:bottom-[10%] md:scale-[80%]"
   >
     <Icon name="ComputerGlobe" class="size-[120px]" />
   </div>
   <!-- Hero Section Heading -->
   <div class="mx-auto mt-5 max-w-xl text-center">
     <h2
-      class="block text-balance text-4xl font-bold leading-tight tracking-tight text-slate-800 dark:text-slate-200 md:text-5xl lg:text-6xl"
+      class="block text-4xl leading-tight font-bold tracking-tight text-balance text-slate-800 md:text-5xl lg:text-6xl dark:text-slate-200"
     >
       {title}
     </h2>
@@ -45,7 +45,7 @@ interface Props {
   <div class="mx-auto mt-5 max-w-3xl text-center">
     {
       subTitle && (
-        <p class="text-pretty text-lg text-slate-800 dark:text-cyan-300">
+        <p class="text-lg text-pretty text-slate-800 dark:text-cyan-300">
           {subTitle}
         </p>
       )
