@@ -18,7 +18,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/vercel": "8.1.0",
     "@playform/compress": "^0.1.7",
-    "@sentry/astro": "^9.2.0",
+    "@sentry/astro": "^9.3.0",
     "@tailwindcss/vite": "^4.0.9",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
