@@ -1,0 +1,15 @@
+{
+  "folders": [
+    {
+      "path": "..",
+    },
+  ],
+  "settings": {
+    "markdown.editor.filePaste.copyIntoWorkspace": "mediaFiles",
+    "markdown.editor.drop.copyIntoWorkspace": "mediaFiles",
+    "markdown.copyFiles.destination": {
+      "/src/content/**/*": "/src/images/content/${documentBaseName}/",
+    },
+    "prettier.documentSelectors": ["**/*.astro"],
+  },
+}
