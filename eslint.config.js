@@ -4,7 +4,7 @@ import eslintPluginAstro from "eslint-plugin-astro";
 
 export default [
   {
-    ignores: ["**/node_modules/**", "dist/**", ".astro/**", ".vercel/**" ],
+    ignores: ["**/node_modules/**", "dist/**", ".astro/**", ".vercel/**"],
   },
   {
     files: ["**/*.{js,mjs,cjs}"],
