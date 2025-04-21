@@ -3697,7 +3697,7 @@ __metadata:
     eslint-plugin-astro: "npm:^1.3.1"
     globby: "npm:^14.1.0"
     gsap: "npm:^3.12.7"
-    lenis: "npm:^1.2.3"
+    lenis: "npm:^1.3.0"
     preline: "npm:^3.0.1"
     prettier: "npm:^3.5.3"
     prettier-plugin-astro: "npm:^0.14.1"
@@ -5630,9 +5630,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lenis@npm:^1.2.3":
-  version: 1.2.3
-  resolution: "lenis@npm:1.2.3"
+"lenis@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "lenis@npm:1.3.0"
   peerDependencies:
     "@nuxt/kit": ">=3.0.0"
     react: ">=17.0.0"
@@ -5644,7 +5644,7 @@ __metadata:
       optional: true
     vue:
       optional: true
-  checksum: 10c0/267d73e426b69411ad19b150fcc72a8c61f9617fd49910201e093860a978597cd6a04f574e93e1ccddcd7558b744e759fe4653f0591485fdb869d8400c90eea9
+  checksum: 10c0/763da87c700b6916e1e8880f6aa3cfe94e07082a3b95c73e81b3b24577f8ed2f6638f7faf9665f772a6c7b74d671d5058404dcfea20f7f6ebd7a644394865f29
   languageName: node
   linkType: hard
 
