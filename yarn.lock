@@ -1763,17 +1763,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-email/render@npm:1.0.5":
-  version: 1.0.5
-  resolution: "@react-email/render@npm:1.0.5"
+"@react-email/render@npm:1.0.6":
+  version: 1.0.6
+  resolution: "@react-email/render@npm:1.0.6"
   dependencies:
     html-to-text: "npm:9.0.5"
-    prettier: "npm:3.4.2"
+    prettier: "npm:3.5.3"
     react-promise-suspense: "npm:0.3.4"
   peerDependencies:
     react: ^18.0 || ^19.0 || ^19.0.0-rc
     react-dom: ^18.0 || ^19.0 || ^19.0.0-rc
-  checksum: 10c0/ea3afc75d8b5e3035664d4f01cb19b5010bc69eac56d19e889f8ea86ed259537967a192d2f7becc92d5886bf1fe050bbd347e980d45915c05533754a699b50f7
+  checksum: 10c0/a7a1cea041caba92690549b9d9d3c2bf6d6ab8f4bb11784ab27b9ff758d124666a15f065fcbecdfa886a298fe5076da387092842e2b82378eed7ee1dd150a4c3
   languageName: node
   linkType: hard
 
@@ -3702,7 +3702,7 @@ __metadata:
     prettier: "npm:^3.5.3"
     prettier-plugin-astro: "npm:^0.14.1"
     prettier-plugin-tailwindcss: "npm:^0.6.11"
-    resend: "npm:^4.2.0"
+    resend: "npm:^4.5.0"
     rimraf: "npm:^6.0.1"
     sharp: "npm:^0.34.0"
     tailwindcss: "npm:^4.1.3"
@@ -7527,16 +7527,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.4.2":
-  version: 3.4.2
-  resolution: "prettier@npm:3.4.2"
-  bin:
-    prettier: bin/prettier.cjs
-  checksum: 10c0/99e076a26ed0aba4ebc043880d0f08bbb8c59a4c6641cdee6cdadf2205bdd87aa1d7823f50c3aea41e015e99878d37c58d7b5f0e663bba0ef047f94e36b96446
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^3.0.0, prettier@npm:^3.5.3":
+"prettier@npm:3.5.3, prettier@npm:^3.0.0, prettier@npm:^3.5.3":
   version: 3.5.3
   resolution: "prettier@npm:3.5.3"
   bin:
@@ -7848,12 +7839,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resend@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "resend@npm:4.2.0"
+"resend@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "resend@npm:4.5.0"
   dependencies:
-    "@react-email/render": "npm:1.0.5"
-  checksum: 10c0/f1e19b473b287d5b82e015b74466ba127f0a217d21e0041cd0e047af4df96559fea933065b862859f98cb32a682ea80b17fb9b8d6a91ea9fd7a676386d2f81cb
+    "@react-email/render": "npm:1.0.6"
+  checksum: 10c0/9795bdada58e1a58dd1e753d0486d52490dc422bf3e3fff5fc7d5193b9001f333c5b4817f345637b93c1bd5cf3f0d84538a3dd2ba774bcfdf4c24809c6abab82
   languageName: node
   linkType: hard
 
