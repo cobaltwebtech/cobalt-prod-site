@@ -5,7 +5,6 @@ import sitemap from "@astrojs/sitemap";
 import minify from "@playform/compress";
 import compressor from "astro-compressor";
 import icon from "astro-icon";
-import sentry from "@sentry/astro";
 
 export default defineConfig({
   site: "https://www.cobaltweb.tech",
@@ -26,13 +25,6 @@ export default defineConfig({
         const url = new URL(page);
         if (url.pathname.includes("/submission-received")) return false;
         return true;
-      },
-    }),
-    sentry({
-      dsn: import.meta.env.SENTRY_URL,
-      sourceMapsUploadOptions: {
-        project: "cobalt-site-prod",
-        authToken: import.meta.env.SENTRY_AUTH_TOKEN,
       },
     }),
     minify({

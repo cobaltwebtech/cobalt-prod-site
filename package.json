@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "name": "cobaltwebtech",
   "description": "Cobalt Web Technologies website built on Astro",
   "author": "Cobalt Web Technologies",
@@ -24,7 +24,6 @@
     "@astrojs/cloudflare": "12.5.3",
     "@astrojs/sitemap": "3.4.0",
     "@playform/compress": "^0.1.9",
-    "@sentry/astro": "^9.19.0",
     "@tailwindcss/vite": "^4.1.7",
     "astro": "5.7.13",
     "astro-compressor": "^1.0.0",
