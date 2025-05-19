@@ -1,10 +1,10 @@
 ---
 // Import section components
 import MainLayout from "@/layouts/MainLayout.astro";
-import Btn404 from "@comp/ui/buttons/Btn404.astro";
-import { SITE } from "@data/constants";
+import Btn404 from "@/components/ui/buttons/Btn404.astro";
+import { siteMeta } from "@/lib/siteData";
 
-const pageTitle: string = `Page Not Found | ${SITE.title}`;
+const pageTitle: string = `Page Not Found | ${siteMeta.title}`;
 
 // Define variables for page content
 const title: string = "404";

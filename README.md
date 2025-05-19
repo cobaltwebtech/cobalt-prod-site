@@ -1,6 +1,6 @@
 # 💻 Cobalt Web Technologies
 
-Cobalt's website is lightning fast and built with [Astro](https://astro.build/) and deployed on [Vercel](https://vercel.com/) for super fast performance.
+Cobalt's website is lightning fast and built with [Astro](https://astro.build/) and deployed on [Cloudflare Workers](https://workers.cloudflare.com/) for super fast performance and flexibility.
 
 [![Built with Astro](https://astro.badg.es/v2/built-with-astro/small.svg)](https://astro.build)
 

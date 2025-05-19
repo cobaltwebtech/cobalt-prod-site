@@ -1,11 +1,11 @@
 ---
 // Import the necessary dependencies
-import FooterSocialLink from "@comp/ui/links/FooterSocialLink.astro";
-import footerMenu from "@/utils/navigation";
-import Logo from "@comp/Logo.astro";
-import { SITE } from "@data/constants";
+import FooterSocialLink from "@/components/ui/links/FooterSocialLink.astro";
+import footerMenu from "@/lib/navigation";
+import Logo from "@/components/Logo.astro";
+import { siteMeta } from "@/lib/siteData";
 import { Icon } from "astro-icon/components";
-import DateTime from "@comp/ui/blocks/DateTime.astro";
+import DateTime from "@/components/ui/blocks/DateTime.astro";
 
 // Define the variables that will be used in this component
 const sectionThreeTitle: string = "Hours of Operation";
@@ -68,7 +68,7 @@ const sectionThreeHours: string = "9AM - 5PM (US Central Time)";
       <div>
         <p class="mb-2 text-sm text-slate-800 dark:text-slate-200">
           ©2015-<span id="current-year"></span>&nbsp<span
-            class="text-xl font-bold">{SITE.title}</span
+            class="text-xl font-bold">{siteMeta.title}</span
           >
         </p>
         <p class="text-sm text-slate-700 dark:text-slate-300">

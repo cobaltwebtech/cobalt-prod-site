@@ -17,14 +17,3 @@ function capitalize(str: string): string {
 }
 
 export { formatDate, capitalize };
-
-// Retrieve the base URL for Vercel
-export function getBaseUrl() {
-  if (typeof window !== "undefined") {
-    return window.location.origin;
-  }
-  if (import.meta.env.VERCEL_URL) {
-    return `https://${import.meta.env.VERCEL_URL}`;
-  }
-  return `http://localhost:${import.meta.env.PORT ?? 4321}`;
-}

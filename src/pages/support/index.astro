@@ -3,10 +3,10 @@ export const prerender = false;
 
 // Import the necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
-import { SITE } from "@data/constants";
-import SupportForm from "@comp/sections/forms/SupportForm.astro";
+import { siteMeta } from "@/lib/siteData";
+import SupportForm from "@/components/sections/forms/SupportForm.astro";
 
-const pageTitle: string = `Support | ${SITE.title}`;
+const pageTitle: string = `Support | ${siteMeta.title}`;
 ---
 
 <!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->

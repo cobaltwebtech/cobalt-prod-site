@@ -1,29 +1,65 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import TertiaryCTA from "@comp/ui/buttons/TertiaryCTA.astro";
-import Breadcrumb from "@comp/ui/buttons/Breadcrumb.astro";
+import TertiaryCTA from "@/components/ui/buttons/TertiaryCTA.astro";
+import Breadcrumb from "@/components/ui/buttons/Breadcrumb.astro";
 import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
-import { SITE } from "@data/constants";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { siteMeta } from "@/lib/siteData";
 
-// Global declaration for gsap animation library
-declare global {
-  interface Window {
-    gsap: any;
-  }
+// Define the Service and ServiceData types
+interface Service {
+  slug: string;
+  data: ServiceData;
 }
+
+interface ServiceData {
+  title: string;
+  subHeading: string;
+  main: {
+    description1: string;
+    description2: string;
+    imgMain: string;
+    imgAlt: string;
+  };
+  tabs: {
+    title1: string;
+    title2: string;
+  };
+  tabFirst: {
+    title: string;
+    subTitle: string;
+    ctaDescription: string;
+    btnTitle: string;
+    btnURL: string;
+  };
+  tabFirstItems: ListItem[];
+  tabSecond: {
+    title: string;
+    subTitle: string;
+    ctaDescription: string;
+    btnTitle: string;
+    btnURL: string;
+  };
+  tabSecondItems: ListItem[];
+}
+
+interface ListItem {
+  title: string;
+  subTitle: string;
+}
+
 // This gets the static paths for all the unique services
 export async function getStaticPaths() {
   const serviceEntries = await getCollection("services");
-  return serviceEntries.map((service) => ({
+  return serviceEntries.map((service: CollectionEntry<"services">) => ({
     params: { slug: service.slug },
-    props: { service },
+    props: { service: service as Service },
   }));
 }
 
-const { service } = Astro.props;
+const { service } = Astro.props as { service: Service };
 
-const pageTitle: string = `${service.data.title} | ${SITE.title}`;
+const pageTitle: string = `${service.data.title} | ${siteMeta.title}`;
 ---
 
 <MainLayout title={pageTitle}>
@@ -66,6 +102,7 @@ const pageTitle: string = `${service.data.title} | ${SITE.title}`;
           format="avif"
           loading="eager"
           width="600"
+          height="600"
         />
       </div>
     </div>

@@ -1,24 +1,18 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-import vercel from "@astrojs/vercel";
+import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
 import minify from "@playform/compress";
 import compressor from "astro-compressor";
 import icon from "astro-icon";
 import sentry from "@sentry/astro";
 
-const isProduction = process.env.NODE_ENV === "production";
-
 export default defineConfig({
   site: "https://www.cobaltweb.tech",
+  output: "static",
   prefetch: {
     prefetchAll: true,
   },
-  build: {
-    assets: "assets",
-    inlineStylesheets: "always",
-  },
-  output: "static",
   vite: {
     plugins: [tailwindcss()],
   },
@@ -34,17 +28,13 @@ export default defineConfig({
         return true;
       },
     }),
-    ...(isProduction
-      ? [
-          sentry({
-            dsn: "https://1cb4221444916db69fb6830adcab2f20@o4508880993058816.ingest.us.sentry.io/4508881028907008",
-            sourceMapsUploadOptions: {
-              project: "cobalt-site-prod",
-              authToken: process.env.SENTRY_AUTH_TOKEN,
-            },
-          }),
-        ]
-      : []),
+    sentry({
+      dsn: import.meta.env.SENTRY_URL,
+      sourceMapsUploadOptions: {
+        project: "cobalt-site-prod",
+        authToken: import.meta.env.SENTRY_AUTH_TOKEN,
+      },
+    }),
     minify({
       CSS: false,
       HTML: true,
@@ -57,9 +47,9 @@ export default defineConfig({
       brotli: true,
     }),
   ],
-  adapter: vercel({
-    imageService: true,
-    webAnalytics: {
+  adapter: cloudflare({
+    imageService: "cloudflare",
+    platformProxy: {
       enabled: true,
     },
   }),

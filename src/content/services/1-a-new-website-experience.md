@@ -37,7 +37,7 @@ tabSecond:
   btnURL: "/contact/"
 tabSecondItems:
   - title: "High Performance Cloud Compute"
-    subTitle: "We partner with Vultr, DigitalOcean, Cloudflare, Amazon Web Services, Netlify, Vercel, Bunny.net CDN, and many more services to provide the tailored experience and performance you require for your website and application."
+    subTitle: "We partner with Cloudflare, Amazon Web Services, Vultr, DigitalOcean, Netlify, Vercel, Bunny.net CDN, and many more services to provide the tailored experience and performance you require for your website and application."
   - title: "Content Management System"
     subTitle: "A CMS makes managing a website so much easier. No coding to learn with an easy-to-use interface. We specialize in WordPress, Contentful, Santiy, TinaCMS, Strapi, and many more CMS's. The right CMS for your site will make managing it so much easier for you and your staff."
   - title: "Secure Infrastructure"

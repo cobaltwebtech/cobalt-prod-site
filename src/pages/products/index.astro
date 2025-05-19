@@ -1,14 +1,14 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import MainSection from "@comp/ui/blocks/MainSection.astro";
-import CardSmall from "@comp/ui/cards/CardSmall.astro";
-import CardWide from "@comp/ui/cards/CardWide.astro";
-import FeaturesStatsAlt from "@comp/sections/features/FeaturesStatsAlt.astro";
+import MainSection from "@/components/ui/blocks/MainSection.astro";
+import CardSmall from "@/components/ui/cards/CardSmall.astro";
+import CardWide from "@/components/ui/cards/CardWide.astro";
+import FeaturesStatsAlt from "@/components/sections/features/FeaturesStatsAlt.astro";
 
 // Importing necessary functions from Astro
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { SITE } from "@data/constants";
+import { siteMeta } from "@/lib/siteData";
 
 // Fetching all the product related content and sorting it by main.id
 const product: CollectionEntry<"products">[] = (
@@ -18,7 +18,7 @@ const product: CollectionEntry<"products">[] = (
     a.data.main.id - b.data.main.id,
 );
 
-const pageTitle: string = `Products | ${SITE.title}`;
+const pageTitle: string = `Products | ${siteMeta.title}`;
 ---
 
 <MainLayout

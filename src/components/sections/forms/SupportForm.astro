@@ -1,11 +1,11 @@
 ---
-import AuthBtn from "@comp/ui/buttons/AuthBtn.astro";
-import ContactIconBlock from "@comp/ui/blocks/ContactIconBlock.astro";
-import SupportRadio from "@comp/ui/forms/input/SupportRadio.astro";
-import TextInput from "@comp/ui/forms/input/TextInput.astro";
-import EmailContactInput from "@comp/ui/forms/input/EmailContactInput.astro";
-import PhoneInput from "@comp/ui/forms/input/PhoneInput.astro";
-import TextAreaInput from "@comp/ui/forms/input/TextAreaInput.astro";
+import AuthBtn from "@/components/ui/buttons/AuthBtn.astro";
+import ContactIconBlock from "@/components/ui/blocks/ContactIconBlock.astro";
+import SupportRadio from "@/components/ui/forms/input/SupportRadio.astro";
+import TextInput from "@/components/ui/forms/input/TextInput.astro";
+import EmailContactInput from "@/components/ui/forms/input/EmailContactInput.astro";
+import PhoneInput from "@/components/ui/forms/input/PhoneInput.astro";
+import TextAreaInput from "@/components/ui/forms/input/TextAreaInput.astro";
 import { Icon } from "astro-icon/components";
 import { z } from "astro:content";
 
@@ -17,7 +17,7 @@ const supportType: string = "Please select the support type you require.";
 
 // Validate form inputs
 const formSchema = z.object({
-  supporttype: z.enum(["technical-support", "billing-support"], {
+  supporttype: z.enum(["Technical", "Billing"], {
     required_error: "Please select a support type",
   }),
   firstname: z.string().min(1, "First name is required"),
@@ -144,11 +144,13 @@ if (Astro.request.method === "POST") {
                 id="technical-support"
                 label="Technical Support"
                 inputName="supporttype"
+                value="Technical"
               />
               <SupportRadio
                 id="billing-support"
                 label="Billing Support"
                 inputName="supporttype"
+                value="Billing"
               />
             </div>
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">

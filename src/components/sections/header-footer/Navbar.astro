@@ -1,9 +1,9 @@
 ---
-import NavLink from "@comp/ui/links/NavLink.astro";
-import enStrings from "@utils/navigation";
-import Logo from "@comp/Logo.astro";
-import MobileMenuBtn from "@comp/ui/buttons/MobileMenuBtn.astro";
-import ThemeSwitchBtn from "@comp/ui/buttons/ThemeSwitchBtn.astro";
+import NavLink from "@/components/ui/links/NavLink.astro";
+import menuLinks from "@/lib/navigation";
+import Logo from "@/components/Logo.astro";
+import MobileMenuBtn from "@/components/ui/buttons/MobileMenuBtn.astro";
+import ThemeSwitchBtn from "@/components/ui/buttons/ThemeSwitchBtn.astro";
 ---
 
 <!-- Main header component -->
@@ -51,7 +51,7 @@ import ThemeSwitchBtn from "@comp/ui/buttons/ThemeSwitchBtn.astro";
       >
         <!-- Navigation links and Authentication component -->
         {
-          enStrings.navBarLinks.map((link) => (
+          menuLinks.navBarLinks.map((link) => (
             <NavLink url={link.url} name={link.name} />
           ))
         }

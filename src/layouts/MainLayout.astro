@@ -1,17 +1,16 @@
 ---
 // Importing necessary components
-import Meta from "@comp/Meta.astro";
-import Navbar from "@comp/sections/header-footer/Navbar.astro";
-import Footer from "@comp/sections/header-footer/Footer.astro";
-import { SITE } from "@data/constants";
-import SpeedInsights from "@vercel/speed-insights/astro";
+import Meta from "@/components/Meta.astro";
+import Navbar from "@/components/sections/header-footer/Navbar.astro";
+import Footer from "@/components/sections/header-footer/Footer.astro";
+import { siteMeta } from "@/lib/siteData";
 import { ClientRouter, fade } from "astro:transitions";
-import TwSizeIndicator from "@comp/ui/TwSizeIndicator.astro";
+import TwSizeIndicator from "@/components/ui/TwSizeIndicator.astro";
 import "@/styles/global.css";
 
 // Setting expected props
 const {
-  title = SITE.title,
+  title = siteMeta.title,
   meta,
   structuredData,
   externalScript,
@@ -77,8 +76,7 @@ We set the language of the page to English and add classes for scrollbar and scr
       defer
       src="https://umami.cobaltweb.tech/script.js"
       data-website-id={umamiId}></script>
-    <!-- Vercel Speed Insights analytics  -->
-    <SpeedInsights />
+    <!-- View Transitions enabled  -->
     <ClientRouter fallback="swap" />
   </head>
   <body
