@@ -1,6 +1,6 @@
 import ogImageSrc from "@/images/cobalt-ogimage.jpg";
 
-export const SITE = {
+export const siteMeta = {
   title: "Cobalt Web Technologies",
   tagline: "We connect your world to the world",
   description:
@@ -10,31 +10,31 @@ export const SITE = {
   author: "Cobalt Web Technologies",
 };
 
-export const SEO = {
-  title: SITE.title,
-  description: SITE.description,
+export const seoMeta = {
+  title: siteMeta.title,
+  description: siteMeta.description,
   structuredData: {
     "@context": "https://schema.org",
     "@type": "WebPage",
     inLanguage: "en-US",
-    "@id": SITE.url,
-    url: SITE.url,
-    name: SITE.title,
-    description: SITE.description,
+    "@id": siteMeta.url,
+    url: siteMeta.url,
+    name: siteMeta.title,
+    description: siteMeta.description,
     isPartOf: {
       "@type": "WebSite",
-      url: SITE.url,
-      name: SITE.title,
-      description: SITE.description,
+      url: siteMeta.url,
+      name: siteMeta.title,
+      description: siteMeta.description,
     },
   },
 };
 
-export const OG = {
+export const openGraph = {
   locale: "en_US",
   type: "website",
-  url: SITE.url,
-  title: `${SITE.title} - Website Development, Cloud Computing Services, Digital Marketing, and IT Consulting`,
+  url: siteMeta.url,
+  title: `${siteMeta.title} - Website Development, Cloud Computing Services, Digital Marketing, and IT Consulting`,
   description:
     "Cobalt Web Technologies builds high performance websites with secure managed cloud infrastructure along with digital marketing and SEO services.",
   image: ogImageSrc,

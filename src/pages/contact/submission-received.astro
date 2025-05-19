@@ -1,9 +1,9 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import SuccessMessage from "@comp/ui/forms/SuccessMessage.astro";
-import ContactIconBlock from "@comp/ui/blocks/ContactIconBlock.astro";
+import SuccessMessage from "@/components/ui/forms/SuccessMessage.astro";
+import ContactIconBlock from "@/components/ui/blocks/ContactIconBlock.astro";
 import { Icon } from "astro-icon/components";
-import { SITE } from "@data/constants";
+import { siteMeta } from "@/lib/siteData";
 
 // Global declaration for gsap animation library
 declare global {
@@ -12,7 +12,7 @@ declare global {
   }
 }
 
-const pageTitle: string = `Submission Received | ${SITE.title}`;
+const pageTitle: string = `Submission Received | ${siteMeta.title}`;
 ---
 
 <!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->

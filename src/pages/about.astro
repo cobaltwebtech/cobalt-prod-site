@@ -2,16 +2,16 @@
 // Import necessary components
 import { Image } from "astro:assets";
 import MainLayout from "@/layouts/MainLayout.astro";
-import MainSection from "@comp/ui/blocks/MainSection.astro";
-import SecondaryCTA from "@comp/ui/buttons/SecondaryCTA.astro";
-import { SITE } from "@data/constants";
+import MainSection from "@/components/ui/blocks/MainSection.astro";
+import SecondaryCTA from "@/components/ui/buttons/SecondaryCTA.astro";
+import { siteMeta } from "@/lib/siteData";
 
 // Import necessary images
 import logo from "@/images/icon.svg";
 import cgarza from "@/images/cgarza-photo.avif";
 import serviceHacker from "@/images/services/service-global-network-1.avif";
 
-const pageTitle: string = `About Us | ${SITE.title}`;
+const pageTitle: string = `About Us | ${siteMeta.title}`;
 
 // Define variables for page content
 const sectionTitleFirst: string = "How We Got Started";

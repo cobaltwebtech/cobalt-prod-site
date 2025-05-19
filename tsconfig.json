@@ -1,21 +1,25 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "include": [
+    ".astro/types.d.ts",
+    "worker-configuration.d.ts",
+    "**/*.ts",
+    "**/*"
+  ],
+  "exclude": ["dist", "node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@comp/*": ["src/components/*"],
-      "@content/*": ["src/content/*"],
-      "@data/*": ["src/data_files/*"],
-      "@images/*": ["src/images/*"],
-      "@scripts/*": ["src/assets/scripts/*"],
-      "@utils/*": ["src/utils/*"]
+      "@/*": ["./src/*"]
     },
-    "verbatimModuleSyntax": true,
-    "moduleResolution": "bundler",
+    "target": "ES2018",
     "allowJs": true,
-    "skipLibCheck": true
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true
+  }
 }

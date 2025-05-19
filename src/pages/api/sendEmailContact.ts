@@ -55,7 +55,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Email message to Resend
     await resend.emails.send({
-      from: "noreply@contact.cobaltweb.tech",
+      from: "notifications@contact.cobaltweb.tech",
       to: "info@cobaltweb.tech",
       subject: "Contact Form Submission",
       html: `<p>Name: ${firstname} ${lastname}</p><p>Email: ${email}</p><p>Phone: ${phone}</p><p>Message: ${message}</p>`,
