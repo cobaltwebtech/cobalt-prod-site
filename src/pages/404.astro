@@ -1,7 +1,8 @@
 ---
 // Import section components
 import MainLayout from "@/layouts/MainLayout.astro";
-import Btn404 from "@/components/ui/buttons/Btn404.astro";
+import { Button } from "@/components/starwind/button";
+import { Icon } from "astro-icon/components";
 import { siteMeta } from "@/lib/siteData";
 
 const pageTitle: string = `Page Not Found | ${siteMeta.title}`;
@@ -10,35 +11,30 @@ const pageTitle: string = `Page Not Found | ${siteMeta.title}`;
 const title: string = "404";
 const subTitle: string = "Oh crap, 4 oh WTF?!";
 const content: string =
-  "That page is not found, but that's okay. You can go back to the home page.";
-const btnTitle: string = "Go Back";
+  "That page does not exist, but that's okay. You can go back to the home page.";
 ---
 
 <MainLayout title={pageTitle}>
-  <section class="grid h-svh place-content-center">
-    <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
-      <div
-        class="mx-auto max-w-screen-sm text-center text-slate-700 dark:text-slate-100"
+  <section class="flex min-h-[60svh] w-full items-center justify-center">
+    <div
+      class="mx-auto max-w-screen-sm space-y-8 text-center text-slate-800 dark:text-slate-200"
+    >
+      <h1
+        class="text-7xl font-extrabold text-orange-700 lg:text-9xl dark:text-yellow-500"
       >
-        <h1
-          class="mb-4 text-7xl font-extrabold text-yellow-500 lg:text-9xl dark:text-yellow-400"
-        >
-          {title}
-        </h1>
-        <p
-          class="mb-4 text-3xl font-bold tracking-tight text-balance text-neutral-700 md:text-4xl dark:text-neutral-300"
-        >
-          {subTitle}
-        </p>
+        {title}
+      </h1>
+      <p class="text-3xl font-bold md:text-4xl">
+        {subTitle}
+      </p>
 
-        <p
-          class="mb-4 text-lg text-pretty text-neutral-600 dark:text-neutral-400"
-        >
-          {content}
-        </p>
-        <!--Display a button that navigates user back to the home page-->
-        <Btn404 title={btnTitle} id="go-back" />
-      </div>
+      <p class="text-lg">
+        {content}
+      </p>
+      <!--Display a button that navigates user back to the home page-->
+      <Button variant="secondary" size="lg" title="Home Button" href="/"
+        ><Icon name="House" />Go Home</Button
+      >
     </div>
   </section>
 </MainLayout>

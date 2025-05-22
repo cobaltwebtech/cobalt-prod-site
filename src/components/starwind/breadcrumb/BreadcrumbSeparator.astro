@@ -1,0 +1,22 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { tv } from "tailwind-variants";
+import { Icon } from "astro-icon/components";
+
+type Props = HTMLAttributes<"li">;
+
+const breadcrumbSeparator = tv({ base: "[&>svg]:size-4" });
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<li
+  role="presentation"
+  aria-hidden="true"
+  class={breadcrumbSeparator({ class: className })}
+  {...rest}
+>
+  <slot>
+    <Icon name="ChevronRight" />
+  </slot>
+</li>

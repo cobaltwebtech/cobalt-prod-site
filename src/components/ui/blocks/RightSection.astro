@@ -1,8 +1,8 @@
 ---
-// Import the required modules
 import { Image } from "astro:assets";
-import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
-// Extract properties from Astro.props
+import { Icon } from "astro-icon/components";
+import { Button } from "@/components/starwind/button";
+// Destructure the props passed to the Astro component
 const {
   title,
   subTitle,
@@ -31,10 +31,8 @@ interface Props {
 ---
 
 <!-- Root section of the component -->
-<section
-  class="mx-auto max-w-[85rem] items-center gap-16 px-4 py-10 sm:px-6 lg:grid lg:grid-cols-2 lg:px-8 lg:py-14 2xl:max-w-full"
->
-  <div>
+<section class="grid gap-8 py-10 sm:py-16 md:grid-cols-2 lg:py-14 xl:gap-16">
+  <div class="order-2 md:order-1">
     <!-- Title of the section -->
     <h2
       class="mb-4 text-4xl font-extrabold tracking-tight text-balance text-slate-800 dark:text-slate-200"
@@ -48,37 +46,44 @@ interface Props {
       {subTitle}
     </p>
     <!-- Conditional rendering of the Primary Call-To-Action button if 'btnExists' is true -->
-    {btnExists ? <PrimaryCTA title={btnTitle} url={btnURL} /> : null}
+    {
+      btnExists ? (
+        <Button href={btnURL}>
+          <Icon name="InfoFill" />
+          {btnTitle}
+        </Button>
+      ) : null
+    }
   </div>
   <!-- Conditionally render one or two images based on 'single' property -->
   {
     single ? ( // Single image
-      <div class="mt-8">
+      <div class="order-1 mt-8 md:order-2">
         <Image
           class="w-full rounded-lg"
           src={imgOne}
           alt={imgOneAlt}
-          format={"avif"}
+          format="avif"
           width="672"
         />
       </div>
     ) : (
       // If two images render in grid column layout
-      <div class="mt-8 grid grid-cols-2 gap-4">
+      <div class="order-1 mt-8 grid grid-cols-2 gap-4 md:order-2">
         <Image
           class="w-full rounded-xl"
           src={imgOne}
           alt={imgOneAlt}
-          draggable={"false"}
-          format={"avif"}
+          draggable="false"
+          format="avif"
           width="328"
         />
         <Image
           class="mt-4 w-full rounded-xl lg:mt-10"
           src={imgTwo}
           alt={imgTwoAlt}
-          draggable={"false"}
-          format={"avif"}
+          draggable="false"
+          format="avif"
           width="328"
         />
       </div>

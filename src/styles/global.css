@@ -1,16 +1,45 @@
 @import "tailwindcss";
-@import "../../node_modules/preline/variants.css";
+@import "preline/variants.css";
 @import "@/styles/lenis.css";
+@import "tw-animate-css";
 
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Font Family */
   --default-font-family: "Proxima Nova", system-ui, -apple-system, sans-serif;
+
+  /* Starwind Animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--starwind-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--starwind-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@theme inline {
   /* Color Palette */
   --color-current: currentColor;
   --color-transparent: transparent;
+
   --color-cobalt-50: oklch(96.93% 0.014 264.5);
   --color-cobalt-100: oklch(87.4% 0.061 263.74);
   --color-cobalt-200: oklch(77.88% 0.112 264.3);
@@ -22,6 +51,131 @@
   --color-cobalt-800: oklch(30.49% 0.1838 264.13);
   --color-cobalt-900: oklch(21.71% 0.1225 263.87);
   --color-cobalt-950: oklch(16.95% 0.0892 263.39);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-default: var(--default);
+  --color-default-foreground: var(--default-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-error: var(--error);
+  --color-error-foreground: var(--error-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-outline: var(--outline);
+  --color-focus: var(--focus);
+
+  --radius-xs: calc(var(--radius) - 0.375rem);
+  --radius-sm: calc(var(--radius) - 0.25rem);
+  --radius-md: calc(var(--radius) - 0.125rem);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 0.25rem);
+  --radius-2xl: calc(var(--radius) + 0.5rem);
+  --radius-3xl: calc(var(--radius) + 1rem);
 }
 
-@variant dark (&:where(.dark, .dark *));
+@layer base {
+  :root {
+    --background: var(--color-slate-50);
+    --foreground: var(--color-slate-950);
+    --card: var(--color-cobalt-50);
+    --card-foreground: var(--color-cobalt-950);
+    --popover: var(--color-slate-50);
+    --popover-foreground: var(--color-slate-950);
+    --default: var(--color-cobalt-500);
+    --default-foreground: var(--color-slate-50);
+    --primary: var(--color-cobalt-700);
+    --primary-foreground: var(--color-slate-50);
+    --secondary: var(--color-orange-400);
+    --secondary-foreground: var(--color-slate-950);
+    --muted: var(--color-slate-200);
+    --muted-foreground: var(--color-slate-600);
+    --accent: var(--color-slate-200);
+    --accent-foreground: var(--color-slate-950);
+    --info: var(--color-cyan-400);
+    --info-foreground: var(--color-cobalt-950);
+    --success: var(--color-green-400);
+    --success-foreground: var(--color-slate-950);
+    --warning: var(--color-amber-300);
+    --warning-foreground: var(--color-slate-950);
+    --error: var(--color-red-700);
+    --error-foreground: var(--color-slate-50);
+    --border: var(--color-cobalt-500);
+    --input: var(--color-slate-400);
+    --outline: var(--color-cobalt-100);
+    --focus: var(--color-cyan-600);
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: var(--color-slate-800);
+    --foreground: var(--color-slate-50);
+    --card: var(--color-cobalt-900);
+    --card-foreground: var(--color-cobalt-50);
+    --popover: var(--color-slate-900);
+    --popover-foreground: var(--color-slate-50);
+    --default: var(--color-cobalt-700);
+    --default-foreground: var(--color-slate-50);
+    --primary: var(--color-cobalt-800);
+    --primary-foreground: var(--color-slate-50);
+    --secondary: var(--color-orange-600);
+    --secondary-foreground: var(--color-cobalt-50);
+    --muted: var(--color-slate-700);
+    --muted-foreground: var(--color-slate-400);
+    --accent: var(--color-slate-950);
+    --accent-foreground: var(--color-slate-100);
+    --info: var(--color-cyan-500);
+    --info-foreground: var(--color-cobalt-950);
+    --success: var(--color-green-300);
+    --success-foreground: var(--color-green-950);
+    --warning: var(--color-amber-300);
+    --warning-foreground: var(--color-slate-950);
+    --error: var(--color-red-800);
+    --error-foreground: var(--color-slate-50);
+    --border: var(--color-cobalt-400);
+    --input: var(--color-slate-600);
+    --outline: var(--color-cobalt-900);
+    --focus: var(--color-cyan-400);
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+  *:focus-visible {
+    @apply outline-outline;
+  }
+  html {
+    @apply bg-background text-foreground scheme-light dark:scheme-dark;
+  }
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+@layer utilities {
+  /* transition-colors but without outline-color transition property */
+  .starwind-transition-colors {
+    transition-property:
+      color, background-color, border-color, text-decoration-color, fill,
+      stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--default-transition-timing-function);
+    transition-duration: 300ms;
+  }
+}

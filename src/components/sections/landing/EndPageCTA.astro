@@ -1,0 +1,52 @@
+---
+import { Icon } from "astro-icon/components";
+import { Button } from "@/components/starwind/button";
+
+// Define props from Astro
+const { title, subTitle, url } = Astro.props;
+
+const btnTitle = "Contact Us";
+
+// Define TypeScript interface for props
+interface Props {
+  title: string;
+  subTitle?: string;
+  url?: string;
+}
+---
+
+<section class="mx-auto max-w-screen-lg space-y-8 py-8">
+  <!-- Decorative icons -->
+  <div class="flex justify-evenly gap-20 sm:gap-32 md:gap-48 lg:gap-64">
+    <Icon name="CodeBrackets" class="size-full" />
+    <Icon name="CloudCompute" class="size-full" />
+    <Icon name="ComputerGlobe" class="size-full" />
+  </div>
+  <!-- Hero Section Heading -->
+  <div class="mx-auto mt-5 max-w-xl text-center">
+    <h2
+      class="text-4xl leading-tight font-bold tracking-tight text-balance text-slate-800 md:text-5xl lg:text-6xl dark:text-slate-200"
+    >
+      {title}
+    </h2>
+  </div>
+  <!-- Hero Section Sub-heading -->
+  {
+    subTitle && (
+      <p class="text-center text-lg text-pretty text-slate-800 dark:text-cyan-300">
+        {subTitle}
+      </p>
+    )
+  }
+  <!-- End Page CTA Button -->
+  {
+    url && (
+      <div class="mt-8 flex justify-center">
+        <Button variant="secondary" size="lg" href={url}>
+          <Icon name="ChatFill" />
+          {btnTitle}
+        </Button>
+      </div>
+    )
+  }
+</section>

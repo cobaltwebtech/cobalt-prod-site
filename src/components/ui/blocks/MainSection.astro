@@ -1,6 +1,6 @@
 ---
-// Import PrimaryCTA component
-import SecondaryCTA from "@/components/ui/buttons/SecondaryCTA.astro";
+import { Icon } from "astro-icon/components";
+import { Button } from "@/components/starwind/button";
 
 // Destructure the props passed to the Astro component
 const { title, subTitle, btnExists, btnTitle, btnURL } = Astro.props;
@@ -15,9 +15,7 @@ interface Props {
 ---
 
 <!-- Root section of the component -->
-<section
-  class="mx-auto mt-10 max-w-[85rem] px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-14 2xl:max-w-full"
->
+<section>
   <div class="max-w-screen-md">
     <!-- Section title -->
     <h1
@@ -35,7 +33,10 @@ interface Props {
     {
       btnExists ? (
         <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-          <SecondaryCTA title={btnTitle} url={btnURL} />
+          <Button variant="secondary" href={btnURL}>
+            <Icon name="ChatAnimate" />
+            {btnTitle}
+          </Button>
         </div>
       ) : null
     }

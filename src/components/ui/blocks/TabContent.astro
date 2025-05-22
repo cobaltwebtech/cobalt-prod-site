@@ -9,7 +9,7 @@ const { id, aria, src, alt, first, second } = Astro.props;
 interface Props {
   id: string;
   aria: string;
-  src?: any;
+  src?: ImageMetadata;
   alt: string;
   first?: boolean;
   second?: boolean;
@@ -43,12 +43,16 @@ This is the full example:
 <!-- Container for tab content that controls visibility and accessibility -->
 <div id={id} role="tabpanel" class={firstClass} aria-labelledby={aria}>
   <!-- Astro Image component to display the image with dynamic classes based on the 'second' property -->
-  <Image
-    src={src}
-    alt={alt}
-    class={secondClass}
-    draggable={"false"}
-    format={"avif"}
-    loading={"lazy"}
-  />
+  {
+    src && (
+      <Image
+        src={src}
+        alt={alt}
+        class={secondClass}
+        draggable={"false"}
+        format={"avif"}
+        loading={"lazy"}
+      />
+    )
+  }
 </div>

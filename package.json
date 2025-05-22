@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "name": "cobaltwebtech",
   "description": "Cobalt Web Technologies website built on Astro",
   "author": "Cobalt Web Technologies",
@@ -25,7 +25,7 @@
     "@astrojs/sitemap": "3.4.0",
     "@playform/compress": "^0.1.9",
     "@tailwindcss/vite": "^4.1.7",
-    "astro": "5.7.13",
+    "astro": "5.8.0",
     "astro-compressor": "^1.0.0",
     "astro-font": "^1.1.0",
     "astro-icon": "^1.1.5",
@@ -34,7 +34,9 @@
     "lenis": "^1.3.3",
     "preline": "^3.0.1",
     "resend": "^4.5.1",
-    "tailwindcss": "^4.1.7"
+    "tailwind-variants": "^1.0.0",
+    "tailwindcss": "^4.1.7",
+    "tw-animate-css": "^1.3.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",
@@ -48,6 +50,6 @@
     "rimraf": "^6.0.1",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1",
-    "wrangler": "^4.15.2"
+    "wrangler": "^4.16.0"
   }
 }

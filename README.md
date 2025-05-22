@@ -22,6 +22,7 @@ Check us out [https://www.cobaltweb.tech/](https://www.cobaltweb.tech/?utm_sourc
 
 - **Astro-Powered:** Utilize a modern static-site generation framework.
 - **Tailwind CSS:** Enjoy rapid UI development with a utility-first CSS framework.
+- **Starwind UI:** A set of powerful, accessible components for Astro projects.
 - **Preline UI:** Implement prebuilt UI components for added elegance.
 - **GSAP Integration:** Impress with professional and polished animations.
 - **Markdown Content Collections:** Organize and manage the content seamlessly.
@@ -32,7 +33,11 @@ Check us out [https://www.cobaltweb.tech/](https://www.cobaltweb.tech/?utm_sourc
 
 ### Added Features
 
-- [x] **Tailwind Upgraded**:
+- [x] **Starwind UI**:
+
+  - Added the Starwind UI which bring reusuable components built specifically for Astro projects. Like Shadcn, but purely Astro components and JavaScript. Styled with Tailwind CSS v4. Open Source.
+
+- [x] **Tailwind Upgraded to v4**:
 
   - Tailwind has been upgraded to version 4 with new enhancements and configurations. Version 4 brings easier to configure custom theming and utilities in the global.css file.
 
@@ -86,6 +91,14 @@ src/
 
 Cobalt leverages the power of Astro — a modern, cutting-edge site building framework — and integrates it seamlessly with the utility-first CSS framework TailwindCSS, to deliver exceptional site performance and a seamless user experience. Here are some notable integrations and enhancements included in the project:
 
+### Starwind UI
+
+[Starwind UI](https://starwind.dev/) takes a different approach to component libraries. Rather than being constrained by a package’s implementation access to the source code is provided directly.
+
+- Own The Code: Using the easy-to-use CLI tool, components and code can be installed directly to an Astro project. This gives complete control over the implementation and allows modification of the code to fit any specific needs.
+
+- Full Customization: Every aspect of each component is fully customizable and themed using Tailwind CSS.
+
 ### Lenis for Smooth Scrolling
 
 Experience buttery smooth scrolling with [Lenis](https://lenis.studiofreight.com/). We've integrated Lenis to provide an enhanced scrolling experience that's both fluid and responsive.
@@ -101,10 +114,6 @@ For individual product pages, [GSAP](https://gsap.com/) has been integrated to a
 ### Resend Integration
 
 Send form data securely using [Resend](https://resend.com/). The Resend API route can be customized to set up any template to email any or all of the form data captured. This is set up as a transactional email service for notification of form submission.
-
-### Hiding Scrollbar
-
-To achieve a cleaner and more spacious design, the default scrollbar has been visually removed.
 
 ### SEO Configuration
 
@@ -126,28 +135,24 @@ Our website's efficiency is maximized with these built-in Astro integrations:
 
 - [Astro Compressor](https://github.com/sondr3/astro-compressor#readme): Automatically compresses Astro generated assets using brotli for smaller file sizes ensuring faster load times.
 
-### Preline UI
-
-Interactive components like navbars, modals, and accordions are built using [Preline UI](https://preline.co), a comprehensive open-source component library.
-
 ### Tailwind CSS
 
 Styling across our project leverages the utility-first classes offered by [Tailwind CSS](https://tailwindcss.com). This methodology allows us to create custom layouts and components with speed and efficiency.
 
-- **Now with Tailwind version 4!**
+- **Now upgraded to Tailwind version 4!**
 
 To ensure consistent code formatting, particularly for class sorting, we have integrated the `prettier-plugin-tailwindcss` [plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss).
 
 ### Deployment and Security
 
-We deploy our project on [Vercel](https://vercel.com), capitalizing on their robust platform for seamless CI/CD workflows.
+We deploy our project on [Cloudflare Workers](https://workers.cloudflare.com/), capitalizing on their robust and global platform for seamless CI/CD workflows.
 
 ### Documentation Links
 
 - [Astro Documentation](https://docs.astro.build/en/getting-started/)
-- [Preline UI Documentation](https://preline.co/docs)
+- [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/)
+- [Starwind UI Documentation](https://starwind.dev/docs/getting-started/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Vercel Documentation](https://vercel.com/docs)
 - [Resend Documentation](https://resend.com/docs/introduction)
 
 ## License

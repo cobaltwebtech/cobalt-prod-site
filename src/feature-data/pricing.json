@@ -5,6 +5,7 @@
   "textUnder": "We also offer customized plans that can fit your budget needs. Annual plans come with a discount for paying upfront. Get in touch with us to see what solution will work for you.",
   "thirdOption": "Enterprise Solutions?",
   "btnText": "Get a Custom Quote",
+  "btnUrl": "/contact/",
 
   "staterPlan": {
     "name": "Starter Plan",

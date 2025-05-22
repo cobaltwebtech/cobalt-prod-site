@@ -2,20 +2,20 @@
 // Import components
 import MainLayout from "@/layouts/MainLayout.astro";
 import HeroSection from "@/components/sections/landing/HeroSection.astro";
-import HeroSectionAlt from "@/components/sections/landing/HeroSectionAlt.astro";
+import EndPageCTA from "@/components/sections/landing/EndPageCTA.astro";
 import ClientsSection from "@/components/sections/landing/ClientsSection.astro";
 import FeaturesGeneral from "@/components/sections/features/FeaturesGeneral.astro";
-import FeaturesNavs from "@/components/sections/features/FeaturesNavs.astro";
+import FeaturesTabs from "@/components/sections/features/FeaturesTabs.astro";
 import HomePageStats from "@/components/sections/landing/HomePageStats.astro";
 import PricingSection from "@/components/sections/features/PricingSection.astro";
 import FAQ from "@/components/sections/features/FAQ.astro";
 import AnnouncementBanner from "@/components/ui/banners/AnnouncementBanner.astro";
 // Import data files
-import faqs from "@/feature-data/faqs.json";
-import features from "@/feature-data/features.json";
-import pricing from "@/feature-data/pricing.json";
+import faqs from "@/feature-data/Faqs.json";
+import featuresGeneral from "@/feature-data/FeaturesGeneral.json";
+import pricing from "@/feature-data/Pricing.json";
 // Import images
-import heroImage from "@/images/highlight-ecommerce-stripe.avif";
+import heroImage from "@/images/hero-phone-laptop.avif";
 import featureImage from "@/images/laptop-office-desk.avif";
 import ecommerce from "@/images/online-shopping-phone.avif";
 import laptop from "@/images/laptop-dark-tall.avif";
@@ -35,7 +35,7 @@ import globe from "@/images/global-network-tall.avif";
 >
   <AnnouncementBanner
     btnId="dismiss-button"
-    btnTitle="Need a new website?"
+    btnTitle="Is your website slow and janky?"
     url="/services/a-new-website-experience/"
   />
 
@@ -53,7 +53,7 @@ import globe from "@/images/global-network-tall.avif";
   />
 
   <ClientsSection
-    title="Next Gen Websites Built by Cobalt"
+    title="Let Us Build You a Next Gen Website"
     subTitle="Experience blazingly fast performance, secure infrastructure, and engaging modern design."
   />
 
@@ -62,12 +62,12 @@ import globe from "@/images/global-network-tall.avif";
     subTitle="Do you need a brand new website to showcase your products or services? Is your current website slow, unresponsive, and looking dated? Let Cobalt Web Technologies build your next web project for you."
     src={featureImage}
     alt="Browsing on phone with desktop computer background"
-    features={features}
+    features={featuresGeneral}
     primaryBtn="View Our Services"
     primaryBtnURL="/services/"
   />
 
-  <FeaturesNavs
+  <FeaturesTabs
     title=`Performant & Secure Websites`
     tabs={[
       {
@@ -130,7 +130,7 @@ import globe from "@/images/global-network-tall.avif";
 
   <FAQ title="Frequently Asked Questions" faqs={faqs} />
 
-  <HeroSectionAlt
+  <EndPageCTA
     title="We Connect You to the World"
     subTitle="Contact us today to see how our solutions can help solve your web app problems so you can get back to running your business."
     url="/contact/"

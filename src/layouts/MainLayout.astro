@@ -1,8 +1,8 @@
 ---
 // Importing necessary components
-import Meta from "@/components/Meta.astro";
-import Navbar from "@/components/sections/header-footer/Navbar.astro";
-import Footer from "@/components/sections/header-footer/Footer.astro";
+import Meta from "@/layouts/Meta.astro";
+import Navbar from "@/components/sections/navigation/Navbar.astro";
+import Footer from "@/components/sections/navigation/Footer.astro";
 import { siteMeta } from "@/lib/siteData";
 import { ClientRouter, fade } from "astro:transitions";
 import TwSizeIndicator from "@/components/ui/TwSizeIndicator.astro";
@@ -86,31 +86,25 @@ We set the language of the page to English and add classes for scrollbar and scr
     Setting up the main structure of the page.
     The Navbar is placed at the top, with a slot for the main content and FooterSection at the bottom.
     -->
-    <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
-      <Navbar />
-      <main transition:animate={fade({ duration: "0.75s" })}>
-        <slot />
-      </main>
-    </div>
+    <Navbar />
+    <main
+      transition:animate={fade({ duration: "0.75s" })}
+      class="mx-auto max-w-screen-2xl px-8 py-10 sm:px-10 sm:py-12 lg:px-16"
+    >
+      <slot />
+    </main>
     <Footer />
     <TwSizeIndicator />
     <!-- Import Preline UI with View Transition support -->
     <script>
+      // Optimize Preline initialization only for elements that need it
       document.addEventListener("astro:page-load", async () => {
-        const preline = await import("preline/dist/preline.js");
-        preline.HSStaticMethods.autoInit();
+        //
+        if (document.querySelector("[data-hs-collapse]")) {
+          const preline = await import("preline/dist/preline.js");
+          preline.HSStaticMethods.autoInit();
+        }
       });
     </script>
   </body>
 </html>
-<!-- 
-Based, built, and coded in Austin, Texas USA by
-
-####################################
-||                                ||
-||    COBALT WEB TECHNOLOGIES     ||
-||  https://www.cobaltweb.tech/   ||
-||                                ||
-####################################
-
--->

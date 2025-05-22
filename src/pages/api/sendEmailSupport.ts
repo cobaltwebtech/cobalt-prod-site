@@ -6,7 +6,17 @@ import { Resend } from "resend";
 export const POST: APIRoute = async ({ request }) => {
   try {
     console.log("API route initiated");
-    const formData = await request.json();
+    type SupportFormData = {
+      supporttype: string;
+      firstname: string;
+      lastname: string;
+      email: string;
+      phone: string;
+      message: string;
+      "cf-turnstile-response": string;
+    };
+
+    const formData = (await request.json()) as SupportFormData;
     console.log("Form data submitted:", formData);
     const {
       supporttype,
@@ -33,7 +43,9 @@ export const POST: APIRoute = async ({ request }) => {
       },
     );
 
-    const verificationResult = await verificationResponse.json();
+    const verificationResult = (await verificationResponse.json()) as {
+      success: boolean;
+    };
 
     if (!verificationResult.success) {
       console.log("Turnstile verification failed");

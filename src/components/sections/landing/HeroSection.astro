@@ -1,8 +1,8 @@
 ---
 // Import the necessary dependencies
 import { Image } from "astro:assets";
-import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
-import SecondaryCTA from "@/components/ui/buttons/SecondaryCTA.astro";
+import { Icon } from "astro-icon/components";
+import { Button } from "@/components/starwind/button";
 
 // Define props from Astro
 const {
@@ -34,57 +34,63 @@ interface Props {
 ---
 
 <!-- Defining a grid container that holds all the content -->
-<section
-  class="mx-auto mt-10 grid max-w-[85rem] gap-4 px-4 py-10 sm:px-6 sm:py-16 md:grid-cols-2 md:items-center md:gap-8 lg:px-8 lg:py-14 2xl:max-w-full"
->
+<section class="mb-12 grid items-center gap-4 md:gap-8 lg:grid-cols-2">
   <!-- Title and description -->
-  <div class="text-slate-800 dark:text-slate-200">
+  <div class="space-y-4 text-slate-800 dark:text-slate-200">
     <!-- Each h1 and p tag renders a portion of the title and subTitle defined above -->
     <h1
-      class="mb-6 block text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:text-5xl lg:leading-tight"
+      class="text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:leading-tight xl:text-5xl"
     >
       <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
       <Fragment set:html={title} />
     </h1>
     {
       subTitle && (
-        <p class="mb-4 text-xl leading-relaxed text-pretty text-cyan-700 italic lg:w-4/5 dark:text-cyan-300">
+        <p class="mb-4 text-xl font-semibold text-cyan-800 italic dark:text-cyan-300">
           {subTitle}
         </p>
       )
     }
-    <p class="text-l mb-4 leading-relaxed text-pretty lg:w-4/5">
+    <p class="leading-relaxed text-pretty">
       <Fragment set:html={paragraph1} />
     </p>
-    <p class="text-l mb-4 leading-relaxed text-pretty lg:w-4/5">
+    <p class="leading-relaxed text-pretty">
       <Fragment set:html={paragraph2} />
     </p>
 
     <!-- Action Button Section: This section includes two CTAs with their own styles and URL -->
-    <div class="mt-7 grid w-full gap-3 sm:inline-flex">
-      {primaryBtn && <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />}
+    <div class="mt-8 flex w-full flex-wrap gap-4">
+      {
+        primaryBtn && (
+          <Button href={primaryBtnURL}>
+            <Icon name="InfoFill" />
+            {primaryBtn}
+          </Button>
+        )
+      }
       {
         secondaryBtn && (
-          <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />
+          <Button variant="secondary" href={secondaryBtnURL}>
+            <Icon name="ChatAnimate" />
+            {secondaryBtn}
+          </Button>
         )
       }
     </div>
   </div>
   <!-- Hero Image Section -->
-  <div class="flex w-full">
-    <div class="top-12 overflow-hidden rounded-2xl">
-      {
-        src && alt && (
-          <Image
-            src={src}
-            alt={alt}
-            class="h-full w-full scale-110 object-cover object-center"
-            draggable={"false"}
-            loading={"eager"}
-            format={"avif"}
-          />
-        )
-      }
-    </div>
+  <div class="overflow-hidden rounded-2xl">
+    {
+      src && alt && (
+        <Image
+          src={src}
+          alt={alt}
+          class="w-full"
+          draggable="false"
+          loading="eager"
+          format="avif"
+        />
+      )
+    }
   </div>
 </section>

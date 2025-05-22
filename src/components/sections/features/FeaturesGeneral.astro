@@ -2,7 +2,8 @@
 // Import the necessary dependencies
 import { Image } from "astro:assets";
 import IconBlock from "@/components/ui/blocks/IconBlock.astro";
-import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
+import { Icon } from "astro-icon/components";
+import { Button } from "@/components/starwind/button";
 
 interface Feature {
   heading: string;
@@ -24,22 +25,18 @@ const { title, subTitle, src, alt, features, primaryBtn, primaryBtnURL } =
   Astro.props;
 ---
 
-<section
-  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
->
+<section class="py-8">
   <!-- Block to display the feature image -->
-  <div
-    class="relative mx-auto mb-6 overflow-hidden rounded-2xl md:mb-8 md:w-3/4"
-  >
+  <div class="mx-auto mb-6 overflow-hidden rounded-2xl md:mb-8 md:w-3/4">
     {
       src && alt && (
         <Image
           src={src}
           alt={alt}
           class="h-full w-full object-cover object-center"
-          draggable={"false"}
-          format={"avif"}
-          loading={"eager"}
+          draggable="false"
+          format="avif"
+          loading="eager"
         />
       )
     }
@@ -67,7 +64,10 @@ const { title, subTitle, src, alt, features, primaryBtn, primaryBtnURL } =
       {
         primaryBtn && (
           <div class="my-8">
-            <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />
+            <Button href={primaryBtnURL}>
+              <Icon name="InfoFill" />
+              {primaryBtn}
+            </Button>
           </div>
         )
       }

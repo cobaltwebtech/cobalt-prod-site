@@ -1,0 +1,91 @@
+---
+import TabNav from "@/components/ui/blocks/TabNav.astro";
+import TabContent from "@/components/ui/blocks/TabContent.astro";
+import { Icon } from "astro-icon/components";
+
+// Define props from Astro
+const { title, tabs } = Astro.props;
+
+// Define TypeScript interface for tab object
+interface Tab {
+  heading: string;
+  content: string;
+  svg: string;
+  src: ImageMetadata;
+  alt: string;
+  first?: boolean;
+  second?: boolean;
+}
+
+// Define TypeScript interface for props
+interface Props {
+  title?: string;
+  tabs: Tab[];
+}
+---
+
+<section class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8 lg:py-14">
+  <div class="relative p-6 md:p-16">
+    <div
+      class="relative z-10 lg:grid lg:grid-cols-12 lg:items-center lg:gap-16"
+    >
+      <!-- Section's heading and tab navigation -->
+      <div class="mb-10 lg:order-2 lg:col-span-6 lg:col-start-7 lg:mb-0">
+        <h3
+          class="text-center text-2xl font-bold text-slate-800 sm:text-3xl dark:text-slate-200"
+        >
+          <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
+          <Fragment set:html={title} />
+        </h3>
+        <!-- Tab navigation - use the attribute 'first' in the first TabNav for the component to work -->
+        <nav class="mt-5 grid gap-4 md:mt-10" aria-label="Tabs" role="tablist">
+          {
+            tabs.map((tab, index) => (
+              <TabNav
+                id={`tabs-with-card-item-${index + 1}`}
+                dataTab={`#tabs-with-card-${index + 1}`}
+                aria={`tabs-with-card-${index + 1}`}
+                heading={tab.heading}
+                content={tab.content}
+                first={tab.first}
+              >
+                <Icon
+                  name={tab.svg}
+                  class="h-auto w-full text-cyan-700 dark:text-orange-300"
+                />
+              </TabNav>
+            ))
+          }
+        </nav>
+      </div>
+
+      <!-- Contents for each tab - the 'first' attribute should be used in the first tab for that tab to be initially visible, 'second' changes the styles -->
+      <div class="lg:col-span-6">
+        <div class="relative">
+          <div>
+            {
+              tabs.map((tab, index) => (
+                <TabContent
+                  id={`tabs-with-card-${index + 1}`}
+                  aria={`tabs-with-card-item-${index + 1}`}
+                  src={tab.src}
+                  alt={tab.alt}
+                  first={tab.first}
+                  second={tab.second}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute inset-0 grid h-full w-full grid-cols-12">
+      <!-- Decorative background and sizing -->
+      <div
+        class="dark:bg-cobalt-900 col-span-full h-5/6 w-full rounded-xl bg-slate-100 sm:h-3/4 lg:col-span-7 lg:col-start-6 lg:h-full"
+      >
+      </div>
+    </div>
+  </div>
+</section>

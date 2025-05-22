@@ -1,10 +1,24 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import TertiaryCTA from "@/components/ui/buttons/TertiaryCTA.astro";
-import Breadcrumb from "@/components/ui/buttons/Breadcrumb.astro";
+import { Icon } from "astro-icon/components";
+import { Button } from "@/components/starwind/button";
 import { Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { siteMeta } from "@/lib/siteData";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/starwind/breadcrumb";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/starwind/tabs";
 
 // Define the Service and ServiceData types
 interface Service {
@@ -18,7 +32,7 @@ interface ServiceData {
   main: {
     description1: string;
     description2: string;
-    imgMain: string;
+    imgMain: ImageMetadata;
     imgAlt: string;
   };
   tabs: {
@@ -65,13 +79,26 @@ const pageTitle: string = `${service.data.title} | ${siteMeta.title}`;
 <MainLayout title={pageTitle}>
   <div id="overlay" class="dark:bg-cobalt-950 fixed inset-0 bg-slate-100"></div>
 
-  <section
-    class="mx-auto flex max-w-[85rem] flex-col px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
+  <section class="py-8 md:py-12">
     <div
-      class="flex flex-col items-center justify-between gap-16 space-y-4 sm:flex-row sm:space-y-0"
+      class="flex flex-col justify-between gap-8 space-y-4 sm:space-y-0 md:flex-row"
     >
-      <div id="fadeInUp" class="w-[600px] max-w-full">
+      <div id="fadeInUp" class="max-w-[600px]">
+        <Breadcrumb class="mb-4">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/services/">Services</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{service.data.title}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
         <h1
           class="block text-3xl font-bold text-slate-800 sm:text-5xl md:text-6xl lg:text-7xl dark:text-slate-200"
         >
@@ -108,148 +135,104 @@ const pageTitle: string = `${service.data.title} | ${siteMeta.title}`;
     </div>
   </section>
 
-  <div class="mx-auto max-w-[85rem] px-4 pt-10 sm:px-6 lg:px-8 lg:pt-14">
-    <nav
-      class="mx-auto grid max-w-5xl gap-y-4 sm:flex sm:gap-x-4 sm:gap-y-0"
-      aria-label="Tabs"
-      role="tablist"
-    >
-      <!-- First tab button element -->
-      <button
-        type="button"
-        class="bg-cobalt-50/80 dark:bg-cobalt-800 flex w-full justify-center rounded-xl border-2 border-cyan-400 p-3 transition duration-300 outline-none md:p-5 dark:border-cyan-500"
-        id="tabs-with-card-item-1"
-        data-target="#tabs-with-card-1"
-        role="tab"
-        autofocus
-      >
-        <!-- Tab text -->
-        <span class="font-semibold text-slate-800 dark:text-slate-200">
-          {service.data.tabs.title1}
-        </span>
-      </button>
-
-      <!-- Second tab button element -->
-      <button
-        type="button"
-        class="bg-cobalt-50/40 dark:bg-cobalt-900 flex w-full justify-center rounded-xl border-2 border-cyan-200 p-3 transition duration-300 outline-none md:p-5 dark:border-cyan-700"
-        id="tabs-with-card-item-2"
-        data-target="#tabs-with-card-2"
-        role="tab"
-      >
-        <!-- Tab text -->
-        <span class="font-semibold text-slate-800 dark:text-slate-200">
-          {service.data.tabs.title2}
-        </span>
-      </button>
-    </nav>
-
-    <div
-      class="mx-auto my-4 w-full text-center text-sm text-slate-600 dark:text-slate-400"
-    >
-      Click each tab above to view more info
-    </div>
-
-    <div class="mt-12 md:mt-16">
-      <div id="tabs-with-card-1" role="tabpanel">
-        <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
-          <div class="grid gap-12 md:grid-cols-2">
-            <div class="lg:w-3/4">
-              <h2
-                class="text-3xl font-bold text-balance text-slate-800 md:leading-tight lg:text-4xl dark:text-slate-200"
+  <section class="mx-auto max-w-screen-xl">
+    <Tabs defaultValue="title1">
+      <TabsList class="mx-auto max-w-3xl">
+        <TabsTrigger value="title1">{service.data.tabs.title1}</TabsTrigger>
+        <TabsTrigger value="title2">{service.data.tabs.title2}</TabsTrigger>
+      </TabsList>
+      <TabsContent value="title1">
+        <div class="grid gap-12 md:grid-cols-2">
+          <div class="lg:w-3/4">
+            <h2
+              class="text-3xl font-bold text-balance text-slate-800 md:leading-tight lg:text-4xl dark:text-slate-200"
+            >
+              {service.data.tabFirst.title}
+            </h2>
+            <p class="mt-3 text-pretty text-slate-600 dark:text-slate-400">
+              {service.data.tabFirst.subTitle}
+            </p>
+            <p class="mt-5 text-xl font-bold text-cyan-600 dark:text-cyan-400">
+              {service.data.tabFirst.ctaDescription}
+            </p>
+            <p class="mt-5">
+              <Button variant="info" href={service.data.tabFirst.btnURL}
+                ><Icon name="InfoFill" />{
+                  service.data.tabFirst.btnTitle
+                }</Button
               >
-                {service.data.tabFirst.title}
-              </h2>
-              <p class="mt-3 text-pretty text-slate-600 dark:text-slate-400">
-                {service.data.tabFirst.subTitle}
-              </p>
-              <p
-                class="mt-5 text-xl font-bold text-cyan-600 dark:text-cyan-400"
-              >
-                {service.data.tabFirst.ctaDescription}
-              </p>
-              <p class="mt-5">
-                <TertiaryCTA
-                  title={service.data.tabFirst.btnTitle}
-                  url={service.data.tabFirst.btnURL}
-                />
-              </p>
-            </div>
+            </p>
+          </div>
 
-            <div class="space-y-6 lg:space-y-10">
-              {
-                service.data.tabFirstItems.map((list) => (
-                  <div class="flex">
-                    <div>
-                      <h3 class="text-base font-bold text-slate-800 sm:text-lg dark:text-slate-200">
-                        {list.title}
-                      </h3>
-                      <p class="mt-1 text-slate-600 dark:text-slate-400">
-                        {list.subTitle}
-                      </p>
-                    </div>
+          <div class="space-y-6 lg:space-y-10">
+            {
+              service.data.tabFirstItems.map((list) => (
+                <div class="flex">
+                  <div>
+                    <h3 class="text-base font-bold text-slate-800 sm:text-lg dark:text-slate-200">
+                      {list.title}
+                    </h3>
+                    <p class="mt-1 text-slate-600 dark:text-slate-400">
+                      {list.subTitle}
+                    </p>
                   </div>
-                ))
-              }
-            </div>
+                </div>
+              ))
+            }
           </div>
         </div>
-      </div>
-
-      <div id="tabs-with-card-2" class="hidden" role="tabpanel">
-        <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
-          <div class="grid gap-12 md:grid-cols-2">
-            <div class="lg:w-3/4">
-              <h3
-                class="text-3xl font-bold text-balance text-slate-800 md:leading-tight lg:text-4xl dark:text-slate-200"
+      </TabsContent>
+      <TabsContent value="title2">
+        <div class="grid gap-12 md:grid-cols-2">
+          <div class="lg:w-3/4">
+            <h3
+              class="text-3xl font-bold text-balance text-slate-800 md:leading-tight lg:text-4xl dark:text-slate-200"
+            >
+              {service.data.tabSecond.title}
+            </h3>
+            <p class="mt-3 text-pretty text-slate-600 dark:text-slate-400">
+              {service.data.tabSecond.subTitle}
+            </p>
+            <p class="mt-5 text-xl font-bold text-cyan-600 dark:text-cyan-400">
+              {service.data.tabSecond.ctaDescription}
+            </p>
+            <p class="mt-5">
+              <Button variant="info" href={service.data.tabSecond.btnURL}
+                ><Icon name="InfoFill" />{
+                  service.data.tabSecond.btnTitle
+                }</Button
               >
-                {service.data.tabSecond.title}
-              </h3>
-              <p class="mt-3 text-pretty text-slate-600 dark:text-slate-400">
-                {service.data.tabSecond.subTitle}
-              </p>
-              <p
-                class="mt-5 text-xl font-bold text-cyan-600 dark:text-cyan-400"
-              >
-                {service.data.tabSecond.ctaDescription}
-              </p>
-              <p class="mt-5">
-                <TertiaryCTA
-                  title={service.data.tabSecond.btnTitle}
-                  url={service.data.tabSecond.btnURL}
-                />
-              </p>
-            </div>
-            <div class="space-y-6 lg:space-y-10">
-              {
-                service.data.tabSecondItems.map((list) => (
-                  <div class="flex">
-                    <div>
-                      <h3 class="text-base font-bold text-slate-800 sm:text-lg dark:text-slate-200">
-                        {list.title}
-                      </h3>
-                      <p class="mt-1 text-slate-600 dark:text-slate-400">
-                        {list.subTitle}
-                      </p>
-                    </div>
+            </p>
+          </div>
+          <div class="space-y-6 lg:space-y-10">
+            {
+              service.data.tabSecondItems.map((list) => (
+                <div class="flex">
+                  <div>
+                    <h3 class="text-base font-bold text-slate-800 sm:text-lg dark:text-slate-200">
+                      {list.title}
+                    </h3>
+                    <p class="mt-1 text-slate-600 dark:text-slate-400">
+                      {list.subTitle}
+                    </p>
                   </div>
-                ))
-              }
-            </div>
+                </div>
+              ))
+            }
           </div>
         </div>
-      </div>
-    </div>
-    <div class="my-8">
-      <Breadcrumb title="Back to Services" url="/services/" />
-    </div>
-  </div>
+      </TabsContent>
+    </Tabs>
+  </section>
 </MainLayout>
 
 <script>
   import { gsap } from "gsap";
 
   document.addEventListener("astro:page-load", function () {
+    // Ensure scroll position is at the top
+    window.scrollTo(0, 0);
+
     type AnimationSettings = {
       autoAlpha?: number;
       y?: number;
@@ -320,75 +303,6 @@ const pageTitle: string = `${service.data.title} | ${siteMeta.title}`;
       duration: 1,
       autoAlpha: 0,
       delay: 0.2,
-    });
-  });
-</script>
-<script>
-  document.addEventListener("astro:page-load", function () {
-    function setButtonInactive(
-      btn: HTMLButtonElement,
-      activeButton: HTMLButtonElement,
-    ) {
-      if (btn !== activeButton) {
-        btn.classList.remove(
-          "border-cyan-400",
-          "bg-cobalt-50/80",
-          "dark:border-cyan-500",
-          "dark:bg-cobalt-800",
-        );
-        btn.classList.add(
-          "border-cyan-200",
-          "bg-cobalt-50/40",
-          "dark:border-cyan-700",
-          "dark:bg-cobalt-900",
-        );
-
-        const tabId = btn.getAttribute("data-target");
-        if (tabId) {
-          const contentElement = document.querySelector(tabId);
-          if (contentElement) {
-            contentElement.classList.add("hidden");
-          }
-        }
-      }
-    }
-
-    function activateButton(button: HTMLButtonElement) {
-      button.classList.add(
-        "border-cyan-400",
-        "bg-cobalt-50/80",
-        "dark:border-cyan-500",
-        "dark:bg-cobalt-800",
-      );
-      button.classList.remove(
-        "border-cyan-200",
-        "bg-cobalt-50/40",
-        "dark:border-cyan-700",
-        "dark:bg-cobalt-900",
-      );
-
-      const tabId = button.getAttribute("data-target");
-      if (tabId) {
-        const contentElementToShow = document.querySelector(tabId);
-        if (contentElementToShow) {
-          contentElementToShow.classList.remove("hidden");
-        }
-      }
-    }
-
-    const tabButtons = document.querySelectorAll("[data-target]");
-
-    tabButtons.forEach((button) => {
-      if (button instanceof HTMLButtonElement) {
-        button.addEventListener("click", () => {
-          tabButtons.forEach((btn) => {
-            if (btn instanceof HTMLButtonElement) {
-              setButtonInactive(btn, button);
-            }
-          });
-          activateButton(button);
-        });
-      }
     });
   });
 </script>

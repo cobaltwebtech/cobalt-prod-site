@@ -1,0 +1,95 @@
+---
+import { Icon } from "astro-icon/components";
+// Define props from Astro
+const { phoneUrl, phoneNumber, emailUrl, emailAddress } = Astro.props;
+
+// Define TypeScript interface for props
+interface Props {
+  phoneUrl: string;
+  phoneNumber: string;
+  emailUrl: string;
+  emailAddress: string;
+}
+---
+
+<!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
+<div
+  class="divide-y-2 divide-slate-300 text-slate-600 dark:divide-slate-600 dark:text-slate-50"
+>
+  <!-- Hours of operation -->
+  <div class="flex gap-x-7 py-6">
+    <Icon name="Clock" class="size-6 text-slate-600 dark:text-slate-200" />
+    <div class="grow space-y-3">
+      <h3 class="font-bold text-slate-700 dark:text-slate-300">
+        Hours of Operation
+      </h3>
+      <p class="text-sm text-slate-600 dark:text-slate-200">
+        Monday - Friday, 9AM - 5PM (US Central)
+      </p>
+    </div>
+  </div>
+  <!-- Live chat -->
+  <div class="flex gap-x-7 py-6">
+    <Icon name="ChatFill" class="size-6 text-slate-600 dark:text-slate-200" />
+    <div class="grow space-y-3">
+      <h3 class="font-bold text-slate-700 dark:text-slate-300">Live Chat</h3>
+      <p class="text-sm text-slate-600 dark:text-slate-200">
+        Contact us via live chat during our normal business hours.
+      </p>
+      <a
+        class="group flex items-center gap-x-2 text-sm font-medium text-cyan-600 ring-slate-500 transition duration-300 outline-none hover:text-orange-600 focus-visible:ring dark:text-cyan-400 dark:ring-slate-200 dark:hover:text-orange-400 dark:focus:ring-1 dark:focus:outline-none"
+        href="https://salesiq.zoho.com/signaturesupport.ls?widgetcode=b02c0667d93a35346839e5ab730f507af85d02062470316501c1c4d80b9136f1eae322a2a89cfbc9b10746de3549cb8f"
+        target="_blank"
+      >
+        Start a chat session
+        <Icon
+          name="Arrow"
+          class="size-4 shrink-0 transition ease-in-out group-hover:translate-x-1"
+        />
+      </a>
+    </div>
+  </div>
+  <!-- Phone number -->
+  <div class="flex gap-x-7 py-6">
+    <Icon name="Phone" class="size-6 text-slate-600 dark:text-slate-200" />
+    <div class="grow space-y-3">
+      <h3 class="font-bold text-slate-700 dark:text-slate-300">Call Us</h3>
+      <p class="text-sm text-slate-600 dark:text-slate-200">
+        Contact us via phone during our normal business hours.
+      </p>
+      <!-- Pass a prop for phone number since we use different numbers on each form page -->
+      <a
+        class="group flex items-center gap-x-2 text-sm font-medium text-cyan-600 ring-slate-500 transition duration-300 outline-none hover:text-orange-600 focus-visible:ring dark:text-cyan-400 dark:ring-slate-200 dark:hover:text-orange-400 dark:focus:ring-1 dark:focus:outline-none"
+        href={phoneUrl}
+        target="_blank"
+      >
+        {phoneNumber}
+        <Icon
+          name="Arrow"
+          class="size-4 shrink-0 transition ease-in-out group-hover:translate-x-1"
+        />
+      </a>
+    </div>
+  </div>
+  <!-- Email -->
+  <div class="flex gap-x-7 py-6">
+    <Icon name="Envelope" class="size-6 text-slate-600 dark:text-slate-200" />
+    <div class="grow space-y-3">
+      <h3 class="font-bold text-slate-700 dark:text-slate-300">Email Us</h3>
+      <p class="text-sm text-slate-600 dark:text-slate-200">
+        Send us an email.
+      </p>
+      <a
+        class="group flex items-center gap-x-2 text-sm font-medium text-cyan-600 ring-slate-500 transition duration-300 outline-none hover:text-orange-600 focus-visible:ring dark:text-cyan-400 dark:ring-slate-200 dark:hover:text-orange-400 dark:focus:ring-1 dark:focus:outline-none"
+        href={emailUrl}
+        target="_blank"
+      >
+        {emailAddress}
+        <Icon
+          name="Arrow"
+          class="size-4 shrink-0 transition ease-in-out group-hover:translate-x-1"
+        />
+      </a>
+    </div>
+  </div>
+</div>

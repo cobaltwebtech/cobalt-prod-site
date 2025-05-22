@@ -3,7 +3,8 @@
 import { Image } from "astro:assets";
 import MainLayout from "@/layouts/MainLayout.astro";
 import MainSection from "@/components/ui/blocks/MainSection.astro";
-import SecondaryCTA from "@/components/ui/buttons/SecondaryCTA.astro";
+import { Icon } from "astro-icon/components";
+import { Button } from "@/components/starwind/button";
 import { siteMeta } from "@/lib/siteData";
 
 // Import necessary images
@@ -54,10 +55,8 @@ const sectionBottomThird: string =
     subTitle="Our story, our mission, and our commitment to you."
   />
 
-  <section
-    class="mx-auto grid max-w-[85rem] grid-cols-1 items-center gap-16 px-4 sm:px-6 md:grid-cols-2 md:px-8 2xl:max-w-full"
-  >
-    <div class="order-last md:order-first">
+  <section class="grid items-center gap-16 md:grid-cols-2">
+    <div class="order-2 md:order-1">
       <h2
         class="mb-4 text-4xl font-extrabold tracking-tight text-balance text-slate-800 dark:text-slate-200"
       >
@@ -75,28 +74,25 @@ const sectionBottomThird: string =
       </p>
     </div>
 
-    <div class="order-first md:order-last">
+    <div class="order-1 md:order-2">
       <Image
         class="mx-auto w-3/4 rounded-xl"
         src={logo}
         alt="Cobalt Web Technologies Logo"
-        format={"svg"}
+        format="svg"
         width="672"
-        loading={"eager"}
+        loading="eager"
       />
     </div>
-  </section>
-  <section
-    class="mx-auto max-w-[85rem] items-center gap-16 px-4 pb-10 sm:px-6 lg:grid lg:grid-cols-2 lg:px-8 lg:pb-14 2xl:max-w-full"
-  >
-    <div class="mt-8 grid grid-cols-2 gap-4">
+
+    <div class="order-3 mt-8 grid grid-cols-2 gap-4">
       <!-- First image in a two-image layout -->
       <Image
         class="w-full rounded-xl"
         src={cgarza}
         alt="Photo of Christopher Garza"
-        draggable={"false"}
-        format={"avif"}
+        draggable="false"
+        format="avif"
         width="328"
       />
       <!-- Second image in a two-image layout -->
@@ -104,12 +100,12 @@ const sectionBottomThird: string =
         class="mt-4 w-full rounded-xl lg:mt-10"
         src={serviceHacker}
         alt="alt text"
-        draggable={"false"}
-        format={"avif"}
+        draggable="false"
+        format="avif"
         width="328"
       />
     </div>
-    <div>
+    <div class="order-4">
       <h2
         class="my-4 text-4xl font-extrabold tracking-tight text-balance text-slate-800 dark:text-slate-200"
       >
@@ -131,7 +127,9 @@ const sectionBottomThird: string =
         {sectionBottomThird}
       </p>
       <div>
-        <SecondaryCTA title="Get in Touch with Us" url="/contact/" />
+        <Button href="/contact/"
+          ><Icon name="ChatFill" />Contact Us Today</Button
+        >
       </div>
     </div>
   </section>
