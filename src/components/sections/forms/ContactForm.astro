@@ -148,8 +148,20 @@ if (Astro.request.method === "POST") {
             required
           />
         </div>
-        <Input id="email" placeholder="Email Address" name="email" required />
-        <Input id="phone" placeholder="Phone Number" name="phone" required />
+        <Input
+          id="email"
+          placeholder="Email Address"
+          name="email"
+          type="email"
+          required
+        />
+        <Input
+          id="phone"
+          placeholder="Phone Number"
+          name="phone"
+          type="tel"
+          required
+        />
         <Textarea
           id="message"
           placeholder="Please provide any questions or comments"

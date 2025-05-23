@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "name": "cobaltwebtech",
   "description": "Cobalt Web Technologies website built on Astro",
   "author": "Cobalt Web Technologies",
@@ -50,6 +50,6 @@
     "rimraf": "^6.0.1",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1",
-    "wrangler": "^4.16.0"
+    "wrangler": "^4.16.1"
   }
 }
