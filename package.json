@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "name": "cobaltwebtech",
   "description": "Cobalt Web Technologies website built on Astro",
   "author": "Cobalt Web Technologies",
@@ -21,35 +21,35 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/cloudflare": "12.5.3",
-    "@astrojs/sitemap": "3.4.0",
+    "@astrojs/cloudflare": "12.5.4",
+    "@astrojs/sitemap": "3.4.1",
     "@playform/compress": "^0.1.9",
-    "@tailwindcss/vite": "^4.1.7",
-    "astro": "5.8.0",
+    "@tailwindcss/vite": "^4.1.8",
+    "astro": "5.9.1",
     "astro-compressor": "^1.0.0",
     "astro-font": "^1.1.0",
     "astro-icon": "^1.1.5",
     "globby": "^14.1.0",
     "gsap": "^3.13.0",
-    "lenis": "^1.3.3",
-    "preline": "^3.0.1",
-    "resend": "^4.5.1",
+    "lenis": "^1.3.4",
+    "preline": "^3.1.0",
+    "resend": "^4.5.2",
     "tailwind-variants": "^1.0.0",
-    "tailwindcss": "^4.1.7",
-    "tw-animate-css": "^1.3.0"
+    "tailwindcss": "^4.1.8",
+    "tw-animate-css": "^1.3.4"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
-    "@typescript-eslint/parser": "^8.32.1",
-    "eslint": "^9.27.0",
+    "@typescript-eslint/parser": "^8.33.1",
+    "eslint": "^9.28.0",
     "eslint-plugin-astro": "^1.3.1",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.11",
+    "prettier-plugin-tailwindcss": "^0.6.12",
     "rimraf": "^6.0.1",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.32.1",
-    "wrangler": "^4.16.1"
+    "typescript-eslint": "^8.33.1",
+    "wrangler": "^4.19.1"
   }
 }

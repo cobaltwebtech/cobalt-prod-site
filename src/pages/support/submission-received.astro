@@ -4,13 +4,6 @@ import SuccessMessage from "@/components/sections/forms/SuccessMessage.astro";
 import FormContactInfo from "@/components/ui/blocks/FormContactInfo.astro";
 import { siteMeta } from "@/lib/siteData";
 
-// Global declaration for gsap animation library
-declare global {
-  interface Window {
-    gsap: any;
-  }
-}
-
 const pageTitle: string = `Submission Received | ${siteMeta.title}`;
 ---
 
