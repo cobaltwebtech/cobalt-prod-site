@@ -24,7 +24,7 @@
     "@astrojs/cloudflare": "12.5.4",
     "@astrojs/sitemap": "3.4.1",
     "@playform/compress": "^0.1.9",
-    "@tailwindcss/vite": "^4.1.8",
+    "@tailwindcss/vite": "^4.1.10",
     "astro": "5.9.1",
     "astro-compressor": "^1.0.0",
     "astro-font": "^1.1.0",
