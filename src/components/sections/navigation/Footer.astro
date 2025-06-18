@@ -5,7 +5,6 @@ import footerMenu from "@/lib/navigation";
 import Logo from "@/components/ui/Logo.astro";
 import { siteMeta } from "@/lib/siteData";
 import { Icon } from "astro-icon/components";
-import DateTime from "@/components/ui/blocks/DateTime.astro";
 
 // Define the variables that will be used in this component
 const sectionThreeTitle: string = "Hours of Operation";
@@ -17,16 +16,17 @@ const sectionThreeHours: string = "9AM - 5PM (US Central Time)";
   class="bg-cobalt-100 dark:bg-cobalt-900 mx-auto w-full px-8 py-10 sm:px-6 lg:px-16"
 >
   <div class="grid gap-2 md:grid-cols-7 md:gap-4 lg:gap-8">
-    <div class="sm:justify-items- justify-items-center md:col-span-3">
+    <div class="justify-items-center md:col-span-3">
       <!-- Brand Logo -->
       <div class="h-auto w-32">
         <Logo />
       </div>
       <div class="text-center">
+        <p class="text-sm text-slate-800 dark:text-slate-200">
+          ©2015 - <span id="current-year"></span>
+        </p>
         <p class="mb-2 text-sm text-slate-800 dark:text-slate-200">
-          ©2015 - <span id="current-year"></span>&nbsp<span
-            class="text-xl font-bold">{siteMeta.title}</span
-          >
+          <span class="text-xl font-bold text-nowrap">{siteMeta.title}</span>
         </p>
         <p class="text-sm text-slate-700 dark:text-slate-300">
           All rights reserved.
@@ -77,8 +77,6 @@ const sectionThreeHours: string = "9AM - 5PM (US Central Time)";
       <p class="text-slate-700 dark:text-slate-300">
         {sectionThreeHours}
       </p>
-      <!-- Date and time set to central time zone US -->
-      <DateTime />
       <!-- Social Brands -->
       <div>
         <FooterSocialLink url={footerMenu.socialLinks.x}

@@ -127,9 +127,7 @@ const pageTitle: string = `${product.data.title} | ${siteMeta.title}`;
           class="w-[600px] rounded-xl"
           alt={product.data.main.imgAlt}
           format="avif"
-          loading="eager"
-          width="600"
-          height="600"
+          priority={true}
         />
       </div>
     </div>

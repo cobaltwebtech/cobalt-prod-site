@@ -16,7 +16,11 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   experimental: {
+    responsiveImages: true,
     clientPrerender: true,
+  },
+  image: {
+    experimentalLayout: "constrained",
   },
   integrations: [
     icon(),
