@@ -1,6 +1,5 @@
 ---
 // Import the necessary dependencies
-import FooterSocialLink from "@/components/ui/links/FooterSocialLink.astro";
 import footerMenu from "@/lib/navigation";
 import Logo from "@/components/ui/Logo.astro";
 import { siteMeta } from "@/lib/siteData";
@@ -16,9 +15,9 @@ const sectionThreeHours: string = "9AM - 5PM (US Central Time)";
   class="bg-cobalt-100 dark:bg-cobalt-900 mx-auto w-full px-8 py-10 sm:px-6 lg:px-16"
 >
   <div class="grid gap-2 md:grid-cols-7 md:gap-4 lg:gap-8">
-    <div class="justify-items-center md:col-span-3">
+    <div class="md:col-span-3">
       <!-- Brand Logo -->
-      <div class="h-auto w-32">
+      <div class="mx-auto size-32">
         <Logo />
       </div>
       <div class="text-center">
@@ -46,7 +45,7 @@ const sectionThreeHours: string = "9AM - 5PM (US Central Time)";
     </div>
     <!-- An array of links for Offerings and Company sections -->
     {
-      footerMenu.footerLinks.map((section) => (
+      footerMenu.footerItems.map((section) => (
         <div>
           <h3 class="my-2 text-lg font-bold text-slate-800 dark:text-slate-200">
             {section.section}
@@ -78,13 +77,21 @@ const sectionThreeHours: string = "9AM - 5PM (US Central Time)";
         {sectionThreeHours}
       </p>
       <!-- Social Brands -->
-      <div>
-        <FooterSocialLink url={footerMenu.socialLinks.x}
-          ><Icon name="XIcon" class="size-6" /></FooterSocialLink
+      <div class="my-4 flex gap-4">
+        <a
+          href="https://x.com/cobaltcag"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-        <FooterSocialLink url={footerMenu.socialLinks.github}
-          ><Icon name="GitHubIcon" class="size-6" />
-        </FooterSocialLink>
+          <Icon name="XIcon" class="size-6" />
+        </a>
+        <a
+          href="https://github.com/cobaltwebtech/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="GitHubIcon" class="size-6" />
+        </a>
       </div>
     </div>
   </div>

@@ -40,22 +40,32 @@ We set the language of the page to English and add classes for scrollbar and scr
     <title>{title}</title>
     <!-- Adding metadata to the HTML document -->
     <Meta meta={meta} structuredData={structuredData} />
-    <!-- Script to handle dark mode. It will check if the theme is stored in localStorage or if dark theme is preferred by system settings -->
+    <!-- Script to handle dark mode sets localstorage to save preference and checks the devices preference -->
     <script is:inline>
-      function setThemeFromLocalStorage() {
+      // Initial page load theme setting
+      const getThemePreference = () => {
         if (
-          localStorage.getItem("hs_theme") === "dark" ||
-          (!("hs_theme" in localStorage) &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches)
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
         ) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
+          return localStorage.getItem("theme");
         }
-      }
-      setThemeFromLocalStorage();
-      document.addEventListener("astro:after-swap", () => {
-        setThemeFromLocalStorage();
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      };
+
+      // Set theme immediately on page load
+      const theme = getThemePreference();
+      document.documentElement.classList.toggle("dark", theme === "dark");
+
+      // Also handle theme during View Transitions
+      document.addEventListener("astro:page-load", () => {
+        const currentTheme = getThemePreference();
+        document.documentElement.classList.toggle(
+          "dark",
+          currentTheme === "dark",
+        );
       });
     </script>
     <!--Import Lenis smooth scroll script -->
@@ -80,16 +90,12 @@ We set the language of the page to English and add classes for scrollbar and scr
     <ClientRouter fallback="swap" />
   </head>
   <body
-    class="dark:bg-cobalt-950 bg-slate-200 selection:bg-cyan-200 dark:selection:bg-cyan-700"
+    class="dark:bg-cobalt-950 flex min-h-svh flex-col bg-slate-200 selection:bg-cyan-200 dark:selection:bg-cyan-700"
   >
-    <!--
-    Setting up the main structure of the page.
-    The Navbar is placed at the top, with a slot for the main content and FooterSection at the bottom.
-    -->
     <Navbar />
     <main
       transition:animate={fade({ duration: "0.75s" })}
-      class="mx-auto max-w-screen-2xl px-8 py-10 sm:px-10 sm:py-12 lg:px-16"
+      class="mx-auto flex max-w-screen-2xl flex-auto flex-col justify-center px-6 py-8 md:px-8 md:py-10 lg:px-16 lg:py-12"
     >
       <slot />
     </main>

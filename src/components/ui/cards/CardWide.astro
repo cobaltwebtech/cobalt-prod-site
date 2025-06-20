@@ -22,9 +22,8 @@ interface Props {
     src={product.data.main.imgCard}
     alt={product.data.main.imgAlt}
     draggable="false"
-    class="absolute inset-0 h-full w-full object-cover object-center transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110"
+    class="absolute inset-0 !h-full w-full transition duration-300 ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110"
     format="avif"
-    layout="none"
   />
   <!-- This container includes a gradient overlay over the product's image -->
   <div
@@ -34,11 +33,11 @@ interface Props {
   <!-- This container includes product's title -->
   <div class="relative w-full bg-slate-200/90 dark:bg-slate-800/90">
     <span
-      class="my-3 ml-4 inline-block text-xl font-bold text-orange-600 transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110 md:ml-8 md:text-2xl dark:text-orange-400"
+      class="mx-5 my-3 inline-block text-xl font-bold text-orange-600 transition duration-300 ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110 md:mx-8 lg:text-2xl dark:text-orange-400"
       >{product.data.title}
       <Icon
         name="Arrow"
-        class="inline transition duration-[600ms] ease-in-out group-hover:-rotate-45"
+        class="inline transition duration-300 ease-in-out group-hover:-rotate-45"
       />
     </span>
   </div>

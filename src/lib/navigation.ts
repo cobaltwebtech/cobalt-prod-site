@@ -1,14 +1,13 @@
-// An array of links for navigation bar
-const navBarLinks = [
-  { name: "Home", url: "/" },
+// An array of menu items for navigation bar (header)
+const navbarItems = [
   { name: "Services", url: "/services/" },
   { name: "Products", url: "/products/" },
   { name: "About Us", url: "/about/" },
   { name: "Support", url: "/support/" },
   { name: "Contact", url: "/contact/" },
 ];
-// An array of links for footer
-const footerLinks = [
+// An array of menu items for footer
+const footerItems = [
   {
     section: "What We Offer",
     links: [
@@ -25,14 +24,8 @@ const footerLinks = [
     ],
   },
 ];
-// An object of links for social icons
-const socialLinks = {
-  x: "https://x.com/cobaltcag",
-  github: "https://github.com/cobaltwebtech/",
-};
 
 export default {
-  navBarLinks,
-  footerLinks,
-  socialLinks,
+  navbarItems,
+  footerItems,
 };

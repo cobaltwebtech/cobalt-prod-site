@@ -9,7 +9,7 @@ import { Textarea } from "@/components/starwind/textarea";
 const title: string = "Contact Us";
 const subTitle: string =
   "Have questions or want to discuss a project? We would be thrilled to help you build your next web project or revamp your current one. Fill out the contact form below and our team will be in touch with you.";
-const formTitle: string = "Fill the form below";
+const formTitle: string = "Fill out the form below";
 
 // Validate form inputs
 const formSchema = z.object({
@@ -68,15 +68,16 @@ if (Astro.request.method === "POST") {
         errorMessage = "Error: CAPTCHA verification failed. Please try again.";
       } else {
         console.log("Turnstile verification successful, calling API route");
-        // Proceed with form submission
+        // Proceed with form submission to the API route if Turnstile and form validation are successful
         const apiResponse = await fetch(
           `${Astro.url.origin}/api/sendEmailContact`,
           {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formFields),
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              ...formFields,
+              "cf-turnstile-response": turnstileResponse,
+            }),
           },
         );
 
@@ -106,7 +107,6 @@ if (Astro.request.method === "POST") {
 }
 ---
 
-<!-- Contact Form -->
 <section class="mx-auto max-w-screen-lg">
   <div class="text-center">
     <h1
@@ -126,80 +126,88 @@ if (Astro.request.method === "POST") {
       >.
     </p>
   </div>
+</section>
 
-  <div class="mt-12 grid items-center gap-4 md:grid-cols-2 md:gap-8">
-    <div class="flex flex-col gap-4">
-      <h2 class="mb-8 text-xl font-bold text-slate-700 dark:text-slate-300">
-        {formTitle}
-      </h2>
-
-      <form id="contact-form" method="POST" class="flex flex-col gap-4">
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <Input
-            id="firstname"
-            name="firstname"
-            placeholder="First Name"
-            required
-          />
-          <Input
-            id="lastname"
-            name="lastname"
-            placeholder="Last Name"
-            required
-          />
-        </div>
+<section
+  class="mx-auto mt-12 grid max-w-screen-lg gap-4 md:grid-cols-2 md:gap-8"
+>
+  <div class="flex flex-col gap-4">
+    <h2 class="mb-4 text-xl font-bold text-slate-700 dark:text-slate-300">
+      {formTitle}
+    </h2>
+    <!-- Contact Form -->
+    <form id="contact-form" method="POST" class="flex flex-col gap-4">
+      <div class="flex flex-row gap-4">
         <Input
-          id="email"
-          placeholder="Email Address"
-          name="email"
-          type="email"
+          id="firstname"
+          name="firstname"
+          placeholder="First Name"
           required
         />
-        <Input
-          id="phone"
-          placeholder="Phone Number"
-          name="phone"
-          type="tel"
-          required
-        />
-        <Textarea
-          id="message"
-          placeholder="Please provide any questions or comments"
-          name="message"
-          required
-        />
-        <!-- Add Cloudflare Turnstile widget -->
-        <div
-          id="turnstile-widget"
-          class="mt-4"
-          data-sitekey={turnstileSiteKey}
-          data-size="flexible"
-        >
+        <Input id="lastname" name="lastname" placeholder="Last Name" required />
+      </div>
+      <Input
+        id="email"
+        placeholder="Email Address"
+        name="email"
+        type="email"
+        required
+      />
+      <Input
+        id="phone"
+        placeholder="Phone Number"
+        name="phone"
+        type="tel"
+        required
+      />
+      <Textarea
+        id="message"
+        placeholder="Please provide any questions or comments"
+        name="message"
+        required
+      />
+      <!-- Add Cloudflare Turnstile widget -->
+      <div
+        id="turnstile-widget"
+        class="mt-4"
+        data-sitekey={turnstileSiteKey}
+        data-size="flexible"
+      >
+      </div>
+      <p class="text-xs text-slate-600 dark:text-slate-400">
+        We're just checking that you're a real human filling out this form.
+        <br />Bad bots stay away!
+      </p>
+      <div
+        id="error-message"
+        class="text-cobalt-50 my-6 hidden rounded-lg border-4 border-orange-400 bg-orange-700 p-3 font-bold"
+      >
+        <div class="flex justify-center gap-2">
+          <Icon name="CloseFill" class="size-6 animate-bounce" /><span
+            >{errorMessage}</span
+          >
         </div>
-        <p class="text-xs text-slate-600 dark:text-slate-400">
-          We're just checking that you're a real human filling out this form.
-          <br />Bad bots stay away!
-        </p>
-        <div
-          id="error-message"
-          class="text-cobalt-50 my-6 hidden animate-bounce rounded-lg border-4 border-orange-400 bg-orange-700 p-3 text-center font-bold"
-        >
-          {errorMessage}
-        </div>
-        <div class="mt-4">
-          <Button type="submit" class="w-full">
-            <Icon name="Send" class="size-5" />Send Contact Request
-          </Button>
-        </div>
-      </form>
-    </div>
-    <FormContactInfo
-      phoneUrl="tel:+15122941600"
-      phoneNumber="+1-512-294-1600"
-      emailUrl="mailto:info@cobaltweb.tech"
-      emailAddress="info@cobaltweb.tech"
-    />
+      </div>
+      <div class="mt-4">
+        <Button type="submit" class="w-full" id="submit-button">
+          <Icon name="Send" id="send-icon" />
+          <Icon
+            name="LoadingFill"
+            id="loader-icon"
+            class="hidden animate-spin"
+          />
+          <span>Send Contact Request</span>
+        </Button>
+      </div>
+    </form>
   </div>
+  <!-- Second column with contact info -->
+  <FormContactInfo
+    phoneUrl="tel:+15122941600"
+    phoneNumber="+1-512-294-1600"
+    emailUrl="mailto:info@cobaltweb.tech"
+    emailAddress="info@cobaltweb.tech"
+  />
 </section>
 <!-- Initialize Turnstile widget and process form submission on client side -->
 <script>
@@ -211,25 +219,55 @@ if (Astro.request.method === "POST") {
 
       if (typeof turnstile !== "undefined") {
         turnstile.render("#turnstile-widget", {
-          sitekey: tsSiteKey,
+          sitekey: tsSiteKey || "",
         });
       } else {
         console.error("Turnstile not loaded");
       }
     }
-    // Get the form and error message div container
+    // Get the form and button elements
     const form = document.getElementById("contact-form") as HTMLFormElement;
     const errorMessageContainer = document.getElementById(
       "error-message",
     ) as HTMLDivElement;
+    const submitButton = document.getElementById(
+      "submit-button",
+    ) as HTMLButtonElement;
+    const sendIcon = document.getElementById("send-icon");
+    const loaderIcon = document.getElementById("loader-icon");
+
+    // Function to toggle loading state
+    const setLoading = (isLoading: boolean) => {
+      if (isLoading) {
+        submitButton.disabled = true;
+        sendIcon?.classList.add("hidden");
+        loaderIcon?.classList.remove("hidden");
+      } else {
+        submitButton.disabled = false;
+        sendIcon?.classList.remove("hidden");
+        loaderIcon?.classList.add("hidden");
+      }
+    };
 
     const displayError = (message: string) => {
+      // Reset loading state when an error occurs
+      setLoading(false);
+
       if (errorMessageContainer) {
-        errorMessageContainer.textContent = message;
         errorMessageContainer.classList.remove("hidden");
-        errorMessageContainer.classList.add("block");
+        const messageSpan = errorMessageContainer.querySelector("span");
+        if (messageSpan) {
+          messageSpan.textContent = message;
+        } else {
+          errorMessageContainer.textContent = message;
+        }
       }
       console.log("Error displayed:", message);
+
+      // Reset the Turnstile widget
+      if (typeof turnstile !== "undefined") {
+        turnstile.reset();
+      }
     };
 
     const isValidEmail = (email: string) => {
@@ -240,6 +278,9 @@ if (Astro.request.method === "POST") {
     if (form) {
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
+
+        // Set loading state when form is submitted
+        setLoading(true);
 
         const formData = new FormData(form);
         const emailInput = form.querySelector(
@@ -280,8 +321,9 @@ if (Astro.request.method === "POST") {
 
             if (result.success) {
               console.log("Form submission successful. Redirecting...");
+              // Keep button in loading state during redirect
               window.location.href =
-                result.redirectUrl || "/contact/submission-received/"; // Redirect on success
+                result.redirectUrl || "/contact/submission-received/";
             } else {
               displayError(result.error || "An error occurred");
             }

@@ -16,11 +16,13 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   experimental: {
-    responsiveImages: true,
     clientPrerender: true,
   },
   image: {
-    experimentalLayout: "constrained",
+    layout: "constrained",
+    objectFit: "cover",
+    objectPosition: "center",
+    responsiveStyles: true,
   },
   integrations: [
     icon(),
@@ -44,7 +46,7 @@ export default defineConfig({
     }),
   ],
   adapter: cloudflare({
-    imageService: "cloudflare",
+    imageService: "compile",
     platformProxy: {
       enabled: true,
     },
