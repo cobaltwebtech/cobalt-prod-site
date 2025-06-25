@@ -27,29 +27,25 @@ Check us out [https://www.cobaltweb.tech/](https://www.cobaltweb.tech/?utm_sourc
 - **GSAP Integration:** Impress with professional and polished animations.
 - **Markdown Content Collections:** Organize and manage the content seamlessly.
 - **SEO and Responsiveness:** Ensure our site is discoverable and accessible on any device.
-- **Resend Email:** We use Resend integration for custom transactional emails from webforms.
+- **Resend Email:** We use Resend integration for custom transactional emails.
 
 ## What's New
 
 ### Added Features
 
 - [x] **Starwind UI**:
-
   - Added the Starwind UI which bring reusuable components built specifically for Astro projects. Like Shadcn, but purely Astro components and JavaScript. Styled with Tailwind CSS v4. Open Source.
 
-- [x] **Tailwind Upgraded to v4**:
-
+- [x] **Tailwind v4**:
   - Tailwind has been upgraded to version 4 with new enhancements and configurations. Version 4 brings easier to configure custom theming and utilities in the global.css file.
 
 - [x] **Astro Icon Integration**:
-
   - Astro Icon is ready to use, with zero additional configuration. The included Icon component allows easy method to inline svgs directly into the Astro project.
   - Icons can be imported and referenced from third party libraries by setting the name attribute in the Icon component.
-  - Custom local SVGs can also be used by placing the svg file in the /src/icons folder and referencing the name in the Icon component.
+  - Custom local SVGs can also be used by placing the svg file in the `/src/icons` folder and referencing the name in the Icon component.
   - Can apply Tailwind styling classes as well as custom styling on the icon.
 
 - [x] **View Transitions**:
-
   - Astro supports view transitions with just a few lines of code. View transitions update the page content without the browser’s normal, full-page navigation refresh and provide seamless animations between pages.
   - View Transitions can be customized with various animation effects and linking of assets to create a seamless transition effect while browsing the site.
 
@@ -60,31 +56,30 @@ Cobalt organizes modular components, content, and layouts to streamline developm
 ```md
 src/
 ├── components/ # Reusable components
-│ ├── Meta.astro # Meta component injected into MainLayout.astro for SEO, favicons, and fonts
 │ ├── sections/ # Components for various sections of the website
-│ └── ui/ # UI components categorized by functionality
+│ ├── starwind/ # Starwind UI reusable components (buttons, input, tabs, etc.)
+│ └── ui/ # Custom made UI components categorized by functionality
 ├── content/ # Markdown files for blog posts, insights, products, and site configuration
 │ ├── products/ # Markdown files for each product
 │ ├── services/ # Markdown files for each service
 │ └── config.ts # Contains content collections configuration options
-├── data_files/ # Strings stored as JSON files
 ├── icons/ # SVG icons used by Astro Icon plugin
-├── images/ # Static image assets for use across the website
+├── images/ # Image assets for use across the website (images are optimized by the Astro image service)
 ├── layouts/ # Components defining layout templates
-│ └── MainLayout.astro # The base html structure layout for all pages
-├── pages/ # Astro files representing individual pages and website sections
-│ ├── 404.astro # Custom 404 page
+│ ├── MainLayout.astro # The base html structure layout for all pages
+│ └── Meta.astro # Meta component injected into MainLayout.astro for SEO, favicons, and fonts
+├── lib/ # Directory for storing various site-wide functions, data arrays, and utilities
+├── pages/ # Astro files for the page-based routes
+│ ├── 404.astro # 404 error page
 │ ├── about.astro # About us page
-│ ├── api/ # API routes are placed here
+│ ├── api/ # API endpoints are placed here
 │ ├── contact/ # General contact page with webform
 │ ├── index.astro # The landing/home page
 │ ├── products/ # Product page contains ..slug.astro for rendering each product page dynamically
 │ ├── services/ # Services page contains ..slug.astro for rendering each service page dynamically
 │ ├── support/ # Support contact page with webform
-│ ├── manifest.json.ts # Web manifest rendered in json after build
-├── styles/ # CSS style sheets contains Tailwind config in global.css
-├── types/ # Custom types declarations for TypeScript
-└── utils/ # Shared utility functions and helpers
+│ └── manifest.json.ts # Web manifest rendered in json after build
+└── styles/ # CSS style sheets contains Tailwind config in global.css
 ```
 
 ## Integrations and Enhancements
@@ -105,7 +100,7 @@ Experience buttery smooth scrolling with [Lenis](https://lenis.studiofreight.com
 
 ### Astro Icon
 
-[Astro Icon](https://www.astroicon.dev/) is integrated for easy to use SVG icons. The included Icon component allows easy method to inline svgs directly into the Astro project. Icons can be imported and referenced from third party libraries as well as local SVGs placed in the /src/icons folder. Tailwind classes can be used for styling the SVG icons.
+[Astro Icon](https://www.astroicon.dev/) is integrated for easy to use SVG icons. The included Icon component allows easy method to inline svgs directly into the Astro project. Icons can be imported and referenced from third party libraries as well as local SVGs placed in the `/src/icons` folder. Tailwind classes can be used for styling the SVG icons.
 
 ### GSAP Integration
 
@@ -121,11 +116,9 @@ The SEO Configuration is designed to optimize the website's visibility on search
 
 - [Astro Sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/): Automatically generates an XML sitemap during build for the website, which is vital for SEO and helping search engine bots crawl pages effectively.
 
-- Using constants.ts: The SEO configuration has been centralized using the `constants.ts` file. This file manages SEO-related data such as page titles, descriptions, structured data, and Open Graph tags, providing a more structured and manageable approach to SEO management.
+- SEO configruation: SEO data and configuration is handled by the `siteData.ts` file. This file manages SEO-related data such as page titles, descriptions, structured data, and Open Graph tags, providing a more structured and manageable approach to SEO management. This data is used in the `Meta.astro` component which contains the metadata, XML sitemap location, favicons, Open Graph info, and other SEO configurations.
 
-- Meta.astro Component: This astro component contains the metadata, XML sitemap location, favicons, Open Graph info, and other SEO configurations.
-
-- Robots.txt: A robots.txt file is placed in the /public folder to be copied over during build. We list the allowed search engines to crawl the site and location of the sitemap.
+- Robots.txt: A robots.txt file is placed in the `/public` folder to be copied over during build. We list the allowed search engines to crawl the site and location of the sitemap.
 
 ### Performance Enhancements
 
@@ -146,6 +139,10 @@ To ensure consistent code formatting, particularly for class sorting, we have in
 ### Deployment and Security
 
 We deploy our project on [Cloudflare Workers](https://workers.cloudflare.com/), capitalizing on their robust and global platform for seamless CI/CD workflows.
+
+- [Workers KV](https://developers.cloudflare.com/kv/): We use Workers KV for data storage that allows use to store and retrieve data globally. KV can cache API responses, store authentication details, store user data, and much more without having to configure a complicated database and seamlessly connects to a Cloudflare Worker.
+
+- [R2](https://developers.cloudflare.com/r2/): We use Cloudflare Object R2 Storage which allows us to store large amounts of unstructured data without the costly egress bandwidth fees associated with typical cloud storage services (looking at you AWS and your exepensive egress fees).
 
 ### Documentation Links
 
