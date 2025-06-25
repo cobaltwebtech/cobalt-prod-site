@@ -6,7 +6,7 @@ declare global {
     interface Locals {
       runtime?: {
         env?: {
-          COBALT_USER_BLOCK_DATA?: KVNamespace;
+          COBALTWEBTECH_USER_BLOCK_DATA?: KVNamespace;
           RATE_LIMITER?: RateLimit;
         };
       };
@@ -277,7 +277,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   cleanupMemoryStore();
 
   // Get bindings
-  const kv = context.locals.runtime?.env?.COBALT_USER_BLOCK_DATA;
+  const kv = context.locals.runtime?.env?.COBALTWEBTECH_USER_BLOCK_DATA;
   const rateLimiter = context.locals.runtime?.env?.RATE_LIMITER;
 
   // 1. Use Cloudflare's Rate Limiting API for general protection
