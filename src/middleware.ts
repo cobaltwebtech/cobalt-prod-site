@@ -27,7 +27,7 @@ const suspiciousTracker = new Map<
 // Configuration
 const CONFIG = {
   // 404 tracking thresholds
-  ABUSE_THRESHOLD: 50, // Escalate to persistent blocking
+  ABUSE_THRESHOLD: 10, // Escalate to persistent blocking
   PERSISTENT_BLOCK_DURATION: 24 * 60 * 60, // 24 hours in seconds
   SEVERE_BLOCK_DURATION: 90 * 24 * 60 * 60, // 90 days in seconds
 
@@ -190,11 +190,11 @@ async function setPersistentBlock(
     const record = suspiciousTracker.get(`404:${ip}`);
     const timespan = record ? now - record.firstSeen : 0;
 
-    // Severe if: 50+ requests AND within 1 hour OR 100+ requests total
+    // Severe if >= 10 requests AND period of 1 hour OR >=50 requests total
     const isSevereAbuse =
       (count >= CONFIG.ABUSE_THRESHOLD &&
         timespan <= CONFIG.ABUSE_PATTERN_WINDOW) ||
-      count >= 100;
+      count >= 50;
 
     const blockLevel = isSevereAbuse ? "severe" : "temporary";
     const blockedUntil =
