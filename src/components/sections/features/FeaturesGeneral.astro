@@ -15,13 +15,13 @@ interface Props {
   title?: string;
   subTitle?: string;
   features?: Feature[];
-  src?: any;
+  source?: ImageMetadata;
   alt?: string;
   primaryBtn?: string;
   primaryBtnURL?: string;
 }
 // Define props from Astro
-const { title, subTitle, src, alt, features, primaryBtn, primaryBtnURL } =
+const { title, subTitle, source, alt, features, primaryBtn, primaryBtnURL } =
   Astro.props;
 ---
 
@@ -29,13 +29,11 @@ const { title, subTitle, src, alt, features, primaryBtn, primaryBtnURL } =
   <!-- Block to display the feature image -->
   <div class="mx-auto mb-6 overflow-hidden rounded-2xl md:mb-8 md:w-3/4">
     {
-      src && alt && (
+      source && alt && (
         <Image
-          src={src}
+          src={source}
           alt={alt}
           class="h-full w-full object-cover object-center"
-          width={1280}
-          height={854}
           format="avif"
         />
       )

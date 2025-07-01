@@ -3,13 +3,13 @@
 import { Image } from "astro:assets";
 
 // Destructure the component properties from Astro.props
-const { id, aria, src, alt, first, second } = Astro.props;
+const { id, aria, source, alt, first, second } = Astro.props;
 
 // Define TypeScript interface for the properties
 interface Props {
   id: string;
   aria: string;
-  src?: ImageMetadata;
+  source?: ImageMetadata;
   alt: string;
   first?: boolean;
   second?: boolean;
@@ -44,9 +44,9 @@ This is the full example:
 <div id={id} role="tabpanel" class={firstClass} aria-labelledby={aria}>
   <!-- Astro Image component to display the image with dynamic classes based on the 'second' property -->
   {
-    src && (
+    source && (
       <Image
-        src={src}
+        src={source}
         alt={alt}
         class={secondClass}
         draggable="false"

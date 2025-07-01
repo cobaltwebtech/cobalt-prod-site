@@ -1,12 +1,14 @@
 ---
-// Importing necessary components
-import Meta from "@/layouts/Meta.astro";
+import "@/styles/global.css";
+import Meta from "@/base/Meta.astro";
+import Analytics from "@/base/Analytics.astro";
 import Navbar from "@/components/sections/navigation/Navbar.astro";
 import Footer from "@/components/sections/navigation/Footer.astro";
+import Breakpoints from "@/components/ui/Breakpoints.astro";
 import { siteMeta } from "@/lib/siteData";
 import { ClientRouter, fade } from "astro:transitions";
-import TwSizeIndicator from "@/components/ui/TwSizeIndicator.astro";
-import "@/styles/global.css";
+import { join } from "path";
+import { AstroFont } from "astro-font";
 
 // Setting expected props
 const {
@@ -17,7 +19,6 @@ const {
   scriptUrl,
   lang = "en",
 } = Astro.props;
-const umamiId = import.meta.env.UMAMI_WEBSITE_ID;
 
 // Interface to type-check the properties
 interface Props {
@@ -30,16 +31,57 @@ interface Props {
 }
 ---
 
-<!--
-This is the main structure for the page.
-We set the language of the page to English and add classes for scrollbar and scroll behavior.
--->
+<!doctype html>
 <html lang={lang} class="scrollbar-hide lenis lenis-smooth">
   <head>
     <!-- Define the title of the page -->
     <title>{title}</title>
     <!-- Adding metadata to the HTML document -->
     <Meta meta={meta} structuredData={structuredData} />
+    <!-- Load fonts -->
+    <AstroFont
+      config={[
+        {
+          preload: true,
+          display: "swap",
+          name: "Proxima Nova",
+          fallback: "sans-serif",
+          src: [
+            {
+              weight: "400",
+              style: "normal",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "ProximaNova-Regular.woff2",
+              ),
+            },
+            {
+              weight: "700",
+              style: "normal",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "ProximaNova-Bold.woff2",
+              ),
+            },
+            {
+              weight: "800",
+              style: "normal",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "ProximaNova-ExtraBold.woff2",
+              ),
+            },
+          ],
+        },
+      ]}
+    />
+
     <!-- Script to handle dark mode sets localstorage to save preference and checks the devices preference -->
     <script is:inline>
       // Initial page load theme setting
@@ -80,12 +122,8 @@ We set the language of the page to English and add classes for scrollbar and scr
     </script>
     <!-- Pass in conditional script if needed on pages where the prop externalScript={true} -->
     {externalScript && <script is:inline src={scriptUrl} async defer />}
-    <!-- Umami Analytics script tag -->
-    <script
-      is:inline
-      defer
-      src="https://umami.cobaltweb.tech/script.js"
-      data-website-id={umamiId}></script>
+    <!-- Analytics Component (only renders in production) -->
+    <Analytics />
     <!-- View Transitions enabled  -->
     <ClientRouter fallback="swap" />
   </head>
@@ -100,7 +138,7 @@ We set the language of the page to English and add classes for scrollbar and scr
       <slot />
     </main>
     <Footer />
-    <TwSizeIndicator />
+    <Breakpoints />
     <!-- Import Preline UI with View Transition support -->
     <script>
       // Optimize Preline initialization only for elements that need it

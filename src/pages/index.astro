@@ -1,6 +1,6 @@
 ---
 // Import components
-import MainLayout from "@/layouts/MainLayout.astro";
+import MainLayout from "@/base/MainLayout.astro";
 import HeroSection from "@/components/sections/landing/HeroSection.astro";
 import EndPageCTA from "@/components/sections/landing/EndPageCTA.astro";
 import ClientsSection from "@/components/sections/landing/ClientsSection.astro";
@@ -48,7 +48,7 @@ import globe from "@/images/global-network-tall.avif";
     primaryBtnURL="/services/"
     secondaryBtn="Contact Us"
     secondaryBtnURL="/contact/"
-    src={heroImage}
+    source={heroImage}
     alt="Cobalt Web Technologies laptop graphic"
   />
 
@@ -60,7 +60,7 @@ import globe from "@/images/global-network-tall.avif";
   <FeaturesGeneral
     title="Modern Technical Solutions"
     subTitle="Do you need a brand new website to showcase your products or services? Is your current website slow, unresponsive, and looking dated? Let Cobalt Web Technologies build your next web project for you."
-    src={featureImage}
+    source={featureImage}
     alt="Browsing on phone with desktop computer background"
     features={featuresGeneral}
     primaryBtn="View Our Services"
@@ -75,7 +75,7 @@ import globe from "@/images/global-network-tall.avif";
         content:
           "How well does it sell online? Whether you are already online or just starting out, Cobalt Web Technologies can help you bring your business to the web. We can build your ecommerce website to showcase your brand and product exactly how you want.",
         svg: "Ecommerce",
-        src: ecommerce,
+        source: ecommerce,
         alt: "Ecommerce online shopping on mobile device",
         first: true,
       },
@@ -84,7 +84,7 @@ import globe from "@/images/global-network-tall.avif";
         content:
           "We can build your website to be exactly what you want with any custom design. Your website is there to showcase your brand and products and should reflect your exact design elements and that is what we can deliver you.",
         svg: "ModernDesign",
-        src: laptop,
+        source: laptop,
         alt: "Laptop halfway opened",
         second: false,
       },
@@ -93,7 +93,7 @@ import globe from "@/images/global-network-tall.avif";
         content:
           "From Auckland to Zürich no matter where your website visitors are located on the planet, they will reach the nearest PoP (point of presence) server to them to deliver a blazingly fast website experience.",
         svg: "Lightning",
-        src: globe,
+        source: globe,
         alt: "Globe network graphic illustration",
       },
     ]}

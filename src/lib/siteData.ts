@@ -1,5 +1,3 @@
-import ogImageSrc from "@/images/cobalt-ogimage.jpg";
-
 export const siteMeta = {
   title: "Cobalt Web Technologies",
   tagline: "We connect your world to the world",
@@ -37,5 +35,4 @@ export const openGraph = {
   title: `${siteMeta.title} - Website Development, Cloud Computing Services, Digital Marketing, and IT Consulting`,
   description:
     "Cobalt Web Technologies builds high performance websites with secure managed cloud infrastructure along with digital marketing and SEO services.",
-  image: ogImageSrc,
 };

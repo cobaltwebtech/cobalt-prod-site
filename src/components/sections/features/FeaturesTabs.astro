@@ -11,7 +11,7 @@ interface Tab {
   heading: string;
   content: string;
   svg: string;
-  src: ImageMetadata;
+  source: ImageMetadata;
   alt: string;
   first?: boolean;
   second?: boolean;
@@ -68,7 +68,7 @@ interface Props {
                 <TabContent
                   id={`tabs-with-card-${index + 1}`}
                   aria={`tabs-with-card-item-${index + 1}`}
-                  src={tab.src}
+                  source={tab.source}
                   alt={tab.alt}
                   first={tab.first}
                   second={tab.second}

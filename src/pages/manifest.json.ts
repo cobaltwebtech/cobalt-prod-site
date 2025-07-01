@@ -1,10 +1,7 @@
-import type { APIRoute, ImageMetadata } from "astro";
-import icon from "@/images/icon.png";
-import maskableIcon from "@/images/icon-maskable.png";
+import type { APIRoute } from "astro";
 
 interface Favicon {
   purpose: "any" | "maskable" | "monochrome";
-  src: ImageMetadata;
   sizes: number[];
 }
 
@@ -12,12 +9,10 @@ const sizes = [192, 512];
 const favicons: Favicon[] = [
   {
     purpose: "any",
-    src: icon,
     sizes,
   },
   {
     purpose: "maskable",
-    src: maskableIcon,
     sizes,
   },
 ];
@@ -25,7 +20,7 @@ const favicons: Favicon[] = [
 export const GET: APIRoute = async () => {
   const icons = favicons.flatMap((favicon) =>
     sizes.map((size) => ({
-      src: `/icons/${favicon.purpose}-${size}x${size}.png`,
+      src: `/icons/${favicon.purpose}-${size}.png`,
       sizes: `${size}x${size}`,
       type: "image/png",
       purpose: favicon.purpose,

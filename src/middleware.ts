@@ -324,8 +324,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
     // Adjust threshold based on bot status
     const blockThreshold = isBot
-      ? CONFIG.ABUSE_THRESHOLD * 3
-      : CONFIG.ABUSE_THRESHOLD; // 150 for bots, 50 for others
+      ? CONFIG.ABUSE_THRESHOLD * 3 // 3x higher for legitimate bots
+      : CONFIG.ABUSE_THRESHOLD;
     const shouldBlock = tracking.count >= blockThreshold;
 
     // Log 404 activity for monitoring

@@ -1,0 +1,80 @@
+---
+import { siteMeta, seoMeta, openGraph } from "@/lib/siteData";
+
+// Icons
+const faviconSvg = "/icons/favicon.svg";
+const faviconIco = "/icons/favicon.ico";
+const appleTouchIcon = "/icons/maskable-180.png";
+
+// Default properties for the Meta component. These values are used if props are not provided.
+// 'meta' sets a default description meta tag to describe the page content.
+// 'structuredData' defines default structured data in JSON-LD format to enhance search engine understanding of the page (for SEO purposes).
+const defaultProps = {
+  meta: siteMeta.description,
+  structuredData: seoMeta.structuredData,
+};
+
+// Extract props with default values assigned from defaultProps. Values can be overridden when the component is used.
+// For example: <MainLayout title="Custom Title" meta="Custom description." />
+const {
+  meta = defaultProps.meta,
+  structuredData = defaultProps.structuredData,
+} = Astro.props;
+
+// Define the metadata for your website and individual pages
+const baseUrl = `${Astro.site}`; // Set the website URL in astro.config.mjs
+const author = siteMeta.author;
+const canonical = Astro.url.href;
+const ogTitle = openGraph.title;
+const ogDescription = openGraph.description;
+const socialImage = `${baseUrl}opengraph/cobalt-opengraph.webp`; // Absolute URL to the open graph image stored in /public
+---
+
+<!-- Inject structured data into the page if provided. This data is formatted as JSON-LD -->{
+  structuredData && (
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+  )
+}
+<!-- Define the character set, description, author, and viewport settings -->
+<meta charset="utf-8" />
+<meta content={meta} name="description" />
+<meta name="web_author" content={author} />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<meta name="mobile-web-app-capable" content="yes" />
+<link rel="canonical" href={canonical} />
+
+<!-- Open Graph Tags -->
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content={canonical} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={ogTitle} />
+<meta property="og:site_name" content={siteMeta.title} />
+<meta property="og:description" content={ogDescription} />
+<meta property="og:image" content={socialImage} />
+<meta content="1200" property="og:image:width" />
+<meta content="630" property="og:image:height" />
+<meta content="image/webp" property="og:image:type" />
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:domain" content={baseUrl} />
+<meta property="twitter:url" content={canonical} />
+<meta name="twitter:title" content={ogTitle} />
+<meta name="twitter:description" content={ogDescription} />
+<meta name="twitter:image" content={socialImage} />
+
+<!-- Links to the webmanifest and sitemap -->
+<link rel="manifest" href="/manifest.json" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- Links for favicons -->
+<link href={faviconSvg} rel="icon" sizes="any" type="image/svg+xml" />
+<link href={faviconIco} rel="icon" sizes="any" type="image/x-icon" />
+<link href={appleTouchIcon} rel="apple-touch-icon" sizes="180x180" />
+<!-- Set theme color -->
+<meta name="theme-color" content="#001689" />

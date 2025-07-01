@@ -14,7 +14,7 @@ const {
   primaryBtnURL,
   secondaryBtn,
   secondaryBtnURL,
-  src,
+  source,
   alt,
 } = Astro.props;
 
@@ -28,7 +28,7 @@ interface Props {
   primaryBtnURL?: string;
   secondaryBtn?: string;
   secondaryBtnURL?: string;
-  src?: any;
+  source?: ImageMetadata;
   alt?: string;
 }
 ---
@@ -81,9 +81,9 @@ interface Props {
   <!-- Hero Image Section -->
   <div class="overflow-hidden rounded-2xl">
     {
-      src && alt && (
+      source && alt && (
         <Image
-          src={src}
+          src={source}
           alt={alt}
           class="w-full"
           draggable="false"
