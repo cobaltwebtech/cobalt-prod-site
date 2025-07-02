@@ -7,7 +7,8 @@ import { Button } from "@/components/starwind/button";
 // Define props from Astro
 const {
   title,
-  subTitle,
+  typingTitles,
+  description,
   paragraph1,
   paragraph2,
   primaryBtn,
@@ -21,7 +22,8 @@ const {
 // Define TypeScript interface for props
 interface Props {
   title: string;
-  subTitle?: string;
+  typingTitles?: string[];
+  description?: string;
   paragraph1?: string;
   paragraph2?: string;
   primaryBtn?: string;
@@ -34,23 +36,31 @@ interface Props {
 ---
 
 <!-- Defining a grid container that holds all the content -->
-<section class="mb-12 grid items-center gap-4 md:gap-8 lg:grid-cols-2">
+<section class="mb-12 grid items-center gap-4 lg:grid-cols-7 lg:gap-8">
   <!-- Title and description -->
-  <div class="space-y-4 text-slate-800 dark:text-slate-200">
-    <!-- Each h1 and p tag renders a portion of the title and subTitle defined above -->
-    <h1
-      class="text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:leading-tight xl:text-5xl"
-    >
+  <div class="space-y-4 text-slate-800 lg:col-span-4 dark:text-slate-200">
+    <h1 class="m-0 text-2xl font-bold text-balance sm:text-4xl xl:text-5xl">
       <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
       <Fragment set:html={title} />
     </h1>
-    {
-      subTitle && (
-        <p class="mb-4 text-xl font-semibold text-cyan-800 italic dark:text-cyan-300">
-          {subTitle}
-        </p>
-      )
-    }
+    <h2
+      id="typing-subtitle"
+      class="text-2xl font-bold sm:text-4xl xl:text-5xl"
+      data-typing-titles={JSON.stringify(typingTitles)}
+    >
+      <span
+        class="typing-text bg-gradient-to-r from-orange-700 via-fuchsia-600 to-cyan-700 bg-clip-text text-transparent dark:from-orange-400 dark:via-cyan-400 dark:to-green-500"
+      ></span>
+      <span
+        class="typing-cursor animate-blink font-extrabold text-orange-600 dark:text-yellow-400"
+        >|</span
+      >
+    </h2>
+    <p
+      class="mb-4 text-xl font-semibold text-cyan-800 italic dark:text-cyan-300"
+    >
+      {description}
+    </p>
     <p class="leading-relaxed text-pretty">
       <Fragment set:html={paragraph1} />
     </p>
@@ -79,7 +89,7 @@ interface Props {
     </div>
   </div>
   <!-- Hero Image Section -->
-  <div class="overflow-hidden rounded-2xl">
+  <div class="overflow-hidden rounded-2xl lg:col-span-3">
     {
       source && alt && (
         <Image
@@ -94,3 +104,109 @@ interface Props {
     }
   </div>
 </section>
+
+<!-- GSAP animation for typing effect on Hero Title -->
+<script>
+  import { gsap } from "gsap";
+
+  function inittyping() {
+    const subtitle = document.getElementById("typing-subtitle");
+    const typingSpan = subtitle?.querySelector(".typing-text") as HTMLElement;
+    const cursor = subtitle?.querySelector(".typing-cursor") as HTMLElement;
+
+    if (!subtitle || !typingSpan || !cursor) return;
+
+    // Get titles from data attribute or fallback to nothing
+    const titles = subtitle.dataset.typingTitles;
+    const animateTitles = JSON.parse(titles ?? "[]");
+
+    // Kill any existing animations to prevent conflicts
+    gsap.killTweensOf([typingSpan, cursor]);
+
+    // Initially hide the cursor
+    gsap.set(cursor, { opacity: 0 });
+
+    function typeText(text: string) {
+      const chars = text.split("");
+      const typeTimeline = gsap.timeline();
+
+      // Clear existing text
+      if (typingSpan) {
+        typingSpan.textContent = "";
+      }
+
+      // Hide cursor during typing
+      typeTimeline.set(cursor, { opacity: 0 });
+
+      // Type each character
+      chars.forEach((_, index: number) => {
+        typeTimeline.call(
+          () => {
+            if (typingSpan) {
+              typingSpan.textContent = text.substring(0, index + 1);
+            }
+          },
+          [],
+          index * 0.05,
+        );
+      });
+
+      // Show cursor after typing is complete
+      typeTimeline.set(cursor, { opacity: 1 });
+
+      return typeTimeline;
+    }
+
+    function eraseText() {
+      const currentText = typingSpan?.textContent || "";
+      const eraseTimeline = gsap.timeline();
+
+      // Hide cursor during erasing
+      eraseTimeline.set(cursor, { opacity: 0 });
+
+      // Erase each character (faster than typing)
+      for (let i = currentText.length; i >= 0; i--) {
+        eraseTimeline.call(
+          () => {
+            if (typingSpan) {
+              typingSpan.textContent = currentText.substring(0, i);
+            }
+          },
+          [],
+          (currentText.length - i) * 0.03,
+        );
+      }
+
+      return eraseTimeline;
+    }
+
+    function startCycle() {
+      const masterTimeline = gsap.timeline({ repeat: -1 });
+
+      animateTitles.forEach((text: string, index: number) => {
+        // Type the text
+        masterTimeline.add(typeText(text));
+        // Wait for 3 seconds
+        masterTimeline.to({}, { duration: 3 });
+        // Erase the text (except for the last item, it will loop back)
+        if (index < animateTitles.length - 1) {
+          masterTimeline.add(eraseText());
+          masterTimeline.to({}, { duration: 0.5 }); // Small pause between erase and next type
+        } else {
+          // For the last item, erase before looping back to first
+          masterTimeline.add(eraseText());
+          masterTimeline.to({}, { duration: 0.5 });
+        }
+      });
+    }
+
+    // Start the cycle after initial delay
+    gsap.delayedCall(0.5, startCycle);
+  }
+
+  // Initialize on first load
+  document.addEventListener("DOMContentLoaded", inittyping);
+
+  // Re-initialize after View Transitions
+  document.addEventListener("astro:page-load", inittyping);
+</script>

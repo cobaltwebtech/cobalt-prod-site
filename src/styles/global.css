@@ -12,9 +12,21 @@
   /* Font Family */
   --default-font-family: "Proxima Nova", system-ui, -apple-system, sans-serif;
 
-  /* Starwind Animations */
+  /* Animations */
+  --animate-blink: blink 1s infinite;
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
+  }
 
   @keyframes accordion-down {
     from {
@@ -98,12 +110,12 @@
     --card-foreground: var(--color-cobalt-950);
     --popover: var(--color-slate-50);
     --popover-foreground: var(--color-slate-950);
-    --default: var(--color-cobalt-500);
+    --default: var(--color-cobalt-600);
     --default-foreground: var(--color-slate-50);
     --primary: var(--color-cobalt-700);
     --primary-foreground: var(--color-slate-50);
-    --secondary: var(--color-orange-400);
-    --secondary-foreground: var(--color-slate-950);
+    --secondary: var(--color-orange-600);
+    --secondary-foreground: var(--color-slate-50);
     --muted: var(--color-slate-200);
     --muted-foreground: var(--color-slate-600);
     --accent: var(--color-slate-200);
