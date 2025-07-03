@@ -270,6 +270,10 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const url = new URL(request.url);
   const userAgent = request.headers.get("User-Agent") || "";
 
+  // Add debug logging for production
+  console.log(`Middleware executing for: ${url.pathname}`);
+  console.log(`Client IP: ${clientIP}`);
+  
   // Check if this is a legitimate bot
   const isBot = isLegitimateBot(userAgent);
 
@@ -279,6 +283,9 @@ export const onRequest = defineMiddleware(async (context, next) => {
   // Get bindings
   const kv = context.locals.runtime?.env?.COBALTWEBTECH_USER_BLOCK_DATA;
   const rateLimiter = context.locals.runtime?.env?.RATE_LIMITER;
+
+  // Add debug for bindings
+  console.log(`KV available: ${!!kv}, Rate limiter available: ${!!rateLimiter}`);
 
   // 1. Use Cloudflare's Rate Limiting API for general protection
   // But give bots more lenient treatment
