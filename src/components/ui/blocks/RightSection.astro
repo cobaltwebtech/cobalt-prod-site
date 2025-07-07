@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { CldImage } from "astro-cloudinary";
 import { Icon } from "astro-icon/components";
 import { Button } from "@/components/starwind/button";
 // Destructure the props passed to the Astro component
@@ -10,10 +10,12 @@ const {
   btnTitle,
   btnURL,
   single,
-  imgOne,
-  imgOneAlt,
-  imgTwo,
-  imgTwoAlt,
+  imgSrcRightSingle,
+  imgAltRightSingle,
+  imgSrcRightFirst,
+  imgAltRightFirst,
+  imgSrcRightSecond,
+  imgAltRightSecond,
 } = Astro.props;
 // Define TypeScript interface for the properties
 interface Props {
@@ -23,10 +25,12 @@ interface Props {
   btnTitle?: string;
   btnURL?: string;
   single?: boolean;
-  imgOne?: any;
-  imgOneAlt?: any;
-  imgTwo?: any;
-  imgTwoAlt?: any;
+  imgSrcRightSingle: string;
+  imgAltRightSingle: string;
+  imgSrcRightFirst: string;
+  imgAltRightFirst: string;
+  imgSrcRightSecond: string;
+  imgAltRightSecond: string;
 }
 ---
 
@@ -55,33 +59,40 @@ interface Props {
       ) : null
     }
   </div>
-  <!-- Conditionally render one or two images based on 'single' property -->
+  <!-- Conditionally render one or two images based on 'single' boolean -->
   {
     single ? ( // Single image
       <div class="order-1 mt-8 md:order-2">
-        <Image
+        <CldImage
           class="w-full rounded-lg"
-          src={imgOne}
-          alt={imgOneAlt}
+          src={imgSrcRightSingle}
+          alt={imgAltRightSingle}
+          draggable="false"
           format="avif"
+          width={1920}
+          height={1280}
         />
       </div>
     ) : (
       // If two images render in grid column layout
       <div class="order-1 mt-8 grid grid-cols-2 gap-4 md:order-2">
-        <Image
+        <CldImage
           class="w-full rounded-xl"
-          src={imgOne}
-          alt={imgOneAlt}
+          src={imgSrcRightFirst}
+          alt={imgAltRightFirst}
           draggable="false"
           format="avif"
+          width={1280}
+          height={1920}
         />
-        <Image
+        <CldImage
           class="mt-4 w-full rounded-xl lg:mt-10"
-          src={imgTwo}
-          alt={imgTwoAlt}
+          src={imgSrcRightSecond}
+          alt={imgAltRightSecond}
           draggable="false"
           format="avif"
+          width={1280}
+          height={1920}
         />
       </div>
     )

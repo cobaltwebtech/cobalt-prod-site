@@ -4,7 +4,7 @@ import { z, defineCollection } from "astro:content";
 
 const productsCollection = defineCollection({
   type: "content",
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       title: z.string(),
       subHeading: z.string(),
@@ -12,8 +12,8 @@ const productsCollection = defineCollection({
         id: z.number(),
         description1: z.string(),
         description2: z.string(),
-        imgCard: image(),
-        imgMain: image(),
+        imgCard: z.string(),
+        imgMain: z.string(),
         imgAlt: z.string(),
       }),
       tabs: z.object({
@@ -51,7 +51,7 @@ const productsCollection = defineCollection({
 
 const servicesCollection = defineCollection({
   type: "content",
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       title: z.string(),
       subHeading: z.string(),
@@ -59,7 +59,7 @@ const servicesCollection = defineCollection({
         id: z.number(),
         description1: z.string(),
         description2: z.string(),
-        imgMain: image(),
+        imgMain: z.string(),
         imgAlt: z.string(),
       }),
       tabs: z.object({

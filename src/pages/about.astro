@@ -1,6 +1,5 @@
 ---
-// Import necessary components
-import { Image } from "astro:assets";
+import { CldImage } from "astro-cloudinary";
 import MainLayout from "@/base/MainLayout.astro";
 import MainSection from "@/components/ui/blocks/MainSection.astro";
 import Logo from "@/components/ui/Logo.astro";
@@ -8,9 +7,9 @@ import { Icon } from "astro-icon/components";
 import { Button } from "@/components/starwind/button";
 import { siteMeta } from "@/lib/siteData";
 
-// Import necessary images
-import cgarza from "@/images/cgarza-photo.avif";
-import secondImage from "@/images/services/service-global-network-1.avif";
+// Image URLs
+const cgarza = "cobalt-web-assets/cgarza-photo.avif";
+const secondImage = "cobalt-web-assets/services/service-global-network-1.avif";
 
 const pageTitle: string = `About Us | ${siteMeta.title}`;
 
@@ -80,20 +79,24 @@ const sectionBottomThird: string =
 
     <div class="order-3 mt-8 grid grid-cols-2 gap-4">
       <!-- First image in a two-image layout -->
-      <Image
+      <CldImage
         class="w-full rounded-xl"
         src={cgarza}
         alt="Photo of Christopher Garza"
         draggable="false"
         format="avif"
+        width={1280}
+        height={1920}
       />
       <!-- Second image in a two-image layout -->
-      <Image
+      <CldImage
         class="mt-4 w-full rounded-xl lg:mt-10"
         src={secondImage}
         alt="Network graphic"
         draggable="false"
         format="avif"
+        width={1280}
+        height={1920}
       />
     </div>
     <div class="order-4">

@@ -7,8 +7,8 @@ main:
     Instantly reduce your website load times by 70% with Edge Page Caching. Boost your Core Web Vitals & secure your website from DDoS attacks and other malicious traffic.
   description2: |
     Web app security and delivery services run from a unified, cloud-native platform of security and connectivity solutions.
-  imgCard: "@/images/products/cloud-saas-graphic.avif"
-  imgMain: "@/images/products/cloud-saas-graphic.avif"
+  imgCard: "cobalt-web-assets/products/cloud-saas-graphic.avif"
+  imgMain: "cobalt-web-assets/products/cloud-saas-graphic.avif"
   imgAlt: "SaaS graphic"
 tabs:
   title1: "Cloudflare Capabilities"

@@ -7,8 +7,8 @@ main:
     Our managed hosting plans utilize the latest technology with unbelievable performance. We partner with leading cloud providers that have the infrastructure all over the globe that provide a totally scalable solution.
   description2: |
     Save time and money with our managed cloud plans that are fully optimized to meet your web app needs.
-  imgCard: "@/images/products/cloud-compute-graphic.avif"
-  imgMain: "@/images/products/cloud-compute-graphic.avif"
+  imgCard: "cobalt-web-assets/products/cloud-compute-graphic.avif"
+  imgMain: "cobalt-web-assets/products/cloud-compute-graphic.avif"
   imgAlt: "Cloud hosting graphic"
 tabs:
   title1: "Managed Cloud"

@@ -7,7 +7,7 @@ main:
     Speed is paramount for anything delivered over the web today. Is your website stuck in 1996 on a 56K modem? Your end users don't have time to wait on a slow website to load. This could mean lost sales and poor user experience.
   description2: |
     Whether you have a simple blog on a static site generator, an ecommerce store with over 100,000 items, or media-rich site with large images and videos, you need performance and speed built into your web platform.
-  imgMain: "@/images/services/service-global-network-wide.avif"
+  imgMain: "cobalt-web-assets/services/service-global-network-wide.avif"
   imgAlt: "Global network graphic image"
 tabs:
   title1: "Edge Compute and CDN"

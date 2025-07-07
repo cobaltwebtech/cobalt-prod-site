@@ -7,7 +7,7 @@ main:
     How well does it sell online? Whether you are already online or just starting out, Cobalt Web Technologies can help bring your business online and reach a wider customer base. We can build your ecommerce website to showcase your brand and products exactly how you want.
   description2: |
     Whether you are selling t-shirts to subscriptions, Cobalt can build your ecommerce solution today. We have the right solutions to make it easy to take your ecommerce site to the next level.
-  imgMain: "@/images/services/service-ecommerce-shopping-phone.avif"
+  imgMain: "cobalt-web-assets/services/service-ecommerce-shopping-phone.avif"
   imgAlt: "Global network graphic image"
 tabs:
   title1: "Ecommerce Platform"

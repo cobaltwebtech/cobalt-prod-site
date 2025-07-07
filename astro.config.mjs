@@ -19,6 +19,7 @@ export default defineConfig({
     clientPrerender: true,
   },
   image: {
+    domains: ["res.cloudinary.com"],
     layout: "constrained",
     objectFit: "cover",
     objectPosition: "center",

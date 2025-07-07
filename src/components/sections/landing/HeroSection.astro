@@ -1,6 +1,5 @@
 ---
-// Import the necessary dependencies
-import { Image } from "astro:assets";
+import { CldImage } from "astro-cloudinary";
 import { Icon } from "astro-icon/components";
 import { Button } from "@/components/starwind/button";
 
@@ -30,7 +29,7 @@ interface Props {
   primaryBtnURL?: string;
   secondaryBtn?: string;
   secondaryBtnURL?: string;
-  source?: ImageMetadata;
+  source?: string;
   alt?: string;
 }
 ---
@@ -92,13 +91,15 @@ interface Props {
   <div class="overflow-hidden rounded-2xl lg:col-span-3">
     {
       source && alt && (
-        <Image
+        <CldImage
           src={source}
           alt={alt}
           class="w-full"
           draggable="false"
           format="avif"
           priority
+          width={640}
+          height={427}
         />
       )
     }

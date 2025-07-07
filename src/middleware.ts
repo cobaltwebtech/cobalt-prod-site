@@ -151,11 +151,10 @@ async function setPersistentBlock(
     const record = suspiciousTracker.get(`404:${ip}`);
     const timespan = record ? now - record.firstSeen : 0;
 
-    // Severe abuse if >= SHORT_404_COUNT requests AND period of 1 hour 
+    // Severe abuse if >= SHORT_404_COUNT requests AND period of 1 hour
     // OR >= TOTAL_404_COUNT requests total
     const isSevereAbuse =
-      (count >= CONFIG.SHORT_404_COUNT &&
-        timespan <= CONFIG.SHORT_PERIOD) ||
+      (count >= CONFIG.SHORT_404_COUNT && timespan <= CONFIG.SHORT_PERIOD) ||
       count >= CONFIG.TOTAL_404_COUNT;
 
     const blockLevel = isSevereAbuse ? "severe" : "temporary";
@@ -184,12 +183,15 @@ async function setPersistentBlock(
     });
 
     // Enhanced logging for monitoring
-    console.warn(`Persistent block applied to ${ip}:`, JSON.stringify({
-      blockLevel,
-      totalCount: count,
-      timespan: `${Math.round(timespan / 1000 / 60)} minutes`,
-      duration: blockLevel === "severe" ? "90 days" : "temporary",
-    }));
+    console.warn(
+      `Persistent block applied to ${ip}:`,
+      JSON.stringify({
+        blockLevel,
+        totalCount: count,
+        timespan: `${Math.round(timespan / 1000 / 60)} minutes`,
+        duration: blockLevel === "severe" ? "90 days" : "temporary",
+      }),
+    );
   } catch (error) {
     console.error("Error setting persistent block:", error);
   }
@@ -247,7 +249,8 @@ function createBlockedResponse(
     : 86400;
 
   const messages = {
-    temporary: "ERROR 429: Temporarily blocked. Excessive failed requests detected.",
+    temporary:
+      "ERROR 429: Temporarily blocked. Excessive failed requests detected.",
     severe: "ERROR 429: Too Many Requests. Abuse pattern detected.",
   };
 
@@ -276,7 +279,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
   // Log the request
   console.log(`Middleware executing for: ${url.pathname}`);
-  
+
   // Check if this is a legitimate bot
   const isBot = isLegitimateBot(userAgent);
 
@@ -294,14 +297,17 @@ export const onRequest = defineMiddleware(async (context, next) => {
       const { success } = await rateLimiter.limit({ key: clientIP });
       if (!success) {
         console.warn(`Rate limited by Cloudflare API: ${clientIP}`);
-        return new Response("ERROR 429: Too many requests. Rate limiter applied.", {
-          status: 429,
-          headers: {
-            "Retry-After": "60",
-            "Content-Type": "text/plain",
-            "X-Rate-Limit-Reason": "general",
+        return new Response(
+          "ERROR 429: Too many requests. Rate limiter applied.",
+          {
+            status: 429,
+            headers: {
+              "Retry-After": "60",
+              "Content-Type": "text/plain",
+              "X-Rate-Limit-Reason": "general",
+            },
           },
-        });
+        );
       }
     } catch (error) {
       console.error("Error with Cloudflare Rate Limiting API:", error);

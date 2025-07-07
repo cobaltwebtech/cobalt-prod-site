@@ -12,13 +12,13 @@ directory = "./dist"
 enabled = true
 
 [vars]
+PUBLIC_CLOUDINARY_CLOUD_NAME = "cobalt"
 TURNSTILE_PUBLIC_KEY = "0x4AAAAAAAAtFFFWPGStA0h_"
 UMAMI_ID = "758cbc64-fa17-4c53-98ad-63af8eafeb3b"
 
 [[kv_namespaces]]
 binding = "COBALTWEBTECH_USER_BLOCK_DATA"
 id = "bffb36f2981a48ab90f807b787231bb5"
-preview_id = "73147734785f43d9b3579ef9b991cf32"
 
 # Cloudflare Rate Limiting API binding
 [[unsafe.bindings]]

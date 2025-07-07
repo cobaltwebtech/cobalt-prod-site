@@ -1,6 +1,6 @@
 ---
 // Import the necessary dependencies
-import { Image } from "astro:assets";
+import { CldImage } from "astro-cloudinary";
 import IconBlock from "@/components/ui/blocks/IconBlock.astro";
 import { Icon } from "astro-icon/components";
 import { Button } from "@/components/starwind/button";
@@ -15,7 +15,7 @@ interface Props {
   title?: string;
   subTitle?: string;
   features?: Feature[];
-  source?: ImageMetadata;
+  source?: string;
   alt?: string;
   primaryBtn?: string;
   primaryBtnURL?: string;
@@ -30,11 +30,13 @@ const { title, subTitle, source, alt, features, primaryBtn, primaryBtnURL } =
   <div class="mx-auto mb-6 overflow-hidden rounded-2xl md:mb-8 md:w-3/4">
     {
       source && alt && (
-        <Image
+        <CldImage
           src={source}
           alt={alt}
           class="h-full w-full object-cover object-center"
           format="avif"
+          width={1280}
+          height={854}
         />
       )
     }

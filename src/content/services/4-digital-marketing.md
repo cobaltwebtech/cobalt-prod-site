@@ -7,7 +7,7 @@ main:
     What kind of digital marketing strategy are you implementing? If you don't have one, you may be losing out on valuable business and customers. No matter what your website is about, you can leverage digital marketing to gain more business.
   description2: |
     Cobalt Web Technologies is a partner with Google Ads. We utilize their expertise and global platform to deliver tailored and targeted ads to your customers. Whether you are selling goods or services, we can create an ad campaign to fit any budget.
-  imgMain: "@/images/services/service-digital-marketing-desktop.avif"
+  imgMain: "cobalt-web-assets/services/service-digital-marketing-desktop.avif"
   imgAlt: "Global network graphic image"
 tabs:
   title1: "What's Included"

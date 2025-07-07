@@ -7,8 +7,8 @@ main:
     We offer an array of digital marketing products to help you with your digital marketing strategy. No matter what your website is about, you can leverage digital marketing to increase sales and engage your customer base.
   description2: |
     Our digital marketing products are essential tools and resources that help you enhance your online presence and reach your target audience effectively. Whether you are selling goods or services, we can create an ad campaign to fit any budget. From Google Ads to SEO (search engine optimization) tools to email marketing, digital marketing products empower marketers to execute, track, and optimize their strategies with precision.
-  imgCard: "@/images/products/digital-marketing-graphic.avif"
-  imgMain: "@/images/products/digital-marketing-graphic.avif"
+  imgCard: "cobalt-web-assets/products/digital-marketing-graphic.avif"
+  imgMain: "cobalt-web-assets/products/digital-marketing-graphic.avif"
   imgAlt: "Digital marketing graphic"
 tabs:
   title1: "Overview"

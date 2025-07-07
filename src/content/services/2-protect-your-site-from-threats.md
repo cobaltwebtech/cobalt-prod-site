@@ -7,7 +7,7 @@ main:
     The web today is full of malicious users and many of them are not even human. Are your web applications and sites protected and secure from outside attacks and abuse?
   description2: |
     Your website and apps require always-on 24/7 protection and we provide that in all of our hosted solutions.
-  imgMain: "@/images/services/service-hacker-graphic.avif"
+  imgMain: "cobalt-web-assets/services/service-hacker-graphic.avif"
   imgAlt: "Hacker working on computer"
 tabs:
   title1: "Application Security"

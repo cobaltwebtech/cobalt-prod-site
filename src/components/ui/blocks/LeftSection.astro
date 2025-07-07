@@ -1,9 +1,9 @@
 ---
-import { Image } from "astro:assets";
+import { CldImage } from "astro-cloudinary";
 import { Icon } from "astro-icon/components";
 import { Button } from "@/components/starwind/button";
 // Destructure the props passed to the Astro component
-const { title, subTitle, btnExists, btnTitle, btnURL, img, imgAlt } =
+const { title, subTitle, btnExists, btnTitle, btnURL, imgSrcLeft, imgAltLeft } =
   Astro.props;
 // Define TypeScript interface for props
 interface Props {
@@ -12,20 +12,22 @@ interface Props {
   btnExists?: boolean;
   btnTitle?: string;
   btnURL?: string;
-  img: any;
-  imgAlt: any;
+  imgSrcLeft: string;
+  imgAltLeft: string;
 }
 ---
 
 <!-- The root section of the component -->
 <section class="grid gap-8 py-10 sm:py-16 md:grid-cols-2 lg:py-14 xl:gap-16">
   <!-- The Image component which renders the image -->
-  <Image
+  <CldImage
     class="w-full rounded-xl"
-    src={img}
-    alt={imgAlt}
+    src={imgSrcLeft}
+    alt={imgAltLeft}
     draggable="false"
     format="avif"
+    width={1920}
+    height={1280}
   />
   <!-- The container for title, subtitle, and optional CTA button -->
   <div class="mt-4 md:mt-0">

@@ -1,6 +1,6 @@
 ---
 // Import the Image component from astro:assets
-import { Image } from "astro:assets";
+import { CldImage } from "astro-cloudinary";
 
 // Destructure the component properties from Astro.props
 const { id, aria, source, alt, first, second } = Astro.props;
@@ -9,7 +9,7 @@ const { id, aria, source, alt, first, second } = Astro.props;
 interface Props {
   id: string;
   aria: string;
-  source?: ImageMetadata;
+  source: string;
   alt: string;
   first?: boolean;
   second?: boolean;
@@ -45,12 +45,14 @@ This is the full example:
   <!-- Astro Image component to display the image with dynamic classes based on the 'second' property -->
   {
     source && (
-      <Image
+      <CldImage
         src={source}
         alt={alt}
         class={secondClass}
         draggable="false"
         format="avif"
+        width={960}
+        height={1440}
       />
     )
   }

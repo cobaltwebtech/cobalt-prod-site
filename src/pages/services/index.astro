@@ -5,19 +5,23 @@ import LeftSection from "@/components/ui/blocks/LeftSection.astro";
 import RightSection from "@/components/ui/blocks/RightSection.astro";
 import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
 
-// Import necessary images
-import serviceBuild1 from "@/images/services/service-let-us-build-1.avif";
-import serviceBuild2 from "@/images/services/service-let-us-build-2.avif";
-import serviceHacker from "@/images/services/service-hacker-graphic.avif";
-import serviceNetwork from "@/images/services/service-network-server.avif";
-import serviceGlobal from "@/images/services/service-global-network-1.avif";
-import serviceDigitalMarketing from "@/images/services/service-digital-marketing-desktop.avif";
-import serviceEcommerce1 from "@/images/services/service-ecommerce-tall-1.avif";
-import serviceEcommerce2 from "@/images/services/service-ecommerce-tall-2.avif";
+// Images
+const serviceBuild1 = "cobalt-web-assets/services/service-let-us-build-1.avif";
+const serviceBuild2 = "cobalt-web-assets/services/service-let-us-build-2.avif";
+const serviceHacker = "cobalt-web-assets/services/service-hacker-graphic.avif";
+const serviceNetwork = "cobalt-web-assets/services/service-network-server.avif";
+const serviceGlobal =
+  "cobalt-web-assets/services/service-global-network-1.avif";
+const serviceDigitalMarketing =
+  "cobalt-web-assets/services/service-digital-marketing-desktop.avif";
+const serviceEcommerce1 =
+  "cobalt-web-assets/services/service-ecommerce-tall-1.avif";
+const serviceEcommerce2 =
+  "cobalt-web-assets/services/service-ecommerce-tall-2.avif";
 
 import { siteMeta } from "@/lib/siteData";
 
-interface Article {
+interface Service {
   isRightSection: boolean;
   title: string;
   subTitle: string;
@@ -25,25 +29,28 @@ interface Article {
   btnTitle?: string;
   btnURL?: string;
   single?: boolean;
-  img?: any;
-  imgAlt?: string;
-  imgOne?: any;
-  imgOneAlt?: string;
-  imgTwo?: any;
-  imgTwoAlt?: string;
+  imgSrcLeft?: string;
+  imgAltLeft?: string;
+  imgSrcRightSingle?: string;
+  imgAltRightSingle?: string;
+  imgSrcRightFirst?: string;
+  imgAltRightFirst?: string;
+  imgSrcRightSecond?: string;
+  imgAltRightSecond?: string;
 }
 
-const articles: Article[] = [
+const services: Service[] = [
   {
     isRightSection: true,
     title: "A New Website Experience",
     subTitle:
       "Do you need a brand new website to showcase your products or services? Is your current website slow, unresponsive, and looking dated? Let Cobalt Web Technologies build your next web project for you. We can build your website to be exactly what you want with any custom design. Your website is there to showcase your brand and products and should reflect your exact design elements and that is what we can deliver to you.",
     single: false,
-    imgOne: serviceBuild1,
-    imgOneAlt: "Viewing website on mobile device and computer in background",
-    imgTwo: serviceBuild2,
-    imgTwoAlt: "Working on laptop",
+    imgSrcRightFirst: serviceBuild1,
+    imgAltRightFirst:
+      "Viewing website on mobile device and computer in background",
+    imgSrcRightSecond: serviceBuild2,
+    imgAltRightSecond: "Working on laptop",
     btnExists: true,
     btnTitle: "Learn More",
     btnURL: "/services/a-new-website-experience/",
@@ -53,8 +60,8 @@ const articles: Article[] = [
     title: "Protect Your Site and App from Threats",
     subTitle:
       "The web today is full of malicious users and many of them are not even human. Are your web applications and sites protected and secure from outside attacks and abuse? Your website and apps require always-on 24/7 protection and we provide that in all of our hosted solutions.",
-    img: serviceHacker,
-    imgAlt: "Hacker trying to hack into website",
+    imgSrcLeft: serviceHacker,
+    imgAltLeft: "Hacker trying to hack into website",
     btnExists: true,
     btnTitle: "Learn More",
     btnURL: "/services/protect-your-site-from-threats/",
@@ -65,10 +72,10 @@ const articles: Article[] = [
     subTitle:
       "Speed is paramount for anything delivered over the web today. People don't have time to wait on a slow website to finish loading. Is your website stuck in 1996 on a 56K modem? Whether you have a simple blog on a static site, an ecommerce store with over 100,000 items, or media-rich site with large images and videos you need performance and speed built into your web platform.",
     single: false,
-    imgOne: serviceNetwork,
-    imgOneAlt: "Datacenter server rack cabinets",
-    imgTwo: serviceGlobal,
-    imgTwoAlt: "Global network graphic",
+    imgSrcRightFirst: serviceNetwork,
+    imgAltRightFirst: "Datacenter server rack cabinets",
+    imgSrcRightSecond: serviceGlobal,
+    imgAltRightSecond: "Global network graphic",
     btnExists: true,
     btnTitle: "Learn More",
     btnURL: "/services/live-life-on-the-edge/",
@@ -78,8 +85,8 @@ const articles: Article[] = [
     title: "Digital Marketing & SEO",
     subTitle:
       "What kind of digital marketing strategy are you implementing? If you have none, you may be losing out on valuable business and customers. No matter what your website is about, you can leverage digital marketing to gain more business. Whether you are selling goods or services we can create an ad campaign to fit any budget. At Cobalt, we do and can help with optimizing your website for best results in search rankings.",
-    img: serviceDigitalMarketing,
-    imgAlt: "Digital marketing graphic with mobile phone",
+    imgSrcLeft: serviceDigitalMarketing,
+    imgAltLeft: "Digital marketing graphic with mobile phone",
     btnExists: true,
     btnTitle: "Learn More",
     btnURL: "/services/digital-marketing/",
@@ -90,10 +97,10 @@ const articles: Article[] = [
     subTitle:
       "How well does it sell online? Whether you are already online or just starting out, Cobalt Web Technologies can help bring your business online and reach a wider customer base. We can build your ecommerce website to showcase your brand and products exactly how you want.",
     single: false,
-    imgOne: serviceEcommerce1,
-    imgOneAlt: "Ecommerce shopping online graphic",
-    imgTwo: serviceEcommerce2,
-    imgTwoAlt: "Ecommerce shopping online graphic",
+    imgSrcRightFirst: serviceEcommerce1,
+    imgAltRightFirst: "Ecommerce shopping online graphic",
+    imgSrcRightSecond: serviceEcommerce2,
+    imgAltRightSecond: "Ecommerce shopping online graphic",
     btnExists: true,
     btnTitle: "Learn More",
     btnURL: "/services/ecommerce-solutions/",
@@ -141,29 +148,31 @@ const pageTitle: string = `Services | ${siteMeta.title}`;
   If 'single' is true, it displays one image, otherwise it displays two.
   -->
   {
-    articles.map((article) => {
-      return article.isRightSection ? (
+    services.map((service) => {
+      return service.isRightSection ? (
         <RightSection
-          title={article.title}
-          subTitle={article.subTitle}
-          single={article.single}
-          imgOne={article.imgOne}
-          imgOneAlt={article.imgOneAlt}
-          imgTwo={article.imgTwo}
-          imgTwoAlt={article.imgTwoAlt}
-          btnExists={article.btnExists}
-          btnTitle={article.btnTitle}
-          btnURL={article.btnURL}
+          title={service.title}
+          subTitle={service.subTitle}
+          single={service.single}
+          imgSrcRightSingle={service.imgSrcRightSingle ?? ""}
+          imgAltRightSingle={service.imgAltRightSingle ?? ""}
+          imgSrcRightFirst={service.imgSrcRightFirst ?? ""}
+          imgAltRightFirst={service.imgAltRightFirst ?? ""}
+          imgSrcRightSecond={service.imgSrcRightSecond ?? ""}
+          imgAltRightSecond={service.imgAltRightSecond ?? ""}
+          btnExists={service.btnExists}
+          btnTitle={service.btnTitle}
+          btnURL={service.btnURL}
         />
       ) : (
         <LeftSection
-          title={article.title}
-          subTitle={article.subTitle}
-          img={article.img}
-          imgAlt={article.imgAlt}
-          btnExists={article.btnExists}
-          btnTitle={article.btnTitle}
-          btnURL={article.btnURL}
+          title={service.title}
+          subTitle={service.subTitle}
+          imgSrcLeft={service.imgSrcLeft ?? ""}
+          imgAltLeft={service.imgAltLeft ?? ""}
+          btnExists={service.btnExists}
+          btnTitle={service.btnTitle}
+          btnURL={service.btnURL}
         />
       );
     })

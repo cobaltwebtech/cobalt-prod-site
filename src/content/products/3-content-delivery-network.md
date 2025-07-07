@@ -7,8 +7,8 @@ main:
     Cobalt partners with Bunny CDN, a lightning fast global content delivery network to supercharge your web presence. Bunny CDN delivers a consistent experience to everyone, no matter where they are on the globe!
   description2: |
     Supercharge your content delivery via a global distribution network with unparalleled speed, security, and stability. Exceptional performance for every request and byte of data delivered at an affordable price.
-  imgCard: "@/images/products/global-network-wide.avif"
-  imgMain: "@/images/products/cloud-cdn-graphic.avif"
+  imgCard: "cobalt-web-assets/products/global-network-wide.avif"
+  imgMain: "cobalt-web-assets/products/cloud-cdn-graphic.avif"
   imgAlt: "Global network graphic"
 tabs:
   title1: "CDN Overview"

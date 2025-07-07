@@ -2,7 +2,7 @@
 import MainLayout from "@/base/MainLayout.astro";
 import { Icon } from "astro-icon/components";
 import { Button } from "@/components/starwind/button";
-import { Image } from "astro:assets";
+import { CldImage } from "astro-cloudinary";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { siteMeta } from "@/lib/siteData";
 import {
@@ -20,58 +20,17 @@ import {
   TabsContent,
 } from "@/components/starwind/tabs";
 
-// Define the Service and ServiceData types
-interface Service {
-  slug: string;
-  data: ServiceData;
-}
-
-interface ServiceData {
-  title: string;
-  subHeading: string;
-  main: {
-    description1: string;
-    description2: string;
-    imgMain: ImageMetadata;
-    imgAlt: string;
-  };
-  tabs: {
-    title1: string;
-    title2: string;
-  };
-  tabFirst: {
-    title: string;
-    subTitle: string;
-    ctaDescription: string;
-    btnTitle: string;
-    btnURL: string;
-  };
-  tabFirstItems: ListItem[];
-  tabSecond: {
-    title: string;
-    subTitle: string;
-    ctaDescription: string;
-    btnTitle: string;
-    btnURL: string;
-  };
-  tabSecondItems: ListItem[];
-}
-
-interface ListItem {
-  title: string;
-  subTitle: string;
-}
-
 // This gets the static paths for all the unique services
 export async function getStaticPaths() {
   const serviceEntries = await getCollection("services");
   return serviceEntries.map((service: CollectionEntry<"services">) => ({
     params: { slug: service.slug },
-    props: { service: service as Service },
+    props: { service },
   }));
 }
 
-const { service } = Astro.props as { service: Service };
+// Use the CollectionEntry type
+const { service } = Astro.props as { service: CollectionEntry<"services"> };
 
 const pageTitle: string = `${service.data.title} | ${siteMeta.title}`;
 ---
@@ -117,12 +76,15 @@ const pageTitle: string = `${service.data.title} | ${siteMeta.title}`;
         </p>
       </div>
       <div>
-        <Image
+        <CldImage
           src={service.data.main.imgMain}
           class="rounded-xl"
           alt={service.data.main.imgAlt}
           format="avif"
           priority
+          width={1920}
+          height={1280}
+          objectFit="contain"
         />
       </div>
     </div>

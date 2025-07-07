@@ -2,7 +2,7 @@
 import MainLayout from "@/base/MainLayout.astro";
 import { Icon } from "astro-icon/components";
 import { Button } from "@/components/starwind/button";
-import { Image } from "astro:assets";
+import { CldImage } from "astro-cloudinary";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { siteMeta } from "@/lib/siteData";
 import {
@@ -20,58 +20,17 @@ import {
   TabsContent,
 } from "@/components/starwind/tabs";
 
-// Define the Product and ProductData types directly in this file
-interface Product {
-  slug: string;
-  data: ProductData;
-}
-
-interface ProductData {
-  title: string;
-  subHeading: string;
-  main: {
-    description1: string;
-    description2: string;
-    imgMain: ImageMetadata;
-    imgAlt: string;
-  };
-  tabs: {
-    title1: string;
-    title2: string;
-  };
-  tabFirst: {
-    title: string;
-    subTitle: string;
-    ctaDescription: string;
-    btnTitle: string;
-    btnURL: string;
-  };
-  tabFirstItems: ListItem[];
-  tabSecond: {
-    title: string;
-    subTitle: string;
-    ctaDescription: string;
-    btnTitle: string;
-    btnURL: string;
-  };
-  tabSecondItems: ListItem[];
-}
-
-interface ListItem {
-  title: string;
-  subTitle: string;
-}
-
 // This gets the static paths for all the unique products
 export async function getStaticPaths() {
   const productEntries = await getCollection("products");
   return productEntries.map((product: CollectionEntry<"products">) => ({
     params: { slug: product.slug },
-    props: { product: product as Product },
+    props: { product },
   }));
 }
 
-const { product } = Astro.props as { product: Product };
+// Use the CollectionEntry type
+const { product } = Astro.props as { product: CollectionEntry<"products"> };
 
 const pageTitle: string = `${product.data.title} | ${siteMeta.title}`;
 ---
@@ -117,12 +76,15 @@ const pageTitle: string = `${product.data.title} | ${siteMeta.title}`;
         </p>
       </div>
       <div>
-        <Image
+        <CldImage
           src={product.data.main.imgMain}
           class="rounded-xl"
           alt={product.data.main.imgAlt}
           format="avif"
           priority
+          width={1200}
+          height={1200}
+          objectFit="contain"
         />
       </div>
     </div>
