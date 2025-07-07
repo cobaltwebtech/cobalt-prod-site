@@ -27,13 +27,16 @@ const suspiciousTracker = new Map<
 // Configuration
 const CONFIG = {
   // 404 tracking thresholds
-  ABUSE_THRESHOLD: 10, // Escalate to persistent blocking
-  PERSISTENT_BLOCK_DURATION: 24 * 60 * 60, // 24 hours in seconds
-  SEVERE_BLOCK_DURATION: 90 * 24 * 60 * 60, // 90 days in seconds
+  SHORT_404_COUNT: 10,
+  TOTAL_404_COUNT: 50,
 
-  // Time windows
-  ABUSE_PATTERN_WINDOW: 60 * 60 * 1000, // 1 hour for pattern detection
+  // Tracking periods (in milliseconds)
+  SHORT_PERIOD: 60 * 60 * 1000, // 1 hour for pattern detection
   TOTAL_COUNT_RESET_PERIOD: 180 * 24 * 60 * 60 * 1000, // Reset every 6 months
+
+  // Blocking durations (in seconds)
+  PERSISTENT_BLOCK_DURATION: 24 * 60 * 60, // 24 hours
+  SEVERE_BLOCK_DURATION: 90 * 24 * 60 * 60, // 90 days
 
   // Cleanup
   MEMORY_CLEANUP_INTERVAL: 10 * 60 * 1000,
@@ -131,9 +134,65 @@ function track404(ip: string): {
   }
 
   return {
-    shouldBlock: record.count >= CONFIG.ABUSE_THRESHOLD,
+    shouldBlock: record.count >= CONFIG.SHORT_404_COUNT,
     count: record.count,
   };
+}
+
+async function setPersistentBlock(
+  kv: KVNamespace,
+  ip: string,
+  count: number,
+): Promise<void> {
+  try {
+    const now = Date.now();
+
+    // Check if this is severe abuse (high count in short time)
+    const record = suspiciousTracker.get(`404:${ip}`);
+    const timespan = record ? now - record.firstSeen : 0;
+
+    // Severe abuse if >= SHORT_404_COUNT requests AND period of 1 hour 
+    // OR >= TOTAL_404_COUNT requests total
+    const isSevereAbuse =
+      (count >= CONFIG.SHORT_404_COUNT &&
+        timespan <= CONFIG.SHORT_PERIOD) ||
+      count >= CONFIG.TOTAL_404_COUNT;
+
+    const blockLevel = isSevereAbuse ? "severe" : "temporary";
+    const blockedUntil =
+      blockLevel === "severe"
+        ? now + CONFIG.SEVERE_BLOCK_DURATION * 1000
+        : now + CONFIG.PERSISTENT_BLOCK_DURATION * 1000;
+
+    const blockData = {
+      ip,
+      totalCount: count,
+      blockLevel,
+      blockedAt: now,
+      blockedUntil,
+      reason: `Excessive 404 requests: ${count} total`,
+      timespan: Math.round(timespan / 1000 / 60), // minutes
+    };
+
+    const ttl =
+      blockLevel === "severe"
+        ? CONFIG.SEVERE_BLOCK_DURATION
+        : CONFIG.PERSISTENT_BLOCK_DURATION;
+
+    await kv.put(`blocked:${ip}`, JSON.stringify(blockData), {
+      expirationTtl: ttl,
+    });
+
+    // Enhanced logging for monitoring
+    console.warn(`Persistent block applied to ${ip}:`, JSON.stringify({
+      blockLevel,
+      totalCount: count,
+      timespan: `${Math.round(timespan / 1000 / 60)} minutes`,
+      duration: blockLevel === "severe" ? "90 days" : "temporary",
+    }));
+  } catch (error) {
+    console.error("Error setting persistent block:", error);
+  }
 }
 
 async function checkPersistentBlock(
@@ -178,61 +237,6 @@ async function checkPersistentBlock(
   }
 }
 
-async function setPersistentBlock(
-  kv: KVNamespace,
-  ip: string,
-  count: number,
-): Promise<void> {
-  try {
-    const now = Date.now();
-
-    // Check if this is severe abuse (high count in short time)
-    const record = suspiciousTracker.get(`404:${ip}`);
-    const timespan = record ? now - record.firstSeen : 0;
-
-    // Severe if >= 10 requests AND period of 1 hour OR >=50 requests total
-    const isSevereAbuse =
-      (count >= CONFIG.ABUSE_THRESHOLD &&
-        timespan <= CONFIG.ABUSE_PATTERN_WINDOW) ||
-      count >= 50;
-
-    const blockLevel = isSevereAbuse ? "severe" : "temporary";
-    const blockedUntil =
-      blockLevel === "severe"
-        ? now + CONFIG.SEVERE_BLOCK_DURATION * 1000
-        : now + CONFIG.PERSISTENT_BLOCK_DURATION * 1000;
-
-    const blockData = {
-      ip,
-      totalCount: count,
-      blockLevel,
-      blockedAt: now,
-      blockedUntil,
-      reason: `Excessive 404 requests: ${count} total`,
-      timespan: Math.round(timespan / 1000 / 60), // minutes
-    };
-
-    const ttl =
-      blockLevel === "severe"
-        ? CONFIG.SEVERE_BLOCK_DURATION
-        : CONFIG.PERSISTENT_BLOCK_DURATION;
-
-    await kv.put(`blocked:${ip}`, JSON.stringify(blockData), {
-      expirationTtl: ttl,
-    });
-
-    // Enhanced logging for monitoring
-    console.warn(`Persistent block applied to ${ip}:`, {
-      blockLevel,
-      totalCount: count,
-      timespan: `${Math.round(timespan / 1000 / 60)} minutes`,
-      duration: blockLevel === "severe" ? "90 days" : "24 hours",
-    });
-  } catch (error) {
-    console.error("Error setting persistent block:", error);
-  }
-}
-
 function createBlockedResponse(
   blockLevel: "temporary" | "severe",
   blockedUntil?: number,
@@ -243,8 +247,8 @@ function createBlockedResponse(
     : 86400;
 
   const messages = {
-    temporary: "Temporarily blocked: Excessive failed requests detected.",
-    severe: "Access denied: Severe abuse pattern detected.",
+    temporary: "ERROR 429: Temporarily blocked. Excessive failed requests detected.",
+    severe: "ERROR 429: Too Many Requests. Abuse pattern detected.",
   };
 
   const retryAfter = {
@@ -270,9 +274,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const url = new URL(request.url);
   const userAgent = request.headers.get("User-Agent") || "";
 
-  // Add debug logging for production
+  // Log the request
   console.log(`Middleware executing for: ${url.pathname}`);
-  console.log(`Client IP: ${clientIP}`);
   
   // Check if this is a legitimate bot
   const isBot = isLegitimateBot(userAgent);
@@ -284,9 +287,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const kv = context.locals.runtime?.env?.COBALTWEBTECH_USER_BLOCK_DATA;
   const rateLimiter = context.locals.runtime?.env?.RATE_LIMITER;
 
-  // Add debug for bindings
-  console.log(`KV available: ${!!kv}, Rate limiter available: ${!!rateLimiter}`);
-
   // 1. Use Cloudflare's Rate Limiting API for general protection
   // But give bots more lenient treatment
   if (rateLimiter && !isBot) {
@@ -294,7 +294,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
       const { success } = await rateLimiter.limit({ key: clientIP });
       if (!success) {
         console.warn(`Rate limited by Cloudflare API: ${clientIP}`);
-        return new Response("Rate limited: Too many requests", {
+        return new Response("ERROR 429: Too many requests. Rate limiter applied.", {
           status: 429,
           headers: {
             "Retry-After": "60",
@@ -331,8 +331,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
     // Adjust threshold based on bot status
     const blockThreshold = isBot
-      ? CONFIG.ABUSE_THRESHOLD * 3 // 3x higher for legitimate bots
-      : CONFIG.ABUSE_THRESHOLD;
+      ? CONFIG.SHORT_404_COUNT * 3 // 3x higher for legitimate bots
+      : CONFIG.SHORT_404_COUNT;
     const shouldBlock = tracking.count >= blockThreshold;
 
     // Log 404 activity for monitoring
