@@ -12,7 +12,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "target": "ES2018",
+    "target": "es2023",
     "allowJs": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
