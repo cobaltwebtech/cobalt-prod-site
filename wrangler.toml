@@ -1,6 +1,6 @@
 name = "cobaltwebtech"
 main = "./dist/_worker.js/index.js"
-compatibility_date = "2025-06-25"
+compatibility_date = "2025-07-29"
 compatibility_flags = [ "nodejs_compat" ]
 tail_consumers = [{service = "cobaltwebtech-sentry"}]
 

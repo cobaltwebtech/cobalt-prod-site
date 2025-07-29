@@ -5,3 +5,4 @@ pnpm-lock.yaml
 .changeset
 .astro
 .wrangler
+worker-configuration.d.ts
