@@ -20,7 +20,7 @@
     "clean": "rimraf dist .astro node_modules pnpm-lock.yaml yarn.lock .yarn package-lock.json .wrangler"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
+    "@astrojs/check": "^0.9.5",
     "@astrojs/cloudflare": "12.6.10",
     "@astrojs/sitemap": "3.6.0",
     "@playform/compress": "^0.2.0",
