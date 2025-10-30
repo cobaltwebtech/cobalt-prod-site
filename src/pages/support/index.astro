@@ -32,8 +32,30 @@ if (result && !result.error) {
   return Astro.redirect("/support/submission-received");
 }
 // Check for errors to display
-const errorMessage =
-  result?.error && !isInputError(result.error) ? result.error.message : null;
+let errorMessage: string | null = null;
+if (result?.error) {
+  if (isInputError(result.error)) {
+    // For validation errors, extract all field-level error messages from Zod
+    const fieldErrors = result.error.fields;
+    const errorMessages: string[] = [];
+    
+    // Collect all field errors
+    for (const [field, messages] of Object.entries(fieldErrors)) {
+      if (messages && messages.length > 0) {
+        // Join multiple errors for the same field with commas
+        errorMessages.push(messages.join(", "));
+      }
+    }
+    
+    // Display all errors or a fallback message
+    errorMessage = errorMessages.length > 0 
+      ? errorMessages.join(" • ") 
+      : "Please check your form for errors and try again.";
+  } else {
+    // For non-validation errors, display the error message
+    errorMessage = result.error.message;
+  }
+}
 ---
 
 <!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
