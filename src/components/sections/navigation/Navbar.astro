@@ -131,6 +131,9 @@ const currentPath = Astro.url.pathname;
     document.documentElement.classList.toggle("dark", newTheme === "dark");
   }
 
-  // Initialize on page load (Astro handles View Transitions automatically)
+  // Initialize on first page load
+  initThemeToggle();
+
+  // Re-initialize on View Transitions
   document.addEventListener("astro:page-load", initThemeToggle);
 </script>
