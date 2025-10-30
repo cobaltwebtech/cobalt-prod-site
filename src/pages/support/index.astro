@@ -215,11 +215,24 @@ if (result?.error) {
   let turnstileWidgetId: string | null = null;
   let formSubmitHandler: ((e: Event) => void) | null = null;
 
+  // Function to check if Turnstile is fully ready
+  function isTurnstileReady(): boolean {
+    return typeof turnstile !== "undefined" && 
+           typeof turnstile.render === "function" &&
+           typeof turnstile.remove === "function";
+  }
+
   // Function to initialize Turnstile widget
   function initializeTurnstile() {
     const widget = document.getElementById("turnstile-widget");
     
-    if (!widget || typeof turnstile === "undefined") {
+    if (!widget) {
+      console.warn("Turnstile widget container not found");
+      return;
+    }
+
+    if (!isTurnstileReady()) {
+      console.warn("Turnstile API not ready yet");
       return;
     }
 
@@ -236,22 +249,43 @@ if (result?.error) {
     // Clear the widget container
     widget.innerHTML = "";
 
-    // Render new widget
-    try {
-      const sitekey = widget.getAttribute("data-sitekey");
-      const theme = widget.getAttribute("data-theme") as "light" | "dark" | "auto" | null;
-      const size = widget.getAttribute("data-size") as "normal" | "compact" | "flexible" | null;
-      
-      const widgetId = turnstile.render("#turnstile-widget", {
-        sitekey: sitekey || "",
-        theme: theme || "dark",
-        size: size || "flexible",
-      });
-      
-      turnstileWidgetId = widgetId ?? null;
-    } catch (e) {
-      console.error("Failed to render turnstile widget:", e);
-    }
+    // Small delay to ensure DOM is stable after View Transition
+    setTimeout(() => {
+      try {
+        const sitekey = widget.getAttribute("data-sitekey");
+        const theme = widget.getAttribute("data-theme") as "light" | "dark" | "auto" | null;
+        const size = widget.getAttribute("data-size") as "normal" | "compact" | "flexible" | null;
+        
+        if (!sitekey) {
+          console.error("Turnstile sitekey not found");
+          return;
+        }
+
+        const widgetId = turnstile.render("#turnstile-widget", {
+          sitekey: sitekey,
+          theme: theme || "dark",
+          size: size || "flexible",
+          // Add error callback to catch rendering issues
+          "error-callback": () => {
+            console.warn("Turnstile encountered an error, will retry...");
+            // Retry after a short delay
+            setTimeout(() => {
+              if (turnstileWidgetId) {
+                try {
+                  turnstile.reset(turnstileWidgetId);
+                } catch (e) {
+                  console.error("Failed to reset turnstile:", e);
+                }
+              }
+            }, 1000);
+          },
+        });
+        
+        turnstileWidgetId = widgetId ?? null;
+      } catch (e) {
+        console.error("Failed to render turnstile widget:", e);
+      }
+    }, 100); // Small delay after View Transition
   }
 
   // Setup form submission handler
@@ -320,25 +354,35 @@ if (result?.error) {
     form.addEventListener("submit", formSubmitHandler);
   }
 
-  // Initialize Turnstile with polling for script availability
+  // Initialize Turnstile with better polling and error handling
   function setupTurnstile() {
-    if (typeof turnstile !== "undefined") {
-      initializeTurnstile();
-    } else {
-      // Poll for turnstile to be available
-      let attempts = 0;
-      const maxAttempts = 50; // 5 seconds max
-      const interval = setInterval(() => {
-        attempts++;
-        if (typeof turnstile !== "undefined") {
-          clearInterval(interval);
-          initializeTurnstile();
-        } else if (attempts >= maxAttempts) {
-          clearInterval(interval);
-          console.error("Turnstile failed to load");
-        }
-      }, 100);
+    let attempts = 0;
+    const maxAttempts = 50; // 5 seconds max
+    
+    const tryInitialize = () => {
+      if (isTurnstileReady()) {
+        initializeTurnstile();
+        return true;
+      }
+      return false;
+    };
+
+    // Try immediately first
+    if (tryInitialize()) {
+      return;
     }
+
+    // Poll if not ready
+    const interval = setInterval(() => {
+      attempts++;
+      
+      if (tryInitialize()) {
+        clearInterval(interval);
+      } else if (attempts >= maxAttempts) {
+        clearInterval(interval);
+        console.error("Turnstile failed to load after 5 seconds");
+      }
+    }, 100);
   }
 
   // Initialize on first page load
