@@ -211,23 +211,129 @@ if (result?.error) {
 </MainLayout>
 <!-- CF Turnstile import is handled by externalScript -->
 <script>
-  // Show loading state when form is submitted
-  // The form will submit to the action endpoint
-  const form = document.getElementById("support-form") as HTMLFormElement;
-  const submitButton = document.getElementById(
-    "submit-button",
-  ) as HTMLButtonElement;
-  const sendIcon = document.getElementById("send-icon") as HTMLElement;
-  const loaderIcon = document.getElementById("loader-icon") as HTMLElement;
-  const buttonText = document.getElementById("button-text") as HTMLSpanElement;
+  let turnstileWidgetId: string | null = null;
 
-  form.addEventListener("submit", () => {
-    // Show loading state
-    submitButton.disabled = true;
-    sendIcon.classList.add("hidden");
-    loaderIcon.classList.remove("hidden");
-    if (buttonText) {
-      buttonText.textContent = "Submitting Request...";
+  // Function to initialize Turnstile widget
+  function initializeTurnstile() {
+    const widget = document.getElementById("turnstile-widget");
+    
+    if (!widget || typeof turnstile === "undefined") {
+      return;
     }
+
+    // Remove existing widget if it exists
+    if (turnstileWidgetId) {
+      try {
+        turnstile.remove(turnstileWidgetId);
+      } catch (e) {
+        console.warn("Failed to remove existing turnstile widget:", e);
+      }
+    }
+
+    // Clear the widget container
+    widget.innerHTML = "";
+
+    // Render new widget
+    try {
+      const sitekey = widget.getAttribute("data-sitekey");
+      const theme = widget.getAttribute("data-theme") as "light" | "dark" | "auto" | null;
+      const size = widget.getAttribute("data-size") as "normal" | "compact" | "flexible" | null;
+      
+      const widgetId = turnstile.render("#turnstile-widget", {
+        sitekey: sitekey || "",
+        theme: theme || "light",
+        size: size || "normal",
+      });
+      
+      turnstileWidgetId = widgetId ?? null;
+    } catch (e) {
+      console.error("Failed to render turnstile widget:", e);
+    }
+  }
+
+  // Setup form submission handler
+  function setupFormHandler() {
+    const form = document.getElementById("support-form") as HTMLFormElement;
+    const submitButton = document.getElementById(
+      "submit-button",
+    ) as HTMLButtonElement;
+    const sendIcon = document.getElementById("send-icon") as HTMLElement;
+    const loaderIcon = document.getElementById("loader-icon") as HTMLElement;
+    const buttonText = document.getElementById("button-text") as HTMLSpanElement;
+
+    if (!form) return;
+
+    // Toggle loading state
+    const setLoading = (isLoading: boolean) => {
+      submitButton.disabled = isLoading;
+      if (isLoading) {
+        sendIcon.classList.add("hidden");
+        loaderIcon.classList.remove("hidden");
+        if (buttonText) {
+          buttonText.textContent = "Submitting Request...";
+        }
+      } else {
+        sendIcon.classList.remove("hidden");
+        loaderIcon.classList.add("hidden");
+        if (buttonText) {
+          buttonText.textContent = "Send Support Request";
+        }
+      }
+    };
+
+    form.addEventListener("submit", (e) => {
+      // Client-side validation before submission
+      const turnstileResponse = form.querySelector(
+        'input[name="cf-turnstile-response"]'
+      ) as HTMLInputElement;
+
+      if (!turnstileResponse || !turnstileResponse.value) {
+        e.preventDefault();
+        alert("Please complete the CAPTCHA verification before submitting.");
+        return;
+      }
+
+      // Validate email format
+      const emailInput = form.querySelector(
+        'input[name="email"]'
+      ) as HTMLInputElement;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      if (emailInput && !emailRegex.test(emailInput.value)) {
+        e.preventDefault();
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      // All validation passed, show loading state
+      setLoading(true);
+    });
+  }
+
+  // Initialize Turnstile with polling for script availability
+  function setupTurnstile() {
+    if (typeof turnstile !== "undefined") {
+      initializeTurnstile();
+    } else {
+      // Poll for turnstile to be available
+      let attempts = 0;
+      const maxAttempts = 50; // 5 seconds max
+      const interval = setInterval(() => {
+        attempts++;
+        if (typeof turnstile !== "undefined") {
+          clearInterval(interval);
+          initializeTurnstile();
+        } else if (attempts >= maxAttempts) {
+          clearInterval(interval);
+          console.error("Turnstile failed to load");
+        }
+      }, 100);
+    }
+  }
+
+  // Initialize on page load
+  document.addEventListener("astro:page-load", () => {
+    setupTurnstile();
+    setupFormHandler();
   });
 </script>

@@ -14,7 +14,7 @@ const contactFormSchema = z.object({
 	phone: z.string().min(1, "Phone number is required"),
 	message: z.string().min(1, "Please give additional info"),
 	"cf-turnstile-response": z
-		.string()
+		.string({ required_error: "CAPTCHA verification is required" })
 		.min(1, "CAPTCHA verification is required"),
 });
 const supportFormSchema = z.object({
@@ -27,7 +27,7 @@ const supportFormSchema = z.object({
 	phone: z.string().min(1, "Phone number is required"),
 	message: z.string().min(1, "Please give additional info"),
 	"cf-turnstile-response": z
-		.string()
+		.string({ required_error: "CAPTCHA verification is required" })
 		.min(1, "CAPTCHA verification is required"),
 });
 
