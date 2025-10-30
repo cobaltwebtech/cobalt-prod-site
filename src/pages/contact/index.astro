@@ -318,7 +318,11 @@ if (result?.error) {
     }
   }
 
-  // Initialize on page load
+  // Initialize on first page load
+  setupTurnstile();
+  setupFormHandler();
+
+  // Re-initialize on View Transitions
   document.addEventListener("astro:page-load", () => {
     setupTurnstile();
     setupFormHandler();
