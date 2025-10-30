@@ -139,9 +139,10 @@ if (result?.error) {
           required
         />
         <!-- Add Cloudflare Turnstile widget -->
+        <!-- Remove cf-turnstile class to prevent auto-rendering -->
         <div
           id="turnstile-widget"
-          class="cf-turnstile mt-4"
+          class="mt-4"
           data-sitekey={turnstileSiteKey}
           data-theme="dark"
           data-size="flexible"
@@ -189,6 +190,7 @@ if (result?.error) {
 <!-- CF Turnstile import is handled by externalScript -->
 <script>
   let turnstileWidgetId: string | null = null;
+  let formSubmitHandler: ((e: Event) => void) | null = null;
 
   // Function to initialize Turnstile widget
   function initializeTurnstile() {
@@ -202,6 +204,7 @@ if (result?.error) {
     if (turnstileWidgetId) {
       try {
         turnstile.remove(turnstileWidgetId);
+        turnstileWidgetId = null;
       } catch (e) {
         console.warn("Failed to remove existing turnstile widget:", e);
       }
@@ -218,8 +221,8 @@ if (result?.error) {
       
       const widgetId = turnstile.render("#turnstile-widget", {
         sitekey: sitekey || "",
-        theme: theme || "light",
-        size: size || "normal",
+        theme: theme || "dark",
+        size: size || "flexible",
       });
       
       turnstileWidgetId = widgetId ?? null;
@@ -240,25 +243,29 @@ if (result?.error) {
 
     if (!form) return;
 
+    // Remove existing event listener if it exists
+    if (formSubmitHandler) {
+      form.removeEventListener("submit", formSubmitHandler);
+    }
+
     // Toggle loading state
     const setLoading = (isLoading: boolean) => {
+      if (!submitButton || !sendIcon || !loaderIcon || !buttonText) return;
+      
       submitButton.disabled = isLoading;
       if (isLoading) {
         sendIcon.classList.add("hidden");
         loaderIcon.classList.remove("hidden");
-        if (buttonText) {
-          buttonText.textContent = "Submitting Request...";
-        }
+        buttonText.textContent = "Submitting Request...";
       } else {
         sendIcon.classList.remove("hidden");
         loaderIcon.classList.add("hidden");
-        if (buttonText) {
-          buttonText.textContent = "Send Contact Request";
-        }
+        buttonText.textContent = "Send Contact Request";
       }
     };
 
-    form.addEventListener("submit", (e) => {
+    // Create the handler function
+    formSubmitHandler = (e: Event) => {
       // Client-side validation before submission
       const turnstileResponse = form.querySelector(
         'input[name="cf-turnstile-response"]'
@@ -284,7 +291,10 @@ if (result?.error) {
 
       // All validation passed, show loading state
       setLoading(true);
-    });
+    };
+
+    // Add the event listener
+    form.addEventListener("submit", formSubmitHandler);
   }
 
   // Initialize Turnstile with polling for script availability

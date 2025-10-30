@@ -110,19 +110,16 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <!-- Theme Appearance script to manage light/dark modes -->
-<script is:inline>
-  const initThemeToggle = () => {
+<script>
+  function initThemeToggle() {
     const toggleButtons = document.querySelectorAll("[data-theme-toggle]");
 
     toggleButtons.forEach((button) => {
-      // Remove existing listener to prevent duplicates
-      button.removeEventListener("click", handleThemeToggle);
-      // Add the click listener
       button.addEventListener("click", handleThemeToggle);
     });
-  };
+  }
 
-  const handleThemeToggle = () => {
+  function handleThemeToggle() {
     // Get current theme from DOM (source of truth)
     const isDark = document.documentElement.classList.contains("dark");
     const newTheme = isDark ? "light" : "dark";
@@ -132,16 +129,8 @@ const currentPath = Astro.url.pathname;
 
     // Update DOM
     document.documentElement.classList.toggle("dark", newTheme === "dark");
-  };
-
-  // Initialize on initial page load
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initThemeToggle);
-  } else {
-    // DOM is already ready
-    initThemeToggle();
   }
 
-  // Re-initialize on View Transitions
+  // Initialize on page load (Astro handles View Transitions automatically)
   document.addEventListener("astro:page-load", initThemeToggle);
 </script>

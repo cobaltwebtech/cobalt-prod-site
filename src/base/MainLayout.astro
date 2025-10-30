@@ -85,31 +85,34 @@ interface Props {
 
     <!-- Script to handle dark mode sets localstorage to save preference and checks the devices preference -->
     <script is:inline>
-      // Initial page load theme setting
-      const getThemePreference = () => {
-        if (
-          typeof localStorage !== "undefined" &&
-          localStorage.getItem("theme")
-        ) {
-          return localStorage.getItem("theme");
-        }
-        return window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-      };
+      // Wrap in IIFE to avoid variable redeclaration on View Transitions
+      (() => {
+        // Initial page load theme setting
+        const getThemePreference = () => {
+          if (
+            typeof localStorage !== "undefined" &&
+            localStorage.getItem("theme")
+          ) {
+            return localStorage.getItem("theme");
+          }
+          return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        };
 
-      // Set theme immediately on page load
-      const theme = getThemePreference();
-      document.documentElement.classList.toggle("dark", theme === "dark");
+        // Set theme immediately on page load
+        const theme = getThemePreference();
+        document.documentElement.classList.toggle("dark", theme === "dark");
 
-      // Also handle theme during View Transitions
-      document.addEventListener("astro:page-load", () => {
-        const currentTheme = getThemePreference();
-        document.documentElement.classList.toggle(
-          "dark",
-          currentTheme === "dark",
-        );
-      });
+        // Also handle theme during View Transitions
+        document.addEventListener("astro:page-load", () => {
+          const currentTheme = getThemePreference();
+          document.documentElement.classList.toggle(
+            "dark",
+            currentTheme === "dark",
+          );
+        });
+      })();
     </script>
     <!--Import Lenis smooth scroll script -->
     <script>
