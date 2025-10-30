@@ -1,10 +1,9 @@
 ---
-import MainLayout from "@/base/MainLayout.astro";
-import { Icon } from "astro-icon/components";
-import { Button } from "@/components/starwind/button";
+
+import { type CollectionEntry, getCollection } from "astro:content";
 import { CldImage } from "astro-cloudinary";
-import { getCollection, type CollectionEntry } from "astro:content";
-import { siteMeta } from "@/lib/siteData";
+import { Icon } from "astro-icon/components";
+import MainLayout from "@/base/MainLayout.astro";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -13,12 +12,14 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/starwind/breadcrumb";
+import { Button } from "@/components/starwind/button";
 import {
   Tabs,
+  TabsContent,
   TabsList,
   TabsTrigger,
-  TabsContent,
 } from "@/components/starwind/tabs";
+import { siteMeta } from "@/lib/siteData";
 
 // This gets the static paths for all the unique products
 export async function getStaticPaths() {
@@ -37,7 +38,7 @@ const pageTitle: string = `${product.data.title} | ${siteMeta.title}`;
 
 <MainLayout title={pageTitle}>
   <section
-    class="mx-auto pb-8 md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl"
+    class="mx-auto pb-8 md:max-w-screen-sm lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl"
   >
     <Breadcrumb class="mb-4">
       <BreadcrumbList>
@@ -91,7 +92,7 @@ const pageTitle: string = `${product.data.title} | ${siteMeta.title}`;
   </section>
 
   <section
-    class="mx-auto py-8 md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl"
+    class="mx-auto py-8 md:max-w-screen-sm lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl"
   >
     <Tabs defaultValue="title1">
       <TabsList class="mx-auto max-w-3xl">
@@ -127,7 +128,7 @@ const pageTitle: string = `${product.data.title} | ${siteMeta.title}`;
                 <li class="flex items-start gap-2">
                   <Icon
                     name="CheckCircle"
-                    class="size-[24px] basis-1/12 text-green-600 dark:text-green-400"
+                    class="size-6 basis-1/12 text-green-600 dark:text-green-400"
                   />
                   <div class="basis-11/12">
                     <h3 class="text-base font-bold text-slate-800 sm:text-lg dark:text-slate-200">
@@ -171,7 +172,7 @@ const pageTitle: string = `${product.data.title} | ${siteMeta.title}`;
                 <li class="flex items-start gap-2">
                   <Icon
                     name="CheckCircle"
-                    class="size-[24px] basis-1/12 text-green-600 dark:text-green-400"
+                    class="size-6 basis-1/12 text-green-600 dark:text-green-400"
                   />
                   <div class="basis-11/12">
                     <h3 class="text-base font-bold text-slate-800 sm:text-lg dark:text-slate-200">

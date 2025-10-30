@@ -1,9 +1,8 @@
 ---
-// Import the necessary dependencies
-import footerMenu from "@/lib/navigation";
-import Logo from "@/components/ui/Logo.astro";
-import { siteMeta } from "@/lib/siteData";
+
 import { Icon } from "astro-icon/components";
+import Logo from "@/components/ui/Logo.astro";
+import footerMenu from "@/lib/navigation";
 
 // Define the variables that will be used in this component
 const sectionThreeTitle: string = "Hours of Operation";
@@ -17,20 +16,26 @@ const sectionThreeHours: string = "9AM - 5PM (US Central Time)";
   <div class="grid gap-2 md:grid-cols-7 md:gap-4 lg:gap-8">
     <div class="md:col-span-3">
       <!-- Brand Logo -->
-      <div class="mx-auto size-32">
-        <Logo />
+      <div class="flex justify-center">
+        <Logo class="size-32" />
       </div>
-      <div class="text-center">
+      <div class="space-y-2 text-center">
         <p class="text-sm text-slate-800 dark:text-slate-200">
           ©2015 - <span id="current-year"></span>
         </p>
-        <p class="mb-2 text-sm text-slate-800 dark:text-slate-200">
-          <span class="text-xl font-bold text-nowrap">{siteMeta.title}</span>
-        </p>
-        <p class="text-sm text-slate-700 dark:text-slate-300">
+        <div class="flex justify-center">
+          <Icon
+            name="Cobalt-Company-Name"
+            class="text-cobalt-800 dark:text-cobalt-50 h-auto w-40"
+          />
+          <span class="sr-only" aria-label="Website company name"
+            >Cobalt Web Technologies</span
+          >
+        </div>
+        <p class="mb-0 text-sm text-slate-700 dark:text-slate-300">
           All rights reserved.
         </p>
-        <p class="mb-4 text-sm text-slate-700 dark:text-slate-300">
+        <p class="text-sm text-slate-700 dark:text-slate-300">
           Based, built, and coded in Austin, Texas USA.
         </p>
         <div class="flex justify-center gap-4">
@@ -100,7 +105,9 @@ const sectionThreeHours: string = "9AM - 5PM (US Central Time)";
     document.addEventListener("astro:page-load", async () => {
       const year = new Date().getFullYear();
       const element = document.getElementById("current-year");
-      element!.innerText = year.toString();
+      if (element) {
+        element.innerText = year.toString();
+      }
     });
   </script>
 </footer>

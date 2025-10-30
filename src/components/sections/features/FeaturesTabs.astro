@@ -1,7 +1,8 @@
 ---
-import TabNav from "@/components/ui/blocks/TabNav.astro";
-import TabContent from "@/components/ui/blocks/TabContent.astro";
+
 import { Icon } from "astro-icon/components";
+import TabContent from "@/components/ui/blocks/TabContent.astro";
+import TabNav from "@/components/ui/blocks/TabNav.astro";
 
 // Define props from Astro
 const { title, tabs } = Astro.props;
@@ -24,7 +25,7 @@ interface Props {
 }
 ---
 
-<section class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8 lg:py-14">
+<section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-14">
   <div class="relative p-6 md:p-16">
     <div
       class="relative z-10 lg:grid lg:grid-cols-12 lg:items-center lg:gap-16"

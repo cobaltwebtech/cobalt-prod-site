@@ -1,12 +1,39 @@
 ---
+
 export const prerender = false;
 
-// Import the necessary components
+import { actions, isInputError } from "astro:actions";
+import { Icon } from "astro-icon/components";
 import MainLayout from "@/base/MainLayout.astro";
+import { Button } from "@/components/starwind/button";
+import { Input } from "@/components/starwind/input";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/starwind/select";
+import { Textarea } from "@/components/starwind/textarea";
+import FormContactInfo from "@/components/ui/blocks/FormContactInfo.astro";
 import { siteMeta } from "@/lib/siteData";
-import SupportForm from "@/components/sections/forms/SupportForm.astro";
 
-const pageTitle: string = `Support | ${siteMeta.title}`;
+const pageTitle: string = `Support Request | ${siteMeta.title}`;
+const title: string = "Support Request";
+const subTitle: string =
+  "If you have any technical or billing support issue or question, please fill out the form below. You may also contact us via live chat, phone, or email as well. We will respond within our normal operating business hours. If you have an urgent issue, please give us a call at the support phone number below.";
+const formTitle: string = "Fill out the form below";
+const selectSupport: string = "Please select the support type you require.";
+const turnstileSiteKey = import.meta.env.TURNSTILE_PUBLIC_KEY;
+// Handle redirect on successful form submission
+const result = Astro.getActionResult(actions.sendSupportForm);
+if (result && !result.error) {
+  return Astro.redirect("/support/submission-received");
+}
+// Check for errors to display
+const errorMessage =
+  result?.error && !isInputError(result.error) ? result.error.message : null;
 ---
 
 <!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
@@ -31,5 +58,154 @@ const pageTitle: string = `Support | ${siteMeta.title}`;
   externalScript={true}
   scriptUrl="https://challenges.cloudflare.com/turnstile/v0/api.js"
 >
-  <SupportForm />
+  <section class="mx-auto max-w-5xl">
+    <div class="text-center">
+      <h1
+        class="text-2xl font-bold text-slate-800 md:text-4xl dark:text-slate-200"
+      >
+        {title}
+      </h1>
+      <p class="mt-1 text-pretty text-slate-700 dark:text-slate-300">
+        {subTitle}
+      </p>
+      <p class="mt-3 text-center text-slate-700 dark:text-slate-300">
+        If you have a general question or are a new customer needing
+        information, please use the <a
+          href="/contact/"
+          class="text-cyan-500 hover:text-orange-600 dark:text-cyan-400 dark:hover:text-orange-400"
+          >Contact Form</a
+        >.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto mt-12 grid max-w-5xl gap-4 md:grid-cols-2 md:gap-8">
+    <div class="flex flex-col gap-4">
+      <h2 class="mb-4 text-xl font-bold text-slate-700 dark:text-slate-300">
+        {formTitle}
+      </h2>
+      <!-- Support Form -->
+      <form
+        id="support-form"
+        action={actions.sendSupportForm}
+        method="POST"
+        class="flex flex-col gap-4"
+      >
+        <p class="text-slate-700 dark:text-slate-300">
+          {selectSupport}
+        </p>
+        <Select id="support-type" name="supporttype" required>
+          <SelectTrigger class="w-full">
+            <SelectValue placeholder="Select Support Type" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectItem value="Technical">Technical Support</SelectItem>
+              <SelectItem value="Billing">Billing Support</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+        <div class="flex flex-row gap-4">
+          <Input
+            id="firstname"
+            name="firstname"
+            placeholder="First Name"
+            required
+          />
+          <Input
+            id="lastname"
+            name="lastname"
+            placeholder="Last Name"
+            required
+          />
+        </div>
+        <Input
+          id="email"
+          placeholder="Email Address"
+          name="email"
+          type="email"
+          required
+        />
+        <Input
+          id="phone"
+          placeholder="Phone Number"
+          name="phone"
+          type="tel"
+          required
+        />
+        <Textarea
+          id="message"
+          placeholder="Please describe your issue here"
+          name="message"
+          required
+        />
+        <!-- Add Cloudflare Turnstile widget -->
+        <div
+          id="turnstile-widget"
+          class="cf-turnstile mt-4"
+          data-sitekey={turnstileSiteKey}
+          data-theme="dark"
+          data-size="flexible"
+        >
+        </div>
+        <p class="text-xs text-slate-600 dark:text-slate-400">
+          We're just checking that you're a real human filling out this form.
+          <br />Bad bots stay away!
+        </p>
+        <!-- Render the error message if there is an error -->
+        {
+          errorMessage && (
+            <div class="text-cobalt-50 rounded-lg border-2 border-orange-400 bg-orange-700 p-3 font-bold">
+              <div class="flex justify-center gap-2">
+                <>
+                  <Icon name="CloseFill" class="size-6 animate-bounce" />
+                  <span>{errorMessage}</span>
+                </>
+              </div>
+            </div>
+          )
+        }
+        <div class="mt-4">
+          <Button type="submit" class="w-full" id="submit-button">
+            <Icon name="Send" id="send-icon" />
+            <Icon
+              name="LoadingFill"
+              id="loader-icon"
+              class="hidden size-5 animate-spin"
+            />
+            <span id="button-text">Send Support Request</span>
+          </Button>
+        </div>
+      </form>
+    </div>
+    <!-- Second column with contact info -->
+    <FormContactInfo
+      phoneUrl="tel:+15122977600"
+      phoneNumber="+1-512-297-7600"
+      emailUrl="mailto:support@cobaltweb.tech"
+      emailAddress="support@cobaltweb.tech"
+    />
+  </section>
 </MainLayout>
+<!-- CF Turnstile import is handled by externalScript -->
+<script>
+  // Show loading state when form is submitted
+  // The form will submit to the action endpoint
+  const form = document.getElementById("support-form") as HTMLFormElement;
+  const submitButton = document.getElementById(
+    "submit-button",
+  ) as HTMLButtonElement;
+  const sendIcon = document.getElementById("send-icon") as HTMLElement;
+  const loaderIcon = document.getElementById("loader-icon") as HTMLElement;
+  const buttonText = document.getElementById("button-text") as HTMLSpanElement;
+
+  form.addEventListener("submit", () => {
+    // Show loading state
+    submitButton.disabled = true;
+    sendIcon.classList.add("hidden");
+    loaderIcon.classList.remove("hidden");
+    if (buttonText) {
+      buttonText.textContent = "Submitting Request...";
+    }
+  });
+</script>

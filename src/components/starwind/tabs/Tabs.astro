@@ -42,6 +42,7 @@ const { defaultValue, syncKey, class: className, ...rest } = Astro.props;
     private storageKey: string;
     private valueToTriggerMap: Map<string, HTMLButtonElement>;
     private valueToContentMap: Map<string, HTMLElement>;
+    // biome-ignore lint: ignore unused variable
     private parentHandler: TabsHandler | null = null;
 
     constructor(

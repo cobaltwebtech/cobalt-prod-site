@@ -7,21 +7,21 @@ import BreadcrumbSeparator from "./BreadcrumbSeparator.astro";
 import BreadcrumbPage from "./BreadcrumbPage.astro";
 
 export {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbEllipsis,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbSeparator,
-  BreadcrumbPage,
+	Breadcrumb,
+	BreadcrumbList,
+	BreadcrumbEllipsis,
+	BreadcrumbItem,
+	BreadcrumbLink,
+	BreadcrumbSeparator,
+	BreadcrumbPage,
 };
 
 export default {
-  Root: Breadcrumb,
-  List: BreadcrumbList,
-  Ellipsis: BreadcrumbEllipsis,
-  Item: BreadcrumbItem,
-  Link: BreadcrumbLink,
-  Separator: BreadcrumbSeparator,
-  Page: BreadcrumbPage,
+	Root: Breadcrumb,
+	List: BreadcrumbList,
+	Ellipsis: BreadcrumbEllipsis,
+	Item: BreadcrumbItem,
+	Link: BreadcrumbLink,
+	Separator: BreadcrumbSeparator,
+	Page: BreadcrumbPage,
 };

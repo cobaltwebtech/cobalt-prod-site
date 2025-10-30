@@ -1,5 +1,7 @@
 ---
+
 import { Icon } from "astro-icon/components";
+
 const { title, btnId, btnTitle, url } = Astro.props;
 
 interface Props {
@@ -17,9 +19,9 @@ interface Props {
     aria-label="Informational Banner"
   >
     <div
-      class="rounded-xl bg-orange-500 bg-[url(/background-images/hexagon-background.svg)] bg-right-top bg-repeat p-4 text-center shadow-sm dark:bg-orange-700"
+      class="rounded-xl bg-orange-500 bg-[url(/background-images/hexagon-background.svg)] bg-top-right bg-repeat p-4 text-center shadow-sm dark:bg-orange-700"
     >
-      <div class="flex items-center justify-center">
+      <div class="flex items-center justify-center gap-x-2">
         <div class="ml-auto">
           {
             title && (
@@ -32,7 +34,7 @@ interface Props {
             class="group bg-cobalt-700 inline-flex items-center gap-x-2 rounded-full border-2 border-slate-50 px-3 py-2 text-sm font-semibold text-slate-50 backdrop-brightness-75 transition duration-300 disabled:pointer-events-none disabled:opacity-50 sm:backdrop-brightness-100 dark:backdrop-brightness-100 dark:focus:outline-none"
             href={url}
           >
-            {btnTitle}
+            <span class="text-balance">{btnTitle}</span>
             <Icon
               name="ArrowBracketRight"
               class="size-6 shrink-0 transition duration-300 group-hover:translate-x-1"

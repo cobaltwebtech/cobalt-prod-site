@@ -1,14 +1,15 @@
 ---
+
 import "@/styles/global.css";
-import Meta from "@/base/Meta.astro";
+import { ClientRouter, fade } from "astro:transitions";
+import { join } from "node:path";
+import { AstroFont } from "astro-font";
 import Analytics from "@/base/Analytics.astro";
-import Navbar from "@/components/sections/navigation/Navbar.astro";
+import Meta from "@/base/Meta.astro";
 import Footer from "@/components/sections/navigation/Footer.astro";
+import Navbar from "@/components/sections/navigation/Navbar.astro";
 import Breakpoints from "@/components/ui/Breakpoints.astro";
 import { siteMeta } from "@/lib/siteData";
-import { ClientRouter, fade } from "astro:transitions";
-import { join } from "path";
-import { AstroFont } from "astro-font";
 
 // Setting expected props
 const {
@@ -113,6 +114,7 @@ interface Props {
     <!--Import Lenis smooth scroll script -->
     <script>
       import Lenis from "lenis";
+
       const lenis = new Lenis();
       function raf(time: number): void {
         lenis.raf(time);

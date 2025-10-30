@@ -1,7 +1,8 @@
 ---
+
 import MainLayout from "@/base/MainLayout.astro";
-import SuccessMessage from "@/components/sections/forms/SuccessMessage.astro";
 import FormContactInfo from "@/components/ui/blocks/FormContactInfo.astro";
+import SuccessMessage from "@/components/ui/blocks/FormSuccessMessage.astro";
 import { siteMeta } from "@/lib/siteData";
 
 const pageTitle: string = `Submission Received | ${siteMeta.title}`;
@@ -9,7 +10,7 @@ const pageTitle: string = `Submission Received | ${siteMeta.title}`;
 
 <!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
 <MainLayout title={pageTitle}>
-  <section class="mx-auto max-w-screen-lg">
+  <section class="mx-auto max-w-5xl">
     <div class="grid gap-6 lg:grid-cols-2 lg:gap-12">
       <SuccessMessage
         phoneUrl="tel:+15122941600"
@@ -32,6 +33,7 @@ const pageTitle: string = `Submission Received | ${siteMeta.title}`;
 <!-- GSAP animations -->
 <script>
   import { gsap } from "gsap";
+
   // First, set the willChange property for performance
   gsap.set([".fadeText", "#fadeInMoveDown", "#contactInfoWrapper"], {
     willChange: "transform, opacity",

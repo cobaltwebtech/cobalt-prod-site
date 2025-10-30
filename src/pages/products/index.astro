@@ -1,13 +1,12 @@
 ---
+
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import MainLayout from "@/base/MainLayout.astro";
+import FeaturesStatsAlt from "@/components/sections/features/FeaturesStatsAlt.astro";
 import MainSection from "@/components/ui/blocks/MainSection.astro";
 import CardSmall from "@/components/ui/cards/CardSmall.astro";
 import CardWide from "@/components/ui/cards/CardWide.astro";
-import FeaturesStatsAlt from "@/components/sections/features/FeaturesStatsAlt.astro";
-
-// Importing necessary functions from Astro
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
 import { siteMeta } from "@/lib/siteData";
 
 // Fetching all the product related content and sorting it by main.id

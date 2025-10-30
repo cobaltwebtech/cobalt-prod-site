@@ -1,12 +1,14 @@
 ---
-import { Icon } from "astro-icon/components";
+
 import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
 import { tv } from "tailwind-variants";
 
 type Props = Omit<HTMLAttributes<"button">, "role" | "type"> & {
   /**
    * The content to be rendered inside the select trigger
    */
+  // biome-ignore lint: allow-suspicious-any
   children: any;
   /**
    * Whether the select field is required in a form context

@@ -1,22 +1,21 @@
 ---
-// Import components
 import MainLayout from "@/base/MainLayout.astro";
-import HeroSection from "@/components/sections/landing/HeroSection.astro";
-import EndPageCTA from "@/components/sections/landing/EndPageCTA.astro";
-import ClientsSection from "@/components/sections/landing/ClientsSection.astro";
+import FAQ from "@/components/sections/features/FAQ.astro";
 import FeaturesGeneral from "@/components/sections/features/FeaturesGeneral.astro";
 import FeaturesTabs from "@/components/sections/features/FeaturesTabs.astro";
-import HomePageStats from "@/components/sections/landing/HomePageStats.astro";
 import PricingSection from "@/components/sections/features/PricingSection.astro";
-import FAQ from "@/components/sections/features/FAQ.astro";
-import AnnouncementBanner from "@/components/ui/banners/AnnouncementBanner.astro";
+import ClientsSection from "@/components/sections/landing/ClientsSection.astro";
+import EndPageCTA from "@/components/sections/landing/EndPageCTA.astro";
+import HeroSection from "@/components/sections/landing/HeroSection.astro";
+import HomePageStats from "@/components/sections/landing/HomePageStats.astro";
+import AnnouncementBanner from "@/components/ui/blocks/AnnouncementBanner.astro";
 // Import data files
 import faqs from "@/section-data/faqs.json";
 import featuresGeneral from "@/section-data/featuresGeneral.json";
 import pricing from "@/section-data/pricing.json";
+
 // Image paths at Cloudinary
-const heroImage = "cobalt-web-assets/hero-phone-laptop.avif";
-const featureImage = "cobalt-web-assets/laptop-office-desk.avif";
+const featureImage = "cobalt-web-assets/highlight-ecommerce-stripe.avif";
 const ecommerce = "cobalt-web-assets/online-shopping-phone.avif";
 const laptop = "cobalt-web-assets/laptop-dark-tall.avif";
 const globe = "cobalt-web-assets/global-network-tall.avif";
@@ -35,27 +34,26 @@ const globe = "cobalt-web-assets/global-network-tall.avif";
 >
   <AnnouncementBanner
     btnId="dismiss-button"
-    btnTitle="Is your website slow and janky?"
+    btnTitle="Stop Losing Customers to a Slow Website"
     url="/services/a-new-website-experience/"
   />
 
   <HeroSection
-    title="Unleash Your Online Presence"
+    title="Transform Your Digital Presence"
     typingTitles={[
-      "Elevate Your Website Today",
-      "Blazingly Fast Performance",
-      "Modern Web Solutions",
-      "Amazing User Experiences",
+      "Lightning-Fast Performance",
+      "Secure Cloud Infrastructure",
+      "Engaging Modern Design",
+      "Scalable Solutions That Grow",
     ]}
-    description="Excellent design built with performance and security."
+    description="Modern websites engineered for speed, security, and performance."
     paragraph1="Are you looking to supercharge your current website or build a brand new one from the ground up? From e-commerce to a simple blog to large-scale asset delivery web application we can create whatever you need."
     paragraph2="Let us build you an amazing web experience for you and your customers."
     primaryBtn="View Our Services"
     primaryBtnURL="/services/"
     secondaryBtn="Contact Us"
     secondaryBtnURL="/contact/"
-    source={heroImage}
-    alt="Cobalt Web Technologies laptop graphic"
+    heroSvg="Hero-Section-Graphic"
   />
 
   <ClientsSection
@@ -74,7 +72,7 @@ const globe = "cobalt-web-assets/global-network-tall.avif";
   />
 
   <FeaturesTabs
-    title=`Performant & Secure Websites`
+    title="Performant & Secure Websites"
     tabs={[
       {
         heading: "Ecommerce Solutions",

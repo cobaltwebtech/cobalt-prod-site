@@ -1,7 +1,8 @@
 ---
-import Logo from "@/components/ui/Logo.astro";
-import { Button } from "@/components/starwind/button";
+
 import { Icon } from "astro-icon/components";
+import { Button } from "@/components/starwind/button";
+import Logo from "@/components/ui/Logo.astro";
 import menuItems from "@/lib/navigation";
 
 // Destructure the properties from Astro.props and get the current URL from Astro.url.pathname
@@ -18,18 +19,20 @@ const currentPath = Astro.url.pathname;
     aria-label="Navigation"
   >
     <!-- Brand logo -->
-    <div class="col-span-4 lg:col-span-8">
+    <div class="col-span-4 sm:py-2 lg:col-span-8">
       <a
         href="/"
         aria-label="Cobalt Web Technologies Logo"
-        class="flex items-center sm:py-2"
+        class="flex items-center gap-2"
       >
-        <Logo class="size-[80px] lg:size-[100px]" />
-        <div
-          class="mx-2 text-lg leading-tight font-bold text-wrap text-slate-200 sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl"
+        <Logo class="size-20 lg:size-[100px]" />
+        <Icon
+          name="Cobalt-Company-Name"
+          class="w-auto h-14 lg:h-16 mt-1 text-cobalt-50"
+        />
+        <span class="sr-only" aria-label="Website company name"
+          >Cobalt Web Technologies</span
         >
-          Cobalt Web Technologies
-        </div>
       </a>
     </div>
     <!-- Container for buttons on Theme Toggle, and Mobile menu -->
@@ -120,8 +123,9 @@ const currentPath = Astro.url.pathname;
   };
 
   const handleThemeToggle = () => {
-    const currentTheme = localStorage.getItem("theme") || "light";
-    const newTheme = currentTheme === "light" ? "dark" : "light";
+    // Get current theme from DOM (source of truth)
+    const isDark = document.documentElement.classList.contains("dark");
+    const newTheme = isDark ? "light" : "dark";
 
     // Update localStorage
     localStorage.setItem("theme", newTheme);

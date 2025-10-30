@@ -1,9 +1,10 @@
 ---
+
 export const prerender = false;
 
+import { Icon } from "astro-icon/components";
 import MainLayout from "@/base/MainLayout.astro";
 import { Button } from "@/components/starwind/button";
-import { Icon } from "astro-icon/components";
 import { siteMeta } from "@/lib/siteData";
 
 const pageTitle: string = `Page Not Found | ${siteMeta.title}`;
@@ -16,26 +17,26 @@ const content: string =
 ---
 
 <MainLayout title={pageTitle}>
-  <section class="flex min-h-[60svh] w-full items-center justify-center">
-    <div
-      class="mx-auto max-w-screen-sm space-y-8 text-center text-slate-800 dark:text-slate-200"
+  <section
+    class="mx-auto max-w-screen-sm space-y-8 text-center text-slate-800 dark:text-slate-200"
+  >
+    <h1
+      class="text-7xl font-extrabold text-orange-700 lg:text-9xl dark:text-yellow-500"
     >
-      <h1
-        class="text-7xl font-extrabold text-orange-700 lg:text-9xl dark:text-yellow-500"
-      >
-        {title}
-      </h1>
-      <p class="text-3xl font-bold md:text-4xl">
-        {subTitle}
-      </p>
-
-      <p class="text-lg">
-        {content}
-      </p>
-      <!--Display a button that navigates user back to the home page-->
-      <Button variant="secondary" size="lg" title="Home Button" href="/"
-        ><Icon name="House" />Go Home</Button
-      >
-    </div>
+      404
+    </h1>
+    <h2 class="text-4xl font-extrabold text-orange-700 lg:text-5xl dark:text-yellow-500">
+      Page Not Found
+    </h2>
+    <p class="text-3xl font-bold md:text-4xl">
+      Oh crap, 4 oh WTF?!
+    </p>
+    <p class="text-lg">
+      That page does not exist, but that's okay. You can go back to the home page.
+    </p>
+    <!--Display a button that navigates user back to the home page-->
+    <Button variant="secondary" size="lg" title="Home Button" href="/"
+      ><Icon name="House" />Go Home</Button
+    >
   </section>
 </MainLayout>

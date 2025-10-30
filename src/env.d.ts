@@ -4,7 +4,7 @@
 
 // Global declaration for gsap animation library
 declare global {
-  interface Window {
-    gsap: typeof import("gsap");
-  }
+	interface Window {
+		gsap: typeof import("gsap");
+	}
 }

@@ -6,7 +6,7 @@ import { Button } from "@/components/starwind/button";
 const { pricing } = Astro.props;
 ---
 
-<section class="mx-auto max-w-screen-lg py-8">
+<section class="mx-auto max-w-5xl py-8">
   <!-- Section heading and sub-heading -->
   <div class="mb-10 text-center lg:mb-14">
     <h2
@@ -67,7 +67,7 @@ const { pricing } = Astro.props;
     </div>
     <!-- Pro Plan product details -->
     <div
-      class="rounded-xl bg-gradient-to-tr from-orange-700 to-orange-500 p-6 shadow-xl sm:p-8 md:basis-3/5"
+      class="rounded-xl bg-linear-to-tr from-orange-700 to-orange-500 p-6 shadow-xl sm:p-8 md:basis-3/5"
     >
       <div
         class="mb-4 flex flex-col items-start justify-between gap-4 lg:flex-row"
@@ -83,7 +83,7 @@ const { pricing } = Astro.props;
         </div>
 
         <span
-          class="order-first inline-block rounded-full bg-slate-100 px-3 py-1 text-center text-xs font-bold tracking-wider text-orange-600 uppercase lg:order-none"
+          class="order-first inline-block rounded-full bg-slate-100 px-3 py-1 text-center text-xs font-bold tracking-wider text-orange-600 uppercase lg:order-0"
           >{pricing.badge}</span
         >
       </div>
