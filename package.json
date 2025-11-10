@@ -46,6 +46,6 @@
     "@types/cloudflare-turnstile": "^0.2.2",
     "rimraf": "^6.0.1",
     "typescript": "^5.9.3",
-    "wrangler": "^4.45.2"
+    "wrangler": "^4.46.0"
   }
 }
