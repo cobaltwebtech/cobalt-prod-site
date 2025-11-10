@@ -36,9 +36,6 @@ Check us out [https://www.cobaltweb.tech/](https://www.cobaltweb.tech/?utm_sourc
 - [x] **Starwind UI**:
   - Added the Starwind UI which bring reusuable components built specifically for Astro projects. Like Shadcn, but purely Astro components and JavaScript. Styled with Tailwind CSS v4. Open Source.
 
-- [x] **Tailwind v4**:
-  - Tailwind has been upgraded to version 4 with new enhancements and configurations. Version 4 brings easier to configure custom theming and utilities in the global.css file.
-
 - [x] **Astro Icon Integration**:
   - Astro Icon is ready to use, with zero additional configuration. The included Icon component allows easy method to inline svgs directly into the Astro project.
   - Icons can be imported and referenced from third party libraries by setting the name attribute in the Icon component.
@@ -49,12 +46,17 @@ Check us out [https://www.cobaltweb.tech/](https://www.cobaltweb.tech/?utm_sourc
   - Astro supports view transitions with just a few lines of code. View transitions update the page content without the browser’s normal, full-page navigation refresh and provide seamless animations between pages.
   - View Transitions can be customized with various animation effects and linking of assets to create a seamless transition effect while browsing the site.
 
+- [x] **Migrate to Biome**:
+  - We have migrated from ESLint and Prettier to [Biome](https://biomejs.dev/). Biome is a fast formatter for JavaScript, TypeScript, JSX, TSX, JSON, HTML, CSS and GraphQL that scores 97% compatibility with Prettier, saving CI and developer time.
+  - Biome has been updated to support Astro and TailwindCSS.
+
 ## Project Structure
 
 Cobalt organizes modular components, content, and layouts to streamline development and content management.
 
 ```md
 src/
+├── actions/ # Directory for Astro Actions backend server functions
 ├── components/ # Reusable components
 │ ├── sections/ # Components for various sections of the website
 │ ├── starwind/ # Starwind UI reusable components (buttons, input, tabs, etc.)
@@ -72,14 +74,13 @@ src/
 ├── pages/ # Astro files for the page-based routes
 │ ├── 404.astro # 404 error page
 │ ├── about.astro # About us page
-│ ├── api/ # API endpoints are placed here
 │ ├── contact/ # General contact page with webform
 │ ├── index.astro # The landing/home page
 │ ├── products/ # Product page contains ..slug.astro for rendering each product page dynamically
 │ ├── services/ # Services page contains ..slug.astro for rendering each service page dynamically
 │ ├── support/ # Support contact page with webform
 │ └── manifest.json.ts # Web manifest rendered in json after build
-└── styles/ # CSS style sheets contains Tailwind config in global.css
+└── styles/ # CSS stylesheets (Tailwind config in global.css)
 ```
 
 ## Integrations and Enhancements
@@ -108,7 +109,7 @@ For individual product pages, [GSAP](https://gsap.com/) has been integrated to a
 
 ### Resend Integration
 
-Send form data securely using [Resend](https://resend.com/). The Resend API route can be customized to set up any template to email any or all of the form data captured. This is set up as a transactional email service for notification of form submission.
+Send form data securely using [Resend](https://resend.com/). We use [Astro Actions](https://docs.astro.build/en/guides/actions/) backend server functions to handle form submissions. This is more effecient and secure than using a traditional API endpoint to handle the form data and server functions. This is set up as a transactional email service for notification of form submission.
 
 ### SEO Configuration
 
@@ -131,10 +132,6 @@ Our website's efficiency is maximized with these built-in Astro integrations:
 ### Tailwind CSS
 
 Styling across our project leverages the utility-first classes offered by [Tailwind CSS](https://tailwindcss.com). This methodology allows us to create custom layouts and components with speed and efficiency.
-
-- **Now upgraded to Tailwind version 4!**
-
-To ensure consistent code formatting, particularly for class sorting, we have integrated the `prettier-plugin-tailwindcss` [plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss).
 
 ### Deployment and Security
 

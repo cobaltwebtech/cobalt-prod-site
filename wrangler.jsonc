@@ -3,6 +3,7 @@
   "main": "./dist/_worker.js/index.js",
   "compatibility_date": "2025-10-20",
   "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
   "observability": {
     "enabled": true
   },
@@ -15,7 +16,6 @@
     "binding": "ASSETS",
     "directory": "./dist"
   },
-  "preview_urls": true,
   "vars": {
     "PUBLIC_CLOUDINARY_CLOUD_NAME": "cobalt",
     "TURNSTILE_PUBLIC_KEY": "0x4AAAAAAAAtFFFWPGStA0h_",

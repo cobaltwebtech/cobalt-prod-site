@@ -1,12 +1,12 @@
 {
 	// Enable pasting files into a Markdown editor to create Markdown links.
-	"markdown.editor.filePaste.enabled": true,
+	"markdown.editor.filePaste.enabled": "always",
 
 	// Copy pasted media files into a Markdown editor to the workspace.
 	"markdown.editor.filePaste.copyIntoWorkspace": "mediaFiles",
 
 	// Enable dropping files into a Markdown editor to create Markdown links.
-	"markdown.editor.drop.enabled": true,
+	"markdown.editor.drop.enabled": "always",
 
 	// Copy dropped media files into a Markdown editor to the workspace.
 	"markdown.editor.drop.copyIntoWorkspace": "mediaFiles",
