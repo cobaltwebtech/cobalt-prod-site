@@ -26,11 +26,13 @@ const subTitle: string =
 const formTitle: string = "Fill out the form below";
 const selectSupport: string = "Please select the support type you require.";
 const turnstileSiteKey = import.meta.env.TURNSTILE_PUBLIC_KEY;
+
 // Handle redirect on successful form submission
 const result = Astro.getActionResult(actions.sendSupportForm);
 if (result && !result.error) {
-  Astro.redirect("/support/submission-received");
+  return Astro.redirect("/support/submission-received");
 }
+
 // Check for errors to display
 let errorMessage: string | null = null;
 if (result?.error) {
