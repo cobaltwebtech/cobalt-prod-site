@@ -1,5 +1,4 @@
 ---
-
 import { openGraph, seoMeta, siteMeta } from "@/lib/siteData";
 
 // Icons
@@ -40,6 +39,7 @@ const socialImage = `${baseUrl}opengraph/cobalt-opengraph.webp`; // Absolute URL
     />
   )
 }
+
 <!-- Define the character set, description, author, and viewport settings -->
 <meta charset="utf-8" />
 <meta content={meta} name="description" />
@@ -48,8 +48,6 @@ const socialImage = `${baseUrl}opengraph/cobalt-opengraph.webp`; // Absolute URL
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <meta name="mobile-web-app-capable" content="yes" />
 <link rel="canonical" href={canonical} />
-<link rel="preconnect" href="https://res.cloudinary.com/" />
-<!-- Preconnect to Cloudinary for image optimization -->
 
 <!-- Open Graph Tags -->
 <meta property="og:locale" content="en_US" />

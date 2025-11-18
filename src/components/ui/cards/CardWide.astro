@@ -1,8 +1,7 @@
 ---
-// Import necessary modules and utilities
+import type { CollectionEntry } from "astro:content";
 import { CldImage } from "astro-cloudinary";
 import { Icon } from "astro-icon/components";
-import type { CollectionEntry } from "astro:content";
 
 const { product } = Astro.props;
 
@@ -22,14 +21,14 @@ interface Props {
     src={product.data.main.imgCard}
     alt={product.data.main.imgAlt}
     draggable="false"
-    class="absolute inset-0 !h-full w-full transition duration-300 ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110"
+    class="absolute inset-0 h-full! w-full transition duration-300 ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110"
     format="avif"
     width={1920}
     height={1280}
   />
   <!-- This container includes a gradient overlay over the product's image -->
   <div
-    class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-800 via-transparent to-transparent opacity-50"
+    class="pointer-events-none absolute inset-0 bg-linear-to-t from-slate-800 via-transparent to-transparent opacity-50"
   >
   </div>
   <!-- This container includes product's title -->

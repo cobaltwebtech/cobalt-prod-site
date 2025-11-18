@@ -1,5 +1,4 @@
 ---
-
 export const prerender = false;
 
 import { Icon } from "astro-icon/components";
@@ -8,12 +7,6 @@ import { Button } from "@/components/starwind/button";
 import { siteMeta } from "@/lib/siteData";
 
 const pageTitle: string = `Page Not Found | ${siteMeta.title}`;
-
-// Define variables for page content
-const title: string = "404";
-const subTitle: string = "Oh crap, 4 oh WTF?!";
-const content: string =
-  "That page does not exist, but that's okay. You can go back to the home page.";
 ---
 
 <MainLayout title={pageTitle}>

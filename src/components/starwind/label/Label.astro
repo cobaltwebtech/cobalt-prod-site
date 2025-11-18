@@ -1,4 +1,5 @@
 ---
+
 import type { HTMLAttributes } from "astro/types";
 import { tv, type VariantProps } from "tailwind-variants";
 
@@ -16,7 +17,6 @@ const label = tv({
 const { size, class: className, ...rest } = Astro.props;
 ---
 
-{/* eslint-disable-next-line astro/jsx-a11y/label-has-associated-control */}
 <label class={label({ size, class: className })} {...rest}>
   <slot />
 </label>

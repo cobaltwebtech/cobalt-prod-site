@@ -1,17 +1,15 @@
 ---
+
 // Only render analytics in production
 const isProduction = import.meta.env.MODE === "production";
 const umamiId = import.meta.env.UMAMI_ID;
-
-// Don't render anything in development or if no ID is provided
-if (!isProduction || !umamiId) {
-  return;
-}
 ---
 
 <!-- Umami Analytics script tag -->
-<script
-  is:inline
-  defer
-  src="https://umami.cobaltweb.tech/script.js"
-  data-website-id={umamiId}></script>
+{isProduction && umamiId && (
+  <script
+    is:inline
+    defer
+    src="https://umami.cobaltweb.tech/script.js"
+    data-website-id={umamiId}></script>
+)}

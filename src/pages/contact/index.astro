@@ -20,7 +20,7 @@ const turnstileSiteKey = import.meta.env.TURNSTILE_PUBLIC_KEY;
 // Handle redirect on successful form submission
 const result = Astro.getActionResult(actions.sendContactForm);
 if (result && !result.error) {
-  return Astro.redirect("/contact/submission-received");
+  Astro.redirect("/contact/submission-received");
 }
 // Check for errors to display
 let errorMessage: string | null = null;
@@ -68,6 +68,8 @@ if (result?.error) {
     },
     inLanguage: "en-US",
   }}
+  enablePreconnect={true}
+  preconnectUrl="https://challenges.cloudflare.com"
   externalScript={true}
   scriptUrl="https://challenges.cloudflare.com/turnstile/v0/api.js"
 >

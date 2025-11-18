@@ -1,4 +1,5 @@
 ---
+
 import type { HTMLAttributes } from "astro/types";
 import { tv } from "tailwind-variants";
 
@@ -89,6 +90,7 @@ const { defaultValue, syncKey, class: className, ...rest } = Astro.props;
       }
     }
 
+    // biome-ignore-start lint/correctness/noUnusedPrivateClassMembers: false positive thrown here by the linter
     private initializeTab(): void {
       const value = this.syncKey
         ? (localStorage.getItem(this.storageKey) ??
@@ -259,6 +261,8 @@ const { defaultValue, syncKey, class: className, ...rest } = Astro.props;
         c.setAttribute("data-state", isActive ? "active" : "inactive");
         c.hidden = !isActive;
       });
+
+      // biome-ignore-end lint/correctness/noUnusedPrivateClassMembers: false positive thrown here by the linter
 
       // Initialize any nested tabs in the active content
       if (
