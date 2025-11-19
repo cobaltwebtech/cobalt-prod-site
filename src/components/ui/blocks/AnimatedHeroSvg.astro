@@ -241,25 +241,18 @@ const { class: className } = Astro.props;
       animationTimeline = null;
     }
 
-    // Set willChange for performance
+    // Set willChange only for elements with continuous animations
     gsap.set(
       [
-        "#tablet-screen",
-        "#mobile-device",
-        "#content-panel",
-        "#selection-box",
         "#tablet-sun-icon",
         "#heart",
         "#gear",
         "#cloud",
         "#lightbulb",
         "#thumb",
-        "#small-computer",
-        "#code-panel",
-        "#circle-indicator",
         "#code-symbols",
-        "#code-symbols path",
         "#cursor",
+        "#selection-box",
       ],
       {
         willChange: "transform, opacity",
