@@ -1,0 +1,606 @@
+---
+// Animated Hero Graphic Component
+// Uses GSAP to animate SVG elements with staggered entrance animations
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={["mx-auto max-w-[400px] lg:max-w-full", className]}>
+  <svg
+    id="hero-graphic"
+    data-name="Layer 1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 300 336.01"
+    class="w-full h-auto"
+  >
+    <!-- Green code symbols -->
+    <g id="code-symbols">
+      <path
+        d="m229.5 291.43 1.68 3.62-7.89.05 7.89 9.08-1.74 1.73-9.47-11.36v-2.72l9.53-.41Zm6.76 3.9 9.51 11.37v2.75l-9.47.42-1.74-3.62 7.9-.08-7.9-9.06zm-16.4 13.81 1.68 3.62-7.89.05 7.89 9.08-1.74 1.73-9.47-11.36v-2.72l9.53-.41Zm7.07 21.7-3-3.11 10.23-15.31 2.98 3.09zm14.28-9.37 9.51 11.37v2.75l-9.47.42-1.74-3.62 7.9-.08-7.9-9.06z"
+        fill="#0ce597"></path>
+    </g>
+
+    <!-- Tablet screen -->
+    <g id="tablet-screen">
+      <path
+        d="m240.78 144.55-.35 123.12c0 1.67-.6 2.85-1.55 3.4l10.54-6.13c.95-.55 1.55-1.73 1.55-3.4l.35-123.12z"
+        fill="#f27c55"></path>
+      <path
+        d="M246.03 129.26 53.3 17.99c-1.47-.85-2.81-.92-3.77-.36l-10.54 6.13c.97-.56 2.3-.49 3.77.36l192.73 111.27c2.92 1.68 5.3 5.8 5.29 9.16l10.54-6.13c.01-3.35-2.37-7.47-5.29-9.16"
+        fill="#d1e9f2"></path>
+      <path
+        d="M235.49 135.39c2.92 1.68 5.3 5.8 5.29 9.16l-.35 123.12c-.01 3.36-2.4 4.72-5.32 3.04L42.38 159.43c-2.92-1.69-5.3-5.81-5.29-9.17l.35-123.12c0-3.35 2.41-4.72 5.33-3.03z"
+        fill="#2043a1"></path>
+      <path
+        d="M235.47 260.93c0 3.31-2.35 4.67-5.22 3.01L45.78 157.44c-2.87-1.66-5.22-5.73-5.22-9.04V32.65c0-3.31 2.35-4.67 5.22-3.01l184.47 106.5c2.87 1.66 5.22 5.73 5.22 9.04z"
+        fill="#e3f6ff"></path>
+      <path
+        d="m129.68 205.69-89.12-51.45v-13.58l47.55-8.39c5.26-.93 12.36 4.9 15.78 12.93l12.46 29.22z"
+        fill="#32a2ed"></path>
+      <path
+        d="M161.96 219.18v5.15l-76.89-44.39 31.27-5.52 15.13-2.68c5.26-.93 12.35 4.89 15.78 12.93z"
+        fill="#32a2ed"></path>
+      <path fill="#f27c55" d="m48.22 49.97 68.69 39.66v-6.7L48.22 43.27z"
+      ></path>
+      <path
+        d="M151.73 107.32c0 2.36 2.11 5.51 4.68 7l52.25 30.17c2.58 1.49 4.68.77 4.68-1.59s-2.11-5.51-4.68-7l-52.25-30.17c-2.58-1.49-4.68-.77-4.68 1.59"
+        fill="#32a2ed"></path>
+      <path fill="#f27c55" d="m48.22 54.42 44.25 25.55v-1.58L48.22 52.84z"
+      ></path>
+    </g>
+
+    <!-- Tablet screen sun icon -->
+    <g id="tablet-sun-icon">
+      <path
+        d="M128.1 145.89c0 4.05-2.84 5.69-6.35 3.67s-6.35-6.95-6.35-11 2.84-5.69 6.35-3.67 6.35 6.95 6.35 11"
+        fill="#ffd230"></path>
+    </g>
+
+    <!-- Small circle indicator -->
+    <g id="circle-indicator">
+      <path
+        d="M222.84 152.15a9.1 9.1 0 0 1-4.11-7.12c0-2.62 1.84-3.68 4.11-2.37s4.11 4.5 4.11 7.12-1.84 3.68-4.11 2.37m0-8.29c-1.69-.98-3.07-.18-3.07 1.77a6.8 6.8 0 0 0 3.07 5.31c1.69.98 3.07.18 3.07-1.77a6.8 6.8 0 0 0-3.07-5.31"
+        fill="#2043a1"></path>
+      <path
+        d="M228.13 157.76a1 1 0 0 1-.37-.39l-3.02-5.24c-.2-.35-.2-.73 0-.85s.53.07.74.43l3.02 5.24c.2.35.2.73 0 .85q-.16.08-.37-.04"
+        fill="#2043a1"></path>
+    </g>
+
+    <!-- Pink heart -->
+    <g id="heart">
+      <path
+        d="M26.96 11.19c-2.94-1.7-5.33-1.82-5.33 2.04 0-3.86-2.39-6.49-5.33-8.19s-5.33.05-5.33 3.92c0 5.82 7.77 19.18 10.66 20.85s10.66-3.06 10.66-8.54c0-3.86-2.39-8.37-5.33-10.07Z"
+        fill="#f2559c"></path>
+    </g>
+
+    <!-- Small computer icon (top right) -->
+    <g id="small-computer">
+      <path
+        d="M298.01 183.07c0 1.11-.79 1.57-1.75 1.01l-20.48-11.82a3.9 3.9 0 0 1-1.76-3.04V156.3c0-1.12.79-1.57 1.76-1.01l20.48 11.82a3.9 3.9 0 0 1 1.75 3.04z"
+        fill="#e3f6ff"></path>
+      <path
+        d="M299.81 191.51c.39.93.16 1.38-.5 1l-26.6-15.36c-.66-.38-.88-1.09-.5-1.58l1.7-1.68c.37-.38 1.19-.39 1.82-.02l20.56 11.87a5.5 5.5 0 0 1 1.82 2.13z"
+        fill="#32a2ed"></path>
+    </g>
+
+    <!-- Mobile device -->
+    <g id="mobile-device">
+      <path
+        d="m67.21 88.88-.36 125.15c0 1.69-.61 2.89-1.58 3.45l6.96-4.05c.97-.56 1.57-1.76 1.58-3.45l.35-125.15-6.96 4.05Z"
+        fill="#f27c55"></path>
+      <path
+        d="M68.8 75.53 12.73 43.15c-1.49-.86-2.85-.94-3.83-.37l-6.96 4.05c.98-.57 2.34-.49 3.83.37l56.07 32.37c2.97 1.71 5.38 5.9 5.37 9.31l6.96-4.05c.01-3.41-2.41-7.6-5.37-9.31Z"
+        fill="#d1e9f2"></path>
+      <path
+        d="M61.84 79.58c2.97 1.71 5.38 5.9 5.37 9.31l-.36 125.15c0 3.41-2.44 4.79-5.41 3.08L5.37 184.74c-2.96-1.71-5.37-5.9-5.37-9.31L.36 50.28c0-3.41 2.44-4.79 5.41-3.08l56.07 32.37Z"
+        fill="#2043a1"></path>
+      <path
+        d="M63.32 207.46c0 3.32-2.35 4.67-5.22 3.01L9.02 182.14c-2.87-1.66-5.22-5.73-5.22-9.04V57.35c0-3.31 2.35-4.67 5.22-3.01L58.1 82.67c2.87 1.66 5.22 5.73 5.22 9.04z"
+        fill="#d1e9f2"></path>
+      <path
+        d="M45.04 167.58c0 2.54-1.8 3.58-4 2.31l-14.96-8.63a8.9 8.9 0 0 1-4-6.93v-1.69c0-2.54 1.8-3.58 4-2.31l14.95 8.63c2.2 1.27 4 4.39 4 6.93z"
+        fill="#32a2ed"></path>
+      <path
+        d="M56.18 123.09c0 2.45-2.35 3.09-5.22 1.43l-34.8-20.09c-2.87-1.66-5.22-5.02-5.22-7.46s2.35-3.09 5.22-1.43l34.8 20.09c2.87 1.66 5.22 5.02 5.22 7.46"
+        fill="#fff"></path>
+      <path
+        d="m50.96 124.83-34.8-20.09c-3.02-1.74-5.48-5.29-5.48-7.91s2.46-3.33 5.48-1.58l34.8 20.09c3.02 1.75 5.48 5.29 5.48 7.91s-2.46 3.33-5.48 1.58m-34.8-28.99c-2.73-1.58-4.96-1-4.96 1.28s2.23 5.43 4.96 7.01l34.8 20.09c2.73 1.58 4.96 1 4.96-1.28s-2.23-5.43-4.96-7.01z"
+        fill="#adcdd9"></path>
+      <path
+        d="M56.18 151.53c0 2.44-2.35 3.09-5.22 1.43l-34.8-20.09c-2.87-1.66-5.22-5.01-5.22-7.46s2.35-3.09 5.22-1.43l34.8 20.09c2.87 1.66 5.22 5.01 5.22 7.46"
+        fill="#fff"></path>
+      <path
+        d="m50.96 153.26-34.8-20.09c-3.02-1.75-5.48-5.3-5.48-7.91s2.46-3.33 5.48-1.58l34.8 20.09c3.02 1.75 5.48 5.29 5.48 7.91s-2.46 3.33-5.48 1.58m-34.8-28.98c-2.73-1.58-4.96-1-4.96 1.28s2.22 5.43 4.96 7.01l34.8 20.09c2.74 1.58 4.96 1 4.96-1.28s-2.23-5.43-4.96-7.01z"
+        fill="#adcdd9"></path>
+      <path
+        d="M43.39 105.98c0 .92-.94 1.12-2.09.46l-15.47-8.93c-1.15-.66-2.09-1.95-2.09-2.87s.94-1.12 2.09-.46l15.47 8.93c1.15.66 2.09 1.96 2.09 2.87m0 29.27c0 .92-.94 1.12-2.09.46l-15.48-8.93c-1.15-.66-2.09-1.96-2.09-2.87s.94-1.13 2.09-.46l15.47 8.93c1.15.66 2.09 1.96 2.09 2.87Z"
+        fill="#f27c55"></path>
+      <path
+        d="m32.35 191.57-17.19-9.92v-2.92l17.19 9.93zm19.62 11.33-17.2-9.93v-2.92l17.2 9.93z"
+        fill="#adcdd9"></path>
+      <path
+        d="M21.63 61.03v3.15c0 1.73 1.39 3.95 3.09 4.93L42.4 79.32c1.7.98 3.09.37 3.09-1.36v-3.15z"
+        fill="#2043a1"></path>
+    </g>
+
+    <!-- Lightbulb (top) -->
+    <g id="lightbulb">
+      <path
+        d="M204.54 77.18s-.35-4.52 2.1-7.55c4.26-5.27 4.63-6.76 4.63-14.06 0-9.69-6.8-19.81-15.19-24.66-8.39-4.84-15.19-2.57-15.19 7.11 0 7.3.37 9.22 4.63 19.41 2.45 5.85 2.1 9.97 2.1 9.97l16.93 9.77Z"
+        fill="#ffd230"></path>
+      <path
+        d="M187.62 67.41v8.26c0 2.22 5.08 11.83 8.46 13.78s8.46-1.79 8.46-4.01v-8.27zm8.46 22.04"
+        fill="#32a2ed"></path>
+      <path
+        d="M195.04 71.74c-.13-3.49-.98-13.36-3.29-17.09-.41-.67-.73-.88-.94-.98a2.3 2.3 0 0 1-1.11-1.77c-.04-.69.4-1.01.97-.72.88.45 1.74 1.3 2.47 2.48 1.21 1.95 2.06 4.77 2.65 7.66q.8-4.04 2.45-4.76c.8-.35 1.78-.13 2.81.62.57.42.98 1.25.9 1.87s-.6.78-1.17.37q-.66-.48-1.16-.25c-.75.33-2.49 2.32-2.49 13.72z"
+        fill="#32a2ed"></path>
+    </g>
+
+    <!-- Cloud -->
+    <g id="cloud">
+      <path
+        d="M151.75 39.81c0 1.71-.45 3.05-1.21 3.94l-24.67-14.24a9 9 0 0 1-1.59-4.75c0-2.71 1.9-3.81 4.25-2.45q.21.12.43.27v-.03c0-5.18 3.64-7.28 8.12-4.69 3.14 1.81 5.86 5.43 7.21 9.22l.17.09c4.03 2.33 7.29 7.98 7.29 12.63Z"
+        fill="#a6deff"></path>
+    </g>
+
+    <!-- Thumbs up -->
+    <g id="thumb">
+      <path
+        d="M87.82 25.69c-.3.53-2.14.04-3.01-.47s-3.73-2.22-8.78-5.19S69.57 8.29 70.31 4.1s6.18 2.66 9.66 4.7c0 0-1.7-6.17-.72-8.36.53-1.18 3.5.15 3.65 2.25.16 2.1.73 6.76 3.85 10 1.21 1.92 2.22 10.94 1.07 12.99Z"
+        fill="#32a2ed"></path>
+      <path
+        d="M90.47 27.35c0 .99-.72 1.39-1.58.88l-1.04-.61a3.5 3.5 0 0 1-1.55-2.72l.1-12.2c0-.99.72-1.38 1.58-.88l1.04.61a3.5 3.5 0 0 1 1.55 2.72z"
+        fill="#2043a1"></path>
+    </g>
+
+    <!-- Document/Code panel -->
+    <g id="code-panel">
+      <path fill="#32a2ed" d="m289.58 274.64-24.89-14.37v-16.3l24.89 14.37z"
+      ></path>
+      <path fill="#e3f6ff" d="m289.58 255.31-24.89-14.36v3.02l24.89 14.37z"
+      ></path>
+      <path
+        d="M268.3 259.95q-.31-.18-.55-.59c-.31-.53-.31-1.1 0-1.28l3.73-2.15-3.73-6.46c-.31-.53-.31-1.1 0-1.28s.8.11 1.11.64l4.29 7.42q.23.4.23.77t-.23.51l-4.29 2.47q-.24.13-.55-.05Zm18.01 10.4-12.14-7.01c-.43-.25-.78-.86-.78-1.36s.35-.7.78-.45l12.14 7.01c.43.25.78.86.78 1.36s-.35.7-.78.45"
+        fill="#fff"></path>
+    </g>
+
+    <!-- Settings gear (orange) -->
+    <g id="gear">
+      <path
+        d="m253.97 102.64-.81-.47a18 18 0 0 0-.65-2.2l.57-.33c.41-.23.41-1 0-1.7l-1.94-3.36c-.41-.7-1.07-1.09-1.48-.85l-.57.33q-.75-.9-1.58-1.67v-.94c0-.66-.47-1.48-1.04-1.81l-2.74-1.58c-.57-.33-1.04-.06-1.04.6v.94a6 6 0 0 0-1.58-.16l-.57-.99c-.41-.7-1.07-1.09-1.48-.85l-1.94 1.12c-.41.23-.41 1 0 1.7l.57.99q-.4.63-.65 1.45l-.81-.47c-.57-.33-1.04-.06-1.04.6v3.17c0 .66.47 1.48 1.04 1.81l.81.47q.25 1.1.65 2.2l-.57.33c-.41.24-.41 1 0 1.71l1.94 3.36c.41.7 1.07 1.09 1.48.85l.57-.33q.75.9 1.58 1.67v.94c0 .66.47 1.48 1.04 1.81l2.74 1.58c.57.33 1.04.06 1.04-.6v-.94q.83.2 1.58.16l.57.99c.41.7 1.07 1.09 1.48.85l1.94-1.12c.41-.24.41-1 0-1.71l-.57-.99q.4-.63.65-1.45l.81.47c.58.33 1.04.06 1.04-.6v-3.17c0-.66-.47-1.48-1.04-1.81m-8.87 2.83a9.9 9.9 0 0 1-4.47-7.74c0-2.85 2-4.01 4.47-2.58s4.47 4.89 4.47 7.74-2 4.01-4.47 2.58"
+        fill="#ff5f29"></path>
+    </g>
+
+    <!-- Browser window with content -->
+    <g id="selection-box">
+      <path
+        d="m182.55 300.42-98.62-56.94v-33.26l98.62 56.94zM85.4 242.63l95.69 55.25V268L85.4 212.75z"
+        fill="#0c78c6"></path>
+      <path
+        fill="#32a2ed"
+        d="m184.14 271.6-4.64-2.68v-5.36l4.64 2.68zm0 31.57-4.64-2.68v-5.36l4.64 2.68zM86.98 215.5l-4.64-2.68v-5.35l4.64 2.68zm97.16 71.88-4.64-2.68v-5.35l4.64 2.67zm-97.16-56.09-4.64-2.68v-5.36l4.64 2.68zm0 15.78-4.64-2.68v-5.35l4.64 2.68zm48.58-3.52-4.64-2.68v-5.35l4.64 2.68zm0 31.57-4.64-2.68v-5.35l4.64 2.67z"
+      ></path>
+    </g>
+
+    <!-- Cursor pointer -->
+    <g id="cursor">
+      <path
+        fill="#000"
+        stroke="#fff"
+        stroke-miterlimit="10"
+        stroke-width="1"
+        d="m181.93 266.82 3.27 12.21 1.51-3.24 4.32 6.26 2.08-1.05-4.31-6.26 4.04.44z"
+      ></path>
+    </g>
+
+    <!-- Large content panel -->
+    <g id="content-panel">
+      <path fill="#d1e9f2" d="m224.34 283.53-67.94-39.22V134.02l67.94 39.22z"
+      ></path>
+      <path
+        d="M214.91 191.44c0 2.65-2.35 3.47-5.22 1.81l-38.64-22.31c-2.87-1.66-5.22-5.18-5.22-7.84s2.35-3.47 5.22-1.81l38.64 22.31c2.87 1.66 5.22 5.18 5.22 7.84"
+        fill="#fff"></path>
+      <path
+        d="m209.69 193.55-38.64-22.31c-3.02-1.75-5.48-5.46-5.48-8.29s2.46-3.71 5.48-1.96l38.64 22.31c3.02 1.75 5.48 5.46 5.48 8.29s-2.46 3.7-5.48 1.96m-38.64-31.95c-2.74-1.58-4.96-.84-4.96 1.66s2.22 5.81 4.96 7.38l38.64 22.31c2.73 1.58 4.96.84 4.96-1.66s-2.23-5.81-4.96-7.38z"
+        fill="#adcdd9"></path>
+      <path
+        d="M214.91 218.87c0 2.65-2.35 3.47-5.22 1.81l-38.64-22.31c-2.87-1.66-5.22-5.18-5.22-7.84s2.35-3.47 5.22-1.81l38.64 22.31c2.87 1.66 5.22 5.18 5.22 7.84"
+        fill="#fff"></path>
+      <path
+        d="m209.69 220.98-38.64-22.31c-3.02-1.75-5.48-5.46-5.48-8.29s2.46-3.71 5.48-1.96l38.64 22.31c3.02 1.75 5.48 5.46 5.48 8.29s-2.46 3.7-5.48 1.96m-38.64-31.95c-2.74-1.58-4.96-.84-4.96 1.66s2.23 5.81 4.96 7.38l38.64 22.31c2.74 1.58 4.96.83 4.96-1.66s-2.22-5.81-4.96-7.38z"
+        fill="#adcdd9"></path>
+      <path
+        d="M201.03 172.88c0 .99-.94 1.27-2.09.6l-17.14-9.9c-1.15-.66-2.09-2.02-2.09-3.01 0-1 .94-1.27 2.09-.6l17.14 9.9c1.15.66 2.09 2.02 2.09 3.01m0 28.33c0 .99-.94 1.27-2.09.6l-17.14-9.9c-1.15-.66-2.09-2.02-2.09-3.02 0-.99.94-1.26 2.09-.6l17.14 9.9c1.15.66 2.09 2.02 2.09 3.02"
+        fill="#f27c55"></path>
+      <path
+        d="m188.87 256.59-21.32-12.31v-3.62l21.32 12.31zm24.32 14.04-21.32-12.31v-3.61l21.32 12.3z"
+        fill="#adcdd9"></path>
+      <path
+        d="M201.85 236.54c0 2.54-1.8 3.58-4 2.31l-14.95-8.63a8.9 8.9 0 0 1-4-6.93v-1.7c0-2.54 1.8-3.58 4-2.31l14.96 8.63c2.2 1.27 4 4.39 4 6.93v1.69Z"
+        fill="#32a2ed"></path>
+    </g>
+  </svg>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+
+  let animationTimeline: gsap.core.Timeline | null = null;
+
+  function initAnimation() {
+    const svg = document.getElementById("hero-graphic");
+    if (!svg) return;
+
+    // Kill existing timeline and animations
+    if (animationTimeline) {
+      animationTimeline.kill();
+      animationTimeline = null;
+    }
+
+    // Set willChange only for elements with continuous animations
+    gsap.set(
+      [
+        "#tablet-sun-icon",
+        "#heart",
+        "#gear",
+        "#cloud",
+        "#lightbulb",
+        "#thumb",
+        "#code-symbols",
+        "#cursor",
+        "#selection-box",
+      ],
+      {
+        willChange: "transform, opacity",
+      },
+    );
+
+    // Set initial hidden states using autoAlpha (handles both opacity and visibility)
+    gsap.set(
+      [
+        "#code-symbols",
+        "#tablet-sun-icon",
+        "#heart",
+        "#small-computer",
+        "#circle-indicator",
+        "#lightbulb",
+        "#cloud",
+        "#thumb",
+        "#code-panel",
+        "#gear",
+        "#cursor",
+      ],
+      { autoAlpha: 0 },
+    );
+
+    // Explicitly hide code-symbols paths to prevent flash
+    gsap.set("#code-symbols path", { autoAlpha: 0, y: -10 });
+
+    gsap.set(["#tablet-screen", "#mobile-device", "#selection-box", "#content-panel"], {
+      autoAlpha: 0,
+      y: 20,
+    });
+
+    // Create master timeline that plays immediately
+    animationTimeline = gsap.timeline({
+      defaults: { overwrite: "auto" },
+    });
+
+    // 1. Animate main laptop screens first (foundation)
+    animationTimeline.to(
+      "#tablet-screen",
+      {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      },
+      0,
+    );
+
+    animationTimeline.to(
+      "#mobile-device",
+      {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.7,
+        ease: "power2.out",
+      },
+      0.2,
+    );
+
+    // 2. Animate content panels
+    animationTimeline.to(
+      "#content-panel",
+      {
+        autoAlpha: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        ease: "back.out(1.2)",
+      },
+      0.4,
+    );
+
+    animationTimeline.to(
+      "#selection-box",
+      {
+        autoAlpha: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        ease: "back.out(1.2)",
+      },
+      0.5,
+    );
+
+    // 3. Animate floating elements with stagger
+    animationTimeline.to(
+      "#lightbulb",
+      {
+        autoAlpha: 1,
+        scale: 1,
+        duration: 0.5,
+        ease: "back.out(2)",
+      },
+      0.7,
+    );
+
+    // Add subtle pulse to tablet-sun-icon
+    animationTimeline.to(
+      "#tablet-sun-icon",
+      {
+        autoAlpha: 1,
+        scale: 1.5,
+        duration: 0.8,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      },
+      "+=0.2",
+    );
+
+    animationTimeline.to(
+      "#heart",
+      {
+        autoAlpha: 1,
+        scale: 1,
+        duration: 0.6,
+        ease: "elastic.out(1, 0.5)",
+      },
+      0.8,
+    );
+
+    // Add heartbeat animation
+    animationTimeline.to(
+      "#heart",
+      {
+        scale: 1.15,
+        duration: 0.3,
+        repeat: -1,
+        yoyo: true,
+        repeatDelay: 0.5,
+        ease: "power2.inOut",
+      },
+      "+=0.3",
+    );
+
+    animationTimeline.to(
+      "#gear",
+      {
+        autoAlpha: 1,
+        transformOrigin: "center center",
+        duration: 0.8,
+        ease: "back.out(1.5)",
+      },
+      0.9,
+    );
+
+    animationTimeline.to(
+      "#cloud",
+      {
+        autoAlpha: 1,
+        x: 0,
+        duration: 0.7,
+        ease: "power2.out",
+      },
+      1.0,
+    );
+
+    // Add floating animation to cloud
+    animationTimeline.to(
+      "#cloud",
+      {
+        y: -10,
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      },
+      "+=0",
+    );
+
+    animationTimeline.to(
+      "#lightbulb",
+      {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "back.out(1.5)",
+      },
+      1.1,
+    );
+
+    // Add wiggle/shake animation to lightbulb
+    animationTimeline.to(
+      "#lightbulb",
+      {
+        scale: 1.1,
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      },
+      "+=0.2",
+    );
+
+    animationTimeline.to(
+      "#thumb",
+      {
+        autoAlpha: 1,
+        x: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      },
+      1.2,
+    );
+
+    // Add wave motion to thumb
+    animationTimeline.to(
+      "#thumb",
+      {
+        rotation: 10,
+        transformOrigin: "bottom center",
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      },
+      "+=0",
+    );
+
+    // 4. Animate UI elements
+    animationTimeline.to(
+      "#small-computer",
+      {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      },
+      1.3,
+    );
+
+    animationTimeline.to(
+      "#code-panel",
+      {
+        autoAlpha: 1,
+        x: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      },
+      1.4,
+    );
+
+    animationTimeline.to(
+      "#circle-indicator",
+      {
+        autoAlpha: 1,
+        scale: 1,
+        duration: 0.4,
+        ease: "back.out(2)",
+      },
+      1.5,
+    );
+
+    // 5. Animate code symbols with stagger
+    // First make the parent visible
+    animationTimeline.to(
+      "#code-symbols",
+      {
+        autoAlpha: 1,
+        duration: 0.01,
+      },
+      1.6,
+    );
+
+    // Then animate the individual paths
+    animationTimeline.to(
+      "#code-symbols path",
+      {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.4,
+        stagger: 0.1,
+        ease: "back.out(2)",
+      },
+      1.6,
+    );
+
+    // Add subtle float to code symbols
+    animationTimeline.to(
+      "#code-symbols",
+      {
+        x: -5,
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      },
+      "+=0",
+    );
+
+    // 6. Animate cursor last (draws attention)
+    animationTimeline.to(
+      "#cursor",
+      {
+        autoAlpha: 1,
+        x: 0,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
+      },
+      1.8,
+    );
+
+    // Add cursor hover motion and sync selection-box resize
+    const cursorTimeline = gsap.timeline({ repeat: -1, yoyo: true });
+    
+    cursorTimeline.to(
+      "#cursor",
+      {
+        x: 7,
+        y: 5,
+        duration: 1.5,
+        ease: "sine.inOut",
+      },
+      0,
+    );
+
+    // Animate selection-box to appear like it's being sized/dragged
+    cursorTimeline.to(
+      "#selection-box",
+      {
+        scaleX: 1.11,
+        scaleY: 1.11,
+        transformOrigin: "center center",
+        duration: 1.5,
+        ease: "sine.inOut",
+      },
+      0,
+    );
+
+    animationTimeline.add(cursorTimeline, "+=0.2");
+  }
+
+  // Cleanup handler
+  function cleanup() {
+    if (animationTimeline) {
+      animationTimeline.kill();
+      animationTimeline = null;
+    }
+  }
+
+  // Initialize immediately on script load
+  initAnimation();
+
+  // Re-initialize after Astro View Transitions
+  document.addEventListener("astro:page-load", initAnimation);
+
+  // Cleanup on page leave
+  document.addEventListener("astro:before-swap", cleanup);
+</script>
