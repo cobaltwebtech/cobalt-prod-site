@@ -1,8 +1,8 @@
 ---
 
-import { CldImage } from "astro-cloudinary";
 import { Icon } from "astro-icon/components";
 import { Button } from "@/components/starwind/button";
+import AnimatedHeroSvg from "@/components/ui/blocks/AnimatedHeroSvg.astro";
 
 // Define props from Astro
 const {
@@ -95,7 +95,7 @@ interface Props {
   <!-- Hero Image Section -->
   <div>
     <!-- Render either a raster image or SVG component. If both props are provided it will defer to the image  -->
-    {
+    <!-- {
       heroImg && (
         <CldImage
           src={heroImg}
@@ -109,7 +109,8 @@ interface Props {
         />
       )
     }
-    {heroSvg && !heroImg && <Icon name={heroSvg} class="size-full" />}
+    {heroSvg && !heroImg && <Icon name={heroSvg} class="size-full" />} -->
+    <AnimatedHeroSvg />
   </div>
 </section>
 
