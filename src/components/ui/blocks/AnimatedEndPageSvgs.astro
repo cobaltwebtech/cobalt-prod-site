@@ -1,0 +1,379 @@
+---
+// Animated End Page SVGs Component
+// Uses GSAP to animate SVG elements with staggered entrance animations
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={["flex justify-evenly gap-20 sm:gap-32 md:gap-48 lg:gap-64", className]}>
+  <div>
+    <svg 
+      id="code-brackets-graphic"
+      class="size-full overflow-visible"
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 17.52 16.67"
+    >
+      <g id="code-brackets" fill="none" stroke-linecap="round" stroke-width="1.5">
+          <path id="right-bracket" d="m12.76 6.92 1.7 1.53c1.54 1.39 2.31 2.08 2.31 2.97S16 13 14.46 14.39l-1.7 1.53" stroke="#f97316"/>
+          <path id="center-slash" d="m10.75.92-3.99 15" stroke="#b4b9c0"/>
+          <path id="left-bracket" d="m4.76.75-1.7 1.53C1.52 3.67.75 4.36.75 5.25s.77 1.58 2.31 2.97l1.7 1.53" stroke="#f97316"/>
+      </g>
+    </svg>
+  </div>
+  
+  <div>
+    <svg 
+      id="cloud-compute" 
+      class="size-full overflow-visible"
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 1024 1024"
+    >
+      <path fill="#c4cadd" d="M466.9 894.1 67.5 663.5c-5.3-3.1-9.7.2-9.7 7.3v106.9c0 5 3 10.8 6.8 12.9l392.6 226.7c5.3 3.1 9.7-.2 9.7-7.3zm422.4-229.8c0-5.5-3.4-8.1-7.5-5.7l-415 239.6v110c0 8.3 5 12.1 11.2 8.5l404.7-233.6c3.6-2.1 6.6-7.7 6.6-12.5z"/>
+      <path d="M475.9 529 151.3 716.4l320.8 185.2 324.6-187.4z" fill="#243462"/>
+      <path fill="#848ba6" d="m97.1 723.7-10.7-6.2v55.3l10.7 6.2zm29.8 17.2-10.7-6.2v55.2l10.7 6.2zm29.8 17.2-10.7-6.2v55.3l10.7 6.2zm29.8 17.3-10.7-6.2v55.3l10.7 6.2z"/>
+      <path fill="#4fc1f4" d="M404.1 917c6.4 3.7 11.6 12.7 11.6 20.1s-5.2 10.4-11.6 6.7-11.6-12.7-11.6-20.1 5.2-10.4 11.6-6.7"/>
+      <path fill="#c4cadd" d="M453 1015s13.6 11 27.8-.1.6-42.5.6-42.5h-28.1z"/>
+      <path d="M466.9 903.1s3.9.6 8.4-.9c2.3-.8 4.2-1.3 6.5-3l22.3-13V939l-19.8 11.6v32.9l19.8-11.3v29.3l-24.4 14.4s-2.5 1.5-5 2.6q-2.1.9-4.2 1.2l-2 .2h-1.6V903.2Z" fill="#a3abc1"/>
+      <path fill="#f3f5fb" d="m467.2 431.6 10.5-4.3 404 224.4-.8 4.4-27.2 14.7-386.5-223.2z"/>
+      <path fill="#c4cadd" d="m466.9 444.1 1.7-1.4 398.3 217.6q1.6 1 1.5 1.8.2 1-1.3 2l-87.7 50-312.7-180.6.3-89.5Z"/>
+      <path fill="#4fc1f4" d="M838.7 737.7c6.4-3.7 11.6-.7 11.6 6.7s-5.2 16.4-11.6 20.1-11.6.7-11.6-6.7 5.2-16.4 11.6-20.1"/>
+      <path fill="#848ba6" d="M788.7 777.4c0-8.9-5.4-12.9-12-9.1L579.6 882.1c-6.7 3.8-12 14.2-12 23s5.4 12.9 12 9.1l197.1-113.8c6.6-3.8 12-14.1 12-23"/>
+      <path fill="#f3f5fb" d="m881.7 651.7-3.4 1.9.5 2.7C815 693.3 483 885.8 473.9 890c-10 4.7-15.6-.8-15.6-.8L83.4 672.7q-.1-1.4-1.4-3.7l385.3-222.4v-15l-12.5-2.8L74.2 648.6C64 653 60 659 58.6 663.8c-1.5 2.4-.6 13.7-.6 13.7s371.1 214.8 391.8 226.2 32.5 1.2 32.5 1.2l407.2-235.1v-9.1c.6-6.4-7.6-9-7.6-9Z"/>
+      <path fill="#c4cadd" d="m155.2 714.2 311.6-179.9v-89.6s-.9-2.4-2.6-1.4c-30.6 17.6-322.9 185.6-383.8 221.1-1.4.8-3.2 2.5-2.8 4.4.4 1.6 2.8 3.5 3.9 4.2 12.4 8.3 73.5 41.2 73.5 41.2"/>
+      <path fill="#4fc1f4" d="m307.6 656.8 310.1-30.7-1.1 113.6q0 1.6-.3 2.7c-.3 1.1-.5.7-1.8 1.5l-133.8 77.3q-3.3 2.1-6.7 2.3c-3.4.2-4.2-.9-6.4-2.1l-156.5-87.6c-2.3-1.3-2.4-1.2-2.9-2.4q-.7-2-.6-4.7z"/>
+      <path fill="#bbc6e6" d="M473.6 684.6 64.5 448.4v79.9c0 3.3 2 7.2 4.5 8.6l398.1 229.8c3.5 2.1 6.4-.1 6.4-4.9v-77.3ZM896 440.7 473.6 684.6v79.9c0 3.3 2 4.8 4.5 3.4l413.4-238.7c2.5-1.4 4.5-5.3 4.5-8.6z"/>
+      <path fill="#4867bc" d="m471.5 646 2 38.6L896 440.7l.2-32.2z"/>
+      <path fill="#4867bc" d="m65.4 408-.8 40.4 409 236.2v-37.4z"/>
+      <path fill="#375096" d="M508.9 175.9c-14.1-8.2-35.6-9.1-47.8-2L73.5 397.7c-12.2 7.1-10.7 19.4 3.4 27.6l375.6 216.9c14.1 8.2 35.5 9 47.8 2l387.6-223.8c12.2-7.1 10.7-19.4-3.4-27.6z"/>
+      <path fill="#bbc6e6" d="m454.9 673.8 43.5-3.3 8.1 81-28.3 16.3s-3.2 3.4-11.2-1.3-12-92.8-12-92.8"/>
+      <path fill="#f3f5fb" d="m64.3 439.3 401 230.1s7.8 4.4 17.8-.3S896 431.4 896 431.4v9.3L488.7 675.8s-11.7 10.2-32.5-1.2C435.5 663.2 64.4 448.4 64.4 448.4z"/>
+      <path fill="#637dc6" d="m103.9 486.4-10.7-6.2v55.3l10.7 6.2zm29.8 17.2-10.7-6.2v55.3l10.7 6.2zm29.8 17.2-10.7-6.2v55.2l10.7 6.2zm29.8 17.2-10.7-6.2v55.3l10.7 6.2zm217.5 139.9c6.4 3.7 11.6 12.7 11.6 20.1s-5.2 10.4-11.6 6.7-11.6-12.7-11.6-20.1 5.2-10.4 11.6-6.7m434.7-180.6c6.4-3.7 11.6-.7 11.6 6.7s-5.2 16.4-11.6 20.1-11.6.7-11.6-6.7 5.2-16.4 11.6-20.1"/>
+      <path fill="#8ea1d6" d="M473.6 680s4.2.2 8.7-1c2.3-.6 4.2-1.8 6.5-3.2l22-12.7v39.6L491 714.1v26.1l19.6-11.3v20.6l-33.2 18.8-.8.4-1.1.2h-1.9z"/>
+      <path fill="#637dc6" d="M795.4 539.6c0-8.9-5.4-12.9-12-9.1L586.3 644.3c-6.7 3.8-12 14.1-12 23s5.4 12.9 12 9.1l197.1-113.8c6.7-3.8 12-14.1 12-23"/>
+      <path fill="#4fc1f4" d="M156.4 418.2s-4.4 17 14.1 27.6l295.1 170.4s11.4 9.5 34.5-7.8l312.3-180.3s18.8-9.7 11.6-29L473.7 581 156.5 418.3Z"/>
+      <path fill="#bbc6e6" d="M473.6 515.4 64.5 279.3v79.9c0 3.3 2 7.2 4.5 8.6l398.1 229.8c3.5 2 6.4-.1 6.4-4.9v-77.3ZM896 271.5 473.6 515.4v79.9c0 3.3 2 4.8 4.5 3.4L891.5 360c2.5-1.4 4.5-5.3 4.5-8.6z"/>
+      <path fill="#4867bc" d="m471.5 476.8 2 38.6L896 271.5l.2-32.2z"/>
+      <path fill="#4867bc" d="m65.4 238.9-.8 40.4 409 236.2v-37.4z"/>
+      <path fill="#375096" d="M508.9 6.8c-14.1-8.2-35.6-9-47.8-2L73.5 228.6c-12.2 7.1-10.7 19.4 3.4 27.6l375.6 216.9c14.1 8.2 35.5 9 47.8 2l387.6-223.8c12.2-7.1 10.7-19.4-3.4-27.6z"/>
+      <path fill="#bbc6e6" d="m454.9 504.7 43.5-3.4 8.1 81-28.3 16.3s-3.2 3.4-11.2-1.3-12-92.8-12-92.8"/>
+      <path fill="#f3f5fb" d="m64.3 270.2 401 230.1s7.8 4.4 17.8-.3S896 262.3 896 262.3v9.3L488.7 506.7s-11.7 10.2-32.5-1.2C435.5 494.1 64.4 279.3 64.4 279.3z"/>
+      <path fill="#637dc6" d="m103.9 317.3-10.7-6.2v55.3l10.7 6.2v-55.2Zm29.8 17.2-10.7-6.2v55.3l10.7 6.2zm29.8 17.2-10.7-6.2v55.3l10.7 6.2zm29.8 20.2-10.7-6.2V421l10.7 6.2zm217.5 136.9c6.4 3.7 11.6 12.7 11.6 20.1s-5.2 10.4-11.6 6.7-11.6-12.7-11.6-20.1 5.2-10.4 11.6-6.7m434.7-180.6c6.4-3.7 11.6-.7 11.6 6.7s-5.2 16.4-11.6 20.1-11.6.7-11.6-6.7 5.2-16.4 11.6-20.1"/>
+      <path fill="#8ea1d6" d="M473.6 510.8s4.2.2 8.7-1c2.3-.6 4.2-1.8 6.5-3.2l22-12.7v39.6L491 544.9v26l19.6-11.3v20.6L477.4 599l-.8.3-1.1.3h-1.9v-89Z"/>
+      <path fill="#637dc6" d="M795.4 370.5c0-8.9-5.4-12.9-12-9.1L586.3 475.2c-6.7 3.8-12 14.1-12 23s5.4 12.9 12 9.1l197.1-113.8c6.7-3.8 12-14.1 12-23"/>
+      <path d="M494.4 132.5c-11.5-6.6-28.9-7.4-38.9-1.6L231 260.5c-9.9 5.8-8.7 15.8 2.8 22.4l218.7 126.2c11.5 6.6 28.9 7.4 38.9 1.6l224.5-129.6c10-5.8 8.7-15.8-2.8-22.4L494.5 132.5Z" fill="#323654"/>
+      <g class="cloud-top">
+          <path d="m722.6 177.8-11.9 5.9L494.5 58.8c-11.5-6.6-28.9-7.3-38.9-1.6L237.1 183.4l-12.6-8.6v21c-.4 4.7 2.8 9.6 9.5 13.5l218.6 126.2c11.5 6.6 28.9 7.4 38.9 1.6L716 207.5q6-3.6 6.6-8.5z" fill="#98aada"/>
+          <path d="M494.4 37.2c-11.5-6.6-28.9-7.4-38.9-1.6L231 165.2c-9.9 5.8-8.7 15.8 2.8 22.4l218.6 126.2c11.5 6.6 28.9 7.4 38.9 1.6l224.5-129.6c10-5.7 8.7-15.8-2.8-22.4z" fill="#4463b9"/>
+          <path d="m473.1 81.3 50.4 29.1v9.7l37.3 21.5h15.6l57.8 33.4-46.1 26.6h-16l-37.6 21.7v11.6L477 268.1l-52.4-30.3v-9.4l-37.4-21.6h-17.6l-56.9-33 49-28.3H379l36.9-21.4v-9.8z" fill="#3e5aa9"/>
+          <path fill="#637dc6" d="m473.1 76.7 50.4 29.1v9.7l37.3 21.5h15.6l57.8 33.4-46.1 26.6h-16l-37.6 21.7v11.6L477 263.5l-52.4-30.3v-9.4l-37.4-21.6h-17.6l-56.9-33 49-28.3 17.3-.2 36.9-21.3v-9.8l57.2-33.1Z"/>
+          <path d="M513.5 183.2a32 32 0 0 0-8.5-3.4c12.1-7 12.1-18.3 0-25.3a49 49 0 0 0-36-3.2l-1-.6a23 23 0 0 0-21.2 0 9 9 0 0 0-4 4.3c-8-2.6-18.4-2-25.3 2-8.2 4.8-8.2 12.5 0 17.2l55.9 32.3c11.1 6.4 29 6.4 40.1 0s11.1-16.7 0-23.1Z" fill="#d9dff1"/>
+      </g>
+      <path fill="#4fc1f4" d="m829.3 756.6 99.5 55.4s34 9.2 34-36.7V605.4s.3-25-27.8-41.2l-187.1-108-19 11 183 105.7s24.9 14.8 29.4 31.5c5 18.6 1.4 167 1.4 167s-.2 27-17 17.3-80.1-41.6-80.1-41.6l-16.4 9.5ZM397.5 923.8l15.2 8.8-150.1 86.6s-32.4 16.4-32.4-37V593.9s-3.1-27.5 25.4-44l57.1-33 15.8 9.1-64 40.9s-12.5 8.6-14.5 31.2c-2.2 24.1-4.2 389 0 386.3 0 0-1 26.8 16.1 16.9l125.8-72.6z"/>
+    </svg>
+  </div>
+  
+  <div>
+    <svg 
+      id="computer-globe"
+      class="w-full h-auto"
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 228 219.8"
+    >
+        <g id="globe">
+            <circle cx="56" cy="55.9" r="50" fill="#5cb0ff"/>
+            <path d="M112 56A56 56 0 1 0 0 56a56 56 0 0 0 112 0m-82.5 0H52v47.4c-12.6-3.5-22.6-23-22.6-45.9V56zm53.1 1.5c0 22.8-10 42.4-22.6 45.9V56h22.5zM60 48V11.7c10.8 3 19.7 17.8 22 36.3zm-8-36.3V48H30c2.3-18.5 11.2-33.3 22-36.3m27.4 86.2a71 71 0 0 0 11.2-40.3v-1.5h13.5A48 48 0 0 1 79.5 98zM103.3 48H90.1a61 61 0 0 0-14.7-35.9 48 48 0 0 1 28 35.9zM36.7 12.1A61 61 0 0 0 22 48H8.8a48 48 0 0 1 28-35.9zM8 56h13.5v1.5c0 16.2 4.3 30.4 11.2 40.3A48 48 0 0 1 8.1 55.9z" fill="#1c71da"/>
+        </g>
+        <g id="laptop">
+            <path d="m227.7 210.5-7.7-19.3V144a4 4 0 0 0-4-4h-88a4 4 0 0 0-4 4v47.2l-7.7 19.3a4 4 0 0 0 3.7 5.5h104a4 4 0 0 0 3.7-5.5" fill="#1c71da"/>
+            <path d="M132 148h80v40h-80zm-1.3 48-4.8 12h92.2l-4.8-12z" fill="#d0e8ff"/>
+        </g>
+        <path id="arrows" d="M102.8 165.9c-1.6-1.6-4.1-1.6-5.7 0s-1.6 4.1 0 5.7l4.5 4.5H59.9v-33.7l4.5 4.5a4 4 0 0 0 2.8 1.2c1.5 0 2-.4 2.8-1.2a4 4 0 0 0 0-5.7l-10.4-10.4c-.5-1.6-2-2.8-3.8-2.8s-3.2 1.2-3.8 2.8l-10.4 10.4c-1.6 1.6-1.6 4.1 0 5.7s4.1 1.6 5.7 0l4.5-4.5v37.7a4 4 0 0 0 4 4h45.7l-4.5 4.5a4 4 0 0 0 0 5.7q1.2 1.2 2.8 1.2c1.6 0 2-.4 2.8-1.2l11.3-11.3a4 4 0 0 0 0-5.7L102.6 166z" fill="#1c71da"/>
+        <path id="red-x" d="m209 104.8 4.2-4.2a4 4 0 0 0-5.7-5.7l-4.2 4.2-4.2-4.2a4 4 0 0 0-5.7 5.7l4.2 4.2-4.2 4.2a4 4 0 0 0 0 5.7 4 4 0 0 0 2.8 1.2c1.5 0 2-.4 2.8-1.2l4.2-4.2 4.2 4.2a4 4 0 0 0 2.8 1.2c1.5 0 2-.4 2.8-1.2a4 4 0 0 0 0-5.7l-4.2-4.2z" fill="#ff5d5d"/>
+        <path id="green-circle" d="M26.3 219.8c-7.7 0-14-6.3-14-14s6.3-14 14-14 14 6.3 14 14-6.3 14-14 14m0-20c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6" fill="#00d40b"/>
+        <path id="yellow-diamond" d="M139.6 54.4q-1.6 0-2.8-1.2l-11.3-11.3a4 4 0 0 1-1.2-2.8q0-1.5 1.2-2.8L136.8 25a4 4 0 0 1 5.7 0l11.3 11.3a4 4 0 0 1 0 5.7l-11.3 11.3a4 4 0 0 1-2.8 1.2zm-5.7-15.3 5.7 5.7 5.7-5.7-5.7-5.7z" fill="#ffc504"/>
+    </svg>
+  </div>
+
+</div>
+
+<script>
+  import { gsap } from "gsap";
+  import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+
+  let animationTimeline: gsap.core.Timeline | null = null;
+
+  function initAnimation() {
+    const container = document.querySelector("#code-brackets-graphic")?.parentElement;
+    if (!container) return;
+
+    // Kill existing timeline and ScrollTriggers
+    if (animationTimeline) {
+      animationTimeline.kill();
+      animationTimeline = null;
+    }
+    ScrollTrigger.getAll().forEach(trigger => {
+      trigger.kill();
+    });
+
+    // Set willChange for animated elements
+    gsap.set([
+      "#left-bracket", 
+      "#center-slash", 
+      "#right-bracket", 
+      ".cloud-top",
+      "#globe",
+      "#laptop",
+      "#arrows",
+      "#red-x",
+      "#green-circle",
+      "#yellow-diamond"
+    ], {
+      willChange: "transform, opacity",
+    });
+
+    // Set initial hidden states
+    gsap.set("#center-slash", {
+      autoAlpha: 0,
+    });
+    
+    gsap.set("#left-bracket", {
+      autoAlpha: 0,
+      x: -5,
+    });
+    
+    gsap.set("#right-bracket", {
+      autoAlpha: 0,
+      x: 5,
+    });
+
+    // Set initial state for cloud-top
+    gsap.set(".cloud-top", {
+      autoAlpha: 0,
+      y: -50,
+    });
+
+    gsap.set("#red-x", {
+      autoAlpha: 0,
+      x: 0,
+      y: 0,
+    });
+
+    gsap.set("#green-circle", {
+      autoAlpha: 0,
+    });
+
+    gsap.set("#yellow-diamond", {
+      autoAlpha: 0,
+      y: 0,
+    });
+
+    // Create master timeline with ScrollTrigger
+    animationTimeline = gsap.timeline({
+      defaults: { overwrite: "auto" },
+      scrollTrigger: {
+        trigger: container,
+        start: "top 80%",
+        once: true,
+      },
+    });
+
+    // Animate left bracket
+    animationTimeline.to(
+      "#left-bracket",
+      {
+        autoAlpha: 1,
+        x: 0,
+        duration: 0.6,
+        ease: "back.out(2)",
+      },
+      0,
+    );
+
+    // Animate center slash
+    animationTimeline.to(
+      "#center-slash",
+      {
+        autoAlpha: 1,
+        duration: 0.6,
+        ease: "back.out(2)",
+      },
+      0.2,
+    );
+
+    // Animate right bracket
+    animationTimeline.to(
+      "#right-bracket",
+      {
+        autoAlpha: 1,
+        x: 0,
+        duration: 0.6,
+        ease: "back.out(2)",
+      },
+      0.4,
+    );
+
+    // Add continuous animations
+    // Horizontal movement for left bracket
+    animationTimeline.to(
+      "#left-bracket",
+      {
+        x: -3,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      },
+      "+=0.5",
+    );
+
+    // Horizontal movement for right bracket
+    animationTimeline.to(
+      "#right-bracket",
+      {
+        x: 3,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      },
+      0.9,
+    );
+
+    // Animate cloud-top group
+    animationTimeline.to(
+      ".cloud-top",
+      {
+        autoAlpha: 1,
+        y: 50,
+        duration: 0.8,
+        ease: "back.out(1.5)",
+      },
+      0.6,
+    );
+
+    // Red X
+    animationTimeline.to(
+      "#red-x",
+      {
+        autoAlpha: 1,
+        duration: 0.6,
+        ease: "power2.out",
+      },
+      1.4,
+    );
+
+    // Green Circle
+    animationTimeline.to(
+      "#green-circle",
+      {
+        autoAlpha: 1,
+        duration: 0.6,
+        ease: "power2.out",
+      },
+      1.6,
+    );
+
+    // Yellow Diamond
+    animationTimeline.to(
+      "#yellow-diamond",
+      {
+        autoAlpha: 1,
+        duration: 0.6,
+        ease: "power2.out",
+      },
+      1.8,
+    );
+
+    // Add continuous floating animation to cloud-top
+    animationTimeline.to(
+      ".cloud-top",
+      {
+        y: -100,
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      },
+      1.8,
+    );
+
+    // Add diagonal movement to red-x (up and left)
+    animationTimeline.to(
+      "#red-x",
+      {
+        x: -15,
+        y: -15,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      },
+      2.6,
+    );
+
+    // Add circular motion to green-circle using separate x and y animations
+    const circleTimeline = gsap.timeline({
+      repeat: -1,
+      ease: "sine.inOut",
+    });
+    
+    circleTimeline.to("#green-circle", {
+      x: 10,
+      y: -10,
+      duration: 0.75,
+    }).to("#green-circle", {
+      x: 0,
+      y: -20,
+      duration: 0.75,
+    }).to("#green-circle", {
+      x: -10,
+      y: -10,
+      duration: 0.75,
+    }).to("#green-circle", {
+      x: 0,
+      y: 0,
+      duration: 0.75,
+    });
+    
+    animationTimeline.add(circleTimeline, 2.8);
+
+    // Add vertical movement to yellow-diamond (up and down)
+    animationTimeline.to(
+      "#yellow-diamond",
+      {
+        y: -15,
+        duration: 1.8,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      },
+      3.0,
+    );
+  }
+
+  // Cleanup handler
+  function cleanup() {
+    if (animationTimeline) {
+      animationTimeline.kill();
+      animationTimeline = null;
+    }
+    ScrollTrigger.getAll().forEach(trigger => {
+      trigger.kill();
+    });
+  }
+
+  // Initialize on script load
+  initAnimation();
+
+  // Re-initialize after Astro View Transitions
+  document.addEventListener("astro:page-load", initAnimation);
+
+  // Cleanup on page leave
+  document.addEventListener("astro:before-swap", cleanup);
+</script>

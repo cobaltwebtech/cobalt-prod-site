@@ -3,7 +3,6 @@
 @import "@/styles/lenis.css";
 @import "tw-animate-css";
 
-@plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 
 @custom-variant dark (&:is(.dark *));

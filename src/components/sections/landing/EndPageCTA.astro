@@ -1,7 +1,7 @@
 ---
-
 import { Icon } from "astro-icon/components";
 import { Button } from "@/components/starwind/button";
+import AniamtedEndPageSvgs from "@/components/ui/blocks/AnimatedEndPageSvgs.astro";
 
 // Define props from Astro
 const { title, subTitle, url } = Astro.props;
@@ -17,12 +17,9 @@ interface Props {
 ---
 
 <section class="mx-auto max-w-5xl space-y-8 py-8">
-  <!-- Decorative icons -->
-  <div class="flex justify-evenly gap-20 sm:gap-32 md:gap-48 lg:gap-64">
-    <Icon name="CodeBrackets" class="size-full" />
-    <Icon name="CloudCompute" class="size-full" />
-    <Icon name="ComputerGlobe" class="size-full" />
-  </div>
+  <!-- Animated SVG graphics -->
+  <AniamtedEndPageSvgs />
+
   <!-- Hero Section Heading -->
   <div class="mx-auto mt-5 max-w-xl text-center">
     <h2

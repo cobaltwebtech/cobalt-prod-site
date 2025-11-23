@@ -1,20 +1,7 @@
-<svg viewBox="0 0 24 24" fill="none">
-  <path
-    d="M16 11L17.6965 12.5268C19.239 13.9151 20.0103 14.6093 20.0103 15.5C20.0103 16.3907 19.239 17.0849 17.6965 18.4732L16 20"
-    stroke="#f97316"
-    stroke-width="1.5"
-    stroke-linecap="round"
-  />
-  <path
-    d="M13.9868 5L10 20"
-    stroke="#b4b9c0"
-    stroke-width="1.5"
-    stroke-linecap="round"
-  />
-  <path
-    d="M8.00005 4.82959L6.30358 6.35641C4.76102 7.74471 3.98975 8.43886 3.98975 9.32959C3.98975 10.2203 4.76102 10.9145 6.30358 12.3028L8.00005 13.8296"
-    stroke="#f97316"
-    stroke-width="1.5"
-    stroke-linecap="round"  
-  />
+<svg id="code-brackets-graphic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.52 16.67">
+    <g id="code-brackets" fill="none" stroke-linecap="round" stroke-width="1.5">
+        <path id="right-bracket" d="m12.76 6.92 1.7 1.53c1.54 1.39 2.31 2.08 2.31 2.97S16 13 14.46 14.39l-1.7 1.53" stroke="#f97316"/>
+        <path id="center-slash" d="m10.75.92-3.99 15" stroke="#b4b9c0"/>
+        <path id="left-bracket" d="m4.76.75-1.7 1.53C1.52 3.67.75 4.36.75 5.25s.77 1.58 2.31 2.97l1.7 1.53" stroke="#f97316"/>
+    </g>
 </svg>
