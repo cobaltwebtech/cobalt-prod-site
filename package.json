@@ -21,7 +21,7 @@
     "clean": "rimraf .astro .wrangler dist node_modules pnpm-lock.yaml"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.5",
+    "@astrojs/check": "^0.9.6",
     "@astrojs/cloudflare": "12.6.11",
     "@astrojs/sitemap": "3.6.0",
     "@playform/compress": "^0.2.0",
