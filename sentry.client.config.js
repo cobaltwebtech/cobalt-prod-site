@@ -1,16 +1,14 @@
 import * as Sentry from "@sentry/astro";
 
-// Only initialize in browser environment
-if (typeof window !== "undefined" && import.meta.env.PROD && import.meta.env.PUBLIC_SENTRY_DSN) {
-  Sentry.init({
-    dsn: import.meta.env.PUBLIC_SENTRY_DSN,
-    sendDefaultPii: true,
-    environment: import.meta.env.MODE,
-    integrations: [
-      // send console.log, console.warn, and console.error calls as logs to Sentry
-      Sentry.consoleLoggingIntegration({ levels: ["log", "warn", "error"] }),
-    ],
-    // Enable logs to be sent to Sentry
-    enableLogs: true,  
-  });
-}
+
+Sentry.init({
+  dsn: "https://a19083d3c9d84796f3c2d2372eb11847@o4508880993058816.ingest.us.sentry.io/4508881028907008",
+  sendDefaultPii: true,
+  environment: import.meta.env.MODE,
+  integrations: [
+    // send console.log, console.warn, and console.error calls as logs to Sentry
+    Sentry.consoleLoggingIntegration({ levels: ["log", "warn", "error"] }),
+  ],
+  // Enable logs to be sent to Sentry
+  enableLogs: true,  
+});
