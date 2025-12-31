@@ -1,7 +1,6 @@
 import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
 import minify from "@playform/compress";
-import sentry from "@sentry/astro";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import compressor from "astro-compressor";
@@ -27,11 +26,6 @@ export default defineConfig({
 		responsiveStyles: true,
 	},
 	integrations: [
-		sentry({
-			project: "cobalt-site-prod",
-			org: "cobalt-web-technologies",
-			authToken: process.env.SENTRY_AUTH_TOKEN,
-		}),
 		icon(),
 		sitemap({
 			filter: (page) => {

@@ -7,10 +7,6 @@
   "observability": {
     "enabled": true
   },
-  "version_metadata": {
-    // Config for Sentry integration
-    "binding": "CF_VERSION_METADATA"
-  },
   "assets": {
     "binding": "ASSETS",
     "directory": "./dist"
