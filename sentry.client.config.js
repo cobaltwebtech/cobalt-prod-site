@@ -1,7 +1,7 @@
 import * as Sentry from "@sentry/astro";
 
-// Only initialize in production
-if (import.meta.env.PROD && import.meta.env.PUBLIC_SENTRY_DSN) {
+// Only initialize in browser environment
+if (typeof window !== "undefined" && import.meta.env.PROD && import.meta.env.PUBLIC_SENTRY_DSN) {
   Sentry.init({
     dsn: import.meta.env.PUBLIC_SENTRY_DSN,
     sendDefaultPii: true,
