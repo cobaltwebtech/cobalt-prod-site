@@ -1,15 +1,16 @@
 ---
 
-
-
 import { Icon } from "astro-icon/components";
+import { Badge } from "@/components/starwind/badge";
 import Logo from "@/components/ui/Logo.astro";
 import footerMenu from "@/lib/navigation";
+import pkg from "../../../../package.json";
 
 // Define the variables that will be used in this component
 const sectionThreeTitle: string = "Hours of Operation";
 const sectionThreeDays: string = "Monday - Friday";
 const sectionThreeHours: string = "9AM - 5PM (US Central Time)";
+const appVersion: string = pkg.version;
 ---
 
 <footer
@@ -73,18 +74,18 @@ const sectionThreeHours: string = "9AM - 5PM (US Central Time)";
       ))
     }
 
-    <div class="md:col-span-2">
-      <h3 class="my-2 text-lg font-bold text-slate-800 dark:text-slate-200">
+    <div class="md:col-span-2 space-y-4">
+      <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200">
         {sectionThreeTitle}
       </h3>
-      <p class="text-slate-700 dark:text-slate-300">
+      <p class="m-0 text-slate-700 dark:text-slate-300">
         {sectionThreeDays}
       </p>
       <p class="text-slate-700 dark:text-slate-300">
         {sectionThreeHours}
       </p>
       <!-- Social Brands -->
-      <div class="my-4 flex gap-4">
+      <div class="flex gap-4">
         <a
           href="https://x.com/cobaltcag"
           target="_blank"
@@ -99,6 +100,11 @@ const sectionThreeHours: string = "9AM - 5PM (US Central Time)";
         >
           <Icon name="GitHubIcon" class="size-6" />
         </a>
+      </div>
+      <div>
+        <Badge variant="outline" size="sm" class="font-light">
+          App v{appVersion}
+        </Badge>
       </div>
     </div>
   </div>

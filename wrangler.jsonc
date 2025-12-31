@@ -1,25 +1,19 @@
 {
   "name": "cobaltwebtech",
   "main": "./dist/_worker.js/index.js",
-  "compatibility_date": "2025-10-20",
+  "compatibility_date": "2025-12-15",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": false,
   "observability": {
     "enabled": true
   },
-  "tail_consumers": [
-    {
-      "service": "cobaltwebtech-sentry"
-    }
-  ],
+  "version_metadata": {
+    // Config for Sentry integration
+    "binding": "CF_VERSION_METADATA"
+  },
   "assets": {
     "binding": "ASSETS",
     "directory": "./dist"
-  },
-  "vars": {
-    "PUBLIC_CLOUDINARY_CLOUD_NAME": "cobalt",
-    "TURNSTILE_PUBLIC_KEY": "0x4AAAAAAAAtFFFWPGStA0h_",
-    "UMAMI_ID": "758cbc64-fa17-4c53-98ad-63af8eafeb3b"
   },
   "kv_namespaces": [
     {
@@ -27,6 +21,11 @@
       "id": "bffb36f2981a48ab90f807b787231bb5"
     }
   ],
+  "vars": {
+    "PUBLIC_CLOUDINARY_CLOUD_NAME": "cobalt",
+    "TURNSTILE_PUBLIC_KEY": "0x4AAAAAAAAtFFFWPGStA0h_",
+    "UMAMI_ID": "758cbc64-fa17-4c53-98ad-63af8eafeb3b"
+  },
   "ratelimits": [
     {
       "name": "RATE_LIMITER",
