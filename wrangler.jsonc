@@ -23,6 +23,7 @@
   ],
   "vars": {
     "PUBLIC_CLOUDINARY_CLOUD_NAME": "cobalt",
+    "PUBLIC_SENTRY_DSN": "https://1cb4221444916db69fb6830adcab2f20@o4508880993058816.ingest.us.sentry.io/4508881028907008",
     "TURNSTILE_PUBLIC_KEY": "0x4AAAAAAAAtFFFWPGStA0h_",
     "UMAMI_ID": "758cbc64-fa17-4c53-98ad-63af8eafeb3b"
   },
