@@ -312,10 +312,23 @@ export const server = {
 				replyTo: input.email,
 			});
 
-			// Prepare and send Slack notification (fire and forget - don't wait for response)
+			// Prepare and send Slack notification (await and log so Workers don't terminate early)
 			const errorMessage = error ? error.message || String(error) : null;
 			const slackPayload = buildLeadFormSlackPayload(input, errorMessage);
-			sendSlackNotification(slackPayload, import.meta.env.SLACK_WEBHOOK_URL);
+			try {
+				// ensure sendSlackNotification returns the fetch Promise or perform fetch here
+				const slackResponse = await sendSlackNotification(
+					slackPayload,
+					import.meta.env.SLACK_WEBHOOK_URL,
+				);
+				console.log(
+					"Slack response:",
+					slackResponse?.status ?? "no status",
+					await (slackResponse?.text?.() ?? Promise.resolve("no body")),
+				);
+			} catch (slackErr) {
+				console.error("Slack notification failed:", slackErr);
+			}
 
 			if (error) {
 				console.error("Resend error:", error);
