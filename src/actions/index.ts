@@ -313,19 +313,23 @@ export const server = {
 			});
 
 			// Prepare and send Slack notification (await and log so Workers don't terminate early)
-			const errorMessage = error ? error.message || String(error) : null;
+			const errorMessage = error ? (error as Error).message ?? String(error) : null;
 			const slackPayload = buildLeadFormSlackPayload(input, errorMessage);
 			try {
-				// ensure sendSlackNotification returns the fetch Promise or perform fetch here
-				const slackResponse = await sendSlackNotification(
-					slackPayload,
-					import.meta.env.SLACK_WEBHOOK_URL,
-				);
-				console.log(
-					"Slack response:",
-					slackResponse?.status ?? "no status",
-					await (slackResponse?.text?.() ?? Promise.resolve("no body")),
-				);
+				const webhookUrl = import.meta.env.SLACK_WEBHOOK_URL;
+				if (webhookUrl) {
+					const slackRes = await fetch(webhookUrl, {
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify(slackPayload),
+					});
+					const slackText = await slackRes.text().catch(() => "no body");
+					console.log("Slack response:", slackRes.status, slackText);
+				} else {
+					console.warn(
+						"SLACK_WEBHOOK_URL is not defined, skipping Slack notification",
+					);
+				}
 			} catch (slackErr) {
 				console.error("Slack notification failed:", slackErr);
 			}
