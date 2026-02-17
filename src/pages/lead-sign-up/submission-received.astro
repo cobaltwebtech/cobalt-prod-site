@@ -1,0 +1,76 @@
+---
+import MainLayout from "@/base/MainLayout.astro";
+import FormContactInfo from "@/components/ui/blocks/FormContactInfo.astro";
+import SuccessMessage from "@/components/ui/blocks/FormSuccessMessage.astro";
+import { siteMeta } from "@/lib/siteData";
+
+const pageTitle: string = `Submission Received | ${siteMeta.title}`;
+---
+
+<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
+<MainLayout title={pageTitle}>
+  <section class="mx-auto max-w-5xl">
+    <div class="grid gap-6 lg:grid-cols-2 lg:gap-12">
+      <SuccessMessage
+        phoneUrl="tel:+15122941600"
+        phoneNumber="+1-512-294-1600"
+      />
+
+      <!--FormContactInfo component displays various contact methods -->
+      <div id="contactInfoWrapper" class="opacity-0">
+        <FormContactInfo
+          phoneUrl="tel:+15122941600"
+          phoneNumber="+1-512-294-1600"
+          emailUrl="mailto:info@cobaltweb.tech"
+          emailAddress="info@cobaltweb.tech"
+        />
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<!-- GSAP animations -->
+<script>
+  import { gsap } from "gsap";
+
+  // First, set the willChange property for performance
+  gsap.set([".fadeText", "#fadeInMoveDown", "#contactInfoWrapper"], {
+    willChange: "transform, opacity",
+  });
+  // Create timeline
+  const timeline = gsap.timeline({
+    defaults: { overwrite: "auto" },
+  });
+  // Ensure elements are hidden at start (also apply TW classes to the elements that match this)
+  gsap.set(".fadeText", { autoAlpha: 0, y: 50 });
+  gsap.set("#fadeInMoveDown", { autoAlpha: 0, y: -300 });
+  gsap.set("#contactInfoWrapper", { autoAlpha: 0 });
+  // Then animate them in sequence
+  timeline
+    .to("#fadeInMoveDown", {
+      duration: 1,
+      autoAlpha: 1,
+      y: 0,
+      ease: "power2.inOut",
+    })
+    .to(
+      ".fadeText",
+      {
+        duration: 1,
+        autoAlpha: 1,
+        y: 0,
+        ease: "power2.out",
+        stagger: 0.25, // Stagger the fade-in of each paragraph
+      },
+      "-=0.25", // Start 0.25s before previous animation completes
+    )
+    .to(
+      "#contactInfoWrapper",
+      {
+        duration: 1,
+        autoAlpha: 1,
+        ease: "power2.out",
+      },
+      "-=0.75", // Start 0.75s before previous animation completes
+    );
+</script>

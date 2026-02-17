@@ -1,7 +1,4 @@
 ---
-
-
-
 import type { HTMLAttributes } from "astro/types";
 import { Icon } from "astro-icon/components";
 import { tv } from "tailwind-variants";
@@ -17,17 +14,17 @@ type Props = HTMLAttributes<"div"> & {
   disabled?: boolean;
 };
 
-const selectItem = tv({
+export const selectItem = tv({
   base: [
-    "relative flex w-full cursor-default items-center rounded-sm py-1.5 pr-2 pl-8 outline-none select-none",
-    "hover:bg-muted focus:outline-focus focus:text-accent-foreground",
+    "relative flex w-full cursor-default items-center rounded-sm py-1.5 pr-8 pl-2 outline-none select-none",
+    "data-[active]:bg-accent data-[active]:text-accent-foreground",
     "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
     "not-aria-selected:[&_svg]:hidden aria-selected:[&_svg]:flex",
   ],
 });
 
-const selectItemIcon = tv({
-  base: "absolute left-2 size-3.5 items-center justify-center",
+export const selectItemIcon = tv({
+  base: "absolute right-2 flex size-4 items-center justify-center",
 });
 
 const { class: className, value, disabled, ...rest } = Astro.props;
@@ -37,15 +34,18 @@ const { class: className, value, disabled, ...rest } = Astro.props;
   class={selectItem({ class: className })}
   data-value={value}
   data-disabled={disabled}
+  data-slot="select-item"
   aria-selected="false"
   role="option"
   tabindex="0"
   {...rest}
 >
-  <span class={selectItemIcon()}>
-    <Icon name="Check" class="text-success size-4" />
-  </span>
   <span>
     <slot />
+  </span>
+  <span class={selectItemIcon()}>
+    <slot name="icon">
+      <Icon name="Check" class="text-success size-4" />
+    </slot>
   </span>
 </div>

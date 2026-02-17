@@ -277,9 +277,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
 	const url = new URL(request.url);
 	const userAgent = request.headers.get("User-Agent") || "";
 
-	// Log the request
-	console.log(`Middleware executing for: ${url.pathname}`);
-
 	// Check if this is a legitimate bot
 	const isBot = isLegitimateBot(userAgent);
 

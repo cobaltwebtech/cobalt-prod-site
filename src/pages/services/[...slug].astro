@@ -24,7 +24,7 @@ import { siteMeta } from "@/lib/siteData";
 export async function getStaticPaths() {
   const serviceEntries = await getCollection("services");
   return serviceEntries.map((service: CollectionEntry<"services">) => ({
-    params: { slug: service.slug },
+    params: { slug: service.id },
     props: { service },
   }));
 }
@@ -98,6 +98,7 @@ const pageTitle: string = `${service.data.title} | ${siteMeta.title}`;
         <TabsTrigger value="title1">{service.data.tabs.title1}</TabsTrigger>
         <TabsTrigger value="title2">{service.data.tabs.title2}</TabsTrigger>
       </TabsList>
+      <p class="mb-8 my-4 text-center text-muted-foreground text-sm">Click each tab above to view more info</p>
       <TabsContent value="title1">
         <div class="grid gap-12 md:grid-cols-2">
           <div class="lg:w-3/4">

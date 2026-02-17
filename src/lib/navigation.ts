@@ -19,6 +19,8 @@ const footerItems = [
 		section: "Company",
 		links: [
 			{ name: "About Us", url: "/about/" },
+			{ name: "Terms of Service", url: "/terms-of-service/" },
+			{ name: "Privacy Policy", url: "/privacy-policy/" },
 			{ name: "Client Support", url: "/support/" },
 			{ name: "Contact Us", url: "/contact/" },
 		],

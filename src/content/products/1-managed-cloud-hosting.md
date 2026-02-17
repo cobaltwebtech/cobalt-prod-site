@@ -45,5 +45,5 @@ tabSecondItems:
     subTitle: "Do you need reliable and high performance storage? We have access to a variety of cloud storage options to fit your budget. We offer both Block and Object storage options for your data needs in varying capacities that can be scaled up or down at any time. Affordable storage on standard HDDs or high performance speed on NVMe SSDs give you options for your storage types."
   - title: "Load Balancers"
     subTitle: "Leverage Load Balancers to increase performance and stability of your infrastructure. We build highly available and secure Load Balancers attached to your cloud cluster with health monitoring and automatic failover for 99.999% uptime."
-slug: managed-cloud-hosting/
+slug: managed-cloud-hosting
 ---

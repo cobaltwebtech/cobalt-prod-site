@@ -3,7 +3,6 @@ import MainLayout from "@/base/MainLayout.astro";
 import FAQ from "@/components/sections/features/FAQ.astro";
 import FeaturesGeneral from "@/components/sections/features/FeaturesGeneral.astro";
 import FeaturesTabs from "@/components/sections/features/FeaturesTabs.astro";
-import PricingSection from "@/components/sections/features/PricingSection.astro";
 import ClientsSection from "@/components/sections/landing/ClientsSection.astro";
 import EndPageCTA from "@/components/sections/landing/EndPageCTA.astro";
 import HeroSection from "@/components/sections/landing/HeroSection.astro";
@@ -12,7 +11,6 @@ import AnnouncementBanner from "@/components/ui/blocks/AnnouncementBanner.astro"
 // Import data files
 import faqs from "@/section-data/faqs.json";
 import featuresGeneral from "@/section-data/featuresGeneral.json";
-import pricing from "@/section-data/pricing.json";
 
 // Image paths at Cloudinary
 const featureImage = "cobalt-web-assets/highlight-ecommerce-stripe.avif";
@@ -129,8 +127,6 @@ const globe = "cobalt-web-assets/global-network-tall.avif";
       },
     ]}
   />
-
-  <PricingSection pricing={pricing} />
 
   <FAQ title="Frequently Asked Questions" faqs={faqs} />
 

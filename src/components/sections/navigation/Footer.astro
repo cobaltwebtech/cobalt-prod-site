@@ -92,6 +92,7 @@ const appVersion: string = pkg.version;
           rel="noopener noreferrer"
         >
           <Icon name="XIcon" class="size-6" />
+          <span class="sr-only">Link to X profile</span>
         </a>
         <a
           href="https://github.com/cobaltwebtech/"
@@ -99,11 +100,13 @@ const appVersion: string = pkg.version;
           rel="noopener noreferrer"
         >
           <Icon name="GitHubIcon" class="size-6" />
+          <span class="sr-only">Link to GitHub profile</span>
         </a>
       </div>
-      <div>
+      <div class="flex gap-1">
+        <p class="text-sm">Current Release </p>
         <Badge variant="outline" size="sm" class="font-light">
-          Release v{appVersion}
+          v{appVersion}
         </Badge>
       </div>
     </div>

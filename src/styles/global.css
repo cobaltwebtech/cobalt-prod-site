@@ -4,6 +4,7 @@
 @import "tw-animate-css";
 
 @plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -109,9 +110,9 @@
 		--card-foreground: var(--color-cobalt-950);
 		--popover: var(--color-slate-50);
 		--popover-foreground: var(--color-slate-950);
-		--default: var(--color-cobalt-600);
+		--default: var(--color-cobalt-800);
 		--default-foreground: var(--color-slate-50);
-		--primary: var(--color-cobalt-700);
+		--primary: var(--color-cobalt-300);
 		--primary-foreground: var(--color-slate-50);
 		--secondary: var(--color-orange-600);
 		--secondary-foreground: var(--color-slate-50);
@@ -141,7 +142,7 @@
 		--card-foreground: var(--color-cobalt-50);
 		--popover: var(--color-slate-900);
 		--popover-foreground: var(--color-slate-50);
-		--default: var(--color-cobalt-700);
+		--default: var(--color-cobalt-100);
 		--default-foreground: var(--color-slate-50);
 		--primary: var(--color-cobalt-800);
 		--primary-foreground: var(--color-slate-50);

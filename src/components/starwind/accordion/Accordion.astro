@@ -13,27 +13,22 @@ type Props = HTMLAttributes<"div"> & {
   defaultValue?: string;
 };
 
-const accordion = tv({ base: "starwind-accordion" });
+export const accordion = tv({ base: "starwind-accordion" });
 
-const {
-  type = "single",
-  defaultValue,
-  class: className,
-  ...rest
-} = Astro.props;
+const { type = "single", defaultValue, class: className, ...rest } = Astro.props;
 ---
 
 <div
   class={accordion({ class: className })}
   data-type={type}
   data-value={defaultValue}
+  data-slot="accordion"
   {...rest}
 >
   <slot />
 </div>
 
 <script>
-  // biome-ignore-all lint/correctness/noUnusedPrivateClassMembers: false positive thrown here by the linter
   type AccordionType = "single" | "multiple";
   type AccordionState = "open" | "closed";
 
@@ -56,6 +51,7 @@ const {
     private items: AccordionItem[];
     private itemsByValue: Map<string, AccordionItem>;
     private accordionId: string;
+    private isInitialized: boolean = false;
 
     /**
      * Creates a new AccordionHandler instance
@@ -73,6 +69,7 @@ const {
 
       this.setupItems();
       this.setInitialState();
+      this.isInitialized = true;
     }
 
     /**
@@ -80,18 +77,10 @@ const {
      * @returns Array of AccordionItem objects
      */
     private initializeItems(): AccordionItem[] {
-      return Array.from(
-        this.accordion.querySelectorAll<HTMLElement>(
-          ".starwind-accordion-item",
-        ),
-      )
+      return Array.from(this.accordion.querySelectorAll<HTMLElement>(".starwind-accordion-item"))
         .map((element, idx) => {
-          const trigger = element.querySelector<HTMLElement>(
-            ".starwind-accordion-trigger",
-          );
-          const content = element.querySelector<HTMLElement>(
-            ".starwind-accordion-content",
-          );
+          const trigger = element.querySelector<HTMLElement>(".starwind-accordion-trigger");
+          const content = element.querySelector<HTMLElement>(".starwind-accordion-content");
           const value = element.getAttribute("data-value") || String(idx);
 
           if (!trigger || !content) return null;
@@ -138,10 +127,7 @@ const {
       const contentInner = content.firstElementChild as HTMLElement;
       if (contentInner) {
         const height = contentInner.getBoundingClientRect().height;
-        content.style.setProperty(
-          "--starwind-accordion-content-height",
-          `${height}px`,
-        );
+        content.style.setProperty("--starwind-accordion-content-height", `${height}px`);
       }
     }
 
@@ -164,9 +150,7 @@ const {
      */
     private setupEventListeners(item: AccordionItem): void {
       item.trigger.addEventListener("click", () => this.handleClick(item));
-      item.trigger.addEventListener("keydown", (e) =>
-        this.handleKeyDown(e, item),
-      );
+      item.trigger.addEventListener("keydown", (e) => this.handleKeyDown(e, item));
     }
 
     /**
@@ -218,10 +202,7 @@ const {
       if (this.type === "single" && shouldOpen) {
         // Close other items if in single mode
         this.items.forEach((otherItem) => {
-          if (
-            otherItem !== item &&
-            otherItem.element.getAttribute("data-state") === "open"
-          ) {
+          if (otherItem !== item && otherItem.element.getAttribute("data-state") === "open") {
             this.setItemState(otherItem, false);
           }
         });
@@ -238,7 +219,10 @@ const {
     private setItemState(item: AccordionItem, isOpen: boolean): void {
       const state: AccordionState = isOpen ? "open" : "closed";
 
-      if (isOpen) {
+      // Skip animation during initial setup, enable for subsequent toggles
+      if (!this.isInitialized) {
+        item.content.style.setProperty("animation", "none");
+      } else {
         item.content.style.removeProperty("animation");
       }
 
@@ -254,20 +238,17 @@ const {
 
   // Store instances in a WeakMap to avoid memory leaks
   const accordionInstances = new WeakMap<HTMLElement, AccordionHandler>();
+  let accordionCounter = 0;
 
   const setupAccordions = () => {
-    document
-      .querySelectorAll<HTMLElement>(".starwind-accordion")
-      .forEach((accordion, idx) => {
-        if (!accordionInstances.has(accordion)) {
-          accordionInstances.set(
-            accordion,
-            new AccordionHandler(accordion, idx),
-          );
-        }
-      });
+    document.querySelectorAll<HTMLElement>(".starwind-accordion").forEach((accordion) => {
+      if (!accordionInstances.has(accordion)) {
+        accordionInstances.set(accordion, new AccordionHandler(accordion, accordionCounter++));
+      }
+    });
   };
 
   setupAccordions();
   document.addEventListener("astro:after-swap", setupAccordions);
+  document.addEventListener("starwind:init", setupAccordions);
 </script>

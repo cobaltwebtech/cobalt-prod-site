@@ -1,5 +1,4 @@
 ---
-
 import {
   Accordion,
   AccordionContent,
@@ -42,7 +41,7 @@ interface Props {
     </div>
     <!-- FAQ accordion items -->
     <div class="md:col-span-2">
-      <Accordion defaultValue="item-0" class="bg-muted rounded-md">
+      <Accordion defaultValue="item-0" class="bg-muted rounded-md border border-border">
         {
           faqs.faqs.map((faq, i) => (
             <AccordionItem value={`item-${i}`}>
