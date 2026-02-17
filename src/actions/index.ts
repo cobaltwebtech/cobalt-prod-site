@@ -9,6 +9,19 @@ import {
 } from "@/lib/slack-notification";
 import { supportEmailTemplate } from "@/lib/support-email";
 
+// Validate required environment variables
+if (!import.meta.env.RESEND_API_KEY) {
+	throw new Error("RESEND_API_KEY is not defined in environment variables");
+}
+if (!import.meta.env.TURNSTILE_SECRET_KEY) {
+	throw new Error(
+		"TURNSTILE_SECRET_KEY is not defined in environment variables",
+	);
+}
+if (!import.meta.env.SLACK_WEBHOOK_URL) {
+	throw new Error("SLACK_WEBHOOK_URL is not defined in environment variables");
+}
+
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
 // Validate form inputs with Zod
