@@ -313,7 +313,9 @@ export const server = {
 			});
 
 			// Prepare and send Slack notification (await and log so Workers don't terminate early)
-			const errorMessage = error ? (error as Error).message ?? String(error) : null;
+			const errorMessage = error
+				? ((error as Error).message ?? String(error))
+				: null;
 			const slackPayload = buildLeadFormSlackPayload(input, errorMessage);
 			try {
 				const webhookUrl = import.meta.env.SLACK_WEBHOOK_URL;
