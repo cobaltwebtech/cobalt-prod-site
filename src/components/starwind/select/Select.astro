@@ -15,7 +15,7 @@ type Props = HTMLAttributes<"div"> & {
    */
   required?: boolean;
 
-  children: any;
+  children?: Astro.JSX.Element | Astro.JSX.Element[];
 };
 
 const { class: className, name, defaultValue, required, ...rest } = Astro.props;

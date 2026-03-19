@@ -1,23 +1,18 @@
 ---
+import type { ImageMetadata } from "astro";
+import serviceDigitalMarketing from "@/assets/services/service-digital-marketing-desktop.avif";
+import serviceEcommerce1 from "@/assets/services/service-ecommerce-tall-1.avif";
+import serviceEcommerce2 from "@/assets/services/service-ecommerce-tall-2.avif";
+import serviceGlobal from "@/assets/services/service-global-network-1.avif";
+import serviceHacker from "@/assets/services/service-hacker-graphic.avif";
+import serviceBuild1 from "@/assets/services/service-let-us-build-1.avif";
+import serviceBuild2 from "@/assets/services/service-let-us-build-2.avif";
+import serviceNetwork from "@/assets/services/service-network-server.avif";
 import MainLayout from "@/base/MainLayout.astro";
 import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
 import LeftSection from "@/components/ui/blocks/LeftSection.astro";
 import MainSection from "@/components/ui/blocks/MainSection.astro";
 import RightSection from "@/components/ui/blocks/RightSection.astro";
-
-// Images
-const serviceBuild1 = "cobalt-web-assets/services/service-let-us-build-1.avif";
-const serviceBuild2 = "cobalt-web-assets/services/service-let-us-build-2.avif";
-const serviceHacker = "cobalt-web-assets/services/service-hacker-graphic.avif";
-const serviceNetwork = "cobalt-web-assets/services/service-network-server.avif";
-const serviceGlobal =
-  "cobalt-web-assets/services/service-global-network-1.avif";
-const serviceDigitalMarketing =
-  "cobalt-web-assets/services/service-digital-marketing-desktop.avif";
-const serviceEcommerce1 =
-  "cobalt-web-assets/services/service-ecommerce-tall-1.avif";
-const serviceEcommerce2 =
-  "cobalt-web-assets/services/service-ecommerce-tall-2.avif";
 
 import { siteMeta } from "@/lib/siteData";
 
@@ -29,13 +24,13 @@ interface Service {
   btnTitle?: string;
   btnURL?: string;
   single?: boolean;
-  imgSrcLeft?: string;
+  imgSrcLeft?: ImageMetadata;
   imgAltLeft?: string;
-  imgSrcRightSingle?: string;
+  imgSrcRightSingle?: ImageMetadata;
   imgAltRightSingle?: string;
-  imgSrcRightFirst?: string;
+  imgSrcRightFirst?: ImageMetadata;
   imgAltRightFirst?: string;
-  imgSrcRightSecond?: string;
+  imgSrcRightSecond?: ImageMetadata;
   imgAltRightSecond?: string;
 }
 
@@ -108,28 +103,26 @@ const services: Service[] = [
 ];
 
 const pageTitle: string = `Services | ${siteMeta.title}`;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.cobaltweb.tech/services/",
+  url: "https://www.cobaltweb.tech/services/",
+  name: pageTitle,
+  description:
+    "Cobalt Web Technologies provides managed services for your web application needs.",
+  isPartOf: {
+    "@type": "WebSite",
+    url: "https://www.cobaltweb.tech/",
+    name: "Cobalt Web Technologies",
+    description:
+      "Cobalt Web Technologies builds high performance websites with secure managed cloud infrastructure along with digital marketing and SEO services.",
+  },
+  inLanguage: "en-US",
+};
 ---
 
-<MainLayout
-  title={pageTitle}
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://www.cobaltweb.tech/services/",
-    url: "https://www.cobaltweb.tech/services/",
-    name: "Services | Cobalt Web Technologies",
-    description:
-      "Cobalt Web Technologies provides managed services for your web application needs.",
-    isPartOf: {
-      "@type": "WebSite",
-      url: "https://www.cobaltweb.tech/",
-      name: "Cobalt Web Technologies",
-      description:
-        "Cobalt Web Technologies builds high performance websites with secure managed cloud infrastructure along with digital marketing and SEO services.",
-    },
-    inLanguage: "en-US",
-  }}
->
+<MainLayout title={pageTitle} structuredData={structuredData}>
   <!--MainSection is the introductory section of the page, it also contains a CTA button-->
   <MainSection
     title="Our Services"
@@ -154,12 +147,12 @@ const pageTitle: string = `Services | ${siteMeta.title}`;
           title={service.title}
           subTitle={service.subTitle}
           single={service.single}
-          imgSrcRightSingle={service.imgSrcRightSingle ?? ""}
-          imgAltRightSingle={service.imgAltRightSingle ?? ""}
-          imgSrcRightFirst={service.imgSrcRightFirst ?? ""}
-          imgAltRightFirst={service.imgAltRightFirst ?? ""}
-          imgSrcRightSecond={service.imgSrcRightSecond ?? ""}
-          imgAltRightSecond={service.imgAltRightSecond ?? ""}
+          imgSrcRightSingle={service.imgSrcRightSingle}
+          imgAltRightSingle={service.imgAltRightSingle}
+          imgSrcRightFirst={service.imgSrcRightFirst}
+          imgAltRightFirst={service.imgAltRightFirst}
+          imgSrcRightSecond={service.imgSrcRightSecond}
+          imgAltRightSecond={service.imgAltRightSecond}
           btnExists={service.btnExists}
           btnTitle={service.btnTitle}
           btnURL={service.btnURL}
@@ -168,7 +161,7 @@ const pageTitle: string = `Services | ${siteMeta.title}`;
         <LeftSection
           title={service.title}
           subTitle={service.subTitle}
-          imgSrcLeft={service.imgSrcLeft ?? ""}
+          imgSrcLeft={service.imgSrcLeft as ImageMetadata}
           imgAltLeft={service.imgAltLeft ?? ""}
           btnExists={service.btnExists}
           btnTitle={service.btnTitle}
@@ -193,7 +186,7 @@ const pageTitle: string = `Services | ${siteMeta.title}`;
         description: "Currently Deployed Projects",
       },
       {
-        stat: "15+",
+        stat: "20+",
         description: "Years Experience",
       },
     ]}

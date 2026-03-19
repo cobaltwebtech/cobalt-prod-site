@@ -1,7 +1,7 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { Icon } from "astro-icon/components";
 import { tv, type VariantProps } from "tailwind-variants";
+import Check from "@/icons/Check.svg";
 
 type Props = Omit<HTMLAttributes<"input">, "type"> &
   VariantProps<typeof checkbox> & {
@@ -88,7 +88,7 @@ const { base, input, icon, label: labelClass } = checkbox({ size, variant });
     {checked}
     {...rest}
   />
-  <Icon name="Check" class={icon()} />
+  <Check class={icon()} />
   {
     label && (
       <label for={id} class={labelClass()} data-slot="checkbox-label">

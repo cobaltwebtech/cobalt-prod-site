@@ -1,9 +1,7 @@
 ---
-
 export const prerender = false;
 
 import { actions, isInputError } from "astro:actions";
-import { Icon } from "astro-icon/components";
 import MainLayout from "@/base/MainLayout.astro";
 import { Button } from "@/components/starwind/button";
 import { Input } from "@/components/starwind/input";
@@ -17,6 +15,9 @@ import {
 } from "@/components/starwind/select";
 import { Textarea } from "@/components/starwind/textarea";
 import FormContactInfo from "@/components/ui/blocks/FormContactInfo.astro";
+import CloseFill from "@/icons/CloseFill.svg";
+import LoadingFill from "@/icons/LoadingFill.svg";
+import Send from "@/icons/Send.svg";
 import { siteMeta } from "@/lib/siteData";
 
 const pageTitle: string = `Support Request | ${siteMeta.title}`;
@@ -26,6 +27,23 @@ const subTitle: string =
 const formTitle: string = "Fill out the form below";
 const selectSupport: string = "Please select the support type you require.";
 const turnstileSiteKey = import.meta.env.TURNSTILE_PUBLIC_KEY;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.cobaltweb.tech/support/",
+  url: "https://www.cobaltweb.tech/support/",
+  name: "Support | Cobalt Web Technologies",
+  description: "Cobalt Web Technologies technical and billing support page.",
+  isPartOf: {
+    "@type": "WebSite",
+    url: "https://www.cobaltweb.tech/",
+    name: "Cobalt Web Technologies",
+    description:
+      "Cobalt Web Technologies builds high performance websites with secure managed cloud infrastructure along with digital marketing and SEO services.",
+  },
+  inLanguage: "en-US",
+};
 
 // Handle redirect on successful form submission
 const result = Astro.getActionResult(actions.sendSupportForm);
@@ -42,7 +60,7 @@ if (result?.error) {
     const errorMessages: string[] = [];
 
     // Collect all field errors
-    for (const [field, messages] of Object.entries(fieldErrors)) {
+    for (const [_field, messages] of Object.entries(fieldErrors)) {
       if (messages && messages.length > 0) {
         // Join multiple errors for the same field with commas
         errorMessages.push(messages.join(", "));
@@ -63,22 +81,7 @@ if (result?.error) {
 <!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
 <MainLayout
   title={pageTitle}
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://www.cobaltweb.tech/support/",
-    url: "https://www.cobaltweb.tech/support/",
-    name: "Support | Cobalt Web Technologies",
-    description: "Cobalt Web Technologies technical and billing support page.",
-    isPartOf: {
-      "@type": "WebSite",
-      url: "https://www.cobaltweb.tech/",
-      name: "Cobalt Web Technologies",
-      description:
-        "Cobalt Web Technologies builds high performance websites with secure managed cloud infrastructure along with digital marketing and SEO services.",
-    },
-    inLanguage: "en-US",
-  }}
+  structuredData={structuredData}
   enablePreconnect={true}
   preconnectUrl="https://challenges.cloudflare.com"
   externalScript={true}
@@ -185,7 +188,7 @@ if (result?.error) {
             <div class="text-cobalt-50 rounded-lg border-2 border-orange-400 bg-orange-700 p-3 font-bold">
               <div class="flex justify-center gap-2">
                 <>
-                  <Icon name="CloseFill" class="size-6 animate-bounce" />
+                  <CloseFill class="size-6 animate-bounce" />
                   <span>{errorMessage}</span>
                 </>
               </div>
@@ -194,9 +197,8 @@ if (result?.error) {
         }
         <div class="mt-4">
           <Button type="submit" class="w-full" id="submit-button">
-            <Icon name="Send" id="send-icon" />
-            <Icon
-              name="LoadingFill"
+            <Send id="send-icon" />
+            <LoadingFill
               id="loader-icon"
               class="hidden size-5 animate-spin"
             />

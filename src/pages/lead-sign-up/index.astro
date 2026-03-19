@@ -2,13 +2,20 @@
 export const prerender = false;
 
 import { actions, isInputError } from "astro:actions";
-import { Icon } from "astro-icon/components";
 import MainLayout from "@/base/MainLayout.astro";
 import { Button } from "@/components/starwind/button";
 import { Checkbox } from "@/components/starwind/checkbox";
 import { Input } from "@/components/starwind/input";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/starwind/select";
 import { Textarea } from "@/components/starwind/textarea";
+import CloseFill from "@/icons/CloseFill.svg";
+import Cloud from "@/icons/Cloud.svg";
+import Globe from "@/icons/Globe.svg";
+import ListDetails from "@/icons/ListDetails.svg";
+import LoadingFill from "@/icons/LoadingFill.svg";
+import PencilQuestion from "@/icons/PencilQuestion.svg";
+import Send from "@/icons/Send.svg";
+import WwwGlobe from "@/icons/www-globe.svg";
 import { siteMeta } from "@/lib/siteData";
 
 const pageTitle: string = `Lead Sign Up | ${siteMeta.title}`;
@@ -17,6 +24,24 @@ const subTitle: string =
   "Have questions or want to discuss a project? We would be thrilled to help you build your next web project or revamp your current one. Fill out the contact form below to get started.";
 const formTitle: string = "Fill out the form below";
 const turnstileSiteKey = import.meta.env.TURNSTILE_PUBLIC_KEY;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.cobaltweb.tech/contact/",
+  url: "https://www.cobaltweb.tech/contact/",
+  name: "Lead Sign Up | Cobalt Web Technologies",
+  description:
+    "If you have questions or want to discuss your project needs please let us know. Cobalt Web Technologies is here to help you with all your website and web hosting needs.",
+  isPartOf: {
+    "@type": "WebSite",
+    url: "https://www.cobaltweb.tech/",
+    name: "Cobalt Web Technologies",
+    description:
+      "Cobalt Web Technologies builds high performance websites with secure managed cloud infrastructure along with digital marketing and SEO services.",
+  },
+  inLanguage: "en-US",
+};
 
 // Handle redirect on successful form submission
 const result = Astro.getActionResult(actions.sendLeadForm);
@@ -33,7 +58,7 @@ if (result?.error) {
     const errorMessages: string[] = [];
 
     // Collect all field errors
-    for (const [field, messages] of Object.entries(fieldErrors)) {
+    for (const [_field, messages] of Object.entries(fieldErrors)) {
       if (messages && messages.length > 0) {
         // Join multiple errors for the same field with commas
         errorMessages.push(messages.join(", "));
@@ -53,23 +78,7 @@ if (result?.error) {
 
 <MainLayout
   title={pageTitle}
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://www.cobaltweb.tech/contact/",
-    url: "https://www.cobaltweb.tech/contact/",
-    name: "Lead Sign Up | Cobalt Web Technologies",
-    description:
-      "If you have questions or want to discuss your project needs please let us know. Cobalt Web Technologies is here to help you with all your website and web hosting needs.",
-    isPartOf: {
-      "@type": "WebSite",
-      url: "https://www.cobaltweb.tech/",
-      name: "Cobalt Web Technologies",
-      description:
-        "Cobalt Web Technologies builds high performance websites with secure managed cloud infrastructure along with digital marketing and SEO services.",
-    },
-    inLanguage: "en-US",
-  }}
+  structuredData={structuredData}
   enablePreconnect={true}
   preconnectUrl="https://challenges.cloudflare.com"
   externalScript={true}
@@ -111,7 +120,7 @@ if (result?.error) {
       >
         <div class="p-4 space-y-4 bg-card rounded-md">
         <div class="flex items-center gap-2">
-          <Icon name="ListDetails" class="size-6 text-foreground" />
+          <ListDetails class="size-6 text-foreground" />
           <p class="font-semibold text-foreground">
             Basic Details
           </p>
@@ -175,7 +184,7 @@ if (result?.error) {
 
         <div class="p-4 space-y-4 bg-card rounded-md">
           <div class="flex items-center gap-2">
-            <Icon name="www-globe" class="size-6 text-foreground" />
+            <WwwGlobe class="size-6 text-foreground" />
             <p class="font-semibold text-foreground">
               Current Website Info
             </p>
@@ -221,7 +230,7 @@ if (result?.error) {
 
         <div class="p-4 space-y-4 bg-card rounded-md">
           <div class="flex items-center gap-2">
-            <Icon name="Cloud" class="size-6 text-foreground" />
+            <Cloud class="size-6 text-foreground" />
             <p class="font-semibold text-foreground">
               Infrastructure Needs
             </p>
@@ -307,7 +316,7 @@ if (result?.error) {
 
        <div class="p-4 space-y-4 bg-card rounded-md">
         <div class="flex items-center gap-2">
-          <Icon name="Globe" class="size-6 text-foreground" />
+          <Globe class="size-6 text-foreground" />
           <p class="font-semibold text-foreground">
             Regulatory Compliance and International Requirements
           </p>
@@ -336,7 +345,7 @@ if (result?.error) {
 
        <div class="p-4 space-y-4 bg-card rounded-md">
          <div class="flex items-center gap-2">
-           <Icon name="PencilQuestion" class="size-6 text-foreground" />
+           <PencilQuestion class="size-6 text-foreground" />
            <p class="font-semibold text-foreground">
              Additional Information
            </p>
@@ -367,7 +376,7 @@ if (result?.error) {
           errorMessage && (
             <div class="text-cobalt-50 rounded-lg border-2 border-orange-400 bg-orange-700 p-3 font-bold">
               <div class="flex justify-center gap-2">
-                <Icon name="CloseFill" class="size-6 animate-bounce" />
+                <CloseFill class="size-6 animate-bounce" />
                 <span>{errorMessage}</span>
               </div>
             </div>
@@ -375,9 +384,8 @@ if (result?.error) {
         }
         <div class="mt-4">
           <Button type="submit" class="w-full" id="submit-button">
-            <Icon name="Send" id="send-icon" />
-            <Icon
-              name="LoadingFill"
+            <Send id="send-icon" />
+            <LoadingFill
               id="loader-icon"
               class="hidden size-5 animate-spin"
             />

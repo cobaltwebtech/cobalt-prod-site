@@ -1,5 +1,6 @@
 ---
-import { Icon } from "astro-icon/components";
+import ArrowBracketLeft from "@/icons/ArrowBracketLeft.svg";
+import ArrowBracketRight from "@/icons/ArrowBracketRight.svg";
 
 const { count, description, index } = Astro.props;
 
@@ -14,12 +15,12 @@ interface Props {
   <div class="mb-2 flex items-center">
     {
       index === 0 || index === 2 ? (
-        <Icon class="size-12 text-orange-400" name="ArrowBracketLeft" />
+        <ArrowBracketLeft class="size-12 text-orange-400" />
       ) : null
     }
     {
       index === 1 || index === 3 ? (
-        <Icon class="size-12 text-cyan-400" name="ArrowBracketRight" />
+        <ArrowBracketRight class="size-12 text-cyan-400" />
       ) : null
     }
     <span

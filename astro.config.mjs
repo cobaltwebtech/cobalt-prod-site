@@ -2,9 +2,8 @@ import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
 import minify from "@playform/compress";
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import compressor from "astro-compressor";
-import icon from "astro-icon";
 
 export default defineConfig({
 	site: "https://www.cobaltweb.tech",
@@ -15,18 +14,50 @@ export default defineConfig({
 	vite: {
 		plugins: [tailwindcss()],
 	},
+	adapter: cloudflare({
+		imageService: { build: "compile", runtime: "cloudflare-binding" },
+	}),
 	experimental: {
+		rustCompiler: true,
+		queuedRendering: {
+			enabled: true,
+		},
 		clientPrerender: true,
 	},
+	fonts: [
+		{
+			provider: fontProviders.local(),
+			name: "Proxima Nova",
+			cssVariable: "--default-font-family",
+			options: {
+				variants: [
+					{
+						src: ["./public/fonts/ProximaNova-Regular.woff2"],
+						weight: "400",
+						style: "normal",
+					},
+					{
+						src: ["./public/fonts/ProximaNova-Bold.woff2"],
+						weight: "700",
+						style: "normal",
+					},
+					{
+						src: ["./public/fonts/ProximaNova-ExtraBold.woff2"],
+						weight: "900",
+						style: "normal",
+					},
+				],
+			},
+		},
+	],
 	image: {
-		domains: ["res.cloudinary.com"],
 		layout: "constrained",
 		objectFit: "cover",
 		objectPosition: "center",
 		responsiveStyles: true,
 	},
 	integrations: [
-		icon(),
+		// icon(),
 		sitemap({
 			filter: (page) => {
 				const url = new URL(page);
@@ -46,10 +77,4 @@ export default defineConfig({
 			brotli: true,
 		}),
 	],
-	adapter: cloudflare({
-		imageService: "compile",
-		platformProxy: {
-			enabled: true,
-		},
-	}),
 });

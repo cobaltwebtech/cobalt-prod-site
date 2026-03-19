@@ -1,23 +1,9 @@
 ---
-import { CldImage } from "astro-cloudinary";
-import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import { Button } from "@/components/starwind/button";
+import InfoFill from "@/icons/InfoFill.svg";
 
-// Destructure the props passed to the Astro component
-const {
-  title,
-  subTitle,
-  btnExists,
-  btnTitle,
-  btnURL,
-  single,
-  imgSrcRightSingle,
-  imgAltRightSingle,
-  imgSrcRightFirst,
-  imgAltRightFirst,
-  imgSrcRightSecond,
-  imgAltRightSecond,
-} = Astro.props;
 // Define TypeScript interface for the properties
 interface Props {
   title: string;
@@ -26,13 +12,24 @@ interface Props {
   btnTitle?: string;
   btnURL?: string;
   single?: boolean;
-  imgSrcRightSingle: string;
-  imgAltRightSingle: string;
-  imgSrcRightFirst: string;
-  imgAltRightFirst: string;
-  imgSrcRightSecond: string;
-  imgAltRightSecond: string;
+  imgSrcRightSingle?: ImageMetadata;
+  imgAltRightSingle?: string;
+  imgSrcRightFirst?: ImageMetadata;
+  imgAltRightFirst?: string;
+  imgSrcRightSecond?: ImageMetadata;
+  imgAltRightSecond?: string;
 }
+
+// Destructure the props passed to the Astro component
+const { title, subTitle, btnExists, btnTitle, btnURL, single } = Astro.props;
+
+// Cast image props based on single/dual mode to satisfy Image component types
+const imgSingle = Astro.props.imgSrcRightSingle as ImageMetadata;
+const altSingle = Astro.props.imgAltRightSingle ?? "";
+const imgFirst = Astro.props.imgSrcRightFirst as ImageMetadata;
+const altFirst = Astro.props.imgAltRightFirst ?? "";
+const imgSecond = Astro.props.imgSrcRightSecond as ImageMetadata;
+const altSecond = Astro.props.imgAltRightSecond ?? "";
 ---
 
 <!-- Root section of the component -->
@@ -54,20 +51,19 @@ interface Props {
     {
       btnExists ? (
         <Button href={btnURL}>
-          <Icon name="InfoFill" class="size-6" />
+          <InfoFill class="size-6" />
           {btnTitle}
         </Button>
       ) : null
     }
   </div>
   <!-- Conditionally render one or two images based on 'single' boolean -->
-  {
-    single ? ( // Single image
+  {single ? (
       <div class="order-1 mt-8 md:order-2">
-        <CldImage
+        <Image
           class="w-full rounded-lg"
-          src={imgSrcRightSingle}
-          alt={imgAltRightSingle}
+          src={imgSingle}
+          alt={altSingle}
           draggable="false"
           format="avif"
           width={1920}
@@ -75,21 +71,20 @@ interface Props {
         />
       </div>
     ) : (
-      // If two images render in grid column layout
       <div class="order-1 mt-8 grid grid-cols-2 gap-4 md:order-2">
-        <CldImage
+        <Image
           class="w-full rounded-xl"
-          src={imgSrcRightFirst}
-          alt={imgAltRightFirst}
+          src={imgFirst}
+          alt={altFirst}
           draggable="false"
           format="avif"
           width={1280}
           height={1920}
         />
-        <CldImage
+        <Image
           class="mt-4 w-full rounded-xl lg:mt-10"
-          src={imgSrcRightSecond}
-          alt={imgAltRightSecond}
+          src={imgSecond}
+          alt={altSecond}
           draggable="false"
           format="avif"
           width={1280}

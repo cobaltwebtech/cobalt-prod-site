@@ -1,8 +1,12 @@
 ---
-
-import { Icon } from "astro-icon/components";
 import { Badge } from "@/components/starwind/badge";
 import Logo from "@/components/ui/Logo.astro";
+import CobaltCompanyName from "@/icons/CobaltCompanyName.svg";
+import CowboyHat from "@/icons/CowboyHat.svg";
+import GitHubIcon from "@/icons/GitHubIcon.svg";
+import TexasFlag from "@/icons/TexasFlag.svg";
+import USFlag from "@/icons/USFlag.svg";
+import XIcon from "@/icons/XIcon.svg";
 import footerMenu from "@/lib/navigation";
 import pkg from "../../../../package.json";
 
@@ -19,21 +23,23 @@ const appVersion: string = pkg.version;
   <div class="grid gap-2 md:grid-cols-7 md:gap-4 lg:gap-8">
     <div class="md:col-span-3">
       <!-- Brand Logo -->
-      <div class="flex justify-center">
+      <div class="flex flex-col items-center justify-center gap-1">
         <Logo class="size-32" />
+        <CobaltCompanyName
+          class="w-auto h-14 lg:h-16 text-cobalt-800 dark:text-cobalt-50"
+        />
       </div>
       <div class="space-y-2 text-center">
         <p class="text-sm text-slate-800 dark:text-slate-200">
           ©2015 - <span id="current-year"></span>
         </p>
         <div class="flex justify-center">
-          <Icon
-            name="Cobalt-Company-Name"
-            class="text-cobalt-800 dark:text-cobalt-50 h-auto w-40"
-          />
-          <span class="sr-only" aria-label="Website company name"
-            >Cobalt Web Technologies</span
+          <span 
+            class="sr-only" 
+            aria-label="Website company name"
           >
+            Cobalt Web Technologies
+          </span>
         </div>
         <p class="mb-0 text-sm text-slate-700 dark:text-slate-300">
           All rights reserved.
@@ -42,10 +48,9 @@ const appVersion: string = pkg.version;
           Based, built, and coded in Austin, Texas USA.
         </p>
         <div class="flex justify-center gap-4">
-          <Icon name="USFlag" class="size-14" />
-          <Icon name="TexasFlag" class="size-14" />
-          <Icon
-            name="CowboyHat"
+          <USFlag class="size-14" />
+          <TexasFlag class="size-14" />
+          <CowboyHat
             class="size-14 text-slate-800 dark:text-slate-200"
           />
         </div>
@@ -91,7 +96,7 @@ const appVersion: string = pkg.version;
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Icon name="XIcon" class="size-6" />
+          <XIcon class="size-6" />
           <span class="sr-only">Link to X profile</span>
         </a>
         <a
@@ -99,7 +104,7 @@ const appVersion: string = pkg.version;
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Icon name="GitHubIcon" class="size-6" />
+          <GitHubIcon class="size-6" />
           <span class="sr-only">Link to GitHub profile</span>
         </a>
       </div>

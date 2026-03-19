@@ -1,29 +1,37 @@
 ---
-
 import StatsGrid from "@/components/ui/blocks/StatsGrid.astro";
 
-const { title, subTitle, statistics } = Astro.props;
+const title = "Take Your Web Presence to the Next Level";
+const subTitle =
+  "At Cobalt we can build you exactly what you need with performance in mind. From online threat mitigation to digital marketing, we have a broad range of services and tools to fit your exact needs.";
 
-interface Props {
-  title: string;
-  subTitle?: string;
-  testimonials?: Testimonial[];
-  statistics?: StatProps[];
-}
-
-// TypeScript type for testimonials
-type Testimonial = {
-  content: string;
-  author: string;
-  role: string;
-  avatarSrc: string;
-};
-
-// TypeScript type for stats.
 type StatProps = {
   count: string;
   description: string;
 };
+
+const statistics: StatProps[] = [
+  {
+    count: "3",
+    description:
+      "seconds or less to mitigate malicious traffic and keep your business online",
+  },
+  {
+    count: "123",
+    description:
+      "global PoPs on a CDN for global distribution and unparalleled speed",
+  },
+  {
+    count: "24ms",
+    description:
+      "average global latency for super fast load times of your web app",
+  },
+  {
+    count: "6X",
+    description:
+      "engagement with digital marketing targeted ads and email campaigns",
+  },
+];
 ---
 
 <section class="py-8">
@@ -42,22 +50,19 @@ type StatProps = {
     </div>
 
     {
-      statistics && (
-        <div class="bg-cobalt-100/60 dark:bg-cobalt-800 space-y-6 rounded-lg p-4 sm:space-y-8">
-          <ul class="grid grid-cols-2 divide-x-2 divide-y-2 divide-slate-400 overflow-hidden dark:divide-slate-600">
-            {
-              //Generate a list item for each stat in the statistics array by mapping over the array.
-              statistics.map((stat, index) => (
-                <StatsGrid
-                  count={stat.count}
-                  description={stat.description}
-                  index={index}
-                />
-              ))
-            }
-          </ul>
-        </div>
-      )
+      <div class="bg-cobalt-100/60 dark:bg-cobalt-800 space-y-6 rounded-lg p-4 sm:space-y-8">
+        <ul class="grid grid-cols-2 divide-x-2 divide-y-2 divide-slate-400 overflow-hidden dark:divide-slate-600">
+          {
+            statistics.map((stat, index) => (
+              <StatsGrid
+                count={stat.count}
+                description={stat.description}
+                index={index}
+              />
+            ))
+          }
+        </ul>
+      </div>
     }
   </div>
 </section>

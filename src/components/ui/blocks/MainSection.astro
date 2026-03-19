@@ -1,7 +1,6 @@
 ---
-
-import { Icon } from "astro-icon/components";
 import { Button } from "@/components/starwind/button";
+import ChatAnimate from "@/icons/ChatAnimate.svg";
 
 // Destructure the props passed to the Astro component
 const { title, subTitle, btnExists, btnTitle, btnURL } = Astro.props;
@@ -35,7 +34,7 @@ interface Props {
       btnExists ? (
         <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
           <Button variant="secondary" href={btnURL}>
-            <Icon name="ChatAnimate" class="size-6" />
+            <ChatAnimate class="size-6" />
             {btnTitle}
           </Button>
         </div>

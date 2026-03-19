@@ -17,11 +17,7 @@ const product: CollectionEntry<"products">[] = (
 );
 
 const pageTitle: string = `Products | ${siteMeta.title}`;
----
-
-<MainLayout
-  title={pageTitle}
-  structuredData={{
+const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://www.cobaltweb.tech/products/",
@@ -36,9 +32,11 @@ const pageTitle: string = `Products | ${siteMeta.title}`;
       description:
         "Cobalt Web Technologies provides guidance and services to meet your demands of a high performance secure and modern website.",
     },
-    inLanguage: "en-US",
-  }}
->
+    inLanguage: "en-US", 
+};
+---
+
+<MainLayout title={pageTitle} structuredData={structuredData}>
   <!--MainSection is the introductory section of the page, it also contains a CTA button-->
   <MainSection
     title="Products"

@@ -1,8 +1,13 @@
 {
   "name": "cobaltwebtech",
-  "main": "./dist/_worker.js/index.js",
-  "compatibility_date": "2026-01-20",
-  "compatibility_flags": ["nodejs_compat"],
+  "main": "@astrojs/cloudflare/entrypoints/server",
+	"compatibility_date": "2026-02-24",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+  "placement": {
+    "mode": "smart"
+  },
   "workers_dev": false,
   "observability": {
     "enabled": true

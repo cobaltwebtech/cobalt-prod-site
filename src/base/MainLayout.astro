@@ -1,8 +1,7 @@
 ---
 import "@/styles/global.css";
+import { Font } from "astro:assets";
 import { ClientRouter, fade } from "astro:transitions";
-import { join } from "node:path";
-import { AstroFont } from "astro-font";
 import Analytics from "@/base/Analytics.astro";
 import Meta from "@/base/Meta.astro";
 import Footer from "@/components/sections/navigation/Footer.astro";
@@ -46,48 +45,7 @@ interface Props {
     <!-- Adding metadata to the HTML document -->
     <Meta meta={meta} structuredData={structuredData} />
     <!-- Load fonts -->
-    <AstroFont
-      config={[
-        {
-          preload: true,
-          display: "swap",
-          name: "Proxima Nova",
-          fallback: "sans-serif",
-          src: [
-            {
-              weight: "400",
-              style: "normal",
-              path: join(
-                process.cwd(),
-                "public",
-                "fonts",
-                "ProximaNova-Regular.woff2",
-              ),
-            },
-            {
-              weight: "700",
-              style: "normal",
-              path: join(
-                process.cwd(),
-                "public",
-                "fonts",
-                "ProximaNova-Bold.woff2",
-              ),
-            },
-            {
-              weight: "800",
-              style: "normal",
-              path: join(
-                process.cwd(),
-                "public",
-                "fonts",
-                "ProximaNova-ExtraBold.woff2",
-              ),
-            },
-          ],
-        },
-      ]}
-    />
+    <Font cssVariable="--default-font-family" preload />
 
     <!-- Script to handle dark mode sets localstorage to save preference and checks the devices preference -->
     <script is:inline>
@@ -154,10 +112,11 @@ interface Props {
     <script>
       // Optimize Preline initialization only for elements that need it
       document.addEventListener("astro:page-load", async () => {
-        //
         if (document.querySelector("[data-hs-collapse]")) {
-          const preline = await import("preline/dist/preline.js");
-          preline.HSStaticMethods.autoInit();
+          const { default: HSCollapse } = await import(
+            "preline/plugins/collapse"
+          );
+          HSCollapse.autoInit();
         }
       });
     </script>

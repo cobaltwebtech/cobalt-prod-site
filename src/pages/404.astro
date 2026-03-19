@@ -1,9 +1,9 @@
 ---
 export const prerender = false;
 
-import { Icon } from "astro-icon/components";
 import MainLayout from "@/base/MainLayout.astro";
 import { Button } from "@/components/starwind/button";
+import House from "@/icons/House.svg";
 import { siteMeta } from "@/lib/siteData";
 
 const pageTitle: string = `Page Not Found | ${siteMeta.title}`;
@@ -27,7 +27,7 @@ const pageTitle: string = `Page Not Found | ${siteMeta.title}`;
     </p>
     <!--Display a button that navigates user back to the home page-->
     <Button variant="secondary" size="lg" title="Home Button" href="/"
-      ><Icon name="House" />Go Home</Button
+      ><House />Go Home</Button
     >
   </section>
 </MainLayout>

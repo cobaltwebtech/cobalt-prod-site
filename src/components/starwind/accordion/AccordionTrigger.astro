@@ -1,8 +1,8 @@
 ---
 
 import type { HTMLAttributes } from "astro/types";
-import { Icon } from "astro-icon/components";
 import { tv } from "tailwind-variants";
+import ArrowBracketDown from "@/icons/ArrowBracketDown.svg";
 
 type Props = HTMLAttributes<"button">;
 
@@ -28,6 +28,6 @@ const { class: className, ...rest } = Astro.props;
 >
   <slot />
   <slot name="icon">
-    <Icon name="ArrowBracketDown" class="size-5 shrink-0 transition-transform duration-200" />
+    <ArrowBracketDown class="size-5 shrink-0 transition-transform duration-200" />
   </slot>
 </button>

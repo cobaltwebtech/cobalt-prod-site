@@ -41,3 +41,11 @@ const BUTTON_CLASS =
     </div>
   </div>
 </button>
+
+<script>
+  import HSTabs from "preline/plugins/tabs";
+
+  document.addEventListener("astro:page-load", () => {
+    HSTabs.autoInit();
+  });
+</script>

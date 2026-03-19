@@ -1,47 +1,61 @@
 ---
-import { CldImage } from "astro-cloudinary";
-import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import featureImage from "@/assets/highlight-ecommerce-stripe.avif";
 import { Button } from "@/components/starwind/button";
-import IconBlock from "@/components/ui/blocks/IconBlock.astro";
+import CloudConnect from "@/icons/CloudConnect.svg";
+import CodeFill from "@/icons/CodeFill.svg";
+import InfoFill from "@/icons/InfoFill.svg";
+import Lightning from "@/icons/Lightning.svg";
+import Marketing from "@/icons/Marketing.svg";
 
-interface Feature {
-  heading: string;
-  content: string;
-  svg: string;
-}
+const title = "Modern Technical Solutions";
+const subTitle =
+  "Do you need a brand new website to showcase your products or services? Is your current website slow, unresponsive, and looking dated? Let Cobalt Web Technologies build your next web project for you.";
+const primaryBtn = "View Our Services";
+const primaryBtnURL = "/services/";
 
-interface Props {
-  title?: string;
-  subTitle?: string;
-  features?: Feature[];
-  source?: string;
-  alt?: string;
-  primaryBtn?: string;
-  primaryBtnURL?: string;
-}
-// Define props from Astro
-const { title, subTitle, source, alt, features, primaryBtn, primaryBtnURL } =
-  Astro.props;
+const features = [
+  {
+    heading: "Website Development & Design",
+    content:
+      "We can build your website to exactly what you want and need with any custom design. Your website is there to showcase your brand and products and should reflect your exact design elements and that is what we deliver to you.",
+    Icon: CodeFill,
+  },
+  {
+    heading: "Cloud Computing Services",
+    content:
+      "Cobalt partners with the leading cloud service providers to provide your website with unparalleled service and performance. Whether you are running a small personal blog to a high traffic ecommerce website, we have the right tools and products to provide that service and can easily scale your hosting needs to fit any budget.",
+    Icon: CloudConnect,
+  },
+  {
+    heading: "Digital Marketing",
+    content:
+      "What kind of digital marketing strategy are you implementing? If you have none, you may be losing out on valuable business and customers. No matter what your website is about you can leverage digital marketing to gain more business.",
+    Icon: Marketing,
+  },
+  {
+    heading: "Live Life on the Edge",
+    content:
+      "Speed is paramount on the web today. Is your website stuck in 1996 on a 56K modem? Whether you have a simple blog on a static site, an ecommerce store with over 100,000 items, or a media-intensive site with large images and videos, you need performance and speed to serve your web platform.",
+    Icon: Lightning,
+  },
+];
 ---
 
 <section class="py-8">
   <!-- Block to display the feature image -->
   <div class="mx-auto mb-6 overflow-hidden rounded-2xl md:mb-8 md:w-3/4">
-    {
-      source && alt && (
-        <CldImage
-          src={source}
-          alt={alt}
-          class="h-full w-full object-cover object-center"
-          format="avif"
-          width={1280}
-          height={854}
-        />
-      )
-    }
+    <Image
+      src={featureImage}
+      alt="Browsing on phone with desktop computer background"
+      class="h-full w-full object-cover object-center"
+      format="avif"
+      width={1280}
+      height={854}
+    />
   </div>
 
-  <!-- Displaying the main content consisting of title, subtitle, and several `IconBlock` components -->
+  <!-- Displaying the main content consisting of title, subtitle, and feature blocks -->
   <div class="mt-5 grid gap-8 lg:mt-16 lg:grid-cols-3 lg:gap-12">
     <!-- Block for title and subtitle -->
     <div class="lg:col-span-1">
@@ -64,7 +78,7 @@ const { title, subTitle, source, alt, features, primaryBtn, primaryBtnURL } =
         primaryBtn && (
           <div class="my-8">
             <Button href={primaryBtnURL}>
-              <Icon name="InfoFill" class="size-6" />
+              <InfoFill class="size-6" />
               {primaryBtn}
             </Button>
           </div>
@@ -72,19 +86,25 @@ const { title, subTitle, source, alt, features, primaryBtn, primaryBtnURL } =
       }
     </div>
 
-    <!-- Block to display the IconBlock components -->
+    <!-- Feature icon blocks -->
     <div class="lg:col-span-2">
       <div class="grid gap-8 sm:grid-cols-2 md:gap-12">
-        <!-- Injecting IconBlock components with different properties -->
         {
-          features &&
-            features.map((feature) => (
-              <IconBlock
-                heading={feature.heading}
-                content={feature.content}
-                iconName={feature.svg}
-              />
-            ))
+          features.map((feature) => (
+              <div class="flex gap-x-5">
+                <div class="basis-1/5 self-start">
+                  <feature.Icon class="size-16 text-orange-400 dark:text-orange-300" />
+                </div>
+                <div class="basis-4/5">
+                  <h3 class="text-balance text-lg font-bold text-slate-800 dark:text-cyan-300">
+                    {feature.heading}
+                  </h3>
+                  <p class="mt-1 text-pretty text-slate-700 dark:text-slate-300">
+                    {feature.content}
+                  </p>
+                </div>
+              </div>
+          ))
         }
       </div>
     </div>

@@ -1,40 +1,26 @@
 ---
-
-import { Icon } from "astro-icon/components";
 import { Button } from "@/components/starwind/button";
 import AnimatedHeroSvg from "@/components/ui/blocks/AnimatedHeroSvg.astro";
+import ChatAnimate from "@/icons/ChatAnimate.svg";
+import InfoFill from "@/icons/InfoFill.svg";
 
-// Define props from Astro
-const {
-  title,
-  typingTitles,
-  description,
-  paragraph1,
-  paragraph2,
-  primaryBtn,
-  primaryBtnURL,
-  secondaryBtn,
-  secondaryBtnURL,
-  heroImg,
-  heroImgAlt,
-  heroSvg,
-} = Astro.props;
-
-// Define TypeScript interface for props
-interface Props {
-  title: string;
-  typingTitles?: string[];
-  description?: string;
-  paragraph1?: string;
-  paragraph2?: string;
-  primaryBtn?: string;
-  primaryBtnURL?: string;
-  secondaryBtn?: string;
-  secondaryBtnURL?: string;
-  heroImg?: string;
-  heroImgAlt?: string;
-  heroSvg?: string;
-}
+const title = "Transform Your Digital Presence";
+const typingTitles = [
+  "Lightning-Fast Performance",
+  "Secure Cloud Infrastructure",
+  "Engaging Modern Design",
+  "Scalable Solutions That Grow",
+];
+const description =
+  "Modern websites engineered for speed, security, and performance.";
+const paragraph1 =
+  "Are you looking to supercharge your current website or build a brand new one from the ground up? From e-commerce to a simple blog to large-scale asset delivery web application we can create whatever you need.";
+const paragraph2 =
+  "Let us build you an amazing web experience for you and your customers.";
+const primaryBtn = "View Our Services";
+const primaryBtnURL = "/services/";
+const secondaryBtn = "Contact Us";
+const secondaryBtnURL = "/contact/";
 ---
 
 <!-- Defining a grid container that holds all the content -->
@@ -77,7 +63,7 @@ interface Props {
       {
         primaryBtn && (
           <Button href={primaryBtnURL}>
-            <Icon name="InfoFill" class="size-6" />
+            <InfoFill class="size-6" />
             {primaryBtn}
           </Button>
         )
@@ -85,7 +71,7 @@ interface Props {
       {
         secondaryBtn && (
           <Button variant="secondary" href={secondaryBtnURL}>
-            <Icon name="ChatAnimate" class="size-6" />
+            <ChatAnimate class="size-6" />
             {secondaryBtn}
           </Button>
         )
@@ -97,7 +83,7 @@ interface Props {
     <!-- Render either a raster image or SVG component. If both props are provided it will defer to the image  -->
     <!-- {
       heroImg && (
-        <CldImage
+        <Image
           src={heroImg}
           alt={heroImgAlt}
           class="w-full rounded-2xl"

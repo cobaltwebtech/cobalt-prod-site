@@ -2,8 +2,7 @@
 /**
  * This current doesn't do anything
  */
-// biome-ignore lint/suspicious/noExplicitAny: Ignore type any set here. Children will have correct types.
-type Props = { children: any };
+type Props = { children?: Astro.JSX.Element | Astro.JSX.Element[] };
 ---
 
 <slot />

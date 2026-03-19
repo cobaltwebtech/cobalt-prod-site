@@ -1,30 +1,43 @@
 ---
-
-
-
-import { Icon } from "astro-icon/components";
+import globe from "@/assets/global-network-tall.avif";
+import laptop from "@/assets/laptop-dark-tall.avif";
+import ecommerce from "@/assets/online-shopping-phone.avif";
 import TabContent from "@/components/ui/blocks/TabContent.astro";
 import TabNav from "@/components/ui/blocks/TabNav.astro";
+import Ecommerce from "@/icons/Ecommerce.svg";
+import Lightning from "@/icons/Lightning.svg";
+import ModernDesign from "@/icons/ModernDesign.svg";
 
-// Define props from Astro
-const { title, tabs } = Astro.props;
+const title = "Performant & Secure Websites";
 
-// Define TypeScript interface for tab object
-interface Tab {
-  heading: string;
-  content: string;
-  svg: string;
-  source: string;
-  alt: string;
-  first?: boolean;
-  second?: boolean;
-}
-
-// Define TypeScript interface for props
-interface Props {
-  title?: string;
-  tabs: Tab[];
-}
+const tabs = [
+  {
+    heading: "Ecommerce Solutions",
+    content:
+      "How well does it sell online? Whether you are already online or just starting out, Cobalt Web Technologies can help you bring your business to the web. We can build your ecommerce website to showcase your brand and product exactly how you want.",
+    Icon: Ecommerce,
+    image: ecommerce,
+    alt: "Ecommerce online shopping on mobile device",
+    first: true,
+  },
+  {
+    heading: "Modern Design & Compatibility",
+    content:
+      "We can build your website to be exactly what you want with any custom design. Your website is there to showcase your brand and products and should reflect your exact design elements and that is what we can deliver you.",
+    Icon: ModernDesign,
+    image: laptop,
+    alt: "Laptop halfway opened",
+    second: false,
+  },
+  {
+    heading: "Lightning Fast Performance",
+    content:
+      "From Auckland to Zürich no matter where your website visitors are located on the planet, they will reach the nearest PoP (point of presence) server to them to deliver a blazingly fast website experience.",
+    Icon: Lightning,
+    image: globe,
+    alt: "Globe network graphic illustration",
+  },
+];
 ---
 
 <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-14">
@@ -43,21 +56,22 @@ interface Props {
         <!-- Tab navigation - use the attribute 'first' in the first TabNav for the component to work -->
         <nav class="mt-5 grid gap-4 md:mt-10" aria-label="Tabs" role="tablist">
           {
-            tabs.map((tab, index) => (
-              <TabNav
-                id={`tabs-with-card-item-${index + 1}`}
-                dataTab={`#tabs-with-card-${index + 1}`}
-                aria={`tabs-with-card-${index + 1}`}
-                heading={tab.heading}
-                content={tab.content}
-                first={tab.first}
-              >
-                <Icon
-                  name={tab.svg}
-                  class="h-auto w-full text-cyan-700 dark:text-orange-300"
-                />
-              </TabNav>
-            ))
+            tabs.map((tab, index) => {
+              return (
+                <TabNav
+                  id={`tabs-with-card-item-${index + 1}`}
+                  dataTab={`#tabs-with-card-${index + 1}`}
+                  aria={`tabs-with-card-${index + 1}`}
+                  heading={tab.heading}
+                  content={tab.content}
+                  first={tab.first}
+                >
+                  <tab.Icon
+                    class="h-auto w-full text-cyan-700 dark:text-orange-300"
+                  />
+                </TabNav>
+              );
+            })
           }
         </nav>
       </div>
@@ -71,7 +85,7 @@ interface Props {
                 <TabContent
                   id={`tabs-with-card-${index + 1}`}
                   aria={`tabs-with-card-item-${index + 1}`}
-                  source={tab.source}
+                  image={tab.image}
                   alt={tab.alt}
                   first={tab.first}
                   second={tab.second}

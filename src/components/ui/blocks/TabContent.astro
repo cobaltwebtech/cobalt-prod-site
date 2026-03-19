@@ -1,15 +1,15 @@
 ---
-// Import the Image component from astro:assets
-import { CldImage } from "astro-cloudinary";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 // Destructure the component properties from Astro.props
-const { id, aria, source, alt, first, second } = Astro.props;
+const { id, aria, image, alt, first, second } = Astro.props;
 
 // Define TypeScript interface for the properties
 interface Props {
   id: string;
   aria: string;
-  source: string;
+  image: ImageMetadata;
   alt: string;
   first?: boolean;
   second?: boolean;
@@ -27,17 +27,13 @@ const secondClass = second
 <!-- Container for tab content that controls visibility and accessibility -->
 <div id={id} role="tabpanel" class={firstClass} aria-labelledby={aria}>
   <!-- Astro Image component to display the image with dynamic classes based on the 'second' property -->
-  {
-    source && (
-      <CldImage
-        src={source}
-        alt={alt}
-        class={secondClass}
-        draggable="false"
-        format="avif"
-        width={960}
-        height={1440}
-      />
-    )
-  }
+  <Image
+    src={image}
+    alt={alt}
+    class={secondClass}
+    draggable="false"
+    format="avif"
+    width={960}
+    height={1440}
+  />
 </div>

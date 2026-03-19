@@ -1,17 +1,12 @@
 ---
+import BrowserSearch from "@/icons/BrowserSearch.svg";
+import CloudConnected from "@/icons/CloudConnected.svg";
+import LaptopOpen from "@/icons/LaptopOpen.svg";
+import LaptopPhone from "@/icons/LaptopPhone.svg";
 
-
-
-import { Icon } from "astro-icon/components";
-
-// Define props from Astro
-const { title, subTitle } = Astro.props;
-
-// Define TypeScript interface for props
-interface Props {
-  title: string;
-  subTitle?: string;
-}
+const title = "Let Us Build You a Next Gen Website";
+const subTitle =
+  "Experience blazingly fast performance, secure infrastructure, and engaging modern design.";
 ---
 
 <section>
@@ -34,9 +29,9 @@ interface Props {
     class="mx-auto grid w-4/5 grid-cols-2 items-center justify-center gap-12 sm:grid-cols-4 lg:gap-16 xl:gap-24"
   >
     <!-- Icons Group SVGs -->
-    <Icon name="LaptopOpen" class="h-auto w-full p-5" />
-    <Icon name="CloudConnected" class="h-auto w-full p-5" />
-    <Icon name="BrowserSearch" class="h-auto w-full p-5" />
-    <Icon name="LaptopPhone" class="h-auto w-full p-5" />
+    <LaptopOpen class="h-auto w-full p-5" />
+    <CloudConnected class="h-auto w-full p-5" />
+    <BrowserSearch class="h-auto w-full p-5" />
+    <LaptopPhone class="h-auto w-full p-5" />
   </div>
 </section>

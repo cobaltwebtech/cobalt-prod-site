@@ -1,7 +1,7 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { Icon } from "astro-icon/components";
 import { tv } from "tailwind-variants";
+import Search from "@/icons/Search.svg";
 
 type Props = Omit<HTMLAttributes<"input">, "type" | "autocomplete"> & {
   /**
@@ -31,7 +31,7 @@ const {
   class="-mx-1 -mt-1 mb-1 flex items-center gap-2 border-b px-3"
 >
   <slot name="icon">
-    <Icon name="Search" class="text-muted-foreground size-4.5 shrink-0" />
+    <Search class="text-muted-foreground size-4.5 shrink-0" />
   </slot>
   <input
     type="text"

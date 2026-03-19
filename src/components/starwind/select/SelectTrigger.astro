@@ -1,15 +1,14 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { Icon } from "astro-icon/components";
 import { tv, type VariantProps } from "tailwind-variants";
+import ChevronDown from "@/icons/ChevronDown.svg";
 
 type Props = Omit<HTMLAttributes<"button">, "role" | "type"> &
   VariantProps<typeof selectTrigger> & {
     /**
      * The content to be rendered inside the select trigger
      */
-    // biome-ignore lint/suspicious/noExplicitAny: Ignore type any set here. Children will have correct types.
-    children: any;
+    children?: Astro.JSX.Element | Astro.JSX.Element[];
   };
 
 export const selectTrigger = tv({
@@ -50,6 +49,6 @@ const { class: className, size, ...rest } = Astro.props;
 >
   <slot />
   <slot name="icon">
-    <Icon name="ChevronDown" class="size-4 opacity-50" />
+    <ChevronDown class="size-4 opacity-50" />
   </slot>
 </button>

@@ -1,18 +1,5 @@
 import { defineMiddleware } from "astro:middleware";
-
-// Extend Astro's locals to include Cloudflare runtime
-declare global {
-	namespace App {
-		interface Locals {
-			runtime?: {
-				env?: {
-					COBALTWEBTECH_USER_BLOCK_DATA?: KVNamespace;
-					RATE_LIMITER?: RateLimit;
-				};
-			};
-		}
-	}
-}
+import { env } from "cloudflare:workers";
 
 // Simplified tracking for 404 patterns
 const suspiciousTracker = new Map<
@@ -36,7 +23,7 @@ const CONFIG = {
 
 	// Blocking durations (in seconds)
 	PERSISTENT_BLOCK_DURATION: 24 * 60 * 60, // 24 hours
-	SEVERE_BLOCK_DURATION: 90 * 24 * 60 * 60, // 90 days
+	SEVERE_BLOCK_DURATION: 30 * 24 * 60 * 60, // 30 days
 
 	// Cleanup
 	MEMORY_CLEANUP_INTERVAL: 10 * 60 * 1000,
@@ -147,21 +134,22 @@ async function setPersistentBlock(
 	try {
 		const now = Date.now();
 
-		// Check if this is severe abuse (high count in short time)
-		const record = suspiciousTracker.get(`404:${ip}`);
-		const timespan = record ? now - record.firstSeen : 0;
+		// Check block history to determine if this is a repeat offender
+		const historyRaw = await kv.get(`block-history:${ip}`);
+		const history = historyRaw ? JSON.parse(historyRaw) : { blockCount: 0 };
 
-		// Severe abuse if >= SHORT_404_COUNT requests AND period of 1 hour
-		// OR >= TOTAL_404_COUNT requests total
-		const isSevereAbuse =
-			(count >= CONFIG.SHORT_404_COUNT && timespan <= CONFIG.SHORT_PERIOD) ||
-			count >= CONFIG.TOTAL_404_COUNT;
+		// Escalate to severe only for repeat offenders or extreme abuse
+		const isRepeatOffender = history.blockCount > 0;
+		const isSevereAbuse = isRepeatOffender || count >= CONFIG.TOTAL_404_COUNT;
 
 		const blockLevel = isSevereAbuse ? "severe" : "temporary";
 		const blockedUntil =
 			blockLevel === "severe"
 				? now + CONFIG.SEVERE_BLOCK_DURATION * 1000
 				: now + CONFIG.PERSISTENT_BLOCK_DURATION * 1000;
+
+		const record = suspiciousTracker.get(`404:${ip}`);
+		const timespan = record ? now - record.firstSeen : 0;
 
 		const blockData = {
 			ip,
@@ -182,14 +170,22 @@ async function setPersistentBlock(
 			expirationTtl: ttl,
 		});
 
+		// Update block history (persists for 6 months to track repeat offenders)
+		history.blockCount++;
+		history.lastBlockedAt = now;
+		await kv.put(`block-history:${ip}`, JSON.stringify(history), {
+			expirationTtl: Math.round(CONFIG.TOTAL_COUNT_RESET_PERIOD / 1000),
+		});
+
 		// Enhanced logging for monitoring
 		console.warn(
 			`Persistent block applied to ${ip}:`,
 			JSON.stringify({
 				blockLevel,
 				totalCount: count,
+				previousBlocks: history.blockCount - 1,
 				timespan: `${Math.round(timespan / 1000 / 60)} minutes`,
-				duration: blockLevel === "severe" ? "90 days" : "temporary",
+				duration: blockLevel === "severe" ? "30 days" : "24 hours",
 			}),
 		);
 	} catch (error) {
@@ -250,7 +246,7 @@ function createBlockedResponse(
 
 	const messages = {
 		temporary:
-			"ERROR 429: Temporarily blocked. Excessive failed requests detected.",
+			"ERROR 429: Temporarily blocked for 24 hours. Excessive failed requests detected.",
 		severe: "ERROR 429: Too Many Requests. Abuse pattern detected.",
 	};
 
@@ -283,9 +279,9 @@ export const onRequest = defineMiddleware(async (context, next) => {
 	// Cleanup memory periodically
 	cleanupMemoryStore();
 
-	// Get bindings
-	const kv = context.locals.runtime?.env?.COBALTWEBTECH_USER_BLOCK_DATA;
-	const rateLimiter = context.locals.runtime?.env?.RATE_LIMITER;
+	// Get bindings directly from Cloudflare environment
+	const kv = (env as Env).COBALTWEBTECH_USER_BLOCK_DATA;
+	const rateLimiter = (env as Env).RATE_LIMITER;
 
 	// 1. Use Cloudflare's Rate Limiting API for general protection
 	// But give bots more lenient treatment
@@ -317,6 +313,20 @@ export const onRequest = defineMiddleware(async (context, next) => {
 	if (kv && !isBot) {
 		const persistentBlock = await checkPersistentBlock(kv, clientIP);
 		if (persistentBlock.isBlocked && persistentBlock.blockLevel !== "none") {
+			const remainingHours = persistentBlock.blockedUntil
+				? Math.round(
+						(persistentBlock.blockedUntil - Date.now()) / 1000 / 60 / 60,
+					)
+				: 0;
+			console.warn(
+				`Blocked request from ${clientIP}:`,
+				JSON.stringify({
+					blockLevel: persistentBlock.blockLevel,
+					path: url.pathname,
+					remainingHours,
+					userAgent,
+				}),
+			);
 			return createBlockedResponse(
 				persistentBlock.blockLevel,
 				persistentBlock.blockedUntil,
@@ -351,6 +361,15 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
 		// If they've hit the threshold, add to persistent block (but not for legitimate bots)
 		if (kv && shouldBlock && !isBot) {
+			console.warn(
+				`Block threshold reached for ${clientIP}:`,
+				JSON.stringify({
+					totalCount: tracking.count,
+					threshold: blockThreshold,
+					path: url.pathname,
+					userAgent,
+				}),
+			);
 			await setPersistentBlock(kv, clientIP, tracking.count);
 		}
 

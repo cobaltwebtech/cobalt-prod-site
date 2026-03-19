@@ -1,7 +1,7 @@
 ---
-
-import { Icon } from "astro-icon/components";
 import { Button } from "@/components/starwind/button";
+import ChatFill from "@/icons/ChatFill.svg";
+import CheckFill from "@/icons/CheckFill.svg";
 
 // Define props from Astro
 const { pricing } = Astro.props;
@@ -51,7 +51,7 @@ const { pricing } = Astro.props;
         {
           pricing.staterPlan.features.map((feature: string) => (
             <li class="flex items-center gap-1.5">
-              <Icon name="CheckFill" class="size-6" />
+              <CheckFill class="size-6" />
 
               <span>{feature}</span>
             </li>
@@ -105,7 +105,7 @@ const { pricing } = Astro.props;
         {
           pricing.proPlan.features.map((feature: string) => (
             <li class="flex items-center gap-1.5">
-              <Icon name="CheckFill" class="size-6" />
+              <CheckFill class="size-6" />
 
               <span>{feature}</span>
             </li>
@@ -130,7 +130,7 @@ const { pricing } = Astro.props;
     </p>
 
     <Button variant="secondary" href={pricing.btnUrl}
-      ><Icon name="ChatFill" class="size-6" />{pricing.btnText}</Button
+      ><ChatFill class="size-6" />{pricing.btnText}</Button
     >
   </div>
 </section>

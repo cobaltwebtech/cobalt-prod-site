@@ -8,131 +8,25 @@ import EndPageCTA from "@/components/sections/landing/EndPageCTA.astro";
 import HeroSection from "@/components/sections/landing/HeroSection.astro";
 import HomePageStats from "@/components/sections/landing/HomePageStats.astro";
 import AnnouncementBanner from "@/components/ui/blocks/AnnouncementBanner.astro";
-// Import data files
-import faqs from "@/section-data/faqs.json";
-import featuresGeneral from "@/section-data/featuresGeneral.json";
 
-// Image paths at Cloudinary
-const featureImage = "cobalt-web-assets/highlight-ecommerce-stripe.avif";
-const ecommerce = "cobalt-web-assets/online-shopping-phone.avif";
-const laptop = "cobalt-web-assets/laptop-dark-tall.avif";
-const globe = "cobalt-web-assets/global-network-tall.avif";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  url: "https://www.cobaltweb.tech/",
+  name: "Cobalt Web Technologies",
+  description:
+    "Cobalt Web Technologies offers website development, cloud computing services, digital marketing, online threat mitigations, content delivery networks, and much more. Cobalt's purpose is to bring you the best experience and service you need to run your business. We leverage our expertise to provide the best product for your needs.",
+  inLanguage: "en-US",
+};
 ---
 
-<MainLayout
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    url: "https://www.cobaltweb.tech/",
-    name: "Cobalt Web Technologies",
-    description:
-      "Cobalt Web Technologies offers website development, cloud computing services, digital marketing, online threat mitigations, content delivery networks, and much more. Cobalt's purpose is to bring you the best experience and service you need to run your business. We leverage our expertise to provide the best product for your needs.",
-    inLanguage: "en-US",
-  }}
->
-  <AnnouncementBanner
-    btnId="dismiss-button"
-    btnTitle="Stop Losing Customers to a Slow Website"
-    url="/services/a-new-website-experience/"
-  />
-
-  <HeroSection
-    title="Transform Your Digital Presence"
-    typingTitles={[
-      "Lightning-Fast Performance",
-      "Secure Cloud Infrastructure",
-      "Engaging Modern Design",
-      "Scalable Solutions That Grow",
-    ]}
-    description="Modern websites engineered for speed, security, and performance."
-    paragraph1="Are you looking to supercharge your current website or build a brand new one from the ground up? From e-commerce to a simple blog to large-scale asset delivery web application we can create whatever you need."
-    paragraph2="Let us build you an amazing web experience for you and your customers."
-    primaryBtn="View Our Services"
-    primaryBtnURL="/services/"
-    secondaryBtn="Contact Us"
-    secondaryBtnURL="/contact/"
-    heroSvg="Hero-Section-Graphic"
-  />
-
-  <ClientsSection
-    title="Let Us Build You a Next Gen Website"
-    subTitle="Experience blazingly fast performance, secure infrastructure, and engaging modern design."
-  />
-
-  <FeaturesGeneral
-    title="Modern Technical Solutions"
-    subTitle="Do you need a brand new website to showcase your products or services? Is your current website slow, unresponsive, and looking dated? Let Cobalt Web Technologies build your next web project for you."
-    source={featureImage}
-    alt="Browsing on phone with desktop computer background"
-    features={featuresGeneral}
-    primaryBtn="View Our Services"
-    primaryBtnURL="/services/"
-  />
-
-  <FeaturesTabs
-    title="Performant & Secure Websites"
-    tabs={[
-      {
-        heading: "Ecommerce Solutions",
-        content:
-          "How well does it sell online? Whether you are already online or just starting out, Cobalt Web Technologies can help you bring your business to the web. We can build your ecommerce website to showcase your brand and product exactly how you want.",
-        svg: "Ecommerce",
-        source: ecommerce,
-        alt: "Ecommerce online shopping on mobile device",
-        first: true,
-      },
-      {
-        heading: "Modern Design & Compatibility",
-        content:
-          "We can build your website to be exactly what you want with any custom design. Your website is there to showcase your brand and products and should reflect your exact design elements and that is what we can deliver you.",
-        svg: "ModernDesign",
-        source: laptop,
-        alt: "Laptop halfway opened",
-        second: false,
-      },
-      {
-        heading: "Lightning Fast Performance",
-        content:
-          "From Auckland to Zürich no matter where your website visitors are located on the planet, they will reach the nearest PoP (point of presence) server to them to deliver a blazingly fast website experience.",
-        svg: "Lightning",
-        source: globe,
-        alt: "Globe network graphic illustration",
-      },
-    ]}
-  />
-
-  <HomePageStats
-    title="Take Your Web Presence to the Next Level"
-    subTitle="At Cobalt we can build you exactly what you need with performance in mind. From online threat mitigation to digital marketing, we have a broad range of services and tools to fit your exact needs."
-    statistics={[
-      {
-        count: "3",
-        description:
-          "seconds or less to mitigate malicious traffic and keep your business online",
-      },
-      {
-        count: "123",
-        description:
-          "global PoPs on a CDN for global distribution and unparalleled speed",
-      },
-      {
-        count: "24ms",
-        description:
-          "average global latency for super fast load times of your web app",
-      },
-      {
-        count: "6X",
-        description:
-          "engagement with digital marketing targeted ads and email campaigns",
-      },
-    ]}
-  />
-
-  <FAQ title="Frequently Asked Questions" faqs={faqs} />
-
-  <EndPageCTA
-    title="We Connect You to the World"
-    subTitle="Contact us today to see how our solutions can help solve your web app problems so you can get back to running your business."
-    url="/contact/"
-  />
+<MainLayout structuredData={structuredData}>
+  <AnnouncementBanner />
+  <HeroSection />
+  <ClientsSection />
+  <FeaturesGeneral />
+  <FeaturesTabs />
+  <HomePageStats />
+  <FAQ />
+  <EndPageCTA />
 </MainLayout>

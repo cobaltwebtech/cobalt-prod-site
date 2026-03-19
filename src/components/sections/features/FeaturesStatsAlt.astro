@@ -1,7 +1,6 @@
 ---
-
-import { Icon } from "astro-icon/components";
 import FeatureGraphic from "@/assets/product-features-graphic.svg";
+import CheckFill from "@/icons/CheckFill.svg";
 
 // Define props from Astro
 const { title, subTitle, benefits } = Astro.props;
@@ -41,8 +40,7 @@ interface Props {
             <ul class="space-y-2 sm:space-y-4">
               {benefits.map((item) => (
                 <li class="flex space-x-3">
-                  <Icon
-                    name="CheckFill"
+                  <CheckFill
                     class="size-6 flex-none text-orange-400 dark:text-orange-300"
                   />
                   <span class="text-base font-medium text-pretty text-slate-800 dark:text-slate-200">

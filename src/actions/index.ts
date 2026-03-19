@@ -1,12 +1,9 @@
 import { ActionError, defineAction } from "astro:actions";
-import { z } from "astro:schema";
+import { z } from "astro/zod";
 import { Resend } from "resend";
 import { contactEmailTemplate } from "@/lib/contact-email";
 import { leadFormEmailTemplate } from "@/lib/lead-form-email";
-import {
-	buildLeadFormSlackPayload,
-	sendSlackNotification,
-} from "@/lib/slack-notification";
+import { buildLeadFormSlackPayload } from "@/lib/slack-notification";
 import { supportEmailTemplate } from "@/lib/support-email";
 
 // Validate required environment variables
@@ -28,32 +25,29 @@ const resend = new Resend(import.meta.env.RESEND_API_KEY);
 const contactFormSchema = z.object({
 	firstname: z.string().min(1, "First name is required"),
 	lastname: z.string().min(1, "Last name is required"),
-	email: z.string().email("Invalid email address"),
+	email: z.email("Invalid email address"),
 	phone: z.string().min(1, "Phone number is required"),
 	message: z.string().min(1, "Please give additional info"),
 	"cf-turnstile-response": z
-		.string({ required_error: "CAPTCHA verification is required" })
+		.string()
 		.min(1, "CAPTCHA verification is required"),
 });
 
 const leadFormSchema = z.object({
-	leadtype: z.enum(
-		[
-			"Business",
-			"Non-Profit",
-			"Self Employed",
-			"Govt/Public Entity",
-			"Individual",
-		],
-		{ required_error: "Please select an entity type" },
-	),
+	leadtype: z.enum([
+		"Business",
+		"Non-Profit",
+		"Self Employed",
+		"Govt/Public Entity",
+		"Individual",
+	]),
 	entityname: z
 		.string()
 		.nullish()
 		.transform((val) => val ?? ""),
 	firstname: z.string().min(1, "First name is required"),
 	lastname: z.string().min(1, "Last name is required"),
-	email: z.string().email("Invalid email address"),
+	email: z.email("Invalid email address"),
 	phone: z.string().min(1, "Phone number is required"),
 	businessphone: z
 		.string()
@@ -105,9 +99,7 @@ const leadFormSchema = z.object({
 		.nullish()
 		.transform((val) => val ?? ""),
 	// Current website info
-	haswebsite: z.enum(["Yes", "No"], {
-		required_error: "Please select if you have a website",
-	}),
+	haswebsite: z.enum(["Yes", "No"]),
 	domain: z.string().min(1, "Domain name is required"),
 	"domain-registrar": z
 		.string()
@@ -148,21 +140,19 @@ const leadFormSchema = z.object({
 		.nullish()
 		.transform((val) => val ?? ""),
 	"cf-turnstile-response": z
-		.string({ required_error: "CAPTCHA verification is required" })
+		.string()
 		.min(1, "CAPTCHA verification is required"),
 });
 
 const supportFormSchema = z.object({
-	supporttype: z.enum(["Technical", "Billing"], {
-		required_error: "Please select a support type",
-	}),
+	supporttype: z.enum(["Technical", "Billing"]),
 	firstname: z.string().min(1, "First name is required"),
 	lastname: z.string().min(1, "Last name is required"),
-	email: z.string().email("Invalid email address"),
+	email: z.email("Invalid email address"),
 	phone: z.string().min(1, "Phone number is required"),
 	message: z.string().min(1, "Please give additional info"),
 	"cf-turnstile-response": z
-		.string({ required_error: "CAPTCHA verification is required" })
+		.string()
 		.min(1, "CAPTCHA verification is required"),
 });
 
