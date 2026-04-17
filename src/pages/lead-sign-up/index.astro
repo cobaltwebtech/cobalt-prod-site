@@ -480,7 +480,7 @@ if (result?.error) {
         'input[name="cf-turnstile-response"]'
       ) as HTMLInputElement;
 
-      if (!turnstileResponse || !turnstileResponse.value) {
+      if (!turnstileResponse?.value) {
         e.preventDefault();
         alert("Please complete the CAPTCHA verification before submitting.");
         return;
