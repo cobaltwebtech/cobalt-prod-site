@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import cgarza from "@/assets/cgarza-photo.avif";
 import secondImage from "@/assets/services/service-global-network-1.avif";
 import MainLayout from "@/base/MainLayout.astro";
+import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
 import { Button } from "@/components/starwind/button";
 import MainSection from "@/components/ui/blocks/MainSection.astro";
 import Logo from "@/components/ui/Logo.astro";
@@ -127,4 +128,25 @@ const structuredData = {
       </div>
     </div>
   </section>
+  <!--FeaturesStats section showcases essential stats valuable to users-->
+  <FeaturesStats
+    title="By the Numbers"
+    subTitle="You have a business to run, and we are completely committed to building and supporting the web app you need. Cobalt Web Technologies is here to provide you with outstanding customer service and reliability. We are based in Austin, Texas USA with the expertise to build the project of your dreams and provide the support along with it."
+    mainStatTitle="98%"
+    mainStatSubTitle="of our clients rate their experience with Cobalt Web Technologies as exceptional"
+    stats={[
+      {
+        stat: "99.99%",
+        description: "Uptime on Cloud Infrastructure",
+      },
+      {
+        stat: "150+",
+        description: "Currently Deployed Projects",
+      },
+      {
+        stat: "20+",
+        description: "Years Experience",
+      },
+    ]}
+  />
 </MainLayout>

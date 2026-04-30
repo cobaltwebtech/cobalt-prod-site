@@ -15,7 +15,10 @@ export default defineConfig({
 		plugins: [tailwindcss()],
 	},
 	adapter: cloudflare({
-		imageService: { build: "compile", runtime: "cloudflare-binding" },
+		imageService: {
+			build: "compile",
+			runtime: "cloudflare-binding",
+		},
 	}),
 	experimental: {
 		rustCompiler: true,

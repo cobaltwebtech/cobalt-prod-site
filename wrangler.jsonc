@@ -1,7 +1,7 @@
 {
   "name": "cobaltwebtech",
   "main": "@astrojs/cloudflare/entrypoints/server",
-	"compatibility_date": "2026-02-24",
+	"compatibility_date": "2026-04-01",
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
@@ -23,7 +23,6 @@
     }
   ],
   "vars": {
-    "PUBLIC_CLOUDINARY_CLOUD_NAME": "cobalt",
     "TURNSTILE_PUBLIC_KEY": "0x4AAAAAAAAtFFFWPGStA0h_",
     "UMAMI_ID": "758cbc64-fa17-4c53-98ad-63af8eafeb3b"
   },

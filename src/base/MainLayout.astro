@@ -40,7 +40,6 @@ interface Props {
     <!-- Define the title of the page -->
     <title>{title}</title>
     <!-- Preconnect to third party resources -->
-    <link rel="preconnect" href="https://res.cloudinary.com/" />
     {enablePreconnect && <link rel="preconnect" href={preconnectUrl} />}
     <!-- Adding metadata to the HTML document -->
     <Meta meta={meta} structuredData={structuredData} />
