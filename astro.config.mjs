@@ -1,9 +1,14 @@
+import { readFileSync } from "node:fs";
 import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
 import minify from "@playform/compress";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
 import compressor from "astro-compressor";
+
+const pkg = JSON.parse(
+	readFileSync(new URL("./package.json", import.meta.url), "utf-8"),
+);
 
 export default defineConfig({
 	site: "https://www.cobaltweb.tech",
@@ -13,6 +18,9 @@ export default defineConfig({
 	},
 	vite: {
 		plugins: [tailwindcss()],
+		define: {
+			__APP_VERSION__: JSON.stringify(pkg.version),
+		},
 	},
 	adapter: cloudflare({
 		imageService: {

@@ -9,3 +9,6 @@ declare global {
 		gsap: typeof import("gsap");
 	}
 }
+
+// Injected at build time via Vite define in astro.config.mjs
+declare const __APP_VERSION__: string;
