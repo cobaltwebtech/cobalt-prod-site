@@ -1,0 +1,33 @@
+{
+    "name": "astro-cobalt-devcontainer",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node",
+    "runArgs": [
+        "--add-host=host.docker.internal:host-gateway",
+        "-p", "0.0.0.0:4321:4321"
+    ],
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installOhMyZsh": true,
+            "configureZshAsDefaultShell": true
+        },
+        "ghcr.io/devcontainers/features/sshd:1": {}
+    },
+    "forwardPorts": [2222],
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "astro-build.astro-vscode",
+                "biomejs.biome",
+                "bradlc.vscode-tailwindcss",
+                "ms-vscode.vscode-typescript-next",
+                "ms-vscode.vscode-typescript-tslint-plugin",
+                "yy0931.vscode-sqlite3-editor",
+                "unifiedjs.vscode-mdx",
+                "0disoft.oklch-shade",
+                "aaron-bond.better-comments"
+            ]
+        }
+    },
+    "remoteUser": "node"
+}

@@ -96,7 +96,7 @@ interface Props {
     <ClientRouter fallback="swap" />
   </head>
   <body
-    class="dark:bg-cobalt-950 flex min-h-svh flex-col bg-slate-200 selection:bg-cyan-200 dark:selection:bg-cyan-700"
+    class="dark:bg-cobalt-950 flex min-h-svh flex-col bg-cobalt-50 selection:bg-cyan-200 dark:selection:bg-cyan-700"
   >
     <Navbar />
     <main
@@ -107,17 +107,5 @@ interface Props {
     </main>
     <Footer />
     <Breakpoints />
-    <!-- Import Preline UI with View Transition support -->
-    <script>
-      // Optimize Preline initialization only for elements that need it
-      document.addEventListener("astro:page-load", async () => {
-        if (document.querySelector("[data-hs-collapse]")) {
-          const { default: HSCollapse } = await import(
-            "preline/plugins/collapse"
-          );
-          HSCollapse.autoInit();
-        }
-      });
-    </script>
   </body>
 </html>

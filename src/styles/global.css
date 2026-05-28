@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "./lenis.css";
 @import "tw-animate-css";
-@import "../../node_modules/preline/variants.css";
-@source "../../node_modules/preline/dist/*.js";
 
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
@@ -11,7 +9,7 @@
 
 @theme {
 	/* Font Family */
-	--default-font-family: "Proxima Nova", system-ui, -apple-system, sans-serif;
+	--default-font-family: "Alexandria", system-ui, -apple-system, sans-serif;
 
 	/* Animations */
 	--animate-blink: blink 1s infinite;

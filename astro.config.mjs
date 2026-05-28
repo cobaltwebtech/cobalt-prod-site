@@ -3,6 +3,7 @@ import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
 import minify from "@playform/compress";
 import tailwindcss from "@tailwindcss/vite";
+import varlockAstroIntegration from "@varlock/astro-integration";
 import { defineConfig, fontProviders } from "astro/config";
 import compressor from "astro-compressor";
 
@@ -38,23 +39,13 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.local(),
-			name: "Proxima Nova",
+			name: "Alexandria",
 			cssVariable: "--default-font-family",
 			options: {
 				variants: [
 					{
-						src: ["./public/fonts/ProximaNova-Regular.woff2"],
-						weight: "400",
-						style: "normal",
-					},
-					{
-						src: ["./public/fonts/ProximaNova-Bold.woff2"],
-						weight: "700",
-						style: "normal",
-					},
-					{
-						src: ["./public/fonts/ProximaNova-ExtraBold.woff2"],
-						weight: "900",
+						src: ["./public/fonts/default-font_variable.woff2"],
+						weight: "100 900",
 						style: "normal",
 					},
 				],
@@ -68,7 +59,7 @@ export default defineConfig({
 		responsiveStyles: true,
 	},
 	integrations: [
-		// icon(),
+		varlockAstroIntegration(),
 		sitemap({
 			filter: (page) => {
 				const url = new URL(page);

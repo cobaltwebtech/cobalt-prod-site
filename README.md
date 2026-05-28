@@ -23,7 +23,6 @@ Check us out [https://www.cobaltweb.tech/](https://www.cobaltweb.tech/?utm_sourc
 - **Astro-Powered:** Utilize a modern static-site generation framework.
 - **Tailwind CSS:** Enjoy rapid UI development with a utility-first CSS framework.
 - **Starwind UI:** A set of powerful, accessible components for Astro projects.
-- **Preline UI:** Implement prebuilt UI components for added elegance.
 - **GSAP Integration:** Impress with professional and polished animations.
 - **Markdown Content Collections:** Organize and manage the content seamlessly.
 - **SEO and Responsiveness:** Ensure our site is discoverable and accessible on any device.

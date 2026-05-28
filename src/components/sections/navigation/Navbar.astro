@@ -1,5 +1,10 @@
 ---
 import { Button } from "@/components/starwind/button";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/starwind/collapsible";
 import Logo from "@/components/ui/Logo.astro";
 import CloseNoFill from "@/icons/CloseNoFill.svg";
 import CobaltCompanyName from "@/icons/CobaltCompanyName.svg";
@@ -8,137 +13,126 @@ import Moon from "@/icons/Moon.svg";
 import Sun from "@/icons/Sun.svg";
 import menuItems from "@/lib/navigation";
 
-// Destructure the properties from Astro.props and get the current URL from Astro.url.pathname
 const currentPath = Astro.url.pathname;
 ---
 
-<!-- Main header component -->
 <header
   class="sticky inset-x-0 top-4 z-50 mx-auto w-full max-w-screen-2xl px-4 text-sm sm:px-6"
 >
-  <!-- Navigation container -->
   <nav
     class="bg-cobalt-800/90 dark:bg-cobalt-800/85 relative mx-auto grid w-full grid-cols-6 items-center rounded-3xl px-4 backdrop-blur-md md:px-6 lg:grid-cols-16 lg:px-6 xl:px-8"
     aria-label="Navigation"
   >
     <!-- Brand logo -->
-    <div class="col-span-4 sm:py-2 lg:col-span-8">
+    <div class="col-span-4 py-1 sm:py-2 lg:col-span-6">
       <a
         href="/"
         aria-label="Cobalt Web Technologies Logo"
         class="flex items-center gap-2"
       >
         <Logo class="size-20 lg:size-25" />
-        <CobaltCompanyName
-          class="w-auto h-14 lg:h-16 mt-1 text-cobalt-50"
-        />
-        <span class="sr-only" aria-label="Website company name"
-          >Cobalt Web Technologies</span
-        >
+        <CobaltCompanyName class="w-auto h-14 lg:h-18 mt-1 text-cobalt-50" />
+        <span class="sr-only">Cobalt Web Technologies</span>
       </a>
     </div>
-    <!-- Container for buttons on Theme Toggle, and Mobile menu -->
-    <div
-      class="col-span-2 col-end-7 ms-auto flex items-center gap-x-2 py-1 lg:order-3 lg:col-span-1 lg:col-end-17"
-    >
-      <!-- Theme Toggle for dark/light mode -->
-      <Button
-        type="button"
-        size="icon"
-        aria-label="Toggle Theme"
-        class="bg-cobalt-500 dark:bg-cobalt-600 size-10 items-center justify-center rounded-full hover:bg-cyan-600 lg:size-12 dark:hover:bg-orange-700"
-        data-theme-toggle
-      >
-        <Moon class="size-6 lg:size-8 dark:hidden" />
-        <Sun class="hidden size-6 lg:size-8 dark:block text-foreground" />
-      </Button>
 
-      <!-- Mobile Menu Toggle Button -->
-      <div class="lg:hidden">
+    <!--
+      Starwind UI Collapsible component manages mobile menu state and accessibility.
+      TW class "contents" makes the Collapsible div invisible to the grid,
+      so both children (buttons bar + nav menu) participate as
+      direct grid items — preserving existing column layout.
+      `defaultOpen` ensures desktop layout works; mobile visibility
+      is controlled via data-state and CSS breakpoints.
+    -->
+    <Collapsible id="navbar-collapsible" class="contents">
+      <!-- Theme toggle + mobile hamburger -->
+      <div
+        class="col-span-2 col-end-7 ms-auto flex items-center gap-x-2 py-1 lg:order-3 lg:col-span-1 lg:col-end-17"
+      >
+        <!-- Theme Toggle -->
         <Button
-          type="button"
           size="icon"
-          class="hs-collapse-toggle bg-cobalt-500 dark:bg-cobalt-600 flex size-10 items-center justify-center rounded-full text-sm font-bold text-slate-100 transition duration-300 disabled:pointer-events-none disabled:opacity-50 dark:text-slate-100 dark:focus:outline-none"
-          id="hs-navbar-mobile-collapse"
-          aria-expanded="false"
-          aria-controls="hs-navbar-mobile"
-          aria-label="Toggle navigation"
-          data-hs-collapse="#hs-navbar-mobile"
+          aria-label="Toggle Theme"
+          class="bg-cobalt-500 dark:bg-cobalt-600 size-10 items-center justify-center rounded-full hover:bg-cyan-600 lg:size-12 dark:hover:bg-orange-700"
+          data-theme-toggle
         >
-          <!-- Menu Icon -->
-          <MobileMenu
-            class="hs-collapse-open:hidden size-6 shrink-0"
-          />
-          <!-- Close (X) Icon -->
-          <CloseNoFill
-            class="hs-collapse-open:block hidden size-6 shrink-0"
-          />
-          <span class="sr-only">Toggle navigation</span>
+          <Moon class="size-6 lg:size-8 dark:hidden" />
+          <Sun class="hidden size-6 lg:size-8 dark:block text-foreground" />
         </Button>
-      </div>
-    </div>
 
-    <!-- Menu items with collapsible mobile menu (position changes based on breakpoint grid order) -->
-    <div
-      id="hs-navbar-mobile"
-      class="hs-collapse col-span-full hidden overflow-hidden p-5 transition-all duration-300 lg:order-2 lg:col-span-7 lg:col-end-16 lg:block lg:p-0"
-      role="region"
-      aria-labelledby="hs-navbar-mobile-collapse"
-    >
-      <ul
-        class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-end lg:gap-5 xl:gap-8"
+        <!-- Mobile Menu Toggle — hidden on desktop -->
+        <div class="lg:hidden">
+          <CollapsibleTrigger asChild class="group">
+            <Button
+              type="button"
+              size="icon"
+              class="bg-cobalt-500 dark:bg-cobalt-600 flex size-10 items-center justify-center rounded-full text-sm font-bold text-slate-100 transition duration-300 disabled:pointer-events-none disabled:opacity-50"
+              aria-label="Toggle navigation"
+            >
+              <MobileMenu
+                class="group-data-[state=open]:hidden size-6 shrink-0"
+              />
+              <CloseNoFill
+                class="hidden group-data-[state=open]:block size-6 shrink-0"
+              />
+              <span class="sr-only">Toggle navigation</span>
+            </Button>
+          </CollapsibleTrigger>
+        </div>
+      </div>
+
+      <!--
+        On desktop (lg+): always visible (overrides JS [hidden]).
+        On mobile: visible only when collapsible state is "open".
+      -->
+      <CollapsibleContent
+        class="col-span-full lg:order-2 lg:col-span-9 lg:col-end-16 lg:grid-rows-[1fr]"
       >
-        {
-          menuItems.navbarItems.map(({ name, url }) => {
-            const isActive = url === currentPath;
-            return (
-              <li>
-                <a
-                  href={url}
-                  aria-current={isActive ? "page" : undefined}
-                  data-astro-prefetch
-                  class="text-base font-bold text-nowrap text-slate-200 transition-colors duration-300 outline-none hover:text-orange-400 focus-visible:ring aria-[current=page]:text-cyan-400 aria-[current=page]:hover:text-cyan-400 md:text-sm xl:text-lg dark:focus:outline-none"
-                >
-                  {name}
-                </a>
-              </li>
-            );
-          })
-        }
-      </ul>
-    </div>
+        <ul
+          class="flex gap-6 p-5 flex-wrap lg:items-center lg:justify-end lg:gap-5 xl:gap-8"
+        >
+          {
+            menuItems.navbarItems.map(({ name, url }) => {
+              const isActive = url === currentPath;
+              return (
+                <li>
+                  <a
+                    href={url}
+                    aria-current={isActive ? "page" : undefined}
+                    data-astro-prefetch
+                    class="text-base font-semibold text-nowrap text-slate-200 transition-colors duration-300 outline-none hover:text-orange-400 focus-visible:ring aria-[current=page]:text-cyan-300 aria-[current=page]:hover:text-cyan-300 aria-[current=page]:border-b-4 border-orange-400 rounded-sm lg:text-lg dark:focus:outline-none"
+                  >
+                    {name}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </CollapsibleContent>
+    </Collapsible>
   </nav>
 </header>
 
-<!-- Theme Appearance script to manage light/dark modes -->
 <script>
-  // Store reference to the handler for cleanup
+  // ── Theme toggle ───────────────────────────────────────────────
   const handleThemeToggle = () => {
-    // Get current theme from DOM (source of truth)
     const isDark = document.documentElement.classList.contains("dark");
     const newTheme = isDark ? "light" : "dark";
-
-    // Update localStorage
     localStorage.setItem("theme", newTheme);
-
-    // Update DOM
     document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
 
   function initThemeToggle() {
-    const toggleButtons = document.querySelectorAll("[data-theme-toggle]");
-
-    toggleButtons.forEach((button) => {
-      // Remove existing listener to prevent duplicates
-      button.removeEventListener("click", handleThemeToggle);
-      // Add the click listener
-      button.addEventListener("click", handleThemeToggle);
+    document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {
+      btn.removeEventListener("click", handleThemeToggle);
+      btn.addEventListener("click", handleThemeToggle);
     });
   }
 
-  // Initialize on first page load
+  // ── Bootstrap ──────────────────────────────────────────────────
   initThemeToggle();
 
-  // Re-initialize on View Transitions
+  // Re-initialize on Astro View Transitions
   document.addEventListener("astro:page-load", initThemeToggle);
 </script>

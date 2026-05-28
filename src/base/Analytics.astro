@@ -1,14 +1,17 @@
 ---
-// Only render analytics in production
-const isProduction = import.meta.env.MODE === "production";
-const umamiId = import.meta.env.UMAMI_ID;
+// Only inject analytics script tag in production
+const isProduction = import.meta.env.PROD;
+const umamiId = import.meta.env.PUBLIC_UMAMI_ID;
 ---
 
 <!-- Umami Analytics script tag -->
-{isProduction && umamiId && (
-  <script
-    is:inline
-    defer
-    src="https://umami.cobaltweb.tech/script.js"
-    data-website-id={umamiId}></script>
-)}
+{
+  isProduction && umamiId && (
+    <script
+      is:inline
+      defer
+      src="https://umami.cobaltweb.tech/script.js"
+      data-website-id={umamiId}
+    />
+  )
+}

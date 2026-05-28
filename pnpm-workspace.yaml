@@ -1,0 +1,14 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
+  workerd: true
+minimumReleaseAge: 4320 # 3 days (in minutes)
+minimumReleaseAgeExclude:
+  - '@astrojs/cloudflare*'
+  - '@cloudflare/*'
+  - workerd
+  - wrangler
+  - miniflare
+  - '@astrojs/internal-helpers@0.10.0'
+  - '@astrojs/markdown-remark@7.2.0'
+  - astro@6.4.1

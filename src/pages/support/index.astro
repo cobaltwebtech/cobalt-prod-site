@@ -26,7 +26,6 @@ const subTitle: string =
   "If you have any technical or billing support issue or question, please fill out the form below. You may also contact us via live chat, phone, or email as well. We will respond within our normal operating business hours. If you have an urgent issue, please give us a call at the support phone number below.";
 const formTitle: string = "Fill out the form below";
 const selectSupport: string = "Please select the support type you require.";
-const turnstileSiteKey = import.meta.env.TURNSTILE_PUBLIC_KEY;
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -44,6 +43,8 @@ const structuredData = {
   },
   inLanguage: "en-US",
 };
+
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
 // Handle redirect on successful form submission
 const result = Astro.getActionResult(actions.sendSupportForm);
@@ -68,9 +69,10 @@ if (result?.error) {
     }
 
     // Display all errors or a fallback message
-    errorMessage = errorMessages.length > 0
-      ? errorMessages.join(" • ")
-      : "Please check your form for errors and try again.";
+    errorMessage =
+      errorMessages.length > 0
+        ? errorMessages.join(" • ")
+        : "Please check your form for errors and try again.";
   } else {
     // For non-validation errors, display the error message
     errorMessage = result.error.message;
@@ -196,10 +198,7 @@ if (result?.error) {
         <div class="mt-4">
           <Button type="submit" class="w-full" id="submit-button">
             <Send id="send-icon" />
-            <LoadingFill
-              id="loader-icon"
-              class="hidden size-5 animate-spin"
-            />
+            <LoadingFill id="loader-icon" class="hidden size-5 animate-spin" />
             <span id="button-text">Send Support Request</span>
           </Button>
         </div>
@@ -243,8 +242,16 @@ if (result?.error) {
     // Render new widget
     try {
       const sitekey = widget.getAttribute("data-sitekey");
-      const theme = widget.getAttribute("data-theme") as "light" | "dark" | "auto" | null;
-      const size = widget.getAttribute("data-size") as "normal" | "compact" | "flexible" | null;
+      const theme = widget.getAttribute("data-theme") as
+        | "light"
+        | "dark"
+        | "auto"
+        | null;
+      const size = widget.getAttribute("data-size") as
+        | "normal"
+        | "compact"
+        | "flexible"
+        | null;
 
       const widgetId = turnstile.render("#turnstile-widget", {
         sitekey: sitekey || "",
@@ -266,7 +273,9 @@ if (result?.error) {
     ) as HTMLButtonElement;
     const sendIcon = document.getElementById("send-icon") as HTMLElement;
     const loaderIcon = document.getElementById("loader-icon") as HTMLElement;
-    const buttonText = document.getElementById("button-text") as HTMLSpanElement;
+    const buttonText = document.getElementById(
+      "button-text",
+    ) as HTMLSpanElement;
 
     if (!form) return;
 
@@ -295,7 +304,7 @@ if (result?.error) {
     formSubmitHandler = (e: Event) => {
       // Client-side validation before submission
       const turnstileResponse = form.querySelector(
-        'input[name="cf-turnstile-response"]'
+        'input[name="cf-turnstile-response"]',
       ) as HTMLInputElement;
 
       if (!turnstileResponse?.value) {
@@ -306,7 +315,7 @@ if (result?.error) {
 
       // Validate email format
       const emailInput = form.querySelector(
-        'input[name="email"]'
+        'input[name="email"]',
       ) as HTMLInputElement;
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

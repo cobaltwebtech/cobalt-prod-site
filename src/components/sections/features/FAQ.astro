@@ -52,7 +52,6 @@ const faqData: FaqGroup = {
     },
   ],
 };
-
 ---
 
 <!-- Main container that holds all content. Customized for different viewport sizes. -->
@@ -70,7 +69,10 @@ const faqData: FaqGroup = {
     </div>
     <!-- FAQ accordion items -->
     <div class="md:col-span-2">
-      <Accordion defaultValue="item-0" class="bg-muted rounded-md border border-border">
+      <Accordion
+        defaultValue="item-0"
+        class="bg-muted rounded-md border border-border"
+      >
         {
           faqData.faqs.map((faq, i) => (
             <AccordionItem value={`item-${i}`}>

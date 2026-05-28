@@ -6,6 +6,7 @@
     "cssVariables": true
   },
   "componentDir": "src/components",
+  "utilsDir": "src/lib/utils",
   "components": [
     {
       "name": "input",
@@ -46,6 +47,14 @@
     {
       "name": "checkbox",
       "version": "1.4.1"
+    },
+    {
+      "name": "toggle",
+      "version": "1.0.2"
+    },
+    {
+      "name": "collapsible",
+      "version": "1.0.1"
     }
   ]
 }

@@ -14,7 +14,7 @@ const typingTitles = [
 const description =
   "Modern websites engineered for speed, security, and performance.";
 const paragraph1 =
-  "Are you looking to supercharge your current website or build a brand new one from the ground up? From e-commerce to a simple blog to large-scale asset delivery web application we can create whatever you need.";
+  "Are you looking to supercharge your current website or build a brand new one from the ground up? From a simple blog to e-commerce to large-scale asset delivery web application we can create and deploy whatever you need.";
 const paragraph2 =
   "Let us build you an amazing web experience for you and your customers.";
 const primaryBtn = "View Our Services";
@@ -26,14 +26,16 @@ const secondaryBtnURL = "/contact/";
 <!-- Defining a grid container that holds all the content -->
 <section class="mb-12 grid items-center gap-4 lg:grid-cols-[3fr_2fr] lg:gap-8">
   <!-- Title and description -->
-  <div class="space-y-4 text-slate-800 dark:text-slate-200">
-    <h1 class="m-0 text-2xl font-bold text-balance sm:text-4xl xl:text-5xl">
+  <div class="self-end space-y-4 text-slate-800 dark:text-slate-200">
+    <h1
+      class="m-0 text-2xl font-bold text-balance text-center sm:text-4xl lg:text-left xl:text-5xl"
+    >
       <!-- About Fragment: https://docs.astro.build/en/basics/astro-syntax/#fragments -->
       <Fragment set:html={title} />
     </h1>
     <h2
       id="typing-subtitle"
-      class="text-2xl font-bold sm:text-4xl xl:text-5xl"
+      class="text-2xl tracking-tighter sm:tracking-normal text-center font-bold sm:text-4xl lg:text-left xl:text-5xl"
       data-typing-titles={JSON.stringify(typingTitles)}
     >
       <span
@@ -44,21 +46,47 @@ const secondaryBtnURL = "/contact/";
         >|</span
       >
     </h2>
+  </div>
+
+  <!-- Hero Image Section -->
+  <div class="lg:row-span-2">
+    <!-- Render either a raster image or SVG component. If both props are provided it will defer to the image  -->
+    <!-- {
+      heroImg && (
+        <Image
+          src={heroImg}
+          alt={heroImgAlt}
+          class="w-full rounded-2xl"
+          draggable="false"
+          format="avif"
+          priority
+          width={640}
+          height={427}
+        />
+      )
+    }
+    {heroSvg && !heroImg && <Icon name={heroSvg} class="size-full" />} -->
+    <AnimatedHeroSvg />
+  </div>
+
+  <div
+    class="self-start space-y-4 text-pretty text-slate-800 dark:text-slate-200"
+  >
     <p
-      class="mb-4 text-xl font-semibold text-pretty text-cyan-800 italic dark:text-cyan-300"
+      class="mb-4 text-xl font-semibold text-center lg:text-left text-cyan-800 italic dark:text-cyan-300"
     >
       {description}
     </p>
-    <p class="leading-relaxed text-pretty">
+    <p class="text-justify">
       <Fragment set:html={paragraph1} />
     </p>
-    <p class="leading-relaxed text-pretty">
+    <p class="text-justify">
       <Fragment set:html={paragraph2} />
     </p>
 
     <!-- Action Button Section: This section includes two CTAs with their own styles and URL -->
     <div
-      class="mt-8 flex w-full flex-wrap justify-center gap-4 sm:justify-start"
+      class="mt-8 flex w-full flex-wrap justify-center gap-4 lg:justify-start"
     >
       {
         primaryBtn && (
@@ -77,26 +105,6 @@ const secondaryBtnURL = "/contact/";
         )
       }
     </div>
-  </div>
-  <!-- Hero Image Section -->
-  <div>
-    <!-- Render either a raster image or SVG component. If both props are provided it will defer to the image  -->
-    <!-- {
-      heroImg && (
-        <Image
-          src={heroImg}
-          alt={heroImgAlt}
-          class="w-full rounded-2xl"
-          draggable="false"
-          format="avif"
-          priority
-          width={640}
-          height={427}
-        />
-      )
-    }
-    {heroSvg && !heroImg && <Icon name={heroSvg} class="size-full" />} -->
-    <AnimatedHeroSvg />
   </div>
 </section>
 

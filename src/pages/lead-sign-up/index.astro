@@ -6,7 +6,14 @@ import MainLayout from "@/base/MainLayout.astro";
 import { Button } from "@/components/starwind/button";
 import { Checkbox } from "@/components/starwind/checkbox";
 import { Input } from "@/components/starwind/input";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/starwind/select";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/starwind/select";
 import { Textarea } from "@/components/starwind/textarea";
 import CloseFill from "@/icons/CloseFill.svg";
 import Cloud from "@/icons/Cloud.svg";
@@ -23,7 +30,6 @@ const title: string = "Lead Sign Up";
 const subTitle: string =
   "Have questions or want to discuss a project? We would be thrilled to help you build your next web project or revamp your current one. Fill out the contact form below to get started.";
 const formTitle: string = "Fill out the form below";
-const turnstileSiteKey = import.meta.env.TURNSTILE_PUBLIC_KEY;
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -42,6 +48,8 @@ const structuredData = {
   },
   inLanguage: "en-US",
 };
+
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
 // Handle redirect on successful form submission
 const result = Astro.getActionResult(actions.sendLeadForm);
@@ -66,9 +74,10 @@ if (result?.error) {
     }
 
     // Display all errors or a fallback message
-    errorMessage = errorMessages.length > 0
-      ? errorMessages.join(" • ")
-      : "Please check your form for errors and try again.";
+    errorMessage =
+      errorMessages.length > 0
+        ? errorMessages.join(" • ")
+        : "Please check your form for errors and try again.";
   } else {
     // For non-validation errors, display the error message
     errorMessage = result.error.message;
@@ -110,7 +119,10 @@ if (result?.error) {
       <h2 class="text-xl font-bold text-foreground">
         {formTitle}
       </h2>
-      <p class="text-foreground">Not all fields are required but to better assist you please fill out as much information as possible.</p>
+      <p class="text-foreground">
+        Not all fields are required but to better assist you please fill out as
+        much information as possible.
+      </p>
       <!-- Contact Form (form data is handled via Astro Actions) -->
       <form
         id="lead-form"
@@ -119,12 +131,10 @@ if (result?.error) {
         class="flex flex-col gap-4"
       >
         <div class="p-4 space-y-4 bg-card rounded-md">
-        <div class="flex items-center gap-2">
-          <ListDetails class="size-6 text-foreground" />
-          <p class="font-semibold text-foreground">
-            Basic Details
-          </p>
-        </div>
+          <div class="flex items-center gap-2">
+            <ListDetails class="size-6 text-foreground" />
+            <p class="font-semibold text-foreground">Basic Details</p>
+          </div>
           <Select id="lead-type" name="leadtype" required>
             <SelectTrigger class="w-full">
               <SelectValue placeholder="Select Entity Type" />
@@ -132,9 +142,13 @@ if (result?.error) {
             <SelectContent>
               <SelectGroup>
                 <SelectItem value="Business">Business</SelectItem>
-                <SelectItem value="Non-Profit">Non-Profit Organization</SelectItem>
+                <SelectItem value="Non-Profit"
+                  >Non-Profit Organization</SelectItem
+                >
                 <SelectItem value="Self Employed">Self Employed</SelectItem>
-                <SelectItem value="Govt/Public Entity">Government or Public Entity</SelectItem>
+                <SelectItem value="Govt/Public Entity"
+                  >Government or Public Entity</SelectItem
+                >
                 <SelectItem value="Individual">Individual</SelectItem>
               </SelectGroup>
             </SelectContent>
@@ -185,25 +199,74 @@ if (result?.error) {
         <div class="p-4 space-y-4 bg-card rounded-md">
           <div class="flex items-center gap-2">
             <WwwGlobe class="size-6 text-foreground" />
-            <p class="font-semibold text-foreground">
-              Current Website Info
-            </p>
+            <p class="font-semibold text-foreground">Current Website Info</p>
           </div>
           <p class="text-sm text-foreground">
-            What type of web app do you have now or are you wanting to build? You may select multiple options.
+            What type of web app do you have now or are you wanting to build?
+            You may select multiple options.
           </p>
           <div class="flex flex-wrap gap-6">
-            <Checkbox id="services" name="services" label="Services" size="lg" />
+            <Checkbox
+              id="services"
+              name="services"
+              label="Services"
+              size="lg"
+            />
             <Checkbox id="blog" name="blog" label="Blog" size="lg" />
-            <Checkbox id="ecommerce" name="ecommerce" label="E-commerce" size="lg" />
-            <Checkbox id="content-creator" name="content-creator" label="Content Creator" size="lg" />
-            <Checkbox id="personal" name="personal" label="Personal" size="lg" />
-            <Checkbox id="political" name="political" label="Political" size="lg" />
-            <Checkbox id="non-profit" name="non-profit" label="Non-Profit" size="lg" />
-            <Checkbox id="subscription-membership" name="subscription-membership" label="Subscription or Membership" size="lg" />
-            <Checkbox id="news-media" name="news-media" label="News Media" size="lg" />
-            <Checkbox id="customer-portal" name="customer-portal" label="Customer Portal" size="lg" />
-            <Checkbox id="general-business" name="general-business" label="General Business" size="lg" />
+            <Checkbox
+              id="ecommerce"
+              name="ecommerce"
+              label="E-commerce"
+              size="lg"
+            />
+            <Checkbox
+              id="content-creator"
+              name="content-creator"
+              label="Content Creator"
+              size="lg"
+            />
+            <Checkbox
+              id="personal"
+              name="personal"
+              label="Personal"
+              size="lg"
+            />
+            <Checkbox
+              id="political"
+              name="political"
+              label="Political"
+              size="lg"
+            />
+            <Checkbox
+              id="non-profit"
+              name="non-profit"
+              label="Non-Profit"
+              size="lg"
+            />
+            <Checkbox
+              id="subscription-membership"
+              name="subscription-membership"
+              label="Subscription or Membership"
+              size="lg"
+            />
+            <Checkbox
+              id="news-media"
+              name="news-media"
+              label="News Media"
+              size="lg"
+            />
+            <Checkbox
+              id="customer-portal"
+              name="customer-portal"
+              label="Customer Portal"
+              size="lg"
+            />
+            <Checkbox
+              id="general-business"
+              name="general-business"
+              label="General Business"
+              size="lg"
+            />
           </div>
           <Select id="has-website" name="haswebsite" required>
             <SelectTrigger class="w-full">
@@ -216,31 +279,56 @@ if (result?.error) {
               </SelectGroup>
             </SelectContent>
           </Select>
-          <p class="text-sm text-foreground">Enter the domain name of your current website or the domain name you wish to use for a new website. If you do not have a domain name enter a preferred name. Please note, domain registrations are subject to availability and we cannot guarantee a specific name.</p>
-          <Input id="domain" name="domain" placeholder="Enter domain name (example.com)" required />
           <p class="text-sm text-foreground">
-            If you currently have a domain registered who is the registrar? (e.g. GoDaddy, Namecheap, etc.). If you do not know please enter "unknown".
+            Enter the domain name of your current website or the domain name you
+            wish to use for a new website. If you do not have a domain name
+            enter a preferred name. Please note, domain registrations are
+            subject to availability and we cannot guarantee a specific name.
           </p>
-          <Input id="domain-registrar" name="domain-registrar" placeholder="Enter name of domain registrar" />
+          <Input
+            id="domain"
+            name="domain"
+            placeholder="Enter domain name (example.com)"
+            required
+          />
           <p class="text-sm text-foreground">
-            If you currently have a website who is the hosting provider? (e.g. Squarespace, Wix, GoDaddy, etc.) If you do not know please enter "unknown".
+            If you currently have a domain registered who is the registrar?
+            (e.g. GoDaddy, Namecheap, etc.). If you do not know please enter
+            "unknown".
           </p>
-          <Input id="current-host" name="current-host" placeholder="Enter name of hosting provider" />
+          <Input
+            id="domain-registrar"
+            name="domain-registrar"
+            placeholder="Enter name of domain registrar"
+          />
+          <p class="text-sm text-foreground">
+            If you currently have a website who is the hosting provider? (e.g.
+            Squarespace, Wix, GoDaddy, etc.) If you do not know please enter
+            "unknown".
+          </p>
+          <Input
+            id="current-host"
+            name="current-host"
+            placeholder="Enter name of hosting provider"
+          />
         </div>
 
         <div class="p-4 space-y-4 bg-card rounded-md">
           <div class="flex items-center gap-2">
             <Cloud class="size-6 text-foreground" />
-            <p class="font-semibold text-foreground">
-              Infrastructure Needs
-            </p>
+            <p class="font-semibold text-foreground">Infrastructure Needs</p>
           </div>
           <p class="text-sm text-foreground">
-            How much average monthly web traffic do you currently have or anticipate to have? Select a range of monthly average active users. It's okay if you don't have the exact number we just need a rough estimate of your traffic requirements.
+            How much average monthly web traffic do you currently have or
+            anticipate to have? Select a range of monthly average active users.
+            It's okay if you don't have the exact number we just need a rough
+            estimate of your traffic requirements.
           </p>
           <Select id="estimated-traffic" name="estimatedtraffic">
             <SelectTrigger class="w-full">
-              <SelectValue placeholder="Select range of estimated monthly traffic" />
+              <SelectValue
+                placeholder="Select range of estimated monthly traffic"
+              />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -253,7 +341,10 @@ if (result?.error) {
               </SelectGroup>
             </SelectContent>
           </Select>
-          <p class="text-sm text-foreground">Will you need a database(s)? If you plan on storing any type of data such as transactional data, authentication system, logging, user input, persistent data store, etc. then you will require a database.
+          <p class="text-sm text-foreground">
+            Will you need a database(s)? If you plan on storing any type of data
+            such as transactional data, authentication system, logging, user
+            input, persistent data store, etc. then you will require a database.
           </p>
           <Select id="database" name="database">
             <SelectTrigger class="w-full">
@@ -266,7 +357,11 @@ if (result?.error) {
               </SelectGroup>
             </SelectContent>
           </Select>
-          <p class="text-sm text-foreground">Will you need object storage? This is for storing large amounts of unstructured data such as images, videos, documents, etc. If you plan on storing large amounts of data or users will be uploading data to your web applications then you will need object storage.
+          <p class="text-sm text-foreground">
+            Will you need object storage? This is for storing large amounts of
+            unstructured data such as images, videos, documents, etc. If you
+            plan on storing large amounts of data or users will be uploading
+            data to your web applications then you will need object storage.
           </p>
           <Select id="object-storage" name="objectstorage">
             <SelectTrigger class="w-full">
@@ -280,11 +375,14 @@ if (result?.error) {
             </SelectContent>
           </Select>
           <p class="text-sm text-foreground">
-            Will you be requiring any third party integrations with your web apps? (e.g. CRM, marketing platform, analytics service, etc.)
+            Will you be requiring any third party integrations with your web
+            apps? (e.g. CRM, marketing platform, analytics service, etc.)
           </p>
           <Select id="thridparty-integrations" name="thirdpartyintegrations">
             <SelectTrigger class="w-full">
-              <SelectValue placeholder="Do you need third party integrations?" />
+              <SelectValue
+                placeholder="Do you need third party integrations?"
+              />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -295,9 +393,18 @@ if (result?.error) {
             </SelectContent>
           </Select>
           <p class="text-sm text-foreground">
-            If you do require any integration with a third party, list them below. Please note, any integration with a third party will require access to their API or infrastructure and is subject to the their terms of service. We cannot guarantee all third party integrations into a web app, but we will review any request and make a determination.
+            If you do require any integration with a third party, list them
+            below. Please note, any integration with a third party will require
+            access to their API or infrastructure and is subject to the their
+            terms of service. We cannot guarantee all third party integrations
+            into a web app, but we will review any request and make a
+            determination.
           </p>
-          <Input id="integration-name" name="integration-name" placeholder="List all third party integrations" />
+          <Input
+            id="integration-name"
+            name="integration-name"
+            placeholder="List all third party integrations"
+          />
           <p class="text-sm text-foreground">
             Will you require payment processing in your web app?
           </p>
@@ -312,50 +419,61 @@ if (result?.error) {
               </SelectGroup>
             </SelectContent>
           </Select>
-       </div>
-
-       <div class="p-4 space-y-4 bg-card rounded-md">
-        <div class="flex items-center gap-2">
-          <Globe class="size-6 text-foreground" />
-          <p class="font-semibold text-foreground">
-            Regulatory Compliance and International Requirements
-          </p>
         </div>
-        <p class="text-sm text-foreground">
-          Will your app be subject to any regulatory compliance requirements in any national, regional, or local jurisdiction? If your business operates in jurisdictions that have specific web-based compliance requirements such as GDPR in the European Union or CCPA in the US State of California select yes. We will get more information from you later on the exact requirements you have.
-        </p>
-        <Select id="intl-require" name="intlrequire">
-          <SelectTrigger class="w-full">
-            <SelectValue placeholder="Do you have regulatory complicance requests?" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectItem value="Yes">Yes</SelectItem>
-              <SelectItem value="No">No</SelectItem>
-              <SelectItem value="Unknown">Unknown</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-        <p class="text-sm text-foreground">
-          If you have additional language requirements for internationalization list all languages. Please be aware we do not provide translation services, but we can set up the requirements for translating your app into other languages.
-        </p>
-        <Input id="languages" name="languages" placeholder="List all languages" />
 
-       </div>
+        <div class="p-4 space-y-4 bg-card rounded-md">
+          <div class="flex items-center gap-2">
+            <Globe class="size-6 text-foreground" />
+            <p class="font-semibold text-foreground">
+              Regulatory Compliance and International Requirements
+            </p>
+          </div>
+          <p class="text-sm text-foreground">
+            Will your app be subject to any regulatory compliance requirements
+            in any national, regional, or local jurisdiction? If your business
+            operates in jurisdictions that have specific web-based compliance
+            requirements such as GDPR in the European Union or CCPA in the US
+            State of California select yes. We will get more information from
+            you later on the exact requirements you have.
+          </p>
+          <Select id="intl-require" name="intlrequire">
+            <SelectTrigger class="w-full">
+              <SelectValue
+                placeholder="Do you have regulatory complicance requests?"
+              />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="Yes">Yes</SelectItem>
+                <SelectItem value="No">No</SelectItem>
+                <SelectItem value="Unknown">Unknown</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+          <p class="text-sm text-foreground">
+            If you have additional language requirements for
+            internationalization list all languages. Please be aware we do not
+            provide translation services, but we can set up the requirements for
+            translating your app into other languages.
+          </p>
+          <Input
+            id="languages"
+            name="languages"
+            placeholder="List all languages"
+          />
+        </div>
 
-       <div class="p-4 space-y-4 bg-card rounded-md">
-         <div class="flex items-center gap-2">
-           <PencilQuestion class="size-6 text-foreground" />
-           <p class="font-semibold text-foreground">
-             Additional Information
-           </p>
-         </div>
-        <Textarea
-          id="message"
-          placeholder="Please provide any additional information you may think we need. Also any questions you may have."
-          name="message"
-        />
-       </div>
+        <div class="p-4 space-y-4 bg-card rounded-md">
+          <div class="flex items-center gap-2">
+            <PencilQuestion class="size-6 text-foreground" />
+            <p class="font-semibold text-foreground">Additional Information</p>
+          </div>
+          <Textarea
+            id="message"
+            placeholder="Please provide any additional information you may think we need. Also any questions you may have."
+            name="message"
+          />
+        </div>
 
         <!-- Add Cloudflare Turnstile widget -->
         <!-- Remove cf-turnstile class to prevent auto-rendering -->
@@ -385,10 +503,7 @@ if (result?.error) {
         <div class="mt-4">
           <Button type="submit" class="w-full" id="submit-button">
             <Send id="send-icon" />
-            <LoadingFill
-              id="loader-icon"
-              class="hidden size-5 animate-spin"
-            />
+            <LoadingFill id="loader-icon" class="hidden size-5 animate-spin" />
             <span id="button-text">Submit Request</span>
           </Button>
         </div>
@@ -425,8 +540,16 @@ if (result?.error) {
     // Render new widget
     try {
       const sitekey = widget.getAttribute("data-sitekey");
-      const theme = widget.getAttribute("data-theme") as "light" | "dark" | "auto" | null;
-      const size = widget.getAttribute("data-size") as "normal" | "compact" | "flexible" | null;
+      const theme = widget.getAttribute("data-theme") as
+        | "light"
+        | "dark"
+        | "auto"
+        | null;
+      const size = widget.getAttribute("data-size") as
+        | "normal"
+        | "compact"
+        | "flexible"
+        | null;
 
       const widgetId = turnstile.render("#turnstile-widget", {
         sitekey: sitekey || "",
@@ -448,7 +571,9 @@ if (result?.error) {
     ) as HTMLButtonElement;
     const sendIcon = document.getElementById("send-icon") as HTMLElement;
     const loaderIcon = document.getElementById("loader-icon") as HTMLElement;
-    const buttonText = document.getElementById("button-text") as HTMLSpanElement;
+    const buttonText = document.getElementById(
+      "button-text",
+    ) as HTMLSpanElement;
 
     if (!form) return;
 
@@ -477,7 +602,7 @@ if (result?.error) {
     formSubmitHandler = (e: Event) => {
       // Client-side validation before submission
       const turnstileResponse = form.querySelector(
-        'input[name="cf-turnstile-response"]'
+        'input[name="cf-turnstile-response"]',
       ) as HTMLInputElement;
 
       if (!turnstileResponse?.value) {
@@ -488,7 +613,7 @@ if (result?.error) {
 
       // Validate email format
       const emailInput = form.querySelector(
-        'input[name="email"]'
+        'input[name="email"]',
       ) as HTMLInputElement;
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

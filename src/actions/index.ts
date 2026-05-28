@@ -160,6 +160,11 @@ const supportFormSchema = z.object({
 async function verifyTurnstileToken(token: string): Promise<boolean> {
 	const secretKey = import.meta.env.TURNSTILE_SECRET_KEY;
 
+	if (!secretKey) {
+		console.error("Turnstile secret key is not configured");
+		return false;
+	}
+
 	const formData = new FormData();
 	formData.append("secret", secretKey);
 	formData.append("response", token);
